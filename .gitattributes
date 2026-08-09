@@ -1,0 +1,17 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.zip binary
+
+*.svg text
+*.md text
+*.json text
+*.yaml text
+*.yml text
+*.toml text
