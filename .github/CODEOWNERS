@@ -1,44 +1,51 @@
 # NEO AI Research — CODEOWNERS
 #
-# Bootstrap ownership state.
+# Named individual ownership only.
 #
-# GitHub requires every declared Code Owner to have write access.
-# At this repository state, @NEOJarvis2026 is the only eligible named
-# individual with write/admin access.
+# @NEOJarvis2026
+# Founder / accountable repository owner.
 #
-# Functional ownership will be separated in a later explicit repository
-# administration act when the named individual owners and permissions
-# are available.
+# @DiaaSaada
+# Independent technical reviewer for technical repository surfaces.
 #
-# Gate B independence remains a separate publication-governance control:
-# an author must not approve their own publication.
+# Publication Gate B remains separate:
+# no author may approve their own publication.
 
+# Default
 *                                   @NEOJarvis2026
 
+# Research corpus
 /content/papers/                    @NEOJarvis2026
 /content/institutional/             @NEOJarvis2026
 /content/technical-notes/           @NEOJarvis2026
 /content/glossary/                  @NEOJarvis2026
+
+# Website copy
 /content/site/neoai/                @NEOJarvis2026
 /content/site/founder/              @NEOJarvis2026
 
-/registers/                         @NEOJarvis2026
+# Machine-readable state
+/registers/                         @NEOJarvis2026 @DiaaSaada
 /registers/vocabulary.json          @NEOJarvis2026
-/registers/capabilities.json        @NEOJarvis2026
+/registers/capabilities.json        @NEOJarvis2026 @DiaaSaada
 
-/schema/                            @NEOJarvis2026
-/scripts/                           @NEOJarvis2026
-/.github/workflows/                 @NEOJarvis2026
-/static/robots.neoai.txt            @NEOJarvis2026
-/static/robots.mickaelmosse.txt     @NEOJarvis2026
+# Structured data / technical surfaces
+/schema/                            @NEOJarvis2026 @DiaaSaada
+/scripts/                           @NEOJarvis2026 @DiaaSaada
+/.github/workflows/                 @NEOJarvis2026 @DiaaSaada
+/static/robots.neoai.txt            @NEOJarvis2026 @DiaaSaada
+/static/robots.mickaelmosse.txt     @NEOJarvis2026 @DiaaSaada
 
-/docs/                              @NEOJarvis2026
+# Workflow documentation
+/docs/                              @NEOJarvis2026 @DiaaSaada
+
+# Sensitive publication controls
 /docs/07_CLASSIFICATION_POLICY.md   @NEOJarvis2026
-/scripts/verify_public.py           @NEOJarvis2026
+/scripts/verify_public.py           @NEOJarvis2026 @DiaaSaada
 
+# Governance / repository metadata
 /LICENSE                            @NEOJarvis2026
 /LICENSE-CODE                       @NEOJarvis2026
 /SECURITY.md                        @NEOJarvis2026
 /CITATION.cff                       @NEOJarvis2026
-
-/.github/CODEOWNERS                 @NEOJarvis2026
+/.github/CODEOWNERS                 @NEOJarvis2026 @DiaaSaada
