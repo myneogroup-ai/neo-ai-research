@@ -1,54 +1,44 @@
-# Code owners for neo-ai-research
+# NEO AI Research — CODEOWNERS
 #
-# The last matching pattern wins. Ordering below runs from general to specific so that
-# the tightest control sits at the bottom.
+# Bootstrap ownership state.
 #
-# A code owner review is required on every path here. Branch protection on `main`
-# enforces it. A reviewer may not approve a document they wrote; that rule is a review
-# convention rather than something GitHub can express, and it is checked at Gate B.
+# GitHub requires every declared Code Owner to have write access.
+# At this repository state, @NEOJarvis2026 is the only eligible named
+# individual with write/admin access.
+#
+# Functional ownership will be separated in a later explicit repository
+# administration act when the named individual owners and permissions
+# are available.
+#
+# Gate B independence remains a separate publication-governance control:
+# an author must not approve their own publication.
 
-# Default: anything not otherwise claimed
-*                               @myneogroup-ai/research-maintainers
+*                                   @NEOJarvis2026
 
-# Published research. Content review, not code review.
-/content/papers/                @myneogroup-ai/research-program
-/content/institutional/         @myneogroup-ai/research-program
-/content/technical-notes/       @myneogroup-ai/research-program
+/content/papers/                    @NEOJarvis2026
+/content/institutional/             @NEOJarvis2026
+/content/technical-notes/           @NEOJarvis2026
+/content/glossary/                  @NEOJarvis2026
+/content/site/neoai/                @NEOJarvis2026
+/content/site/founder/              @NEOJarvis2026
 
-# The controlled vocabulary. A change here changes terminology across the whole corpus
-# and across the entity graph. Two owners.
-/content/glossary/              @myneogroup-ai/research-program @myneogroup-ai/editorial
-/registers/vocabulary.json      @myneogroup-ai/research-program @myneogroup-ai/editorial
+/registers/                         @NEOJarvis2026
+/registers/vocabulary.json          @NEOJarvis2026
+/registers/capabilities.json        @NEOJarvis2026
 
-# Website copy. Marketing pressure lands here first, which is why editorial owns it.
-/content/site/neoai/            @myneogroup-ai/editorial @myneogroup-ai/research-program
-/content/site/founder/          @myneogroup-ai/editorial
+/schema/                            @NEOJarvis2026
+/scripts/                           @NEOJarvis2026
+/.github/workflows/                 @NEOJarvis2026
+/static/robots.neoai.txt            @NEOJarvis2026
+/static/robots.mickaelmosse.txt     @NEOJarvis2026
 
-# Machine readable state. A wrong value here propagates into every page and every
-# JSON-LD block silently.
-/registers/                     @myneogroup-ai/research-program
-/registers/capabilities.json    @myneogroup-ai/research-program @myneogroup-ai/platform
+/docs/                              @NEOJarvis2026
+/docs/07_CLASSIFICATION_POLICY.md   @NEOJarvis2026
+/scripts/verify_public.py           @NEOJarvis2026
 
-# Structured data. RULE STD-005-R1, no structured overclaim, is enforced here.
-/schema/                        @myneogroup-ai/platform @myneogroup-ai/research-program
+/LICENSE                            @NEOJarvis2026
+/LICENSE-CODE                       @NEOJarvis2026
+/SECURITY.md                        @NEOJarvis2026
+/CITATION.cff                       @NEOJarvis2026
 
-# Build, discovery and conformance code
-/scripts/                       @myneogroup-ai/platform
-/.github/workflows/             @myneogroup-ai/platform
-/static/robots.neoai.txt        @myneogroup-ai/platform
-/static/robots.mickaelmosse.txt @myneogroup-ai/platform
-
-# Workflow documentation
-/docs/                          @myneogroup-ai/platform @myneogroup-ai/research-program
-
-# The classification policy and the leak detector. Changing either widens what may be
-# published. Both require the security group.
-/docs/07_CLASSIFICATION_POLICY.md  @myneogroup-ai/security @myneogroup-ai/research-program
-/scripts/verify_public.py          @myneogroup-ai/security @myneogroup-ai/platform
-
-# Governance and legal surface
-/LICENSE                        @myneogroup-ai/legal
-/LICENSE-CODE                   @myneogroup-ai/legal
-/SECURITY.md                    @myneogroup-ai/security
-/CITATION.cff                   @myneogroup-ai/research-program
-/.github/CODEOWNERS             @myneogroup-ai/research-maintainers
+/.github/CODEOWNERS                 @NEOJarvis2026
