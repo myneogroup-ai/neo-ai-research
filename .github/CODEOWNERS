@@ -1,0 +1,54 @@
+# Code owners for neo-ai-research
+#
+# The last matching pattern wins. Ordering below runs from general to specific so that
+# the tightest control sits at the bottom.
+#
+# A code owner review is required on every path here. Branch protection on `main`
+# enforces it. A reviewer may not approve a document they wrote; that rule is a review
+# convention rather than something GitHub can express, and it is checked at Gate B.
+
+# Default: anything not otherwise claimed
+*                               @myneogroup-ai/research-maintainers
+
+# Published research. Content review, not code review.
+/content/papers/                @myneogroup-ai/research-program
+/content/institutional/         @myneogroup-ai/research-program
+/content/technical-notes/       @myneogroup-ai/research-program
+
+# The controlled vocabulary. A change here changes terminology across the whole corpus
+# and across the entity graph. Two owners.
+/content/glossary/              @myneogroup-ai/research-program @myneogroup-ai/editorial
+/registers/vocabulary.json      @myneogroup-ai/research-program @myneogroup-ai/editorial
+
+# Website copy. Marketing pressure lands here first, which is why editorial owns it.
+/content/site/neoai/            @myneogroup-ai/editorial @myneogroup-ai/research-program
+/content/site/founder/          @myneogroup-ai/editorial
+
+# Machine readable state. A wrong value here propagates into every page and every
+# JSON-LD block silently.
+/registers/                     @myneogroup-ai/research-program
+/registers/capabilities.json    @myneogroup-ai/research-program @myneogroup-ai/platform
+
+# Structured data. RULE STD-005-R1, no structured overclaim, is enforced here.
+/schema/                        @myneogroup-ai/platform @myneogroup-ai/research-program
+
+# Build, discovery and conformance code
+/scripts/                       @myneogroup-ai/platform
+/.github/workflows/             @myneogroup-ai/platform
+/static/robots.neoai.txt        @myneogroup-ai/platform
+/static/robots.mickaelmosse.txt @myneogroup-ai/platform
+
+# Workflow documentation
+/docs/                          @myneogroup-ai/platform @myneogroup-ai/research-program
+
+# The classification policy and the leak detector. Changing either widens what may be
+# published. Both require the security group.
+/docs/07_CLASSIFICATION_POLICY.md  @myneogroup-ai/security @myneogroup-ai/research-program
+/scripts/verify_public.py          @myneogroup-ai/security @myneogroup-ai/platform
+
+# Governance and legal surface
+/LICENSE                        @myneogroup-ai/legal
+/LICENSE-CODE                   @myneogroup-ai/legal
+/SECURITY.md                    @myneogroup-ai/security
+/CITATION.cff                   @myneogroup-ai/research-program
+/.github/CODEOWNERS             @myneogroup-ai/research-maintainers

@@ -1,0 +1,50 @@
+name: Build, script or workflow
+description: CI, generators, structured data, discovery files
+title: "[build] "
+labels: ["type: build"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Conformance check (scripts/verify_public.py)
+        - Index generation (scripts/build_indexes.py)
+        - Discovery generation (scripts/gen_seo.py)
+        - Structured data (schema/)
+        - GitHub Actions workflow
+        - Deployment or rollback
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output
+      render: text
+  - type: checkboxes
+    id: classification
+    attributes:
+      label: Classification
+      options:
+        - label: >-
+            The output pasted above contains no internal path, hostname, credential or
+            token. I have checked rather than assumed
+          required: true

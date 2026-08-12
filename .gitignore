@@ -1,64 +1,48 @@
-# macOS
-.DS_Store
+# Build output. The site is generated, never committed.
+/_site/
+/build/
+/dist/
+/.cache/
 
-# Environment / secrets
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-*.p12
-*.pfx
-secrets/
-credentials/
-
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
+# Generated files ARE committed, deliberately. scripts/gen_seo.py --check and
+# scripts/build_indexes.py --check compare the tree against what the registers would
+# produce, and a check against a file that is not there cannot fail. Committing them also
+# means a change to the discovery surface appears in a diff, where a reviewer sees it.
+#
+# Not committed: build output.
 
 # Python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+.pytest_cache/
+.ruff_cache/
 
-# Build
-dist/
-build/
-.next/
-coverage/
+# Node
+node_modules/
+npm-debug.log*
+.pnpm-store/
 
-# Logs
-*.log
-
-# Databases / dumps
-*.sqlite
-*.sqlite3
-*.dump
-*.sql.gz
-
-# Model weights and checkpoints
-*.safetensors
-*.bin
-*.pt
-*.pth
-*.ckpt
-*.gguf
-*.onnx
-*.tflite
-*.h5
-weights/
-checkpoints/
-model-weights/
-models/weights/
-
-# Archives generally should be release artifacts, not source
-*.tar
-*.tar.gz
-*.7z
-
-# IDE
+# Editors and operating systems
+.DS_Store
+Thumbs.db
 .idea/
 .vscode/
+*.swp
+
+# Secrets. Nothing of this shape belongs in this repository at all; the ignore is a
+# second line of defence and not a licence to keep one locally.
+.env
+.env.*
+*.pem
+*.key
+*_credentials.json
+*-secret*.yml
+
+# Working material that must never be committed to a public repository
+/internal/
+/_internal/
+/drafts-internal/
+*.INTERNAL.md
+*.CONFIDENTIAL.md

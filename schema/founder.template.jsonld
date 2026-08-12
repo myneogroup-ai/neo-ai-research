@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "{{url}}#post",
+      "headline": "{{title}}",
+      "author": {
+        "@id": "https://mickaelmosse.ai/about/#person"
+      },
+      "isPartOf": {
+        "@id": "https://mickaelmosse.ai/thesis/#blog"
+      },
+      "citation": [
+        "{{canonical_urls_of_research_discussed}}"
+      ],
+      "_note": "Used for thesis, notes and essays. No capability register key may appear on a notes or essays page and the build fails on one."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{selection_url}}#page",
+      "name": "{{title}}",
+      "mainEntity": {
+        "@id": "{{canonical_url_on_research_host}}#article"
+      },
+      "citation": "{{canonical_url_on_research_host}}",
+      "_note": "A selection page describes the article; it is not the article. It references the node by @id and never emits a second ScholarlyArticle. It is self-canonical because 200 words of verbatim abstract inside original framing is not a duplicate. If it ever renders more than the bounded abstract it becomes one, and must then carry a cross-host canonical. The build fails before that ships."
+    }
+  ]
+}

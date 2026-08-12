@@ -1,0 +1,79 @@
+name: link-check
+
+# Links break silently and a broken link in a citation is a citation defect rather than a
+# cosmetic one. This runs on a schedule as well as on content changes, because an
+# external primary source can disappear without anybody touching this repository.
+
+on:
+  pull_request:
+    paths:
+      - "content/**"
+      - "registers/**"
+      - "docs/**"
+      - "*.md"
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 2
+            --accept 200,206,301,302,403,999
+            --exclude-path content/glossary/_PENDING_IMPORT.md
+            --exclude-mail
+            "content/**/*.md" "docs/**/*.md" "*.md"
+          fail: false
+          output: lychee-report.md
+
+      - name: Open an issue on failure
+        if: steps.lychee.outputs.exit_code != 0 && github.event_name == 'schedule'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Link check: dead links in the corpus"
+          content-filepath: lychee-report.md
+          labels: "type: correction, severity: citation-integrity"
+
+      - name: Fail the pull request
+        if: steps.lychee.outputs.exit_code != 0 && github.event_name == 'pull_request'
+        run: |
+          cat lychee-report.md
+          exit 1
+
+  identifier-routes:
+    # Every identifier route must resolve with a 302 and no pinned version may be
+    # redirected forward. Runs against production on the schedule only.
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Identifier routes and pinned versions
+        run: |
+          set -u
+          fail=0
+          for id in $(python3 -c "
+          import json
+          d=json.load(open('registers/publications.json'))
+          print(' '.join(e['id'] for e in d['entries'] if e['publish'] and e['identifier_allocated']))
+          "); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://neoai.myneogroup.com/id/$id" || echo 000)
+            if [ "$code" != "302" ]; then
+              echo "::error::identifier route /id/$id returned $code, expected 302"
+              fail=1
+            fi
+          done
+          exit $fail

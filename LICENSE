@@ -1,0 +1,42 @@
+NEO AI Research: content licence
+
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+This licence applies to the prose content of this repository: everything under
+content/, docs/ and registers/, and every research paper, institutional publication,
+technical note, glossary entry and page of website copy.
+
+Code, scripts, workflows and JSON-LD templates are licensed separately under the MIT
+licence. See LICENSE-CODE.
+
+Copyright holder: NEO TECH LABS.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+SUMMARY, WHICH IS NOT THE LICENCE
+
+You are free to share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit, link to the licence, and indicate whether changes
+were made.
+
+REQUIRED ATTRIBUTION
+
+Cite the publication identifier and version, and link to the permanent identifier route.
+For example:
+
+  NEO AI Research Program. "A Note on Responsible AI Capability Claims."
+  NEO-AI-P-007 v1.0. Licensed CC BY 4.0.
+  https://neoai.myneogroup.com/id/NEO-AI-P-007
+
+WHAT THE LICENCE DOES NOT GRANT
+
+The licence covers copyright in the text. It grants no trademark rights in NEO AI, LILI,
+Mission Control, NEO TECH LABS or My NEO Group, and no patent licence.
+
+A DERIVATIVE MUST NOT MISREPRESENT CAPABILITY STATUS
+
+This is a request rather than a licence condition, and it is the one that matters most to
+the Program. Every capability claim in this corpus carries a status token stating whether
+the capability is operational, in pilot, validating, specified or planned. A derivative
+that reproduces a claim while dropping its status token converts a statement of design
+intent into a statement of deployment. Please carry the status with the claim.

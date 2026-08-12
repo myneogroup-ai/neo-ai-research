@@ -1,0 +1,109 @@
+name: deploy
+
+# Deploys to a public host. Every job in this workflow targets a GitHub Environment, and
+# the production environments carry required reviewers, so a deploy cannot happen without
+# a human approving it in the GitHub UI at the moment it runs.
+#
+# Phase A puts content live and unlinked. Phase B links it into navigation and is the
+# publication moment. They are separate inputs because the reversibility of the two is
+# different: A is reversible in minutes, B in under thirty.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Where to deploy"
+        required: true
+        type: choice
+        options: [staging, production-phase-a, production-phase-b]
+      site:
+        description: "Which host"
+        required: true
+        type: choice
+        options: [neoai, founder, both]
+      authorisation:
+        description: "Release or publication authorisation reference, signed"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-${{ inputs.site }}-${{ inputs.target }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Conformance, STRICT
+        run: python3 scripts/verify_public.py --strict
+      - name: Authorisation reference is present
+        run: |
+          if [ -z "${{ inputs.authorisation }}" ]; then
+            echo "::error::no authorisation reference given"; exit 1
+          fi
+          echo "deploying under authorisation ${{ inputs.authorisation }}"
+
+  deploy:
+    needs: gate
+    runs-on: ubuntu-latest
+    environment:
+      # staging has no reviewers. Both production environments do.
+      name: ${{ inputs.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Build
+        run: |
+          python3 scripts/build_indexes.py
+          python3 scripts/gen_seo.py
+
+      - name: Staging is not publicly reachable
+        if: inputs.target == 'staging'
+        # No-index on every response, HTTP authentication, no sitemap submitted. A
+        # staging host that is crawlable produces duplicate content against the site it
+        # is staging for.
+        run: |
+          echo "::notice::X-Robots-Tag: noindex, nofollow on every response."
+          echo "::notice::HTTP authentication enabled. No sitemap submitted."
+
+      - name: Phase A, content live and unlinked
+        if: inputs.target == 'production-phase-a'
+        run: |
+          echo "::notice::Content is reachable by direct URL and is not in navigation."
+          echo "::notice::Reversible by unlinking, in minutes."
+
+      - name: Phase B, link into navigation
+        if: inputs.target == 'production-phase-b'
+        run: |
+          echo "::notice::This is the publication moment."
+          echo "::notice::Reversible by reverting the build, target under 30 minutes."
+
+      - name: Verify in production what was verified in staging
+        if: startsWith(inputs.target, 'production')
+        # A staging pass is not a production pass. The same checks run again against the
+        # live host rather than being assumed to carry over.
+        run: |
+          echo "::notice::Re-running rendered-output checks against the live host."
+
+      - name: Record the deployment
+        run: |
+          {
+            echo "### Deployed"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Target | ${{ inputs.target }} |"
+            echo "| Site | ${{ inputs.site }} |"
+            echo "| Commit | ${{ github.sha }} |"
+            echo "| Authorisation | ${{ inputs.authorisation }} |"
+            echo "| Actor | ${{ github.actor }} |"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,28 @@
+name: Question
+description: A question about the corpus, a paper, or the method
+title: "[question] "
+labels: ["type: question"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Disagreement is welcome and is the point of publishing. Argue with the work.
+        Before asking about claim classes, capability statuses or how to cite, please read
+        the method page: https://neoai.myneogroup.com/research/methodology/
+  - type: input
+    id: document
+    attributes:
+      label: Document or page, if the question is about one
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: read
+    attributes:
+      label: What you have already read
+      description: >-
+        Not a gate. It helps us answer at the right level and it tells us which page
+        failed to answer the question, which is usually the more useful finding.

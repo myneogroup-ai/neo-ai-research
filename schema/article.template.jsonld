@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@id": "{{canonical_url}}#article",
+  "@type": "{{schema_type}}",
+  "_generator_note": "Every property below is rendered on the page. A property with no rendered counterpart fails the build. Omit rather than invent.",
+  "identifier": "{{publication_id_or_omit_if_unallocated}}",
+  "version": "{{version}}",
+  "creativeWorkStatus": "{{DRAFT_or_APPROVED}}",
+  "name": "{{title}}",
+  "headline": "{{title}}",
+  "abstract": "{{abstract}}",
+  "url": "{{canonical_url}}",
+  "datePublished": "{{date_published}}",
+  "dateModified": "{{date_modified}}",
+  "inLanguage": "en",
+  "wordCount": "{{computed}}",
+  "timeRequired": "{{ISO8601_duration}}",
+  "keywords": "{{topic_hubs_the_page_belongs_to}}",
+  "author": {
+    "@id": "https://mickaelmosse.ai/about/#person"
+  },
+  "publisher": {
+    "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+  },
+  "copyrightHolder": {
+    "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publishingPrinciples": "https://neoai.myneogroup.com/research/methodology/",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "name": "{{corpus_wave}}"
+  },
+  "about": [
+    "{{topics_and_claim_classes_present}}"
+  ],
+  "encoding": {
+    "@type": "MediaObject",
+    "encodingFormat": "application/pdf",
+    "contentUrl": "{{pdf_url_or_omit}}"
+  },
+  "citation": [
+    "{{external_works_and_internal_at_ids_rendered_in_references}}"
+  ],
+  "isBasedOn": [
+    "{{extends_refines_depends_on_targets}}"
+  ],
+  "hasPart": [
+    "{{sections_rendered_in_the_table_of_contents}}"
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "claims-established",
+      "value": "{{count_E}}",
+      "description": "Statements of established fact, each with an external primary source"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-architectural-interpretation",
+      "value": "{{count_A}}",
+      "description": "Inferences from established premises, held by the Program and not proved"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-design-intent",
+      "value": "{{count_D}}",
+      "description": "Statements of design intent, each carrying a capability status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-open-problem",
+      "value": "{{count_O}}",
+      "description": "Named unsolved problems"
+    }
+  ]
+}

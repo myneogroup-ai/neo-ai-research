@@ -1,0 +1,57 @@
+name: Capability claim
+description: A capability reads as deployed when the register says it is not
+title: "[capability] "
+labels: ["severity: capability-overclaim", "claim: D design-intent"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        This is the most serious report that can be made in public about this corpus,
+        because the corpus's entire argument is about not making false claims. It is
+        treated accordingly. Thank you for making it.
+  - type: input
+    id: page
+    attributes:
+      label: Page or document
+    validations:
+      required: true
+  - type: input
+    id: key
+    attributes:
+      label: Capability key
+      description: The key as it appears in registers/capabilities.json
+      placeholder: brain.router
+    validations:
+      required: true
+  - type: textarea
+    id: quoted
+    attributes:
+      label: The sentence, quoted exactly
+      render: text
+    validations:
+      required: true
+  - type: dropdown
+    id: registered
+    attributes:
+      label: Status recorded in the register
+      options: ["S1 operational", "S2 pilot", "S3 validating", "S4 specified", "S5 planned", "The key is not in the register"]
+    validations:
+      required: true
+  - type: textarea
+    id: reading
+    attributes:
+      label: How the sentence reads to you
+      description: >-
+        Be specific about what a reasonable reader would conclude. "It sounds like this
+        is running today" is a complete and useful answer.
+    validations:
+      required: true
+  - type: checkboxes
+    id: statustoken
+    attributes:
+      label: Which of these is true
+      options:
+        - label: The status token is missing from the sentence entirely
+        - label: The status token is present but the surrounding prose contradicts it
+        - label: The status token disagrees with the register
+        - label: The tense is wrong. Present tense used for something specified, not built

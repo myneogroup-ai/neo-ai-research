@@ -1,0 +1,92 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mickaelmosse.ai/about/#person",
+      "name": "Mickael Mosse",
+      "url": "https://mickaelmosse.ai/about/",
+      "affiliation": {
+        "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+      },
+      "identifier": "ORCID_TO_BE_REGISTERED_BEFORE_FIRST_PUBLICATION",
+      "sameAs": [
+        "REAL_CONTROLLED_RECIPROCAL_PROFILES_ONLY"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research",
+      "name": "NEO AI Research Program",
+      "url": "https://neoai.myneogroup.com/research/about/",
+      "parentOrganization": {
+        "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
+      },
+      "publishingPrinciples": "https://neoai.myneogroup.com/research/methodology/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs",
+      "name": "NEO TECH LABS",
+      "url": "https://neoai.myneogroup.com/company/",
+      "parentOrganization": {
+        "@id": "https://myneogroup.com/#my-neo-group"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://myneogroup.com/#my-neo-group",
+      "name": "My NEO Group",
+      "url": "https://myneogroup.com/"
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "Brand"
+      ],
+      "@id": "https://neoai.myneogroup.com/#neo-ai",
+      "name": "NEO AI",
+      "applicationCategory": "BusinessApplication",
+      "publisher": {
+        "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
+      },
+      "_note": "No offers, no aggregateRating, no interactionStatistic. The product is not generally available and markup asserting otherwise would be a false claim."
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://neoai.myneogroup.com/research/glossary/#set",
+      "name": "NEO AI Canonical Glossary",
+      "url": "https://neoai.myneogroup.com/research/glossary/",
+      "publisher": {
+        "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://neoai.myneogroup.com/research/capability-register/#dataset",
+      "name": "NEO AI Capability Register",
+      "description": "The status of every capability NEO AI describes: operational, in pilot, validating, specified, or planned.",
+      "url": "https://neoai.myneogroup.com/research/capability-register/",
+      "creator": {
+        "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "version": "1.2",
+      "creativeWorkStatus": "PROVISIONAL",
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://neoai.myneogroup.com/capabilities.json"
+        }
+      ],
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "capability-status",
+          "description": "S1 operational, S2 pilot, S3 validating, S4 specified, S5 planned"
+        }
+      ]
+    }
+  ]
+}

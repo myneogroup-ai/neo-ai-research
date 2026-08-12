@@ -1,0 +1,77 @@
+{
+  "artefact": "NEO_AI_CONTROLLED_VOCABULARY",
+  "version": "1.0",
+  "classification": "A - PUBLIC RESEARCH",
+  "status": "The nine-term extension is authorised by a vocabulary amendment that is prepared and not yet signed. This file is effective on signature and not before.",
+  "provenance": "Terms parsed from the corpus lock. Counts derived, never hand-entered. Source of truth for the glossary build and for first-occurrence linking.",
+  "count_before_amendment": 30,
+  "count_after_amendment": 39,
+  "terms_added": 9,
+  "locked_terms": [
+    "Mission",
+    "Mission State",
+    "Mission Envelope",
+    "Task Graph",
+    "Router",
+    "Interaction Plane",
+    "Reasoning Plane",
+    "Execution Plane",
+    "Memory Plane",
+    "Knowledge Plane",
+    "Policy Plane",
+    "Authority Plane",
+    "Assurance Plane",
+    "Evidence Layer",
+    "Evidence Chain",
+    "Evidence Ledger",
+    "Validation Layer",
+    "Capability Register",
+    "Capability Gate",
+    "Human Authority",
+    "Decision Record",
+    "Design Decision Record",
+    "Claim Class",
+    "Capability Status",
+    "Trajectory",
+    "Admissible Set",
+    "Bounded Autonomy",
+    "Containment",
+    "Graceful Substitution",
+    "Circular Corroboration"
+  ],
+  "added_terms": [
+    "Observable Intelligence",
+    "Observe Build",
+    "Agent Identity Layer",
+    "Intelligence Flow",
+    "Adaptive Compute",
+    "Operational Decision Event",
+    "NEO System Intelligence",
+    "System-Level Benchmarking",
+    "Provider Replaceability"
+  ],
+  "prohibited_synonyms": [
+    "Provider Independence"
+  ],
+  "prohibited_synonym_note": "Refused. It contradicts the position published at NEO-AI-R-001 section 4.4. Use Provider Replaceability.",
+  "disambiguation_required": [
+    {
+      "term": "Operational Decision Event",
+      "against": [
+        "Decision Record",
+        "Design Decision Record"
+      ]
+    },
+    {
+      "term": "Agent Identity Layer",
+      "clause": "a component grouping, not a plane"
+    },
+    {
+      "term": "Intelligence Flow",
+      "excluded_against": [
+        "Task Graph",
+        "Mission State"
+      ]
+    }
+  ]
+}

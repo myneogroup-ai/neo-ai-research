@@ -1,0 +1,108 @@
+name: release
+
+# Cuts a corpus release. This workflow does not deploy. Tagging and deploying are
+# separate acts because a tag is a statement about the corpus and a deploy is a change to
+# a public host, and the second requires an authorisation the first does not.
+
+on:
+  push:
+    tags: ["corpus-v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release, for example corpus-v1.0.0"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  gate:
+    name: Release gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Self-test
+        run: python3 scripts/verify_public.py --self-test
+
+      - name: Conformance, STRICT
+        # --strict treats every declared deferral as a failure. A release cannot be cut
+        # while any deferral is outstanding, which is what stops a tag being applied to a
+        # corpus that is mid-sequence.
+        run: python3 scripts/verify_public.py --strict
+
+      - name: Generated files are current
+        run: |
+          python3 scripts/build_indexes.py --check
+          python3 scripts/gen_seo.py --check
+
+      - name: No pending imports remain
+        run: |
+          if ls content/**/_PENDING_IMPORT.md >/dev/null 2>&1; then
+            echo "::error::a _PENDING_IMPORT.md still exists. The corpus is incomplete."
+            ls content/**/_PENDING_IMPORT.md
+            exit 1
+          fi
+          echo "no pending imports"
+
+      - name: Changelog has an entry for this tag
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          VER="${TAG#corpus-v}"
+          if ! grep -q "\[$VER\]" CHANGELOG.md; then
+            echo "::error::CHANGELOG.md has no entry for [$VER]"
+            exit 1
+          fi
+
+      - name: Slugs are unchanged since the previous release
+        # A slug is frozen at first publication. A slug change after publication breaks
+        # every citation of it and is the failure a release is most likely to introduce
+        # without noticing.
+        run: |
+          PREV=$(git tag --list 'corpus-v*' --sort=-v:refname | sed -n 2p)
+          if [ -z "$PREV" ]; then echo "no previous release, nothing to compare"; exit 0; fi
+          git show "$PREV:registers/publications.json" > /tmp/prev.json
+          python3 scripts/check_slugs_frozen.py /tmp/prev.json
+
+  publish:
+    name: Publish the release
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build the release bundle
+        run: |
+          python3 scripts/build_indexes.py
+          python3 scripts/gen_seo.py
+          mkdir -p dist
+          tar --exclude-vcs -czf "dist/neo-ai-research-${{ github.ref_name }}.tar.gz" \
+            content registers schema static docs CITATION.cff LICENSE LICENSE-CODE
+          cd dist && sha256sum *.tar.gz > SHA256SUMS
+
+      - name: Create the release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/*.tar.gz
+            dist/SHA256SUMS
+          body: |
+            Corpus release ${{ github.ref_name }}.
+
+            This tag states what the corpus contained at this point. It deploys nothing.
+            Deployment is a separate, separately authorised act. See
+            `docs/04_DEPLOYMENT.md`.
+
+            Every publication in this release carries its own document version. Corpus
+            versions and document versions are separate and are never conflated.
