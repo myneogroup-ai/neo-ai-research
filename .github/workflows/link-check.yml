@@ -31,22 +31,38 @@ jobs:
         run: |
           set -euo pipefail
 
+          FILES="/tmp/neo-ai-markdown-files.txt"
+          RAW="/tmp/neo-ai-http-links-raw.txt"
+          OUT="/tmp/neo-ai-http-links.txt"
+
           {
-            find content docs -type f -name '*.md' -print0
-            find . -maxdepth 1 -type f -name '*.md' -print0
-          } |
-          xargs -0 grep -Eho 'https?://[^][()<>[:space:]"`]+'
-          | sed 's/[.,;:]$//'
-          | sort -u
-          | grep -Ev '^https://neoai\.myneogroup\.com/research/'           | grep -Ev '^https://neoai\.myneogroup\.com/\.\.\.$'           > /tmp/neo-ai-http-links.txt || true
+            find content docs -type f -name '*.md' -print
+            find . -maxdepth 1 -type f -name '*.md' -print
+          } | sort -u > "$FILES"
+
+          : > "$RAW"
+
+          while IFS= read -r file; do
+            grep -Eho 'https?://[^][()<>[:space:]"`]+' "$file" >> "$RAW" || true
+          done < "$FILES"
+
+          sed -E \
+            -e 's/[.,;:]+$//' \
+            -e 's/\*+$//' \
+            "$RAW" \
+            | sort -u \
+            | grep -Ev '^https://neoai\.myneogroup\.com/research/' \
+            | grep -Ev '^https://neoai\.myneogroup\.com/\.\.\.$' \
+            | grep -Ev '\{[^}]+\}' \
+            | grep -Ev '\*\*?$' \
+            > "$OUT" || true
 
           echo "HTTP(S) links selected for PR validation:"
-          cat /tmp/neo-ai-http-links.txt || true
+          cat "$OUT" || true
 
-          test -s /tmp/neo-ai-http-links.txt || {
-            echo "No external HTTP(S) links found."
-            exit 0
-          }
+          if [ ! -s "$OUT" ]; then
+            echo "No external HTTP(S) links selected."
+          fi
 
       - name: Check HTTP(S) links
         id: lychee
