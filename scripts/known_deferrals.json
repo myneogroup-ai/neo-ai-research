@@ -27,14 +27,6 @@
       "reason": "The imported texts carry the canonical URL as a placeholder annotated with the governance item that gates it. The annotation is correct today and is removed when the host determination takes effect on signature."
     },
     {
-      "id": "DEF-IDENTIFIER-NOTE",
-      "check": "CLS-13",
-      "path": "*",
-      "match": "PUB-ACT-02|identifiers\\.json|Identifier \\|",
-      "clears_at": "Execution sequence step 8. The R-009 identifier is allocated, the register is bumped, and the upstream baseline is re-verified as one act.",
-      "reason": "R-009 states that its identifier is requested and not allocated, and names the register it is absent from. Naming the internal register on a public page is the defect; stating that the identifier is unallocated is not, and that statement stays."
-    },
-    {
       "id": "DEF-GOVERNANCE-CITE",
       "check": "CLS-13",
       "path": "*",

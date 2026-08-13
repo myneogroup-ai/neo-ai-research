@@ -13,7 +13,7 @@ the permanent route https://neoai.myneogroup.com/id/NEO-AI-P-007
 
 
 ## Research papers
-- [From Model Intelligence to System Intelligence: How Orchestration Compounds Capability](https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/): identifier not yet allocated
+- [From Model Intelligence to System Intelligence: How Orchestration Compounds Capability](https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/): NEO-AI-R-009
 
 ## Institutional publications
 None published yet.

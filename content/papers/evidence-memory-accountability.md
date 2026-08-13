@@ -14,7 +14,7 @@
 | Claim classes | Computed from the Evidence Table at build time |
 | Reading time | 17 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/evidence-memory-accountability/` |
-| Relations | `applies` NEO-AI-R-009 (requested, not allocated) . `refines` NEO-AI-TN-002 . `evidences` NEO-AI-P-001 |
+| Relations | `applies` NEO-AI-R-009 . `refines` NEO-AI-TN-002 . `evidences` NEO-AI-P-001 |
 | Withheld | One section removed entirely, three reduced. Section 7 states what and why |
 
 ---
@@ -213,7 +213,7 @@ It would be falsified by a demonstration that a general-purpose retrieval store,
 
 ## Related Research
 
-- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Identifier requested at `PUB-ACT-02` and not allocated; cite by title until it lands. Places evidence and memory among the eight operations.
+- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Places evidence and memory among the eight operations.
 - `NEO-AI-R-003` Mission Control: A Governance Architecture for Autonomous Work. Public edition. The record half.
 - `NEO-AI-R-006` The Intelligence Layer. Registered, not drafted. Retitle pending, per `FDR-S3-03`.
 

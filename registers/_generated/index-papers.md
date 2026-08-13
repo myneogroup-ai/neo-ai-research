@@ -6,4 +6,4 @@ Long-form argument. Each paper states a position, classes every material stateme
 
 | Identifier | Title | Version |
 |---|---|---|
-| Not yet allocated | [From Model Intelligence to System Intelligence: How Orchestration Compounds Capability](https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/) | v1.0 |
+| NEO-AI-R-009 | [From Model Intelligence to System Intelligence: How Orchestration Compounds Capability](https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/) | v1.0 |

@@ -1,6 +1,6 @@
 {
   "artefact": "NEO_AI_PUBLIC_PUBLICATION_REGISTER",
-  "version": "1.0",
+  "version": "1.1",
   "status": "PUBLIC PROJECTION",
   "classification": "A - PUBLIC RESEARCH",
   "provenance": "Mechanical projection of the Program publication register. Class A and A_AFTER_REDUCTION entries only. Withholding reasons, withheld section lists, blocking items and internal source paths are removed by the projection and are not recoverable from this file.",
@@ -68,8 +68,7 @@
       ],
       "publish": true,
       "status": "APPROVED_FOR_WAVE_1",
-      "identifier_allocated": false,
-      "citation_note": "Identifier requested and not yet allocated. Cite by title and version until allocation lands.",
+      "identifier_allocated": true,
       "content_path": "content/papers/model-intelligence-to-system-intelligence.md",
       "content_present": true
     },
