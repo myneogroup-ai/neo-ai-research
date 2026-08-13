@@ -10,6 +10,8 @@ on:
       - "content/**"
       - "registers/**"
       - "docs/**"
+      - "production/**"
+      - ".github/workflows/link-check.yml"
       - "*.md"
   schedule:
     - cron: "17 6 * * 1"
@@ -38,6 +40,16 @@ jobs:
           {
             find content docs -type f -name '*.md' -print
             find . -maxdepth 1 -type f -name '*.md' -print
+
+            if [ -d production ]; then
+              find production -type f \(
+                -name '*.html' -o
+                -name '*.xml' -o
+                -name '*.txt' -o
+                -name '*.json' -o
+                -name '.htaccess'
+              \) -print
+            fi
           } | sort -u > "$FILES"
 
           : > "$RAW"
