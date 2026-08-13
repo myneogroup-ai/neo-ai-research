@@ -39,6 +39,7 @@ jobs:
             --exclude-path content/glossary/_PENDING_IMPORT.md
             --exclude "^https://neoai\.myneogroup\.com/research/"
             --exclude "^https://neoai\.myneogroup\.com/\.\.\.$"
+            --exclude "^/"
             "content/**/*.md" "docs/**/*.md" "*.md"
           fail: false
           output: lychee-report.md
