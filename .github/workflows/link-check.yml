@@ -34,7 +34,10 @@ jobs:
             --no-progress
             --max-retries 2
             --accept 200,206,301,302,403,999
+            --root-dir "${{ github.workspace }}"
             --exclude-path content/glossary/_PENDING_IMPORT.md
+            --exclude "^https://neoai\.myneogroup\.com/research/"
+            --exclude "^https://neoai\.myneogroup\.com/\.\.\.$"
             "content/**/*.md" "docs/**/*.md" "*.md"
           fail: false
           output: lychee-report.md
