@@ -52,6 +52,8 @@ jobs:
             "$RAW" \
             | sort -u \
             | grep -Ev '^https://neoai\.myneogroup\.com/research/' \
+            | grep -Ev '^https://neoai\.myneogroup\.com/id/' \
+            | grep -Ev '^https://neoai\.myneogroup\.com/company/' \
             | grep -Ev '^https://neoai\.myneogroup\.com/\.\.\.$' \
             | grep -Ev '\{[^}]+\}' \
             | grep -Ev '\*\*?$' \
