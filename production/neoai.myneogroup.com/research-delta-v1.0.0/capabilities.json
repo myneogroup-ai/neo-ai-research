@@ -1,0 +1,206 @@
+{
+  "$schema": "https://neoai.myneogroup.com/schema/capabilities-v1.json",
+  "version": "1.2",
+  "status": "PROVISIONAL - requires Founder confirmation before any capability status is treated as ratified",
+  "updated": "2026-08-10",
+  "statusDefinitions": {
+    "S1": "Operational and publicly available",
+    "S2": "Operational in a controlled pilot or limited deployment",
+    "S3": "Implemented, undergoing validation",
+    "S4": "Designed and specified",
+    "S5": "Planned or exploratory"
+  },
+  "capabilities": [
+    {
+      "key": "lili",
+      "name": "LILI",
+      "status": "S4",
+      "note": "Conversational interface. Not the platform, not the Foundation Model.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "mission-control",
+      "name": "Mission Control",
+      "status": "S4",
+      "note": "Command, governance, supervision, validation and audit layer.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain",
+      "name": "The Brain",
+      "status": "S4",
+      "note": "Orchestration layer. Not a foundation model.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.task-graph",
+      "name": "Task Graph",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.router",
+      "name": "Router",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.memory",
+      "name": "Memory",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.knowledge-graph",
+      "name": "Knowledge Graph",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.validation",
+      "name": "Validation",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.cost-engine",
+      "name": "Cost Engine",
+      "status": "S4",
+      "parent": "brain",
+      "note": "Named in five source texts and not yet described in a published document.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.event-bus",
+      "name": "Event Bus",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.governance",
+      "name": "Governance",
+      "status": "S4",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "foundation-model",
+      "name": "NEO AI Foundation Model",
+      "status": "S5",
+      "note": "Phase 2. Base open-weights architecture is never named publicly.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "neo-intelligence",
+      "name": "NEO Intelligence",
+      "status": "S4",
+      "note": "Designed and specified. Not launched.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.cloud",
+      "name": "Platform cloud deployment",
+      "status": "S4",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.vpc",
+      "name": "Client VPC deployment",
+      "status": "S5",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.onprem",
+      "name": "On-premise and sovereign deployment",
+      "status": "S5",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "public-website",
+      "name": "Public website",
+      "status": "S1",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "dataroom.frontend",
+      "name": "Investor Data Room frontend",
+      "status": "S3",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "dataroom.backend",
+      "name": "Investor Data Room backend R6",
+      "status": "S3",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "pilots",
+      "name": "Signed paid pilots",
+      "status": "S2",
+      "note": "Count and identity never disclosed publicly.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.evidence-layer",
+      "name": "Evidence Layer",
+      "status": "S4",
+      "note": "Knowledge Plane component that produces, grades and serves evidence. Added v1.1: the corpus could not describe evidence handling without it (R-005 register gap).",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "brain.evidence-ledger",
+      "name": "Evidence Ledger",
+      "status": "S4",
+      "note": "Append-only, hash-addressed store of evidence records. Added v1.1.",
+      "parent": "brain",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "assurance.eval-harness",
+      "name": "Mission Evaluation Harness",
+      "status": "S5",
+      "note": "Reproducible mission-level evaluation harness specified by the Program's evaluation methodology, which is not published. Added v1.1.",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "mission.envelope",
+      "name": "Mission Envelope",
+      "status": "S4",
+      "note": "Bounded permissions, data scope, resource budget, autonomy level and terminal conditions. Added v1.1.",
+      "ratification": "UNCONFIRMED"
+    }
+  ],
+  "changelog": [
+    "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope. Corpus authors found these were mandated by the plane model but absent from the register, which made them unmentionable under the Program's publication standard."
+  ],
+  "lifecycle": {
+    "states": [
+      "UNCONFIRMED",
+      "PROVISIONAL_VERIFIED",
+      "VERIFIED",
+      "RATIFIED"
+    ],
+    "definitions": {
+      "UNCONFIRMED": "No evidence. Default state. Permits specification and design work only.",
+      "PROVISIONAL_VERIFIED": "An artefact has been inspected (evidence tier T2). Permits promotion to dev and to non-production environments, and internal engineering progression.",
+      "VERIFIED": "Repository, code and test evidence exist and have been checked (tier T3). Permits promotion to staging.",
+      "RATIFIED": "Deployed and tested in the target environment, signed by the Founder (tier T4). REQUIRED, and only required, for production deployment and for any public capability claim."
+    },
+    "rule": "The Capability Ratification Gate blocks production deployment and public claims only. It never blocks engineering progression.",
+    "authority": {
+      "UNCONFIRMED": "automatic",
+      "PROVISIONAL_VERIFIED": "CTO",
+      "VERIFIED": "CTO countersigned by the Founder",
+      "RATIFIED": "Founder only"
+    }
+  },
+  "_provenance": "Public copy of the Program capability register v1.2. Host rebound to the canonical research host. Values are unchanged from the internal canonical.",
+  "_public_projection": "Public projection of the Program capability register. Internal gate, audit and instrument references are removed by the projection and are not recoverable from this file. Statuses, keys and names are unchanged from the internal canonical."
+}

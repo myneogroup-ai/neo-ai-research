@@ -1,0 +1,369 @@
+/* NEO AI Research — additive stylesheet for /research/*, /search/.
+   Loaded AFTER assets/css/site.min.css and scoped to body.research.
+
+   site.min.css is the design system and is not modified. Three of its global
+   rules are actively hostile to long-form documents and are overridden here,
+   inside the .research scope only, so the landing page is untouched:
+
+     h1{max-width:640px;margin:0 auto}      headings would centre-block
+     h2{font-size:clamp(30px,3.6vw,46px)}   section headings at 46px
+     table{min-width:640px}                 every table forces overflow
+
+   A fourth collision is an ABSENCE rather than a rule. site.min.css styles
+   anchors only as `.nav a`; it declares nothing for an anchor anywhere else,
+   because the landing page has no prose links outside its navigation. Every
+   link on a research page would therefore fall to the browser default —
+   underlined, in the UA link colour, on every table of contents entry, every
+   card and every button. Link styling is declared explicitly below rather than
+   inherited by accident.
+
+   Tokens consumed from :root in site.min.css: --blue --blue-soft --violet --cyan
+   --pink --bg --ink --ink-2 --ink-3 --glass --glass-b --hud --hud-dim --mono
+   No token is redefined. Four research-only tokens are added below. */
+
+body.research{
+  --r-measure:74ch;
+  --r-shell:1180px;
+  --r-rule:rgba(255,255,255,.09);
+  --r-panel:rgba(255,255,255,.035);
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:16px;line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
+}
+
+/* ---------- skip link ---------- */
+.r-skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--blue);
+  color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-size:14px;
+  white-space:normal}
+.r-skip:focus{left:0}
+
+/* ---------- navigation ---------- */
+body.research .r-nav{gap:14px}
+body.research .r-nav .logo{display:flex;align-items:center;gap:9px}
+body.research .r-nav .logo img{height:18px;width:18px;display:block}
+body.research .r-word{font-family:'Space Grotesk','Inter',sans-serif;
+  font-size:13.5px;font-weight:500;letter-spacing:.2px;color:var(--ink)}
+body.research .r-links a{font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+body.research .r-links a:hover,body.research .r-links a:focus-visible{
+  color:var(--ink)}
+body.research .r-links a[aria-current="page"]{color:var(--hud)}
+body.research .r-burger{display:none;background:transparent;border:0;
+  padding:8px 6px;cursor:pointer;flex-direction:column;gap:4px}
+body.research .r-burger span{display:block;width:18px;height:1.5px;
+  background:var(--ink-2);transition:.2s}
+body.research .r-burger[aria-expanded="true"] span:nth-child(1){
+  transform:translateY(5.5px) rotate(45deg)}
+body.research .r-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+body.research .r-burger[aria-expanded="true"] span:nth-child(3){
+  transform:translateY(-5.5px) rotate(-45deg)}
+
+/* The landing page hides .links below 1080px and offers no replacement. A
+   document site cannot do that, so research pages get a real disclosure menu.
+   Scoped to .research: the landing page keeps its existing behaviour. */
+@media(max-width:1080px){
+  body.research .r-nav .r-links{display:none;position:absolute;top:calc(100% + 10px);
+    left:0;right:0;flex-direction:column;gap:0;padding:8px;
+    background:rgba(8,10,22,.97);border:1px solid var(--glass-b);
+    border-radius:18px;backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  body.research .r-nav .r-links.open{display:flex}
+  body.research .r-links a{padding:11px 14px;font-size:14px;width:100%;
+    border-radius:10px}
+  body.research .r-links a:hover{background:var(--glass)}
+  body.research .r-burger{display:flex}
+  body.research .r-nav{position:fixed;width:calc(100vw - 24px);max-width:640px}
+}
+
+/* ---------- shell ---------- */
+.r-main{max-width:var(--r-shell);margin:0 auto;padding:112px 24px 88px;
+  position:relative;z-index:2}
+@media(max-width:640px){.r-main{padding:96px 18px 64px}}
+
+/* ---------- breadcrumb ---------- */
+.r-crumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;
+  font-size:12px;color:var(--ink-3);font-family:var(--mono);margin-bottom:26px}
+.r-crumb li+li::before{content:"/";margin-right:6px;color:var(--ink-3);
+  opacity:.6}
+.r-crumb a{font-size:12px;color:var(--ink-3);white-space:normal}
+.r-crumb a:hover{color:var(--hud)}
+.r-crumb [aria-current="page"]{color:var(--ink-2)}
+
+/* ---------- headings, overriding the landing scale ---------- */
+body.research h1{font-family:'Space Grotesk','Inter',sans-serif;
+  font-size:clamp(28px,3.4vw,42px);font-weight:500;line-height:1.14;
+  letter-spacing:-.9px;max-width:none;margin:0 0 14px}
+body.research h2{font-family:'Space Grotesk','Inter',sans-serif;
+  font-size:clamp(21px,2.1vw,27px);font-weight:500;line-height:1.25;
+  letter-spacing:-.4px;margin:52px 0 14px;padding-top:6px;scroll-margin-top:104px}
+body.research h3{font-family:'Space Grotesk','Inter',sans-serif;font-size:18px;
+  font-weight:500;line-height:1.35;margin:34px 0 10px;color:var(--ink);
+  scroll-margin-top:104px}
+body.research h4{font-size:15px;font-weight:600;margin:24px 0 8px}
+.r-anchor{opacity:0;margin-left:-.85em;padding-right:.25em;color:var(--hud);
+  font-weight:400;text-decoration:none;font-size:.8em;white-space:normal}
+h2:hover .r-anchor,h3:hover .r-anchor,.r-anchor:focus{opacity:.75}
+
+/* ---------- prose ---------- */
+body.research p,body.research li{font-size:16.5px;line-height:1.72;
+  color:var(--ink-2)}
+body.research .r-body>p,body.research .r-body>ul,body.research .r-body>ol,
+body.research .r-body>blockquote{max-width:var(--r-measure)}
+body.research .r-body p{margin:0 0 18px}
+body.research .r-body ul,body.research .r-body ol{margin:0 0 18px 22px}
+body.research .r-body li{margin:0 0 8px}
+body.research .r-body b,body.research .r-body strong{color:var(--ink);
+  font-weight:600}
+body.research .r-body hr{border:0;border-top:1px solid var(--r-rule);
+  margin:44px 0}
+/* Base for every anchor in the research scope. site.min.css declares none, so
+   without this the UA default applies. Underline is then re-applied ONLY where
+   a link sits inside running prose, where it carries meaning; navigation,
+   buttons, cards and the contents list are already unmistakably interactive
+   and an underline there is noise. */
+body.research a{font-size:inherit;white-space:normal;overflow-wrap:anywhere;
+  color:var(--ink-2);text-decoration:none;transition:color .2s}
+body.research a:hover{color:var(--ink)}
+body.research .r-nav a,body.research .r-btn,body.research .r-f-links a,
+body.research .r-card-id,body.research .r-capref,
+body.research .r-hit-k{white-space:nowrap;overflow-wrap:normal}
+body.research .r-body a,body.research .r-inline,body.research .r-term,
+body.research .r-pubref,body.research .r-cite a,body.research .r-note a,
+body.research .r-warn a,body.research .r-lede a{font-size:inherit;
+  white-space:normal;color:var(--blue-soft);text-decoration:underline;
+  text-decoration-color:rgba(77,123,255,.4);text-underline-offset:3px}
+body.research .r-body a:hover,body.research .r-inline:hover{color:var(--cyan);
+  text-decoration-color:var(--cyan)}
+body.research .r-term{color:var(--ink);text-decoration-style:dotted;
+  text-decoration-color:var(--hud-dim)}
+body.research .r-term:hover{color:var(--hud)}
+body.research code{font-family:var(--mono);font-size:.87em;
+  background:rgba(105,230,255,.08);border:1px solid rgba(105,230,255,.16);
+  padding:1px 5px;border-radius:5px;color:var(--hud);
+  white-space:normal;overflow-wrap:anywhere}
+body.research cite{font-style:italic;color:var(--ink)}
+body.research blockquote{border-left:2px solid var(--blue);padding-left:18px;
+  margin:0 0 18px;color:var(--ink-2)}
+
+/* ---------- document header ---------- */
+.r-kicker{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--hud);margin:0 0 14px}
+.r-sub{font-size:17px;line-height:1.5;color:var(--ink-2);max-width:70ch;
+  margin:0 0 22px}
+.r-lede{font-size:17.5px;line-height:1.6;color:var(--ink-2);max-width:70ch;
+  margin:0 0 8px}
+.r-doc-head,.r-page-head{border-bottom:1px solid var(--r-rule);
+  padding-bottom:30px;margin-bottom:8px}
+.r-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-3);margin:0 0 20px}
+.r-meta b{color:var(--ink-2);font-weight:500}
+.r-status{color:var(--pink)}
+.r-statusline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:15px;color:var(--ink-2);margin:0 0 14px}
+
+/* ---------- warning / note panels ---------- */
+.r-warn{background:rgba(255,90,140,.06);border:1px solid rgba(255,90,140,.22);
+  border-left:2px solid var(--pink);border-radius:10px;padding:14px 18px;
+  font-size:14.5px;line-height:1.6;color:var(--ink-2);margin:0 0 20px;
+  max-width:78ch}
+.r-warn b{color:var(--ink)}
+.r-note{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:18px 0 0;
+  max-width:78ch}
+.r-empty{font-size:14.5px;color:var(--ink-3);font-style:italic;line-height:1.6;
+  padding:16px 18px;border:1px dashed var(--r-rule);border-radius:10px;
+  list-style:none}
+
+/* ---------- claim chips ---------- */
+.r-claim{font-family:var(--mono);font-size:11px;font-weight:500;
+  padding:1px 6px;border-radius:5px;border:1px solid;white-space:nowrap;
+  display:inline-block;vertical-align:baseline;cursor:help;margin:0 1px}
+.r-claim-e{color:#59e6a8;border-color:rgba(89,230,168,.35);
+  background:rgba(89,230,168,.08)}
+.r-claim-a{color:var(--blue-soft);border-color:rgba(77,123,255,.35);
+  background:rgba(77,123,255,.08)}
+.r-claim-d{color:var(--violet);border-color:rgba(139,92,246,.35);
+  background:rgba(139,92,246,.08)}
+.r-claim-o{color:var(--pink);border-color:rgba(255,90,140,.35);
+  background:rgba(255,90,140,.08)}
+.r-capref{font-family:var(--mono);font-size:10.5px;margin-left:5px;
+  color:inherit;text-decoration:none;opacity:.85;white-space:nowrap}
+.r-capref:hover{opacity:1;text-decoration:underline}
+.r-capref b{font-weight:600}
+
+.r-claimbar{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}
+.r-cc{display:flex;align-items:baseline;gap:7px;padding:9px 14px;
+  border:1px solid var(--glass-b);border-radius:10px;background:var(--r-panel)}
+.r-cc b{font-family:'Space Grotesk','Inter',sans-serif;font-size:19px;
+  font-weight:500}
+.r-cc span{font-size:11.5px;color:var(--ink-3)}
+.r-cc-e b{color:#59e6a8}.r-cc-a b{color:var(--blue-soft)}
+.r-cc-d b{color:var(--violet)}.r-cc-o b{color:var(--pink)}
+
+/* ---------- capability status pill ---------- */
+.r-s{font-family:var(--mono);font-size:11.5px;font-weight:600;padding:2px 8px;
+  border-radius:999px;border:1px solid;display:inline-block;white-space:nowrap}
+.r-s1{color:#59e6a8;border-color:rgba(89,230,168,.4);
+  background:rgba(89,230,168,.1)}
+.r-s2{color:var(--cyan);border-color:rgba(56,182,255,.4);
+  background:rgba(56,182,255,.1)}
+.r-s3{color:var(--hud);border-color:var(--hud-dim);
+  background:rgba(105,230,255,.08)}
+.r-s4{color:var(--violet);border-color:rgba(139,92,246,.4);
+  background:rgba(139,92,246,.1)}
+.r-s5{color:var(--ink-3);border-color:var(--glass-b);background:var(--glass)}
+.r-keybig{font-size:14px!important;white-space:normal!important}
+
+/* ---------- publication references ---------- */
+.r-pubid{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+  margin-left:6px;white-space:normal;overflow-wrap:anywhere}
+.r-pubref-dead{color:var(--ink-3);border-bottom:1px dotted var(--ink-3);
+  cursor:help}
+
+/* ---------- table of contents ---------- */
+.r-toc{margin:36px 0;padding:22px 24px;border:1px solid var(--glass-b);
+  border-radius:16px;background:var(--r-panel)}
+.r-toc h2{font-size:12px!important;font-family:var(--mono)!important;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--hud);
+  margin:0 0 14px!important}
+.r-toc ol{list-style:none;columns:2;column-gap:34px;margin:0}
+@media(max-width:760px){.r-toc ol{columns:1}}
+.r-toc li{margin:0 0 7px;break-inside:avoid}
+.r-toc a{font-size:14px;color:var(--ink-2);white-space:normal;line-height:1.45}
+.r-toc a:hover{color:var(--hud)}
+.r-toc-l3{padding-left:16px}
+.r-toc-l3 a{font-size:13px;color:var(--ink-3)}
+
+/* ---------- tables ---------- */
+.r-tablewrap{overflow-x:auto;margin:0 0 22px;border:1px solid var(--r-rule);
+  border-radius:12px;-webkit-overflow-scrolling:touch}
+.r-tablewrap:focus-visible{outline:2px solid var(--hud);outline-offset:2px}
+body.research .r-tablewrap table{width:100%;min-width:520px;
+  border-collapse:collapse;font-size:14px}
+body.research .r-tablewrap caption{text-align:left;font-family:var(--mono);
+  font-size:11px;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--r-rule)}
+body.research .r-tablewrap th{text-align:left;font-weight:600;font-size:12px;
+  letter-spacing:.4px;text-transform:uppercase;color:var(--ink-3);
+  padding:11px 16px;border-bottom:1px solid var(--r-rule);
+  background:rgba(255,255,255,.02);white-space:nowrap}
+body.research .r-tablewrap td{padding:11px 16px;
+  border-bottom:1px solid rgba(255,255,255,.05);color:var(--ink-2);
+  vertical-align:top;line-height:1.55}
+body.research .r-tablewrap tr:last-child td{border-bottom:0}
+body.research .r-tablewrap td code{white-space:nowrap}
+
+/* ---------- cards ---------- */
+.r-cards{list-style:none;display:grid;gap:12px;margin:0;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.r-card a{display:flex;flex-direction:column;gap:9px;height:100%;
+  padding:20px 22px;border:1px solid var(--glass-b);border-radius:14px;
+  background:var(--r-panel);white-space:normal;font-size:inherit;
+  transition:border-color .2s,background .2s,transform .2s}
+.r-card a:hover{border-color:rgba(105,230,255,.4);
+  background:rgba(105,230,255,.045);transform:translateY(-2px)}
+.r-card-id{font-family:var(--mono);font-size:10.5px;letter-spacing:1.1px;
+  text-transform:uppercase;color:var(--hud)}
+.r-card-t{font-family:'Space Grotesk','Inter',sans-serif;font-size:16px;
+  line-height:1.35;color:var(--ink);font-weight:500}
+
+/* ---------- sections ---------- */
+.r-sec{margin:0 0 10px}
+.r-legend{margin:38px 0}
+.r-legend-grid{display:grid;gap:10px;margin:0 0 20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.r-legend-grid>div{display:flex;gap:11px;align-items:flex-start;
+  padding:13px 16px;border:1px solid var(--glass-b);border-radius:11px;
+  background:var(--r-panel)}
+.r-legend-grid span{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+
+.r-dl-grid{display:grid;grid-template-columns:auto 1fr;gap:9px 18px;
+  margin:0 0 20px;max-width:78ch}
+.r-dl-grid dt{font-family:var(--mono);font-size:12.5px;color:var(--hud);
+  font-weight:600}
+.r-dl-grid dd{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+
+.r-terms{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:2px 20px;margin:0 0 8px}
+.r-terms dt{font-size:14.5px;color:var(--ink);padding:7px 0 0;
+  scroll-margin-top:112px}
+.r-terms dd{font-size:11.5px;color:var(--ink-3);font-family:var(--mono);
+  padding:0 0 7px;border-bottom:1px solid rgba(255,255,255,.05)}
+.r-terms dt:target{color:var(--hud)}
+
+/* ---------- buttons ---------- */
+.r-dl{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.r-btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 18px;
+  border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap;
+  box-shadow:0 0 24px rgba(6,60,252,.35);transition:all .25s}
+.r-btn:hover{color:#fff;box-shadow:0 0 34px rgba(6,60,252,.6);
+  transform:translateY(-1px)}
+.r-btn-ghost{background:transparent;border:1px solid var(--glass-b);
+  color:var(--ink-2);box-shadow:none}
+.r-btn-ghost:hover{color:var(--ink);border-color:var(--hud);box-shadow:none}
+
+/* ---------- abstract / capability summary / citation ---------- */
+.r-capsum,.r-cite{margin:40px 0;padding:26px 28px;border:1px solid var(--glass-b);
+  border-radius:16px;background:var(--r-panel)}
+.r-capsum h2,.r-cite h2{margin-top:0!important}
+.r-cite p{font-size:14.5px;max-width:78ch}
+.r-body h2#abstract+p{font-size:17.5px;color:var(--ink)}
+
+/* ---------- search ---------- */
+.r-search{margin:30px 0 20px;max-width:640px}
+.r-search label{display:block;font-family:var(--mono);font-size:11px;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--hud);
+  margin:0 0 10px}
+.r-search input{width:100%;background:var(--glass);color:var(--ink);
+  border:1px solid var(--glass-b);border-radius:12px;padding:14px 18px;
+  font-size:16px;font-family:inherit}
+.r-search input:focus{outline:2px solid var(--hud);outline-offset:1px;
+  border-color:transparent}
+.r-results{display:grid;gap:9px;margin:20px 0 0}
+.r-hit{display:block;padding:15px 18px;border:1px solid var(--glass-b);
+  border-radius:12px;background:var(--r-panel);white-space:normal;
+  font-size:inherit}
+.r-hit:hover{border-color:rgba(105,230,255,.4);
+  background:rgba(105,230,255,.045)}
+.r-hit-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--hud);display:block;margin:0 0 5px}
+.r-hit-t{font-size:15.5px;color:var(--ink);display:block;line-height:1.35}
+.r-hit-s{font-size:13px;color:var(--ink-3);display:block;margin:6px 0 0;
+  line-height:1.5}
+.r-hit mark{background:rgba(105,230,255,.22);color:var(--hud);
+  border-radius:3px;padding:0 2px}
+
+/* ---------- footer ---------- */
+body.research .r-f-in{align-items:flex-start;gap:16px}
+body.research .r-f-links{display:flex;flex-wrap:wrap;gap:16px;width:100%;
+  padding-bottom:6px}
+body.research .r-f-links a{font-size:12.5px;color:var(--ink-2);
+  white-space:nowrap}
+body.research .r-f-links a:hover{color:var(--hud)}
+body.research .f-copy a{font-size:inherit;white-space:normal;
+  color:var(--ink-2);text-decoration:underline}
+
+/* ---------- focus, motion, print ---------- */
+body.research a:focus-visible,body.research button:focus-visible,
+body.research input:focus-visible,body.research [tabindex]:focus-visible{
+  outline:2px solid var(--hud);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){
+  body.research *,body.research *::before,body.research *::after{
+    transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .r-card a:hover,.r-btn:hover{transform:none}
+}
+@media print{
+  body.research{background:#fff;color:#111}
+  body.research .r-nav,.r-skip,.r-toc,.r-dl,footer,.r-crumb,.r-anchor{
+    display:none!important}
+  body.research p,body.research li,body.research td{color:#222}
+  body.research h1,body.research h2,body.research h3{color:#000}
+  .r-main{padding:0;max-width:none}
+  .r-tablewrap{border-color:#ccc}
+  body.research a{color:#0033cc;text-decoration:underline}
+  body.research a[href^="/"]::after{content:" (https://neoai.myneogroup.com"
+    attr(href) ")";font-size:9pt;color:#555}
+}
+
+/* ---------- h1 subordinate clause ---------- */
+.r-h1-tail{display:block;font-size:.56em;line-height:1.3;letter-spacing:-.2px;
+  color:var(--ink-2);margin-top:8px;font-weight:400}

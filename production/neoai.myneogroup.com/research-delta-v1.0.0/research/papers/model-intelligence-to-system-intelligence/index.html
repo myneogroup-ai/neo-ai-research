@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<title>From Model Intelligence to System Intelligence: How Orchestration Compounds Capability — NEO AI Research</title>
+<meta name="description" content="The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model&#x27;s results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation act">
+<link rel="canonical" href="https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="NEO AI Research">
+<meta property="og:title" content="From Model Intelligence to System Intelligence: How Orchestration Compounds Capability — NEO AI Research">
+<meta property="og:description" content="The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model&#x27;s results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation act">
+<meta property="og:url" content="https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="From Model Intelligence to System Intelligence: How Orchestration Compounds Capability — NEO AI Research">
+<meta name="twitter:description" content="The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model&#x27;s results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation act">
+<link rel="alternate" type="application/atom+xml" title="NEO AI Research"
+      href="/feeds/all.xml">
+<link rel="alternate" type="application/atom+xml"
+      title="NEO AI Research: corrections and errata" href="/feeds/updates.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.min.css">
+<link rel="stylesheet" href="/assets/css/nav-fit.min.css">
+<link rel="stylesheet" href="/assets/css/research.min.css">
+<meta name="citation_title" content="From Model Intelligence to System Intelligence: How Orchestration Compounds Capability">
+<meta name="citation_author" content="Mosse, Mickael">
+<meta name="citation_publication_date" content="2026/08/12">
+<meta name="citation_technical_report_institution" content="NEO AI Research Program">
+<!-- citation_technical_report_number omitted: no identifier is allocated. SD8. -->
+<meta name="citation_pdf_url" content="https://neoai.myneogroup.com/pdf/NEO-AI-R-009/v1.0.pdf">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#article",
+  "@type": "ScholarlyArticle",
+  "name": "From Model Intelligence to System Intelligence: How Orchestration Compounds Capability",
+  "headline": "From Model Intelligence to System Intelligence: How Orchestration Compounds Capability",
+  "abstract": "The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model's results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation actually cares about is a property of a system rather than of a component inside it. The argument has three parts. First, the unit of enterprise work is a task with a required outcome, a permitted set of actions, an authority under which it is performed and a record it must leave, and none of those four is a property a model has. Second, the operations that convert a model call into a completed unit of work, which are decomposition, selection, tool use, retrieval, verification, memory, evidence and approval, are compositional: each raises the probability that the whole is correct, and their effects multiply rather than add. Third, and this is the part that determines whether any of it is worth building, model improvement moves the ceiling on what a single call can do and does not touch attribution, authority, retention, verification or the record. A rising ceiling therefore makes the unsolv",
+  "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/",
+  "version": "v1.0",
+  "creativeWorkStatus": "DRAFT",
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-12",
+  "inLanguage": "en",
+  "wordCount": 5472,
+  "author": {
+    "@id": "https://mickaelmosse.ai/about/#person"
+  },
+  "publisher": {
+    "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+  },
+  "copyrightHolder": {
+    "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publishingPrinciples": "https://neoai.myneogroup.com/research/methodology/",
+  "isPartOf": {
+    "@type": "PublicationIssue",
+    "name": "Public Wave 1"
+  },
+  "encoding": {
+    "@type": "MediaObject",
+    "encodingFormat": "application/pdf",
+    "contentUrl": "https://neoai.myneogroup.com/pdf/NEO-AI-R-009/v1.0.pdf"
+  },
+  "hasPart": [
+    {
+      "@type": "WebPageElement",
+      "name": "Abstract",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#abstract"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "1. Where the measurement is taken",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#1-where-the-measurement-is-taken"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "2. What the established work supports",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#2-what-the-established-work-supports"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "3. System intelligence, defined so it can be argued with",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#3-system-intelligence-defined-so-it-can-be-argued-with"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "4. Why the effects compound",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#4-why-the-effects-compound"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "5. Provider replaceability, stated honestly",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#5-provider-replaceability-stated-honestly"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "6. Learning, and what this paper will not say about it",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#6-learning-and-what-this-paper-will-not-say-about-it"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "7. What exists, stated plainly",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#7-what-exists-stated-plainly"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "8. Measuring a system rather than a model",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#8-measuring-a-system-rather-than-a-model"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "9. Why a better model raises the value of the layer, and how that could be wrong",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#9-why-a-better-model-raises-the-value-of-the-layer-and-how-t"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "10. Conclusion",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#10-conclusion"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Scope and Limitations",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#scope-and-limitations"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Research",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-research"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Publications",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-publications"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Technical Notes",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-technical-notes"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Architecture",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-architecture"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Engineering",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-engineering"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Figures",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-figures"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Related Terms",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#related-terms"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Evidence Table",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#evidence-table"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "References",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#references"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "Version History",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#version-history"
+    },
+    {
+      "@type": "WebPageElement",
+      "name": "How to Cite",
+      "url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#how-to-cite"
+    }
+  ],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "claims-established",
+      "value": 4,
+      "description": "Statements of established fact, each with an external primary source"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-architectural-interpretation",
+      "value": 4,
+      "description": "Inferences from established premises, held by the Program and not proved"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-design-intent",
+      "value": 3,
+      "description": "Statements of design intent, each carrying a capability status"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "claims-open-problem",
+      "value": 3,
+      "description": "Named unsolved problems"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Research",
+      "item": "https://neoai.myneogroup.com/research/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Research papers",
+      "item": "https://neoai.myneogroup.com/research/papers/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "From Model Intelligence to System Intelligence: How Orchestration Compounds Capability",
+      "item": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="research">
+<a class="r-skip" href="#main">Skip to content</a>
+<nav class="nav r-nav" aria-label="Primary">
+  <a class="logo" href="/" aria-label="NEO AI home"><img src="/assets/favicon.svg" alt="" width="20" height="20"><span class="r-word">NEO AI</span></a>
+  <button class="r-burger" type="button" aria-expanded="false" aria-controls="rMenu" aria-label="Open navigation"><span></span><span></span><span></span></button>
+  <div class="links r-links" id="rMenu"><a href="/#golive">Going Public</a><a href="/#power">The Engine</a><a href="/#bench">Performance</a><a href="/#usecases">Capabilities</a><a href="/#mission">Mission Control</a><a href="/#verticals">Industries</a><a href="/#intel">NEO Intelligence</a><a href="/research/" aria-current="page">Research</a><a href="/#investors">Investors</a></div>
+  <a class="cta" href="/#waitlist">Request Early Access</a>
+</nav>
+<main id="main" class="r-main">
+<nav class="r-crumb" aria-label="Breadcrumb"><ol><li><a href="/research/">Research</a></li><li><a href="/research/papers/">Research papers</a></li><li><span aria-current="page">From Model Intelligence to System Intelligence: How Orchestration Compounds Capability</span></li></ol></nav>
+
+<article class="r-doc">
+  <header class="r-doc-head">
+    <p class="r-kicker">Research papers &middot; NEO AI Research Program</p>
+    <h1>From Model Intelligence to System Intelligence:<span class="r-h1-tail"> How Orchestration Compounds Capability</span></h1>
+    <p class="r-sub">How orchestration compounds capability, and why a stronger model raises the value of the layer above it</p>
+    <div class="r-meta">
+      <span>Identifier <b>Not yet allocated.</b> Cite by title and version</span>
+      <span>Version <b>v1.0</b></span>
+      <span>Status <b class="r-status">DRAFT</b></span>
+      <span>Published <time datetime="2026-08-12">12 August 2026</time></span>
+      <span>29 min</span>
+    </div>
+    <p class="r-warn"><b>Nothing in this paper describes a running system.</b>
+      Every capability it names is at S4 or S5 in the
+      <a href="/research/capability-register/">Capability Register</a>, which is
+      itself marked provisional. No measurement, benchmark or comparison against
+      any other system is reported.</p>
+    <div class="r-claimbar" aria-label="Claim classes counted from the evidence
+      table"><div class="r-cc r-cc-e"><b>4</b><span>Established</span></div><div class="r-cc r-cc-a"><b>4</b><span>Architectural interpretation</span></div><div class="r-cc r-cc-d"><b>3</b><span>Design intent</span></div><div class="r-cc r-cc-o"><b>3</b><span>Open problem</span></div></div>
+    <p class="r-dl"><a class="r-btn" href="https://neoai.myneogroup.com/pdf/NEO-AI-R-009/v1.0.pdf">Download PDF (v1.0)</a>
+      <a class="r-btn r-btn-ghost" href="/id/NEO-AI-R-009">Permanent identifier
+      route</a></p>
+  </header>
+
+  <nav class="r-toc" aria-label="Contents"><h2>Contents</h2><ol><li class="r-toc-l2"><a href="#abstract">Abstract</a></li><li class="r-toc-l2"><a href="#1-where-the-measurement-is-taken">1. Where the measurement is taken</a></li><li class="r-toc-l3"><a href="#1-1-the-transfer-error">1.1 The transfer error</a></li><li class="r-toc-l2"><a href="#2-what-the-established-work-supports">2. What the established work supports</a></li><li class="r-toc-l2"><a href="#3-system-intelligence-defined-so-it-can-be-argued-with">3. System intelligence, defined so it can be argued with</a></li><li class="r-toc-l3"><a href="#3-1-why-these-eight-and-not-others">3.1 Why these eight and not others</a></li><li class="r-toc-l2"><a href="#4-why-the-effects-compound">4. Why the effects compound</a></li><li class="r-toc-l3"><a href="#4-1-what-compounding-does-not-mean">4.1 What compounding does not mean</a></li><li class="r-toc-l2"><a href="#5-provider-replaceability-stated-honestly">5. Provider replaceability, stated honestly</a></li><li class="r-toc-l2"><a href="#6-learning-and-what-this-paper-will-not-say-about-it">6. Learning, and what this paper will not say about it</a></li><li class="r-toc-l2"><a href="#7-what-exists-stated-plainly">7. What exists, stated plainly</a></li><li class="r-toc-l2"><a href="#8-measuring-a-system-rather-than-a-model">8. Measuring a system rather than a model</a></li><li class="r-toc-l2"><a href="#9-why-a-better-model-raises-the-value-of-the-layer-and-how-t">9. Why a better model raises the value of the layer, and how that could be wrong</a></li><li class="r-toc-l3"><a href="#9-1-how-a-stronger-model-actually-enters-the-system">9.1 How a stronger model actually enters the system</a></li><li class="r-toc-l3"><a href="#9-2-what-would-falsify-this">9.2 What would falsify this</a></li><li class="r-toc-l2"><a href="#10-conclusion">10. Conclusion</a></li><li class="r-toc-l2"><a href="#scope-and-limitations">Scope and Limitations</a></li><li class="r-toc-l2"><a href="#related-research">Related Research</a></li><li class="r-toc-l2"><a href="#related-publications">Related Publications</a></li><li class="r-toc-l2"><a href="#related-technical-notes">Related Technical Notes</a></li><li class="r-toc-l2"><a href="#related-architecture">Related Architecture</a></li><li class="r-toc-l2"><a href="#related-engineering">Related Engineering</a></li><li class="r-toc-l2"><a href="#related-figures">Related Figures</a></li><li class="r-toc-l2"><a href="#related-terms">Related Terms</a></li><li class="r-toc-l2"><a href="#evidence-table">Evidence Table</a></li><li class="r-toc-l2"><a href="#references">References</a></li><li class="r-toc-l2"><a href="#version-history">Version History</a></li><li class="r-toc-l2"><a href="#how-to-cite">How to Cite</a></li></ol></nav>
+
+  <section class="r-capsum">
+    <h2 id="capabilities-referenced">Capabilities referenced</h2>
+    <p>Status is resolved from the register when this page is built. It is not
+      written by the author.</p>
+    <div class="r-tablewrap" role="region" aria-label="Capabilities referenced"
+      tabindex="0"><table>
+      <caption>Capabilities named by this publication</caption>
+      <thead><tr><th scope="col">Key</th><th scope="col">Capability</th>
+      <th scope="col">Status</th></tr></thead>
+      <tbody><tr><td><a href="/research/capability-register/brain/"><code>brain</code></a></td><td>The Brain</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.router/"><code>brain.router</code></a></td><td>Router</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.task-graph/"><code>brain.task-graph</code></a></td><td>Task Graph</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.memory/"><code>brain.memory</code></a></td><td>Memory</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.knowledge-graph/"><code>brain.knowledge-graph</code></a></td><td>Knowledge Graph</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.evidence-layer/"><code>brain.evidence-layer</code></a></td><td>Evidence Layer</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.evidence-ledger/"><code>brain.evidence-ledger</code></a></td><td>Evidence Ledger</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.validation/"><code>brain.validation</code></a></td><td>Validation</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.cost-engine/"><code>brain.cost-engine</code></a></td><td>Cost Engine</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.governance/"><code>brain.governance</code></a></td><td>Governance</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/brain.event-bus/"><code>brain.event-bus</code></a></td><td>Event Bus</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/mission-control/"><code>mission-control</code></a></td><td>Mission Control</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/mission.envelope/"><code>mission.envelope</code></a></td><td>Mission Envelope</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/lili/"><code>lili</code></a></td><td>LILI</td><td><b class="r-s r-s4">S4</b></td></tr><tr><td><a href="/research/capability-register/assurance.eval-harness/"><code>assurance.eval-harness</code></a></td><td>Mission Evaluation Harness</td><td><b class="r-s r-s5">S5</b></td></tr><tr><td><a href="/research/capability-register/foundation-model/"><code>foundation-model</code></a></td><td>NEO AI Foundation Model</td><td><b class="r-s r-s5">S5</b></td></tr><tr><td><a href="/research/capability-register/neo-intelligence/"><code>neo-intelligence</code></a></td><td>NEO Intelligence</td><td><b class="r-s r-s4">S4</b></td></tr></tbody></table></div>
+  </section>
+
+  <div class="r-body"><h2 id="abstract" id="abstract"><a class="r-anchor" href="#abstract" aria-label="Link to this section">#</a>Abstract</h2>
+<p>The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model's results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation actually cares about is a property of a system rather than of a component inside it.</p>
+<p>The argument has three parts. First, the unit of enterprise work is a task with a required outcome, a permitted set of actions, an authority under which it is performed and a record it must leave, and none of those four is a property a model has. Second, the operations that convert a model call into a completed unit of work, which are decomposition, selection, tool use, retrieval, verification, memory, evidence and approval, are compositional: each raises the probability that the whole is correct, and their effects multiply rather than add. Third, and this is the part that determines whether any of it is worth building, model improvement moves the ceiling on what a single call can do and does not touch attribution, authority, retention, verification or the record. A rising ceiling therefore makes the unsolved parts a <strong>larger</strong> fraction of the remaining problem, not a smaller one.</p>
+<p>That third claim is the paper's thesis and it is falsifiable. Section 9 states the conditions under which it fails, in terms specific enough to be tested against. <strong>No measurement is reported here, because none has been taken.</strong> The Program has published no benchmark, holds no reproducible comparison against any other system, and does not claim one.</p>
+<hr>
+<h2 id="1-where-the-measurement-is-taken"><a class="r-anchor" href="#1-where-the-measurement-is-taken" aria-label="Link to this section">#</a>1. Where the measurement is taken</h2>
+<p>A model benchmark answers a well-posed question. Given this input, does the model produce an acceptable output. The question is well-posed because the boundary is clean: input in, output out, score computed.</p>
+<p>Enterprise work is not well-posed at that boundary. Consider a task an organisation would actually pay for. Assess whether a counterparty presents an unacceptable risk, given twelve documents in three languages, an internal policy, a regulatory perimeter, a deadline and an obligation to justify the answer to somebody who was not in the room.</p>
+<p>Four things are required of the result and none of them is a model output property <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>.</p>
+<p><strong>It has to be attributable.</strong> Somebody must be able to ask where a particular assertion came from and receive an answer that resolves to a source rather than to a generation. A model can produce a citation; it cannot make the citation true, and the property that matters is whether the chain from the assertion back to its origin can be traversed after the fact.</p>
+<p><strong>It has to be performed under an authority.</strong> The question is not only whether an action is permitted but who was entitled to decide it is permitted. Those are different questions and a system that answers only the first produces a record showing permission without entitlement <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>.</p>
+<p><strong>It has to be bounded.</strong> The set of actions available while performing the task is narrower than the set of actions the components are capable of. That boundary is a property of the task, set before the work starts, and it has no representation inside a model call.</p>
+<p><strong>It has to leave a record.</strong> Not a transcript. A record that supports a later question of the form: at the point that conclusion was reached, what was known, what had been verified, who had approved what, and what had already been ruled out.</p>
+<p>A model that improves on every published benchmark improves the raw material for all four and supplies none of them <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>. This is the observation the rest of the paper builds on, and it is the reason the measurement boundary matters more than the measurement.</p>
+<h3 id="1-1-the-transfer-error"><a class="r-anchor" href="#1-1-the-transfer-error" aria-label="Link to this section">#</a>1.1 The transfer error</h3>
+<p><span class="r-pubref-dead" title="Registered, not drafted. No date.">A Note on Responsible AI Capability Claims<span class="r-pubid">NEO-AI-P-007 s2 · registered, not drafted</span></span> names the error this section is describing and it is worth stating in its own terms. A model's measured capability is transferred to a product built on that model by adjacency, without any claim being made explicitly. The product inherits an adjective. The inheritance is not argued and therefore cannot be rebutted <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span>.</p>
+<p>The transfer runs in the other direction too, and that error is less discussed and more damaging to a company in NEO's position. If a system's value is assumed to be its model's value, then a better model available to everyone appears to erase the system's advantage. Both directions rest on the same mistake, which is treating the system as a wrapper over the component rather than as the thing that turns a component into a completed unit of work.</p>
+<hr>
+<h2 id="2-what-the-established-work-supports"><a class="r-anchor" href="#2-what-the-established-work-supports" aria-label="Link to this section">#</a>2. What the established work supports</h2>
+<p>Four lines of published work bear on the argument. Each is cited for what it established and not for more.</p>
+<p><strong>Decomposition changes what is reachable.</strong> Chain-of-thought prompting established that eliciting intermediate steps improves performance on multi-step reasoning tasks relative to direct answering <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span> (Wei et al., 2022). The finding is about elicitation within a single model call and it is cited here only for the direction of the effect, not for any magnitude and not as evidence about NEO.</p>
+<p><strong>Interleaving reasoning with actions is a workable control pattern.</strong> ReAct established that alternating between reasoning steps and environment actions produces better task completion than either alone on the tasks studied <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span> (Yao et al., 2023). Again cited for the pattern, not for the numbers.</p>
+<p><strong>Retrieval changes what a system can be right about.</strong> Retrieval-augmented generation established that grounding generation in retrieved documents reduces unsupported assertion on knowledge-intensive tasks <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span> (Lewis et al., 2020). What it did not establish, and what matters here, is whether the retrieved document is itself reliable, which is a separate problem requiring separate machinery.</p>
+<p><strong>Verification is a distinct operation from generation.</strong> Work on self-consistency and on verifier models established that checking a candidate answer is a different computation from producing one, and that the check can be performed by a different process <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span> (Wang et al., 2023). This is the technical basis for treating verification as an architectural component rather than as a prompt instruction.</p>
+<p><strong>What none of this establishes.</strong> No published work known to the Program establishes that a specific orchestration architecture produces a specific improvement on enterprise tasks under governance constraints, because the evaluation methodology for that question is not settled and the benchmark does not exist <span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span>. Section 8 is about that gap. It is a real gap and the paper does not write around it.</p>
+<hr>
+<h2 id="3-system-intelligence-defined-so-it-can-be-argued-with"><a class="r-anchor" href="#3-system-intelligence-defined-so-it-can-be-argued-with" aria-label="Link to this section">#</a>3. System intelligence, defined so it can be argued with</h2>
+<p><strong><a class="r-term" href="/research/glossary/#term-neo-system-intelligence" title="Defined term">NEO System Intelligence</a></strong> is the architectural layer above models, agents, tools, memory, knowledge, evidence and evaluation. It is not a model, it is not a router, and it is not a synonym for the platform. It is the layer that decides what work is done, by what, under whose authority, against what evidence, and with what record <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span> <span class="r-claim r-claim-d" title="Design intent — The Brain is S4">[D]<a class="r-capref" href="/research/capability-register/brain/">The Brain <b>S4</b></a></span>.</p>
+<p>The name matters because a near-identical one is already in use. <strong>NEO Intelligence</strong> is the intelligence and investigation vertical covering open-source intelligence, blockchain intelligence, anti-money-laundering and risk intelligence, cyber intelligence and due diligence workflows <span class="r-claim r-claim-d" title="Design intent — NEO Intelligence is S4">[D]<a class="r-capref" href="/research/capability-register/neo-intelligence/">NEO Intelligence <b>S4</b></a></span>. The two are one word apart and they are different objects. This paper concerns the layer. Where a document means the vertical, it writes NEO Intelligence without System, and the distinction is never elided.</p>
+<p>The layer is defined by eight operations. The list is not a component inventory and deliberately does not describe how any of it is built.</p>
+<div class="r-tablewrap" role="region" aria-label="3. System intelligence, defined so it can be argued with" tabindex="0"><table><caption>3. System intelligence, defined so it can be argued with</caption>
+<thead>
+<tr>
+<th>Operation</th>
+<th>The question it answers</th>
+<th>Why a model does not answer it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decomposition</strong></td>
+<td>What smaller units is this work made of, and in what order</td>
+<td>The unit boundaries depend on the organisation's process, not on the input text</td>
+</tr>
+<tr>
+<td><strong>Selection</strong></td>
+<td>Which executor performs this unit</td>
+<td>Requires comparing candidates the executor cannot see</td>
+</tr>
+<tr>
+<td><strong>Tool use</strong></td>
+<td>What may be invoked, with what authority, against what side effects</td>
+<td>Permission is external to the component exercising it</td>
+</tr>
+<tr>
+<td><strong>Retrieval</strong></td>
+<td>What is brought into scope, and from where</td>
+<td>Depends on what the organisation holds and who may read it</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Is this result acceptable, judged by something that did not produce it</td>
+<td>A component cannot be its own check without circularity</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>What persists, under what promotion rule, retrievable by whom</td>
+<td>Persistence and read scope are governance decisions</td>
+</tr>
+<tr>
+<td><strong>Evidence</strong></td>
+<td>What supports this claim, and does the support resolve to distinct origins</td>
+<td>Requires a record structure across calls</td>
+</tr>
+<tr>
+<td><strong>Approval</strong></td>
+<td>Who authorised this, and is that authorisation still valid</td>
+<td>Authority is a property of people and roles</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each operation is specified in the Program's architecture and none of them is running <span class="r-claim r-claim-d" title="Design intent — The Brain is S4">[D]<a class="r-capref" href="/research/capability-register/brain/">The Brain <b>S4</b></a></span>. Section 7 says exactly how much exists.</p>
+<h3 id="3-1-why-these-eight-and-not-others"><a class="r-anchor" href="#3-1-why-these-eight-and-not-others" aria-label="Link to this section">#</a>3.1 Why these eight and not others</h3>
+<p>Two tests were applied. An operation is in the list if removing it makes at least one of the four required properties in section 1 unobtainable, and if no improvement in the executing model supplies it. Prompt engineering fails the second test, because a better model needs less of it. Caching fails the first, because removing it costs money and latency and does not make a result unattributable.</p>
+<p>Two candidates were considered and left out. <strong>Planning</strong> is not separate from decomposition at this level of description, and separating them produces two words for one operation. <strong>Learning</strong> is deliberately excluded, and section 6 explains why at length: it is the operation most likely to be described in a way that cannot be checked.</p>
+<hr>
+<h2 id="4-why-the-effects-compound"><a class="r-anchor" href="#4-why-the-effects-compound" aria-label="Link to this section">#</a>4. Why the effects compound</h2>
+<p>The claim in the paper's title is that orchestration compounds capability. Compounding is a specific claim and it should be argued rather than asserted <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>.</p>
+<p>Take a unit of work that a single model call completes acceptably with probability <code>q</code>. Now consider the same unit performed by a system that decomposes it into steps, selects an executor per step, retrieves grounding material, verifies the result against something that did not produce it, and escalates to a person when a stated condition is met.</p>
+<p>Three structural things happen and they are different from each other.</p>
+<p><strong>Decomposition changes the exponent.</strong> A single call must be right about everything at once. A decomposed task must be right about each part, and the parts are individually easier. This cuts both ways and honest treatment requires saying so: if five steps each succeed with probability 0.9 and all five must succeed, the product is 0.59, which is worse than a single call at 0.7. Decomposition helps when the per-step probability rises enough to beat the multiplication, and it does not always. This is the first place the argument could be wrong and section 9 treats it as a falsifier rather than as a caveat.</p>
+<p><strong>Verification changes the failure mode, not the success rate.</strong> A verifier that catches a proportion of defects does not make the generator better. It converts an undetected error into a detected one, and a detected error is recoverable: it can be retried, escalated, or reported as an inability to answer. The value is not in the arithmetic of the success rate. It is that a system which knows when it has failed can be governed, and a system which does not cannot be <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>.</p>
+<p><strong>Selection converts variance into an advantage.</strong> Executors differ by task, and the differences are frequently large enough to dominate every other consideration for that task <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>. A system that fixes one executor at procurement time is choosing a single point on a distribution and holding it. A system that selects per task can take the better point each time. This is the argument of <span class="r-pubref-dead" title="Registered, not drafted. No date.">The End of the Single-Model Enterprise<span class="r-pubid">NEO-AI-R-001 · registered, not drafted</span></span> and it is not restated here beyond the one sentence.</p>
+<p>The compounding claim, stated precisely: <strong>the operations are not independent contributions to one number. Each changes the conditions under which the others operate.</strong> Retrieval improves what verification is checking against. Verification makes escalation meaningful, because there is something to escalate on. Memory makes selection better informed over time. Evidence makes approval a decision rather than a formality. That interaction structure is why the system is not the sum of its parts, and it is also why the system is hard to evaluate, which is section 8.</p>
+<h3 id="4-1-what-compounding-does-not-mean"><a class="r-anchor" href="#4-1-what-compounding-does-not-mean" aria-label="Link to this section">#</a>4.1 What compounding does not mean</h3>
+<p>It does not mean the result is better than the best available model on a model benchmark. That comparison is not defined, because a model benchmark measures a model and this measures a system doing a task the benchmark does not contain.</p>
+<p>It does not mean more components is better. Each operation adds latency, cost and a failure surface. A system with eight operations where two would do is worse than the two, and the fact that the eight are individually justified does not make the eight justified together.</p>
+<p>It does not mean the effect has been measured. It has not <span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span>.</p>
+<hr>
+<h2 id="5-provider-replaceability-stated-honestly"><a class="r-anchor" href="#5-provider-replaceability-stated-honestly" aria-label="Link to this section">#</a>5. Provider replaceability, stated honestly</h2>
+<p>The most common claim made for multi-model architecture is that it removes vendor lock-in. <strong>That claim is false and repeating it damages the argument it is meant to support</strong> <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>. <span class="r-pubref-dead" title="Registered, not drafted. No date.">The End of the Single-Model Enterprise<span class="r-pubid">NEO-AI-R-001 s4.4 · registered, not drafted</span></span> establishes the point and this paper follows it rather than softening it.</p>
+<p>What a multi-model architecture provides is <strong>replaceability under a contract</strong>: an executor can be substituted without changing what an agent is, what it may do, or what its output must look like, provided a contract defines those things independently of the executor <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span> <span class="r-claim r-claim-d" title="Design intent — Router is S4">[D]<a class="r-capref" href="/research/capability-register/brain.router/">Router <b>S4</b></a></span>. That is a real and valuable property. It is not independence.</p>
+<p>Two honest limits belong in the same paragraph as the claim.</p>
+<p><strong>Concentration risk relocates rather than disappearing.</strong> An organisation that depended on one provider now depends on one orchestration layer. The dependency is on something it controls rather than on something it does not, which is a materially better position, and it is a dependency.</p>
+<p><strong>Substitutability has to be demonstrated rather than declared.</strong> If an agent's behaviour changes when the executor beneath it changes, the abstraction is a label rather than a contract. The Program's answer is a substitution conformance suite that runs each agent's contract tests once per admissible executor and fails where the contract holds under one and not another <span class="r-claim r-claim-d" title="Design intent — Validation is S4">[D]<a class="r-capref" href="/research/capability-register/brain.validation/">Validation <b>S4</b></a></span>. That suite is specified and has not been run, because there is nothing to run it against.</p>
+<p>This section exists because the honest version is more persuasive to the reader who matters. An enterprise architect who has been sold vendor independence before will discount a paper that sells it again.</p>
+<hr>
+<h2 id="6-learning-and-what-this-paper-will-not-say-about-it"><a class="r-anchor" href="#6-learning-and-what-this-paper-will-not-say-about-it" aria-label="Link to this section">#</a>6. Learning, and what this paper will not say about it</h2>
+<p>A system that records outcomes can, in principle, use them. This is the most commercially attractive claim available and it is the one most likely to be stated in a form nobody can check.</p>
+<p>The Program's public position has three parts and stops there.</p>
+<p><strong>First, recording and taking effect are separate acts.</strong> A record of what happened may be written at any time. A change to what the system does as a result is a governed change: it is proposed, reviewed, recorded, reversible, and never in effect silently <span class="r-claim r-claim-d" title="Design intent — Governance is S4">[D]<a class="r-capref" href="/research/capability-register/brain.governance/">Governance <b>S4</b></a></span>. The reason is not caution for its own sake. A system whose behaviour changes without a governed act cannot be audited afterwards, because the auditor cannot establish which behaviour was in force at the time of the decision under review.</p>
+<p><strong>Second, an outcome is not a label.</strong> For most enterprise work the ground truth arrives late, arrives partially, or does not arrive. A risk assessment that recommended proceeding and was followed by no loss is not thereby correct. Treating it as a positive label trains a system on survivorship <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span> <span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span>.</p>
+<p><strong>Third, the mechanism is not published.</strong> How the Program proposes to convert recorded outcomes into changed behaviour is not described here, in any form, at any level of detail. This is a deliberate withholding and it is stated rather than concealed. <span class="r-pubref-dead" title="Registered, not drafted. No date.">A Note on Responsible AI Capability Claims<span class="r-pubid">NEO-AI-P-007 · registered, not drafted</span></span> requires that the corpus distinguish what is unknown from what is not disclosed, and this is the second of those.</p>
+<p>A reader is entitled to discount the paper accordingly, and should. An undisclosed mechanism is not evidence.</p>
+<hr>
+<h2 id="7-what-exists-stated-plainly"><a class="r-anchor" href="#7-what-exists-stated-plainly" aria-label="Link to this section">#</a>7. What exists, stated plainly</h2>
+<p><span class="r-pubref-dead" title="Registered, not drafted. No date.">A Note on Responsible AI Capability Claims<span class="r-pubid">NEO-AI-P-007 s3 · registered, not drafted</span></span> sets the standard this section obeys: every capability reference resolves to a key in the public register and carries its status, and a capability at S4 or S5 is not described in the present tense as though deployed.</p>
+<p>At the date of this paper, of the capabilities named in its front matter: <strong>none is operational, none is in pilot, none is undergoing validation. Fifteen are at S4, designed and specified. Two are at S5, planned or exploratory</strong> <span class="r-claim r-claim-d" title="Design intent">[D]</span>. The register itself is marked PROVISIONAL and awaits Founder confirmation, so even those statuses are not yet ratified.</p>
+<p>The eight operations in section 3 are specified in architecture and specification documents. None of them is running. No mission has been executed. No evaluation has been performed. The evaluation harness that would perform one is at S5 <span class="r-claim r-claim-d" title="Design intent — Mission Evaluation Harness is S5">[D]<a class="r-capref" href="/research/capability-register/assurance.eval-harness/">Mission Evaluation Harness <b>S5</b></a></span>.</p>
+<p>This paper is therefore an argument about how such a system should be built and why the layer is where the value sits. It is not a description of a system that exists, and no sentence in it should be quoted as evidence that NEO AI performs any operation described here.</p>
+<p>The current status of every capability is published and updated at the public <a class="r-term" href="/research/glossary/#term-capability-register" title="Defined term">Capability Register</a>. A reader checking this paper against the ledger later will find the statuses have moved, or will find that they have not, and either finding is the point of publishing it.</p>
+<hr>
+<h2 id="8-measuring-a-system-rather-than-a-model"><a class="r-anchor" href="#8-measuring-a-system-rather-than-a-model" aria-label="Link to this section">#</a>8. Measuring a system rather than a model</h2>
+<p>If the argument is right, the measurement has to move with it, and the measurement is the hardest unsolved part <span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span>.</p>
+<p>Four difficulties, each real.</p>
+<p><strong>The unit of measurement is a mission, not a prompt.</strong> A mission has an objective, a permitted action set, an authority context and a required record. Scoring it requires a rubric covering correctness, attribution, boundary conformance and record completeness, and the last three have no established scoring convention.</p>
+<p><strong>The denominator is contested.</strong> Compared against what. A single strong model given the same brief and no tools is one baseline and a weak one, because it is not permitted to retrieve. A human analyst is a better baseline and is expensive, slow and variable. There is no settled answer and the Program does not have one.</p>
+<p><strong>Governance constraints change the achievable score.</strong> A system that refuses to proceed without an approval will score worse on completion than one that proceeds, and be correct to do so. A benchmark that does not model the cost of an unauthorised action rewards the ungoverned system.</p>
+<p><strong>Disturbance matters more than the clean run.</strong> The interesting question is not how a system performs when everything works. It is what happens when a provider degrades, a source turns out to be circular, a tool fails halfway, or an approval is invalidated after the work depending on it has started. Measuring that requires deliberately injecting the disturbance, which is a methodology rather than a benchmark.</p>
+<p>The Program has specified a methodology addressing these and <strong>has not run it</strong> <span class="r-claim r-claim-d" title="Design intent — Mission Evaluation Harness is S5">[D]<a class="r-capref" href="/research/capability-register/assurance.eval-harness/">Mission Evaluation Harness <b>S5</b></a></span>. When a result exists it will be published with its configuration, or it will not be published. The Program's publication standard makes that binding: a benchmark attributed to NEO AI without a reproducible configuration must never appear.</p>
+<p>Until then, the honest statement of the thesis is the one this paper opens with. NEO is designed to produce stronger system-level outcomes than an individual model used in isolation <strong>where orchestration, tools, memory, evidence, verification and governance provide measurable benefit</strong>. The conditional is not hedging. It is the claim.</p>
+<hr>
+<h2 id="9-why-a-better-model-raises-the-value-of-the-layer-and-how-t"><a class="r-anchor" href="#9-why-a-better-model-raises-the-value-of-the-layer-and-how-t" aria-label="Link to this section">#</a>9. Why a better model raises the value of the layer, and how that could be wrong</h2>
+<p>This is the argument the paper exists to make.</p>
+<p>A stronger foundation model raises the ceiling on what a single call can achieve. It does not, and by construction cannot, supply attribution, authority, boundedness or the record, because none of those is a property of a text-to-text function <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>. So model improvement moves one term and leaves the others where they were.</p>
+<p>The consequence is counter-intuitive and is the thesis. <strong>As models improve, the unsolved parts become a larger fraction of the remaining problem.</strong> When a model completes 40 per cent of the reasoning an organisation needs, the reasoning gap dominates and governance looks like overhead. When it completes 90 per cent, what stands between the organisation and a usable result is almost entirely the four properties in section 1. The layer's relative importance rises with the model's absolute capability.</p>
+<p>There is a second effect and it points the same way. A more capable model is entrusted with longer chains of consequential action, and the cost of an unattributable or unauthorised action rises with the length of the chain <span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span>. Capability and required governance move together.</p>
+<h3 id="9-1-how-a-stronger-model-actually-enters-the-system"><a class="r-anchor" href="#9-1-how-a-stronger-model-actually-enters-the-system" aria-label="Link to this section">#</a>9.1 How a stronger model actually enters the system</h3>
+<p>The argument above is abstract and the Founder determination that authorised this paper asked for
+the concrete path, so it is stated. A new foundation model does not become available to work by
+being announced. It enters through a sequence, and every stage is a place it can stop
+<span class="r-claim r-claim-d" title="Design intent — Router is S4">[D]<a class="r-capref" href="/research/capability-register/brain.router/">Router <b>S4</b></a></span>.</p>
+<div class="r-tablewrap" role="region" aria-label="9.1 How a stronger model actually enters the system" tabindex="0"><table><caption>9.1 How a stronger model actually enters the system</caption>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What it establishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Qualification</strong></td>
+<td>That the model exists in a form the platform can address at all: an adapter, a stable interface, terms permitting the intended use, a deployment boundary the organisation's obligations allow</td>
+</tr>
+<tr>
+<td><strong>Evaluation</strong></td>
+<td>How it performs on the task classes the platform actually runs, measured as a system rather than inherited from a published model benchmark</td>
+</tr>
+<tr>
+<td><strong>Security assessment</strong></td>
+<td>What it does under adversarial input, what it discloses, what it will execute, and what its provider retains</td>
+</tr>
+<tr>
+<td><strong>Capability mapping</strong></td>
+<td>Which capability classes it is a candidate for, expressed in capability terms rather than as a name</td>
+</tr>
+<tr>
+<td><strong>Admissibility</strong></td>
+<td>Which policy conditions it satisfies: data class, jurisdiction, residency, sub-processor status, tool permission, evidence obligation. <strong>This is a filter and it is evaluated before anything is scored</strong></td>
+</tr>
+<tr>
+<td><strong>Routing eligibility</strong></td>
+<td>Whether it enters the candidate set for a task class, and under what constraint</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two things follow that matter more than the sequence itself.</p>
+<p><strong>Absorption is a governed act, not an upgrade.</strong> A model becoming eligible changes what the
+platform will do, which makes it a change to production behaviour and therefore something that is
+proposed, recorded and reversible rather than something that happens because a provider shipped.</p>
+<p><strong>A model can pass evaluation and fail admissibility, and that outcome is correct.</strong> A model that
+is better on every quality measure and cannot satisfy a residency obligation is not a better
+choice. It is not a choice. This is the ordering of section 3 applied to the absorption path, and
+it is the reason the path exists as a sequence rather than as a score.</p>
+<p>What this paper does not publish, and will not: the evaluation results, the datasets and scenarios,
+the security assessment findings, the capability mapping for any named model, the admissibility
+predicates, any threshold at any stage, and any weight used in scoring within the candidate set.
+The pipeline is the mechanism. Its settings are the work.</p>
+<h3 id="9-2-what-would-falsify-this"><a class="r-anchor" href="#9-2-what-would-falsify-this" aria-label="Link to this section">#</a>9.2 What would falsify this</h3>
+<p>The paper is worth publishing only if it can be wrong. Five conditions, each of which the Program would treat as falsifying rather than as a setback. A serious research paper states the conditions under which it is wrong, and these are the five.</p>
+<ol>
+<li><strong>A frontier model absorbs the operations.</strong> If a single model, given a task, reliably decomposes it, selects and invokes tools under externally enforced permission, retrieves and grades evidence by distinct origin, verifies its own output through a mechanism that is not itself, and emits a record an auditor accepts, then the layer is a temporary artefact of current model limitations. This is the strongest falsifier and it is not fanciful.</li>
+<li><strong>The record turns out not to be required.</strong> If enterprises and regulators accept ungoverned agentic output at scale, the governance argument loses its buyer regardless of whether it is correct.</li>
+<li><strong>Decomposition loses.</strong> If per-step reliability does not rise enough to beat the multiplication in section 4, decomposed systems will underperform single strong calls on real work.</li>
+<li><strong>The orchestration layer commoditises.</strong> If routing, tool contracts and evidence structures converge on an open standard implemented by every platform, the layer stops being an asset and becomes infrastructure.</li>
+<li><strong>Measurement never arrives.</strong> If no reproducible system-level methodology emerges, the thesis stays unfalsifiable, and an unfalsifiable thesis should not be believed, including by the Program that wrote it.</li>
+</ol>
+<p>Condition 1 is the one to watch and the Program watches it deliberately. Progress against it is progress against this paper.</p>
+<p>The thesis restated so it can be quoted accurately: <strong>NEO does not depend on possessing the strongest individual foundation model, and is designed so that improvements in foundation models compound the capability of the system rather than commoditise it.</strong> Whether that design holds is what section 9.1's absorption path and section 8's unbuilt measurement exist to determine.</p>
+<hr>
+<h2 id="10-conclusion"><a class="r-anchor" href="#10-conclusion" aria-label="Link to this section">#</a>10. Conclusion</h2>
+<p>The measurement is taken at the model because that is where the boundary is clean. The value, for an organisation, sits at a boundary that is harder to measure: a completed unit of work that is attributable, authorised, bounded and recorded.</p>
+<p>The operations that produce those properties are compositional, they interact, and none of them is supplied by a better model. That is why they compound, and it is why model improvement raises rather than lowers the value of the layer above.</p>
+<p>None of it is running. The argument is published now, before there is anything to demonstrate, so that the claim is on the record ahead of the result rather than assembled after it.</p>
+<hr>
+<h2 id="scope-and-limitations"><a class="r-anchor" href="#scope-and-limitations" aria-label="Link to this section">#</a>Scope and Limitations</h2>
+<p>This paper argues an architectural position. It does not describe a deployed system, and every capability it names is at S4 or S5 in a register that is itself PROVISIONAL.</p>
+<p>It reports <strong>no measurement, no benchmark result, no evaluation, and no comparison against any other system, model or vendor</strong>. No such comparison exists and its absence is recorded as an open problem rather than left implicit <span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span>.</p>
+<p>It names no model provider, and it makes no claim about the relative quality of any named model. The permitted comparative thesis is system-level and conditional, and it is stated as such in section 8.</p>
+<p>It does not disclose: any routing threshold, any scoring weight or objective function, any admissibility predicate, any measured per-executor performance figure, any evaluation dataset or scenario, any prompt or policy, any memory or event schema, or any mechanism by which recorded outcomes are converted into changed behaviour. Several of these exist internally. Their absence here is a classification decision, stated in section 6 rather than concealed.</p>
+<p>It would be falsified by any of the five conditions in section 9.2. Condition 1 is the one the Program considers most likely.</p>
+<hr>
+<h2 id="related-research"><a class="r-anchor" href="#related-research" aria-label="Link to this section">#</a>Related Research</h2>
+<ul>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">The End of the Single-Model Enterprise<span class="r-pubid">NEO-AI-R-001 · registered, not drafted</span></span> The End of the Single-Model Enterprise. This paper extends its argument from selection to the full operation set, and follows its position on vendor lock-in without softening it.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date."><a class="r-term" href="/research/glossary/#term-mission" title="Defined term">Mission</a> Control: A Governance Architecture for Autonomous Work<span class="r-pubid">NEO-AI-R-003 · registered, not drafted</span></span> Mission Control: A Governance Architecture for Autonomous Work. Supplies the authority and record half of section 1.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">Evidence, Memory and Accountability in Agentic Systems<span class="r-pubid">NEO-AI-R-005 · registered, not drafted</span></span> Evidence, Memory and Accountability in Agentic Systems. Supplies the memory and evidence operations of section 3.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">Multi-Model Architecture: Resilience Beyond Provider Dependence<span class="r-pubid">NEO-AI-R-007 · registered, not drafted</span></span> Multi-Model Architecture: Resilience Beyond Provider Dependence. Registered, not yet drafted. It will own section 5 in full.</li>
+</ul>
+<h2 id="related-publications"><a class="r-anchor" href="#related-publications" aria-label="Link to this section">#</a>Related Publications</h2>
+<ul>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">Introducing NEO AI: Intelligence Orchestrated<span class="r-pubid">NEO-AI-P-001 · registered, not drafted</span></span> Introducing NEO AI: Intelligence Orchestrated.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">A Note on Responsible AI Capability Claims<span class="r-pubid">NEO-AI-P-007 · registered, not drafted</span></span> A Note on Responsible AI Capability Claims. Governs sections 1.1, 7 and 8 of this paper.</li>
+</ul>
+<h2 id="related-technical-notes"><a class="r-anchor" href="#related-technical-notes" aria-label="Link to this section">#</a>Related Technical Notes</h2>
+<ul>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">Bounding the Autonomy Budget<span class="r-pubid">NEO-AI-TN-001 · registered, not drafted</span></span> Bounding the Autonomy Budget.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">Detecting <a class="r-term" href="/research/glossary/#term-circular-corroboration" title="Defined term">Circular Corroboration</a> in an <a class="r-term" href="/research/glossary/#term-evidence-chain" title="Defined term">Evidence Chain</a><span class="r-pubid">NEO-AI-TN-002 · registered, not drafted</span></span> Detecting Circular Corroboration in an Evidence Chain. Section 3's evidence operation depends on it.</li>
+<li><span class="r-pubref-dead" title="Registered, not drafted. No date.">What Belongs in a Mission Event<span class="r-pubid">NEO-AI-TN-003 · registered, not drafted</span></span> What Belongs in a Mission Event. Section 1's record property depends on it.</li>
+</ul>
+<h2 id="related-architecture"><a class="r-anchor" href="#related-architecture" aria-label="Link to this section">#</a>Related Architecture</h2>
+<p>None in this wave. The architecture documents supporting this paper are classified CONFIDENTIAL TECHNICAL ARCHITECTURE and are not published.</p>
+<h2 id="related-engineering"><a class="r-anchor" href="#related-engineering" aria-label="Link to this section">#</a>Related Engineering</h2>
+<p>None in this wave. The evaluation methodology referenced in section 8 is classified CONFIDENTIAL TECHNICAL ARCHITECTURE and is not published.</p>
+<h2 id="related-figures"><a class="r-anchor" href="#related-figures" aria-label="Link to this section">#</a>Related Figures</h2>
+<p>None in Wave 1. A figure for the eight operations of section 3 is specified and not drawn.</p>
+<h2 id="related-terms"><a class="r-anchor" href="#related-terms" aria-label="Link to this section">#</a>Related Terms</h2>
+<p><code>Mission</code> . <code>Mission State</code> . <code>Mission Envelope</code> . <code>Task Graph</code> . <code>Router</code> . <code>Evidence Layer</code> . <code>Evidence Chain</code> . <code>Evidence Ledger</code> . <code>Validation Layer</code> . <code>Capability Register</code> . <code>Capability Status</code> . <code>Human Authority</code> . <code>Decision Record</code> . <code>Claim Class</code> . <code>Admissible Set</code> . <code>Bounded Autonomy</code> . <code>Graceful Substitution</code> . <code>Circular Corroboration</code> . <code>NEO System Intelligence</code> (pending a vocabulary amendment)</p>
+<h2 id="evidence-table"><a class="r-anchor" href="#evidence-table" aria-label="Link to this section">#</a>Evidence Table</h2>
+<div class="r-tablewrap" role="region" aria-label="Evidence Table" tabindex="0"><table><caption>Evidence Table</caption>
+<thead>
+<tr>
+<th>#</th>
+<th>Claim</th>
+<th>Class</th>
+<th>Source</th>
+<th>Capability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Eliciting intermediate steps improves multi-step reasoning relative to direct answering</td>
+<td><span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span></td>
+<td>Wei et al., 2022</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Interleaving reasoning with environment actions is a workable control pattern</td>
+<td><span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span></td>
+<td>Yao et al., 2023</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Grounding generation in retrieved documents reduces unsupported assertion on knowledge-intensive tasks</td>
+<td><span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span></td>
+<td>Lewis et al., 2020</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Checking a candidate answer is a distinct computation from producing one</td>
+<td><span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span></td>
+<td>Wang et al., 2023</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>The four required properties of an enterprise result are not model output properties</td>
+<td><span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>The eight operations interact rather than contributing independently</td>
+<td><span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Multi-model architecture provides replaceability under contract and not independence</td>
+<td><span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span></td>
+<td><span class="r-pubref-dead" title="Registered, not drafted. No date.">The End of the Single-Model Enterprise<span class="r-pubid">NEO-AI-R-001 s4.4 · registered, not drafted</span></span></td>
+<td><code>brain.router</code> S4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Model improvement raises the relative importance of the layer above</td>
+<td><span class="r-claim r-claim-a" title="Architectural interpretation — An inference the Program holds and has not proved">[A]</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>The eight operations are specified and none is running</td>
+<td><span class="r-claim r-claim-d" title="Design intent">[D]</span></td>
+<td></td>
+<td><code>brain</code> S4</td>
+</tr>
+<tr>
+<td>10</td>
+<td>A substitution conformance suite is specified and has not been run</td>
+<td><span class="r-claim r-claim-d" title="Design intent">[D]</span></td>
+<td></td>
+<td><code>brain.validation</code> S4</td>
+</tr>
+<tr>
+<td>11</td>
+<td>A system-level evaluation methodology is specified and has not been run</td>
+<td><span class="r-claim r-claim-d" title="Design intent">[D]</span></td>
+<td></td>
+<td><code>assurance.eval-harness</code> S5</td>
+</tr>
+<tr>
+<td>12</td>
+<td>No published work establishes that a specific orchestration architecture produces a specific improvement on governed enterprise tasks</td>
+<td><span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Late, partial and absent ground truth makes outcome labelling unreliable for most enterprise work</td>
+<td><span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>No reproducible comparison against any other system exists</td>
+<td><span class="r-claim r-claim-o" title="Open problem — Named and unsolved">[O]</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="references"><a class="r-anchor" href="#references" aria-label="Link to this section">#</a>References</h2>
+<p>Lewis, P. et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. Advances in Neural Information Processing Systems 33. Accessed 2026-08-12.</p>
+<p>Wang, X. et al. (2023). Self-Consistency Improves Chain of Thought Reasoning in Language Models. International Conference on Learning Representations. Accessed 2026-08-12.</p>
+<p>Wei, J. et al. (2022). Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. Advances in Neural Information Processing Systems 35. Accessed 2026-08-12.</p>
+<p>Yao, S. et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. International Conference on Learning Representations. Accessed 2026-08-12.</p>
+<p><strong>Verification note.</strong> Each reference above must be verified against the published version, and its accessed date corrected, before this paper leaves DRAFT. The Program's citation and evidence standard requires an external primary source for every <span class="r-claim r-claim-e" title="Established — An external primary source is cited">[E]</span> claim, and a citation carried forward from another document without verification does not satisfy it.</p>
+<h2 id="version-history"><a class="r-anchor" href="#version-history" aria-label="Link to this section">#</a>Version History</h2>
+<div class="r-tablewrap" role="region" aria-label="Version History" tabindex="0"><table><caption>Version History</caption>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Status</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.0</td>
+<td>2026-08-12</td>
+<td>DRAFT</td>
+<td>First issue. Written for the public research release to supply the missing centre of the public corpus: the argument that intelligence is a property of the system rather than of the model, and that model improvement raises rather than lowers the value of the layer above. Discloses no routing parameter, no evaluation dataset, no learning mechanism and no measured result. Identifier requested and not allocated.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="how-to-cite"><a class="r-anchor" href="#how-to-cite" aria-label="Link to this section">#</a>How to Cite</h2>
+<p>Mosse, M. (2026). <em>From Model Intelligence to System Intelligence: How Orchestration Compounds Capability</em>. NEO AI Research Program, v1.0. Cite by title and version until an identifier is allocated.</p></div>
+
+  <section class="r-cite">
+    <h2 id="how-to-cite-this-page">How to cite this page</h2>
+    <p>Mosse, M. (2026). <cite>From Model Intelligence to System Intelligence: How Orchestration Compounds Capability</cite>. NEO AI Research
+      Program, v1.0. Cite by title and version until an identifier is allocated.</p>
+    <p>Permanent route: <a href="/id/NEO-AI-R-009">https://neoai.myneogroup.com/id/NEO-AI-R-009</a></p>
+  </section>
+</article>
+
+</main>
+<footer>
+  <div class="f-in r-f-in">
+    <div class="r-f-links"><a href="/research/">Research</a><a href="/research/methodology/">Methodology</a><a href="/research/capability-register/">Capability Register</a><a href="/research/glossary/">Glossary</a><a href="/research/updates/">Updates</a><a href="/feeds/all.xml">Atom feed</a><a href="/?legal=privacy">Privacy</a><a href="/?legal=terms">Terms</a><a href="/?legal=cookies">Cookies</a></div>
+    <p class="f-copy f-co">NEO AI is operated by <b>NEO TECH LABS TECHNOLOGY L.L.C</b> &middot; Licence 1320892 &middot; Iris Bay, Business Bay, Dubai, UAE &middot; A subsidiary of <b>My NEO Group</b>.</p>
+    <p class="f-copy">Research content is licensed <a class="r-inline" href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>. Nothing in this corpus describes a deployed system unless its capability status says so.</p>
+    <p class="f-copy">&copy; 2026 My NEO Group / NEO AI. All rights reserved.</p>
+  </div>
+  <link rel="me" href="https://mickaelmosse.ai/about/">
+  <link rel="author" href="https://mickaelmosse.ai/about/">
+  <link rel="publisher" href="https://neoai.myneogroup.com/research/about/">
+</footer>
+<script defer src="/assets/js/research.min.js"></script>
+</body>
+</html>

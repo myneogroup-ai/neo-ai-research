@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NEO AI Research</title>
+  <id>https://neoai.myneogroup.com/feeds/all.xml</id>
+  <updated>2026-08-12T00:00:00Z</updated>
+  <link rel="self" href="https://neoai.myneogroup.com/feeds/all.xml" />
+  <link rel="alternate" href="https://neoai.myneogroup.com/research/" />
+  <rights>CC BY 4.0</rights>
+  <author>
+    <name>Mickael Mosse</name>
+    <uri>https://mickaelmosse.ai/about/</uri>
+  </author>
+  <entry>
+    <title>From Model Intelligence to System Intelligence: How Orchestration Compounds Capability</title>
+    <id>https://neoai.myneogroup.com/id/NEO-AI-R-009</id>
+    <published>2026-08-12T00:00:00Z</published>
+    <updated>2026-08-12T00:00:00Z</updated>
+    <link rel="alternate" href="https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/" />
+    <category term="papers" />
+    <summary>The industry measures intelligence at the model. Benchmarks score a model, procurement selects a model, and product claims inherit a model&#x27;s results by adjacency. This paper argues that the measurement is taken at the wrong boundary for most enterprise work, and that the quantity an organisation actually cares about is a property of a system rather than of a component inside it. The argument has three parts. First, the unit of enterprise work is a task with a required outcome, a permitted set of actions, an authority under which it is performed and a record it must leave, and none of those four is a property a model has. Second, the operations that convert a model call into a completed unit of work, which are decomposition, selection, tool use, retrieval, verification, memory, evidence and approval, are compositional: each raises the probability that the whole is correct, and their effec</summary>
+  </entry>
+</feed>
