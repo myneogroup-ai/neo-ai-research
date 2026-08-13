@@ -1,0 +1,81 @@
+name: Correction
+description: A factual error in a published document
+title: "[correction] "
+labels: ["type: correction", "state: needs-source"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Corrections are welcome and are published as errata rather than quietly fixed.
+        A correction with a primary source attached is the most useful contribution
+        this repository can receive.
+  - type: input
+    id: document
+    attributes:
+      label: Document
+      description: Identifier and version, for example NEO-AI-R-009 v1.0
+      placeholder: NEO-AI-___-___ v_._
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Section, or the URL of the page
+      placeholder: Section 4.2, or https://neoai.myneogroup.com/research/papers/.../
+    validations:
+      required: true
+  - type: textarea
+    id: quoted
+    attributes:
+      label: The sentence as published
+      description: Quote it exactly. Do not paraphrase.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong with it
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Primary source
+      description: >-
+        A link to the primary source, not to an article about it. If the claim is
+        classed [A], [D] or [O] rather than [E], say so here instead: those classes are
+        not settled by a source and the correction is a different kind of argument.
+    validations:
+      required: true
+  - type: dropdown
+    id: claimclass
+    attributes:
+      label: Claim class of the sentence
+      options:
+        - "[E] established"
+        - "[A] architectural interpretation"
+        - "[D] design intent"
+        - "[O] open problem"
+        - "The sentence carries no class, which is itself the defect"
+        - "I do not know"
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Does this change what the sentence asserts
+      options:
+        - "Yes. It changes the assertion"
+        - "No. Typography, formatting or a link"
+    validations:
+      required: true
+  - type: checkboxes
+    id: classification
+    attributes:
+      label: Classification
+      options:
+        - label: >-
+            This report adds no information about NEO AI internals that is not already
+            published in this repository
+          required: true

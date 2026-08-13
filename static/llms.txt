@@ -1,0 +1,38 @@
+# NEO AI Research
+
+> The public research corpus of the NEO AI Research Program. Every material
+> statement carries a claim class: [E] established, with an external primary
+> source; [A] architectural interpretation; [D] design intent, carrying a
+> capability status; [O] open problem. Capability statuses resolve from a
+> published register. Nothing in this corpus describes a deployed system
+> unless its capability status says so.
+
+## How to cite
+Use the publication identifier and version, for example NEO-AI-P-007 v1.0, and
+the permanent route https://neoai.myneogroup.com/id/NEO-AI-P-007
+
+
+## Research papers
+- [From Model Intelligence to System Intelligence: How Orchestration Compounds Capability](https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/): identifier not yet allocated
+
+## Institutional publications
+None published yet.
+
+## Technical notes
+None published yet.
+
+## Method
+- [How this corpus classes claims and reports capability](https://neoai.myneogroup.com/research/methodology/): claim classes, evidence tiers, how to cite, and what the Program will not claim
+
+## Capability register
+- [Capability Register](https://neoai.myneogroup.com/research/capability-register/): register version 1.2, provisional
+- [capabilities.json](https://neoai.myneogroup.com/capabilities.json): machine readable
+
+## Glossary
+- [Controlled vocabulary](https://neoai.myneogroup.com/research/glossary/): one page per defined term
+
+## Optional
+Founder thesis and annotation: https://mickaelmosse.ai/
+
+## What this file does not contain
+No summary of any paper beyond its abstract, and no key-findings section. The Program publishes no benchmark and no comparison against any other system. A generated summary of a paper that reports no measurement is where an invented finding would come from, so none is generated.

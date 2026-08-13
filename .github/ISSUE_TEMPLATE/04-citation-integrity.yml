@@ -1,0 +1,48 @@
+name: Citation integrity
+description: A URL, identifier, version or redirect that breaks a citation
+title: "[citation] "
+labels: ["severity: citation-integrity"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        A version-pinned archive URL is immutable and is never redirected forward.
+        Redirecting one forward silently falsifies the citation record, and it is the one
+        failure in this corpus that no rollback repairs. If you have found one, this is
+        the right form.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is broken
+      options:
+        - A version-pinned URL redirects somewhere other than itself
+        - An identifier route does not resolve
+        - A canonical URL points at the wrong page
+        - A slug changed after publication
+        - A redirect chain or loop
+        - A cited version no longer exists
+        - A document cites an identifier that is not allocated
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL as you used it
+    validations:
+      required: true
+  - type: input
+    id: resolved
+    attributes:
+      label: Where it actually resolved
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Where you expected it to resolve
+  - type: textarea
+    id: chain
+    attributes:
+      label: Full redirect chain, if any
+      description: "Output of: curl -sIL <url> | grep -i '^location'"
+      render: text

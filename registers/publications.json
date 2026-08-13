@@ -1,0 +1,250 @@
+{
+  "artefact": "NEO_AI_PUBLIC_PUBLICATION_REGISTER",
+  "version": "1.0",
+  "status": "PUBLIC PROJECTION",
+  "classification": "A - PUBLIC RESEARCH",
+  "provenance": "Mechanical projection of the Program publication register. Class A and A_AFTER_REDUCTION entries only. Withholding reasons, withheld section lists, blocking items and internal source paths are removed by the projection and are not recoverable from this file.",
+  "identifier_authority": "The Program identifier register, which is not public. This file allocates nothing and mirrors allocations only.",
+  "canonical_host": "neoai.myneogroup.com",
+  "route_template": "https://neoai.myneogroup.com/research/{category_slug}/{slug}/",
+  "identifier_route_template": "https://neoai.myneogroup.com/id/{id}",
+  "pinned_version_template": "https://neoai.myneogroup.com/research/{category_slug}/{slug}/v{M}.{m}/",
+  "entries": [
+    {
+      "id": "NEO-AI-P-001",
+      "title": "Introducing NEO AI: Intelligence Orchestrated",
+      "type": "Institutional Publication",
+      "category_slug": "institutional",
+      "slug": "introducing-neo-ai",
+      "canonical_url": "https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/",
+      "schema_type": "ScholarlyArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-R-009",
+        "NEO-AI-P-007",
+        "NEO-AI-R-001",
+        "NEO-AI-R-003"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": true,
+      "content_path": "content/institutional/introducing-neo-ai.md",
+      "content_present": false
+    },
+    {
+      "id": "NEO-AI-P-007",
+      "title": "A Note on Responsible AI Capability Claims",
+      "type": "Institutional Publication",
+      "category_slug": "institutional",
+      "slug": "responsible-capability-claims",
+      "canonical_url": "https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/",
+      "schema_type": "ScholarlyArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-P-001",
+        "NEO-AI-R-009"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": true,
+      "content_path": "content/institutional/responsible-capability-claims.md",
+      "content_present": false
+    },
+    {
+      "id": "NEO-AI-R-009",
+      "title": "From Model Intelligence to System Intelligence: How Orchestration Compounds Capability",
+      "type": "Research Paper",
+      "category_slug": "papers",
+      "slug": "model-intelligence-to-system-intelligence",
+      "canonical_url": "https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/",
+      "schema_type": "ScholarlyArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-P-001",
+        "NEO-AI-P-007",
+        "NEO-AI-R-001",
+        "NEO-AI-R-003",
+        "NEO-AI-R-005"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": false,
+      "citation_note": "Identifier requested and not yet allocated. Cite by title and version until allocation lands.",
+      "content_path": "content/papers/model-intelligence-to-system-intelligence.md",
+      "content_present": true
+    },
+    {
+      "id": "NEO-AI-TN-001",
+      "title": "Bounding the Autonomy Budget",
+      "type": "Technical Note",
+      "category_slug": "technical-notes",
+      "slug": "bounding-the-autonomy-budget",
+      "canonical_url": "https://neoai.myneogroup.com/research/technical-notes/bounding-the-autonomy-budget/",
+      "schema_type": "TechArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-R-003",
+        "NEO-AI-R-009"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": true,
+      "content_path": "content/technical-notes/bounding-the-autonomy-budget.md",
+      "content_present": false
+    },
+    {
+      "id": "NEO-AI-TN-002",
+      "title": "Detecting Circular Corroboration in an Evidence Chain",
+      "type": "Technical Note",
+      "category_slug": "technical-notes",
+      "slug": "circular-corroboration",
+      "canonical_url": "https://neoai.myneogroup.com/research/technical-notes/circular-corroboration/",
+      "schema_type": "TechArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-R-005",
+        "NEO-AI-R-009"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": true,
+      "content_path": "content/technical-notes/circular-corroboration.md",
+      "content_present": false
+    },
+    {
+      "id": "NEO-AI-TN-003",
+      "title": "What Belongs in a Mission Event",
+      "type": "Technical Note",
+      "category_slug": "technical-notes",
+      "slug": "what-belongs-in-a-mission-event",
+      "canonical_url": "https://neoai.myneogroup.com/research/technical-notes/what-belongs-in-a-mission-event/",
+      "schema_type": "TechArticle",
+      "wave": 1,
+      "related": [
+        "NEO-AI-R-003",
+        "NEO-AI-R-009"
+      ],
+      "publish": true,
+      "status": "APPROVED_FOR_WAVE_1",
+      "identifier_allocated": true,
+      "content_path": "content/technical-notes/what-belongs-in-a-mission-event.md",
+      "content_present": false
+    },
+    {
+      "id": "NEO-AI-R-001",
+      "title": "The End of the Single-Model Enterprise",
+      "type": "Research Paper",
+      "category_slug": "papers",
+      "slug": "end-of-the-single-model-enterprise",
+      "canonical_url": "https://neoai.myneogroup.com/research/papers/end-of-the-single-model-enterprise/",
+      "schema_type": "ScholarlyArticle",
+      "wave": "1b",
+      "related": [
+        "NEO-AI-R-009",
+        "NEO-AI-P-001",
+        "NEO-AI-R-007"
+      ],
+      "publish": false,
+      "status": "HELD_FOR_WAVE_1B",
+      "identifier_allocated": true,
+      "content_path": "content/papers/end-of-the-single-model-enterprise.md",
+      "content_present": true
+    },
+    {
+      "id": "NEO-AI-R-003",
+      "title": "Mission Control: A Governance Architecture for Autonomous Work",
+      "type": "Research Paper",
+      "category_slug": "papers",
+      "slug": "mission-control-governance-architecture",
+      "canonical_url": "https://neoai.myneogroup.com/research/papers/mission-control-governance-architecture/",
+      "schema_type": "ScholarlyArticle",
+      "wave": "1b",
+      "related": [
+        "NEO-AI-R-009",
+        "NEO-AI-TN-003",
+        "NEO-AI-TN-001"
+      ],
+      "publish": false,
+      "status": "HELD_FOR_WAVE_1B",
+      "identifier_allocated": true,
+      "content_path": "content/papers/mission-control-governance-architecture.md",
+      "content_present": true
+    },
+    {
+      "id": "NEO-AI-R-005",
+      "title": "Evidence, Memory and Accountability in Agentic Systems",
+      "type": "Research Paper",
+      "category_slug": "papers",
+      "slug": "evidence-memory-accountability",
+      "canonical_url": "https://neoai.myneogroup.com/research/papers/evidence-memory-accountability/",
+      "schema_type": "ScholarlyArticle",
+      "wave": "1b",
+      "related": [
+        "NEO-AI-R-009",
+        "NEO-AI-TN-002"
+      ],
+      "publish": false,
+      "status": "HELD_FOR_WAVE_1B",
+      "identifier_allocated": true,
+      "content_path": "content/papers/evidence-memory-accountability.md",
+      "content_present": true
+    }
+  ],
+  "registered_not_drafted": [
+    {
+      "id": "NEO-AI-R-002",
+      "title": "From AI Assistants to Governed Agent Systems",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-R-004",
+      "title": "Private AI Is an Operating Model, Not a Deployment Choice",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-R-006",
+      "title": "The Intelligence Layer: From Fragmented Data to Defensible Decisions",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-R-007",
+      "title": "Multi-Model Architecture: Resilience Beyond Provider Dependence",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-R-008",
+      "title": "The New Enterprise Stack: Models, Agents, Tools, Memory and Approval",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-002",
+      "title": "Why NEO AI Is Being Built Around Human Authority",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-003",
+      "title": "LILI: A New Interface for Complex Work",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-004",
+      "title": "NEO AI and the Future of Enterprise Creation",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-005",
+      "title": "Building an AI Ecosystem With Discipline",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-006",
+      "title": "NEO Intelligence: A Governed Reasoning Layer for Evidence-Intensive Investigation",
+      "status": "registered, not drafted, no date"
+    },
+    {
+      "id": "NEO-AI-P-008",
+      "title": "Research, Governance and the NEO AI Public Record",
+      "status": "registered, not drafted, no date"
+    }
+  ]
+}

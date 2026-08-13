@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "{{canonical_url}}#breadcrumb",
+  "_note": "Emitted only where the trail is rendered. A breadcrumb that exists only in markup is prohibited.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Research",
+      "item": "https://neoai.myneogroup.com/research/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{category_name}}",
+      "item": "{{category_url}}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{title}}",
+      "item": "{{canonical_url}}"
+    }
+  ]
+}

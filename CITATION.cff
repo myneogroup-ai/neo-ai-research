@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: >-
+  If you cite this corpus, cite the individual publication by its identifier and version,
+  not this repository. The permanent identifier route resolves to the current canonical
+  URL. A version-pinned archive URL is immutable and is the correct target for a citation
+  that must not move.
+title: NEO AI Research Corpus
+abstract: >-
+  The public research corpus of the NEO AI Research Program. Research papers,
+  institutional publications and technical notes on orchestration, governance of
+  autonomous work, evidence architecture and human authority in agentic systems. Every
+  material statement carries a claim class distinguishing established fact from
+  architectural interpretation, design intent and open problem. No benchmark and no
+  comparison against any other system is reported.
+type: dataset
+authors:
+  - family-names: Mosse
+    given-names: Mickael
+    affiliation: NEO AI Research Program, NEO TECH LABS
+    website: https://mickaelmosse.ai/about/
+repository-code: https://github.com/myneogroup-ai/neo-ai-research
+url: https://neoai.myneogroup.com/research/
+license: CC-BY-4.0
+keywords:
+  - AI orchestration
+  - agent governance
+  - evidence architecture
+  - capability claims
+  - human authority
+  - multi-model systems
+version: 1.0.0
+date-released: "2026-08-12"
+preferred-citation:
+  type: report
+  title: A Note on Responsible AI Capability Claims
+  authors:
+    - family-names: Mosse
+      given-names: Mickael
+  institution:
+    name: NEO AI Research Program
+  number: NEO-AI-P-007
+  version: "1.0"
+  url: https://neoai.myneogroup.com/id/NEO-AI-P-007
+  year: 2026
+  notes: >-
+    P-007 is the method text. It states how the Program classes claims and how it reports
+    capability status, and it is the correct entry point for a reader evaluating whether
+    anything else in the corpus is trustworthy.

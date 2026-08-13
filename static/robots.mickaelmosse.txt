@@ -1,0 +1,14 @@
+# mickaelmosse.ai
+# Authored, not generated.
+#
+# The corpus filter parameters are absent because the corpus does not live here. This
+# host carries original founder writing, bounded abstracts and annotation.
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /search
+
+Sitemap: https://mickaelmosse.ai/sitemap.xml

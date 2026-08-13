@@ -1,0 +1,81 @@
+name: conformance
+
+# The gate. Everything else in CI is convenience; this is the check that stops a public
+# repository acquiring something it must not contain.
+
+on:
+  push:
+    branches: [main, "release/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: conformance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The full history is needed so the secret scan sees what was committed, not
+          # only what survived into the working tree. A secret deleted in a later commit
+          # is still published.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Self-test the conformance checks
+        # Runs first, deliberately. A check that cannot fire is worse than no check, and
+        # a green conformance run against a broken detector is the failure mode this
+        # step exists to prevent.
+        run: python3 scripts/verify_public.py --self-test
+
+      - name: Conformance
+        run: python3 scripts/verify_public.py
+
+      - name: Indexes are current
+        run: python3 scripts/build_indexes.py --check
+
+      - name: Discovery files are current
+        run: python3 scripts/gen_seo.py --check
+
+      - name: Registers parse
+        run: |
+          for f in registers/*.json schema/*.jsonld schema/*.json; do
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" || exit 1
+          done
+          echo "all JSON parses"
+
+      - name: Secret scan over the full history
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          VERSION="8.30.1"
+          ARCHIVE="gitleaks_${VERSION}_linux_x64.tar.gz"
+          URL="https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/${ARCHIVE}"
+
+          echo "Installing Gitleaks v${VERSION}"
+
+          curl             --fail             --location             --retry 5             --retry-all-errors             --connect-timeout 20             --output "/tmp/${ARCHIVE}"             "$URL"
+
+          tar -xzf "/tmp/${ARCHIVE}" -C /tmp gitleaks
+
+          /tmp/gitleaks git             --redact             --verbose             .
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Conformance"
+            echo ""
+            python3 scripts/verify_public.py | tail -20
+          } >> "$GITHUB_STEP_SUMMARY"

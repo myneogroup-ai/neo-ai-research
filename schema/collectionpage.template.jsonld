@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{url}}#collection",
+  "name": "{{title}}",
+  "url": "{{url}}",
+  "isPartOf": {
+    "@id": "https://neoai.myneogroup.com/research/"
+  },
+  "publisher": {
+    "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+  },
+  "_note": "hasPart lists only entries that resolve. The register holds nineteen identifiers and six documents ship; an index that lists the other thirteen is a broken-link surface and reads as inflation.",
+  "hasPart": [
+    "{{at_ids_of_publications_that_exist}}"
+  ]
+}

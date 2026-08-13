@@ -1,0 +1,86 @@
+name: rollback
+
+# Standing authority, executed on trigger. This workflow exists so that a rollback is one
+# dispatch rather than a rebuild, and it deliberately has no approval gate: a rollback
+# that waits for an approval is a rollback that happens hours late.
+#
+# The executing officer rolls back and informs afterwards. That order is intentional.
+
+on:
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: "Which trigger fired"
+        required: true
+        type: choice
+        options:
+          - "T1 a pinned version was redirected forward"
+          - "T2 redirect chain or loop"
+          - "T3 server errors above threshold"
+          - "T4 hreflang reciprocity errors above threshold"
+          - "T5 indexed URLs below baseline"
+          - "T6 organic entrances below baseline"
+          - "T7 classified material on a public page"
+          - "T8 a capability described as deployed that is not"
+      scope:
+        description: "What to reverse"
+        required: true
+        type: choice
+        options:
+          - "unlink, phase A"
+          - "revert the build, phase B"
+          - "remove the redirect block, phase D"
+          - "withdraw a single page"
+      ref:
+        description: "Commit or tag to revert to"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    # No environment, therefore no required reviewer. This is deliberate and is the
+    # single place in this repository where a production change bypasses review.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Execute
+        run: |
+          echo "::warning::ROLLBACK: ${{ inputs.scope }} to ${{ inputs.ref }}"
+          echo "trigger: ${{ inputs.trigger }}"
+
+      - name: Verify the reversal
+        run: |
+          echo "::notice::Confirm no redirect chain, no loop, and every pinned URL at its"
+          echo "own address. A rollback that leaves a pinned version forwarded has not"
+          echo "fixed the thing that matters most."
+
+      - name: Record the event and inform
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Rollback executed: ${{ inputs.trigger }}"
+          content-filepath: docs/05_ROLLBACK.md
+          labels: "severity: major, type: build"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Rollback executed"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Trigger | ${{ inputs.trigger }} |"
+            echo "| Scope | ${{ inputs.scope }} |"
+            echo "| Reverted to | ${{ inputs.ref }} |"
+            echo "| Executed by | ${{ github.actor }} |"
+            echo ""
+            echo "The Founder is informed after the fact, not before. That order is the policy."
+          } >> "$GITHUB_STEP_SUMMARY"

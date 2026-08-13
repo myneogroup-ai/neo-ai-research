@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NEO AI Research: corrections and errata</title>
+  <id>https://neoai.myneogroup.com/feeds/updates.xml</id>
+  <updated>2026-08-12T00:00:00Z</updated>
+  <link rel="self" href="https://neoai.myneogroup.com/feeds/updates.xml" />
+  <author>
+    <name>Mickael Mosse</name>
+    <uri>https://mickaelmosse.ai/about/</uri>
+  </author>
+</feed>

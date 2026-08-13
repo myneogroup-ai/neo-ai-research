@@ -1,0 +1,51 @@
+# NEO AI Research — CODEOWNERS
+#
+# Named individual ownership only.
+#
+# @NEOJarvis2026
+# Founder / accountable repository owner.
+#
+# @DiaaSaada
+# Independent technical reviewer for technical repository surfaces.
+#
+# Publication Gate B remains separate:
+# no author may approve their own publication.
+
+# Default
+*                                   @NEOJarvis2026
+
+# Research corpus
+/content/papers/                    @NEOJarvis2026
+/content/institutional/             @NEOJarvis2026
+/content/technical-notes/           @NEOJarvis2026
+/content/glossary/                  @NEOJarvis2026
+
+# Website copy
+/content/site/neoai/                @NEOJarvis2026
+/content/site/founder/              @NEOJarvis2026
+
+# Machine-readable state
+/registers/                         @NEOJarvis2026 @DiaaSaada
+/registers/vocabulary.json          @NEOJarvis2026
+/registers/capabilities.json        @NEOJarvis2026 @DiaaSaada
+
+# Structured data / technical surfaces
+/schema/                            @NEOJarvis2026 @DiaaSaada
+/scripts/                           @NEOJarvis2026 @DiaaSaada
+/.github/workflows/                 @NEOJarvis2026 @DiaaSaada
+/static/robots.neoai.txt            @NEOJarvis2026 @DiaaSaada
+/static/robots.mickaelmosse.txt     @NEOJarvis2026 @DiaaSaada
+
+# Workflow documentation
+/docs/                              @NEOJarvis2026 @DiaaSaada
+
+# Sensitive publication controls
+/docs/07_CLASSIFICATION_POLICY.md   @NEOJarvis2026
+/scripts/verify_public.py           @NEOJarvis2026 @DiaaSaada
+
+# Governance / repository metadata
+/LICENSE                            @NEOJarvis2026
+/LICENSE-CODE                       @NEOJarvis2026
+/SECURITY.md                        @NEOJarvis2026
+/CITATION.cff                       @NEOJarvis2026
+/.github/CODEOWNERS                 @NEOJarvis2026 @DiaaSaada

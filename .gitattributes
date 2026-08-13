@@ -1,17 +1,25 @@
 * text=auto eol=lf
 
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.webp binary
-*.gif binary
-*.pdf binary
-*.docx binary
-*.zip binary
+*.md       text diff=markdown
+*.json     text
+*.yml      text
+*.yaml     text
+*.py       text diff=python
+*.txt      text
+*.cff      text
+*.jsonld   text
+*.xml      text
 
-*.svg text
-*.md text
-*.json text
-*.yaml text
-*.yml text
-*.toml text
+*.pdf      binary
+*.png      binary
+*.jpg      binary
+*.woff2    binary
+
+# Keep generated artefacts out of pull request diffs. They are reviewed by regenerating
+# them, not by reading the diff.
+static/sitemap*.xml   linguist-generated=true
+static/llms.txt       linguist-generated=true
+static/feeds/**       linguist-generated=true
+
+content/**            linguist-documentation=true
+docs/**               linguist-documentation=true

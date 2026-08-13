@@ -1,0 +1,54 @@
+name: Glossary term
+description: An unclear definition, a collision between terms, or a proposed new term
+title: "[glossary] "
+labels: ["type: glossary", "doc: glossary"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        The controlled vocabulary is `registers/vocabulary.json`. Adding a term is a
+        governance act rather than an edit, because a new term changes the entity graph
+        and first-occurrence linking across the whole corpus. Proposals are adjudicated,
+        not merged.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of report is this
+      options:
+        - A definition is unclear or wrong
+        - Two terms collide, or one is used for two things
+        - A term is used in the corpus but defined nowhere
+        - I am proposing a new term
+        - A prohibited synonym is in use
+    validations:
+      required: true
+  - type: input
+    id: term
+    attributes:
+      label: Term
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Detail
+      description: Quote the definition or the usage. Name the pages where it appears.
+    validations:
+      required: true
+  - type: textarea
+    id: existing
+    attributes:
+      label: Why an existing locked term does not already cover this
+      description: >-
+        Required for a proposed term. A term that an existing locked term expresses
+        cleanly without loss of meaning is a redundant synonym and will be refused rather
+        than added. Check the locked list before answering.
+  - type: checkboxes
+    id: refused
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: >-
+            I have checked that this is not `Provider Independence`, which is refused and
+            prohibited. The corpus uses `Provider Replaceability`
+          required: true
