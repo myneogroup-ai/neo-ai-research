@@ -1,0 +1,39 @@
+/* NEO AI — navigation fit. Loaded AFTER site.min.css on the landing page and
+   on every research page.
+
+   THE DEFECT THIS FIXES IS OLDER THAN THIS RELEASE. `.nav` is
+   position:fixed;left:50%;transform:translateX(-50%) with no width bound, so it
+   sizes to its content. With the eight deployed links it measures 1278px, and
+   `.nav .links` does not collapse until 1080px. Between 1081px and 1278px the
+   pill is therefore wider than the viewport and its ends are clipped by
+   body{overflow-x:hidden} — silently, with no scrollbar to reveal it. Measured
+   on the unmodified v17.2 build: at a 1100px viewport the pill overhangs by
+   89px, 44px cut from each end.
+
+   Adding the Research link (MODIFICATIONS.md, M-02) takes the pill to 1353px
+   and would widen that band to 1081–1353px. This file makes the nine-link bar
+   narrower than the deployed eight-link bar, so the release closes the gap
+   instead of widening it.
+
+   Scoped to the band where it matters. Above 1400px nothing changes; below
+   1081px the existing rule hides .links and nothing changes there either. */
+
+@media (min-width:1081px) and (max-width:1400px){
+  .nav{max-width:calc(100vw - 20px)}
+  .nav .links{gap:10px;min-width:0}
+  .nav .links a{font-size:12px;letter-spacing:-.1px}
+  .nav .cta{padding:8px 14px;font-size:12px}
+  .nav .lang{padding:4px 7px;font-size:11px}
+}
+
+/* Last resort. If a future link, a longer translation or a wider font face
+   pushes the row past the viewport anyway, the row scrolls inside the pill
+   rather than being clipped by the body. Reachable, and it never silently
+   truncates. */
+@media (min-width:1081px){
+  .nav{max-width:calc(100vw - 20px)}
+  .nav .links{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+    scroll-snap-type:x proximity}
+  .nav .links::-webkit-scrollbar{display:none}
+  .nav .links a{scroll-snap-align:start}
+}

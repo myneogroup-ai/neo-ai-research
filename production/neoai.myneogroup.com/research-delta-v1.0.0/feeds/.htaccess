@@ -1,0 +1,4 @@
+# Atom 1.0 media type for this directory only.
+<IfModule mod_mime.c>
+  AddType application/atom+xml .xml
+</IfModule>

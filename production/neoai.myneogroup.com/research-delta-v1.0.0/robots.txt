@@ -1,0 +1,26 @@
+# neoai.myneogroup.com
+# Authored, not generated.
+#
+# CCBot is allowed here, and that is a deliberate change rather than an oversight.
+# The earlier standard denied it because this host carried no publication text. It
+# now carries the corpus, and the reason for the denial went with the reason for
+# the host.
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /search
+Disallow: /*?category=
+Disallow: /*?status=
+Disallow: /*?capability=
+Disallow: /*?claim=
+Disallow: /*?topic=
+Disallow: /*?sort=
+Disallow: /*?year=
+Allow: /capabilities.json
+Allow: /pdf/
+Allow: /*.svg$
+
+Sitemap: https://neoai.myneogroup.com/sitemap.xml

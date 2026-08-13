@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>NEO AI - The Enterprise Creation Operating System</title>
+<meta name="description" content="One sentence in. An entire AI organization goes to work. NEO AI combines an open-weight frontier core, leading AI systems, autonomous agents and Mission Control to plan, build, test and deploy - under your control.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+/* ---- production configuration (single source of truth) ----
+   Fill these before deploying. Anything left empty is hidden from the UI -
+   no placeholder value is ever rendered publicly. */
+window.NEO_CONFIG = {
+  /* The inbox address is NEVER displayed anywhere on the page - it only
+     receives the form submissions through the relay endpoint below.
+     After the one-time FormSubmit activation, replace the address in the
+     endpoint with the random alias FormSubmit gives you, so the address
+     no longer appears in the page source either. */
+  PUBLIC_PARTNERSHIP_EMAIL: "",
+  WAITLIST_ENDPOINT: "assets/relay.php",
+  WAITLIST_META: { _subject: "NEO AI - Early Access request", _template: "table" },
+  LINKS: { contact:"" }
+};
+</script>
+<style>html{background:#04050d}body{margin:0;background:#04050d;color:#e8ecf8}</style>
+<link rel="stylesheet" href="assets/css/site.min.css">
+<link rel="stylesheet" href="assets/css/nav-fit.min.css">
+<link rel="canonical" href="https://neoai.myneogroup.com/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NEO AI">
+<meta property="og:title" content="NEO AI - The Enterprise Creation Operating System">
+<meta property="og:description" content="One sentence in. An entire AI organization goes to work. NEO AI combines an open-weight frontier core, leading AI systems, autonomous agents and Mission Control to plan, build, test and deploy - under your control.">
+<meta property="og:url" content="https://neoai.myneogroup.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NEO AI - The Enterprise Creation Operating System">
+<meta name="twitter:description" content="One sentence in. An entire AI organization goes to work.">
+<link rel="alternate" type="application/atom+xml" title="NEO AI Research" href="/feeds/all.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://neoai.myneogroup.com/#website",
+      "name": "NEO AI",
+      "url": "https://neoai.myneogroup.com/",
+      "publisher": { "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": ["SoftwareApplication", "Brand"],
+      "@id": "https://neoai.myneogroup.com/#neo-ai",
+      "name": "NEO AI",
+      "applicationCategory": "BusinessApplication",
+      "publisher": { "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs",
+      "name": "NEO TECH LABS TECHNOLOGY L.L.C",
+      "identifier": "Licence 1320892",
+      "url": "https://neoai.myneogroup.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Iris Bay, Business Bay",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
+      },
+      "parentOrganization": { "@id": "https://myneogroup.com/#my-neo-group" },
+      "subOrganization": { "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://myneogroup.com/#my-neo-group",
+      "name": "My NEO Group",
+      "url": "https://myneogroup.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research",
+      "name": "NEO AI Research Program",
+      "url": "https://neoai.myneogroup.com/research/about/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<canvas id="ambient"></canvas>
+<div id="vignette"></div>
+<div id="grain"></div>
+
+<nav class="nav">
+  <a class="logo" href="#top" aria-label="NEO AI"><img src="data:image/png;base64,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" alt="NEO AI"></a>
+  <div class="links">
+    <a href="#golive" data-i18n="nav.golive">Going Public</a>
+    <a href="#power" data-i18n="nav.power">The Engine</a>
+    <a href="#bench" data-i18n="nav.bench">Performance</a>
+    <a href="#usecases" data-i18n="nav.usecases">Capabilities</a>
+    <a href="#mission" data-i18n="nav.mission">Mission Control</a>
+    <a href="#verticals" data-i18n="nav.verticals">Industries</a>
+    <a href="#intel" data-i18n="nav.intel">NEO Intelligence</a>
+    <a href="/research/" data-i18n="nav.research">Research</a>
+    <a href="#investors" data-i18n="nav.investors">Investors</a>
+  </div>
+  <select class="lang" id="langSel" aria-label="Language"></select>
+  <a class="cta" href="#waitlist" data-i18n="nav.cta">Request Early Access</a>
+</nav>
+
+<!-- ================= CINEMATIC SCROLL NARRATIVE ================= -->
+<div id="cineWrap" role="presentation">
+  <div class="cineStage" id="top">
+
+    <div id="orbBack" class="orbLayer"></div>
+    <canvas id="gl"></canvas>
+    <div id="orbFront" class="orbLayer">
+      <div class="ocard" id="oc1">
+        <i class="cnr tl"></i><i class="cnr br"></i>
+        <div class="ohead"><span class="mlab"><span class="sdot b"></span> <span data-i18n="cine.l1">Core model</span></span><span class="oid">NODE·01</span></div>
+        <b data-i18n="cine.c1b">2.8T</b><span data-i18n="cine.c1s">total parameters in the NEO AI Foundation Model core - an open-weight frontier architecture, privately deployed</span>
+        <div class="obar"><i style="width:82%"></i></div>
+        <div class="scan"><i></i></div>
+      </div>
+      <div class="ocard" id="oc2">
+        <i class="cnr tl"></i><i class="cnr br"></i>
+        <div class="ohead"><span class="mlab"><span class="sdot b"></span> <span data-i18n="cine.l2">Efficiency</span></span><span class="oid">NODE·02</span></div>
+        <b data-i18n="cine.c2b">1M</b><span data-i18n="cine.c2s">token context window - an entire codebase, data room or contract set in one pass</span>
+        <div class="obar"><i style="width:64%"></i></div>
+        <div class="scan"><i></i></div>
+      </div>
+      <div class="ocard" id="oc3">
+        <i class="cnr tl"></i><i class="cnr br"></i>
+        <div class="ohead"><span class="mlab"><span class="sdot b"></span> <span data-i18n="cine.l3">Orchestration</span></span><span class="oid">NODE·03</span></div>
+        <b data-i18n="cine.c3b">100s</b><span data-i18n="cine.c3s">of specialized agents orchestrated across long-horizon missions - platform capacity, deployment-dependent</span>
+        <div class="obar"><i style="width:74%"></i></div>
+        <div class="scan"><i></i></div>
+      </div>
+      <div class="ocard" id="oc4">
+        <i class="cnr tl"></i><i class="cnr br"></i>
+        <div class="ohead"><span class="mlab"><span class="sdot"></span> <span data-i18n="cine.l4">Trust</span></span><span class="oid">NODE·04</span></div>
+        <b data-i18n="cine.c4b">Cross-verified</b><span data-i18n="cine.c4s">critical answers checked across AI families and live sources</span>
+        <div class="obar"><i style="width:91%"></i></div>
+        <div class="scan"><i></i></div>
+      </div>
+      <div class="ocard" id="oc5">
+        <i class="cnr tl"></i><i class="cnr br"></i>
+        <div class="ohead"><span class="mlab"><span class="sdot"></span> <span data-i18n="cine.l5">Learning</span></span><span class="oid">NODE·05</span></div>
+        <b data-i18n="cine.c5b">Self-learning</b><span data-i18n="cine.c5s">every completed task makes the routing smarter</span>
+        <div class="obar"><i style="width:57%"></i></div>
+        <div class="scan"><i></i></div>
+      </div>
+    </div>
+
+    <div class="ov" id="ovHero">
+      <div class="ovIn">
+        <span class="lili-badge"><span class="lili-core s" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n="hero.lili">ASK LILI</span></span><br>
+        <span class="eyebrow" data-i18n="hero.eyebrow">The Enterprise Creation Operating System</span>
+        <h1><span class="l1"><span data-i18n="hero.h1a">One sentence in.</span></span>
+            <span class="l2"><span data-i18n="hero.h1b">An entire AI organization goes to work.</span></span></h1>
+        <p class="sub" data-i18n="hero.subShort">Type one sentence - any language, even badly spelled. NEO AI plans the work, deploys an organization of specialist AI agents, builds, tests and ships - while you watch it happen, live. Companies used to take teams and months. Now they take a sentence.</p>
+        <p class="proofbar" data-i18n="hero.proof">OPEN-WEIGHT CORE · FRONTIER MODEL FABRIC · AUTONOMOUS AGENTS · MISSION CONTROL</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#waitlist" data-i18n="hero.cta1">Request Early Access</a>
+          <a class="btn btn-ghost" href="#power" data-i18n="hero.cta2">Feel the power</a>
+        </div>
+        <div class="ipo"><span class="swp"></span><span class="dot sdot"></span><span data-i18n="hero.ipo"><b>Going public.</b> Public-market transaction targeted for early 2027.*</span></div>
+      </div>
+      <div class="scroll-hint" data-i18n="hero.scroll">Scroll</div>
+    </div>
+
+    <div class="ov" id="ovState">
+      <div class="ovIn">
+        <h2 class="ovh"><span data-i18n="st.w1">You</span> <span data-i18n="st.w2">command.</span><br>
+        <span class="grad"><span data-i18n="st.w3">It</span> <span data-i18n="st.w4">builds.</span></span><br>
+        <span data-i18n="st.w5">You stay</span> <span data-i18n="st.w6">in control.</span></h2>
+      </div>
+    </div>
+
+    <div class="ov top" id="ovHelix">
+      <div class="ovIn">
+        <p class="kicker" data-i18n="cine.hx.k">Hybrid orchestration</p>
+        <h2 class="ovh" style="font-size:clamp(24px,3vw,40px)" data-i18n="cine.hx.h">One Brain. Every frontier AI in orbit.</h2>
+      </div>
+    </div>
+
+    <div class="ov" id="ovLand" style="align-items:flex-start">
+      <div class="ovIn" style="padding-top:16vh">
+        <p class="kicker" data-i18n="cine.ld.k">The engine</p>
+        <h2 class="ovh" data-i18n="cine.ld.h">Everything revolves around one thing<br><span class="grad">- your growth.</span></h2>
+        <p class="ovs" data-i18n="cine.ld.s">A 2.8-trillion-parameter landscape of intelligence, fine-tuned by NEO AI on its own domains - finance, hospitality, legal, health, trading.</p>
+      </div>
+    </div>
+
+    <div class="ov top" id="ovVortex">
+      <div class="ovIn">
+        <h2 class="ovh" data-i18n="cine.vx.h">Everything converges.</h2>
+        <p class="ovs" data-i18n="cine.vx.s">Every task, every model, every industry - drawn into one core.</p>
+      </div>
+    </div>
+
+    <div class="ov" id="ovGalaxy">
+      <div class="ovIn">
+        <p class="kicker" data-i18n="cine.gx.k">One product, every industry</p>
+        <h2 class="ovh" data-i18n="cine.gx.h">The same operating system,<br>configured for your world.</h2>
+        <p class="ovs" data-i18n="cine.gx.s">Software. Companies. Fintech stacks. Legal reviews. Trading operations. Entire ventures. If you can say it, NEO AI can build it, run it and govern it.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#waitlist" data-i18n="nav.cta">Join the waitlist</a>
+          <a class="btn btn-ghost" href="#power" data-i18n="cine.gx.cta">Explore NEO AI</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="content">
+
+<!-- GOING PUBLIC -->
+<section id="golive">
+  <div class="lightshafts" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="gopanel hud" id="goPanel">
+    <span class="swp" id="goSweep"></span>
+    <svg class="gp-chart" id="gpChart" aria-hidden="true"></svg>
+    <div class="gp-top">
+      <span class="gp-label"><span class="sdot"></span><span data-i18n="gp.label">GOING PUBLIC</span></span>
+      <span class="gp-status" data-i18n="gp.status">STATUS: PLANNED</span>
+    </div>
+    <h2 data-i18n="gp.h">Public-market transaction <em>targeted for early 2027.</em>*</h2>
+    <p class="gp-sub" data-i18n="gp.sub">NEO AI is being prepared for a public-market transaction alongside its commercial rollout - one platform, one Brain, one listed vehicle.</p>
+    <div class="gp-tl" id="gpTL">
+      <div class="track"></div><div class="fill" id="gpFill"></div><div class="tip" id="gpTip"></div>
+      <div class="m up" style="left:0%"><i></i><span data-i18n="gp.t1">PLATFORM BUILD</span></div>
+      <div class="m dn" style="left:25%"><i></i><span data-i18n="gp.t2">ENTERPRISE PILOTS</span></div>
+      <div class="m up" style="left:50%"><i></i><span data-i18n="gp.t3">COMMERCIAL ROLLOUT</span></div>
+      <div class="m dn tgt" style="left:75%"><i></i><span data-i18n="gp.t4">TARGETED LISTING - EARLY 2027*</span></div>
+    </div>
+    <p class="gp-note" data-i18n="foot.listing">* Listing planned subject to market conditions, final transaction structure and regulatory approvals. Nothing on this page is an offer to sell or a solicitation to buy securities, or a forecast of financial or share-price performance.</p>
+  </div>
+</section>
+
+<!-- POWER / CORE ACTIVATION -->
+<section class="block power" id="power" style="overflow:hidden">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="pw.kicker">The engine</p>
+    <h2 class="title rv" data-i18n="pw.h2">A 2.8-trillion-parameter core.<br>Every leading frontier AI on call.</h2>
+    <p class="lead rv" data-i18n="pw.lead">Under the hood: the <b>NEO AI Foundation Model</b> - a 2.8-trillion-parameter sparse Mixture-of-Experts, privately deployed and fine-tuned by NEO AI - plus the leading frontier AI systems, on call. The Router is designed to select, compare and synthesize the strongest available engines for each task. You see none of it. You just feel it.</p>
+    <div class="coreviz" id="coreviz">
+      <svg id="coreSVG"></svg>
+      <div class="corehub" id="coreHub">
+        <div class="r2"></div><div class="r1"></div><div class="c0"></div>
+        <div class="pulse" id="corePulse"></div>
+        <div class="lab">NEO&nbsp;CORE</div>
+      </div>
+    </div>
+    <div class="counters" id="counters">
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="2.8" data-dec="1">0</span>T <span data-i18n="pw.u1">Total</span></div><div class="lab" data-i18n="pw.c1">total parameters in the NEO AI Foundation Model - an open-weight frontier core, privately deployed</div></div>
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="104">0</span>B <span data-i18n="pw.u2">Active</span></div><div class="lab" data-i18n="pw.c2">parameters activated per token through sparse expert routing</div></div>
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="896">0</span> <span data-i18n="pw.u3">Experts</span></div><div class="lab" data-i18n="pw.c3">specialized expert networks - 16 selected per token, plus 2 shared experts</div></div>
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="16">0</span> <span data-i18n="pw.u4">Per token</span></div><div class="lab" data-i18n="pw.c4">experts selected for every single token - capacity exactly where it is needed</div></div>
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="1">0</span>M <span data-i18n="pw.u5">Context</span></div><div class="lab" data-i18n="pw.c5">1,048,576 tokens in a single pass - an entire codebase, data room or contract set at once</div></div>
+      <div class="counter"><span class="vscan"></span><div class="num"><span class="cnt" data-to="401">0</span>M <span data-i18n="pw.u6">Vision</span></div><div class="lab" data-i18n="pw.c6">natively multimodal - images, documents and interfaces, through a 401M-parameter vision encoder</div></div>
+    </div>
+    <p class="fmspec rv" data-i18n="pw.spec">2.8T TOTAL PARAMETERS · 104B ACTIVE · 896 EXPERTS · 16 SELECTED PER TOKEN · 1M CONTEXT · NATIVE MULTIMODAL</p>
+    <div class="moe rv">
+      <div class="moe-grid" id="moeGrid"></div>
+      <p class="cap" data-i18n="pw.moe">Sparse Mixture-of-Experts: 16 of 896 experts activate per token - 104B of 2.8T parameters (≈3.7%) - frontier-scale intelligence at a fraction of the compute. Designed for materially lower marginal inference costs through sparse activation, native MXFP4/MXFP8 quantization, intelligent routing, caching and private deployment.</p>
+      <p class="cap arch" data-i18n="pw.arch">93 layers - 69 KDA + 24 Gated MLA with attention residuals · MXFP4 weights / MXFP8 activations · ≈2.5× scaling-efficiency improvement over the previous core generation</p>
+    <div class="fmholo rv" id="fmHolo">
+      <canvas id="fmCanvas" aria-hidden="true"></canvas>
+      <div class="fh-floor" aria-hidden="true"></div>
+      <i class="fh-shaft fs1" aria-hidden="true"></i><i class="fh-shaft fs2" aria-hidden="true"></i>
+      <svg id="fhSVG" aria-hidden="true"></svg>
+      <div class="fh-dome" id="fhDome" aria-hidden="true"></div>
+      <div class="fh-core" id="fhCore" aria-hidden="true"><i class="r1"></i><i class="r2"></i><i class="orb"></i><em>NEO CORE</em></div>
+      <i class="fh-beam" id="fhBeam" aria-hidden="true"></i>
+      <div class="fh-call c1"><b data-i18n="fa.l1">2.8T INTELLIGENCE FIELD</b></div>
+      <div class="fh-call c2"><b data-i18n="fa.l2">896-EXPERT LATTICE · 16 LIGHT PER TOKEN</b></div>
+      <div class="fh-call c3"><b data-i18n="fa.l3">104B ACTIVE PATH</b></div>
+      <div class="fh-call c4"><b data-i18n="fa.l4">69 KDA + 24 GATED MLA LAYERS</b></div>
+      <div class="fh-call c5"><b data-i18n="fa.l5">NATIVE VISION STREAM · 401M ENCODER</b></div>
+      <div class="fh-call c6"><b data-i18n="fa.l6">1M-TOKEN CONTEXT CORRIDOR</b></div>
+      <div class="fh-call c7"><b data-i18n="fa.l7">MXFP4 / MXFP8 INFRASTRUCTURE</b></div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="block" id="stack">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="os.kicker">The Operating System</p>
+    <h2 class="title rv" data-i18n="os.h2">LILI is the interface. NEO AI is the operating system.<br><span class="grad">Mission Control is the command center.</span></h2>
+    <p class="lead rv" style="margin:0 auto;text-align:center" data-i18n="os.lead">You do not prompt an AI. You give LILI an objective - and LILI orchestrates NEO AI: models, agents, memory, tools and data, under governance you can audit.</p>
+    <div class="oswrap rv">
+      <div class="osflow" aria-hidden="true"><span class="osdot"></span><span class="osdot osdot2" style="animation-delay:1.3s;display:none"></span><span class="osdot osdot3" style="animation-delay:2.6s;display:none"></span></div>
+      <div class="osrow"><b data-i18n="os.u">USER · ENTERPRISE · GOVERNMENT</b></div>
+      <div class="osrow hot lili"><span class="lili-core" aria-hidden="true"><i></i><i></i><i></i></span><div><b data-i18n="os.lili">LILI</b><span data-i18n="os.lilis">Conversational interface - one objective, any language</span></div></div>
+      <div class="osrow hot"><b data-i18n="os.mc">MISSION CONTROL</b><span data-i18n="os.mcs">Governance · Audit · Approvals · Live supervision</span></div>
+      <div class="osrow"><b data-i18n="os.orch">NEO AI ORCHESTRATION LAYER</b>
+        <div class="oschips"><em>Router</em><em>Task Graph</em><em>Memory</em><em>Knowledge Graph</em><em>Validation Engine</em><em>Cost Engine</em><em>Policy &amp; Governance</em><em>Agent Framework</em></div></div>
+      <div class="ossplit">
+        <div class="osrow gold"><b data-i18n="os.fm">NEO AI FOUNDATION MODEL</b><span data-i18n="os.fms">Privately deployed &amp; fine-tuned from a licensed open-weight frontier architecture</span></div>
+        <div class="osrow"><b data-i18n="os.ext">EXTERNAL FRONTIER AI</b><span data-i18n="os.exts">Selected per task by quality, cost &amp; policy</span></div>
+      </div>
+      <div class="osrow"><b data-i18n="os.tools">TOOLS · APIS · DATA · SYSTEMS · INFRASTRUCTURE</b></div>
+      <div class="osrow hot" style="margin-bottom:0"><b data-i18n="os.exec">EXECUTION · VALIDATION · DEPLOYMENT · REPORTING</b></div>
+    </div>
+    <p class="lead rv" style="margin:30px auto 0;text-align:center;font-size:15px" data-i18n="os.note">LILI does not answer alone. She assembles and orchestrates the right AI organization for every mission - and Mission Control proves what happened.</p>
+  </div>
+</section>
+
+<section class="block" id="bench">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="bn.kicker">Public benchmarks</p>
+    <h2 class="title rv" data-i18n="bn.h2">Measured against the giants.<br>It holds the line - and breaks it.</h2>
+    <p class="lead rv" data-i18n="bn.lead">Published, independently reported results of NEO AI's core engine architecture - side by side with the leading closed frontier models.</p>
+    <div class="bench-rows">
+      <div class="bench">
+        <div class="bscan"></div>
+        <div class="bt"><span class="bn" data-i18n="bn.b1">MCPMark-Verified</span><div class="btr"><span class="bd" data-i18n="bn.b1d">agentic tool use across real MCP servers</span><span class="verd" data-i18n="bn.verd">▮ PUBLISHED RESULT</span></div></div>
+        <div class="axis"></div>
+        <div class="brow"><span class="who">GPT-5.6 Sol</span><div class="btrack"><div class="bfill" data-w="92.9"></div></div><span class="val" data-v="92.9">0</span></div>
+        <div class="brow"><span class="who">Claude Fable 5</span><div class="btrack"><div class="bfill" data-w="87.4"></div></div><span class="val" data-v="87.4">0</span></div>
+        <div class="brow"><span class="who">Claude Opus 4.8</span><div class="btrack"><div class="bfill" data-w="76.4"></div></div><span class="val" data-v="76.4">0</span></div>
+        <div class="brow neo"><span class="who">NEO AI core</span><div class="btrack"><div class="bfill" data-w="94.5"></div></div><span class="val" data-v="94.5">0</span></div>
+      </div>
+      <div class="bench">
+        <div class="bscan"></div>
+        <div class="bt"><span class="bn" data-i18n="bn.b2">BrowseComp</span><div class="btr"><span class="bd" data-i18n="bn.b2d">autonomous long-horizon web research</span><span class="verd" data-i18n="bn.verd">▮ PUBLISHED RESULT</span></div></div>
+        <div class="axis"></div>
+        <div class="brow"><span class="who">GPT-5.6 Sol</span><div class="btrack"><div class="bfill" data-w="90.4"></div></div><span class="val" data-v="90.4">0</span></div>
+        <div class="brow"><span class="who">Claude Fable 5</span><div class="btrack"><div class="bfill" data-w="88.0"></div></div><span class="val" data-v="88.0">0</span></div>
+        <div class="brow"><span class="who">GPT-5.5</span><div class="btrack"><div class="bfill" data-w="84.4"></div></div><span class="val" data-v="84.4">0</span></div>
+        <div class="brow neo"><span class="who">NEO AI core</span><div class="btrack"><div class="bfill" data-w="91.2"></div></div><span class="val" data-v="91.2">0</span></div>
+      </div>
+      <div class="bench">
+        <div class="bscan"></div>
+        <div class="bt"><span class="bn" data-i18n="bn.b3">DeepSearchQA (F1)</span><div class="btr"><span class="bd" data-i18n="bn.b3d">evidence-grounded deep search & synthesis</span><span class="verd" data-i18n="bn.verd">▮ PUBLISHED RESULT</span></div></div>
+        <div class="axis"></div>
+        <div class="brow"><span class="who">Claude Fable 5</span><div class="btrack"><div class="bfill" data-w="94.2"></div></div><span class="val" data-v="94.2">0</span></div>
+        <div class="brow"><span class="who">Claude Opus 4.8</span><div class="btrack"><div class="bfill" data-w="93.1"></div></div><span class="val" data-v="93.1">0</span></div>
+        <div class="brow neo"><span class="who">NEO AI core</span><div class="btrack"><div class="bfill" data-w="95.0"></div></div><span class="val" data-v="95.0">0</span></div>
+      </div>
+      <div class="bench">
+        <div class="bscan"></div>
+        <div class="bt"><span class="bn" data-i18n="bn.b4">ProgramBench</span><div class="btr"><span class="bd" data-i18n="bn.b4d">end-to-end software construction</span><span class="verd" data-i18n="bn.verd">▮ PUBLISHED RESULT</span></div></div>
+        <div class="axis"></div>
+        <div class="brow"><span class="who">GPT-5.6 Sol</span><div class="btrack"><div class="bfill" data-w="77.6" data-max="82"></div></div><span class="val" data-v="77.6">0</span></div>
+        <div class="brow"><span class="who">Claude Fable 5</span><div class="btrack"><div class="bfill" data-w="76.8" data-max="82"></div></div><span class="val" data-v="76.8">0</span></div>
+        <div class="brow"><span class="who">GPT-5.5</span><div class="btrack"><div class="bfill" data-w="70.8" data-max="82"></div></div><span class="val" data-v="70.8">0</span></div>
+        <div class="brow neo"><span class="who">NEO AI core</span><div class="btrack"><div class="bfill" data-w="77.8" data-max="82"></div></div><span class="val" data-v="77.8">0</span></div>
+      </div>
+    </div>
+    <p class="bench-note rv" data-i18n="bn.note">Published results of the open-weight frontier architecture at the core of the <b>NEO AI Foundation Model</b>, as reported in its official model release. NEO AI privately deploys and domain-adapts that architecture, integrating it into NEO AI's proprietary orchestration, memory, validation, governance and execution stack. The Router is designed to select, compare and synthesize the strongest available engines for each task, reducing dependence on any single model.</p>
+    <p class="bench-method rv" data-i18n="bn.method">Results reported in the official model release and associated benchmark sources (evaluation data as of July 2026). Scores depend on the stated model configuration, reasoning effort, harness, tools and evaluation protocol. They are not NEO AI production guarantees.</p>
+    <p class="bench-research rv"><span class="mlab"><span class="sdot b"></span> <span data-i18n="bn.resLab">NEO AI RESEARCH</span></span><span data-i18n="bn.research">Academic Partnership Program - university collaborations across the UAE, the United States, Europe and Asia, launching 2027: joint research, independent evaluation, published results. The benchmarks above get their own referees.</span></p>
+    <button class="bench-src rv" id="benchSrcBtn" type="button" aria-haspopup="dialog" aria-controls="benchModal"><span data-i18n="bn.src">Source &amp; methodology</span> ↗</button>
+  </div>
+</section>
+
+<!-- ORCHESTRATION -->
+<section class="block orbit-sec" id="orchestration">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="or.kicker">Hybrid orchestration</p>
+    <h2 class="title rv" data-i18n="or.h2">Every frontier AI works for you.<br>None of them is the boss.</h2>
+    <p class="lead rv" style="margin:0 auto" data-i18n="or.lead">The Router benchmarks every engine continuously and sends each task to the strongest one - in parallel, cross-verified, cached. You never choose a model. You never see a name. You just get the best answer on earth.</p>
+    <div class="orch" id="orch">
+      <svg id="orchSVG"></svg>
+      <div class="onode" id="onUser"><span class="sdot b"></span><span data-i18n="or.nUser">YOUR SENTENCE</span></div>
+      <div class="onode core" id="onCore">NEO&nbsp;ROUTER</div>
+      <div class="onode eng" id="onE1">ENGINE·01</div>
+      <div class="onode eng" id="onE2">ENGINE·02</div>
+      <div class="onode eng" id="onE3">ENGINE·03</div>
+      <div class="onode eng" id="onE4">ENGINE·04</div>
+      <div class="onode eng" id="onE5">ENGINE·05</div>
+      <div class="onode ans" id="onAns"><span class="sdot"></span><span data-i18n="or.nAns">ONE VERIFIED ANSWER</span></div>
+    </div>
+    <div class="ostat">
+      <span class="os" id="osRoute" data-i18n="or.s1">ROUTE</span>
+      <span class="os" id="osVerify" data-i18n="or.s2">VERIFY</span>
+      <span class="os" id="osSynth" data-i18n="or.s3">SYNTHESIZE</span>
+    </div>
+    <div class="tokens">
+      <div class="tk rv"><b data-i18n="or.t1b">Up to 80%</b><span data-i18n="or.t1s">fewer billable external-model tokens in selected orchestrated workflows</span></div>
+      <div class="tk rv"><b data-i18n="or.t2b">Parallel</b><span data-i18n="or.t2s">dozens of model calls at once, not one chat</span></div>
+      <div class="tk rv"><b data-i18n="or.t3b">Cross-checked</b><span data-i18n="or.t3s">critical answers challenged across AI families + live sources</span></div>
+      <div class="tk rv"><b data-i18n="or.t4b">Resilient</b><span data-i18n="or.t4s">automatic fallback across engines and providers</span></div>
+    </div>
+    <p class="tk-qual rv" data-i18n="or.qual">Token-efficiency figures are internal architecture targets; actual savings vary by workflow, routing policy, context length and cache reuse.</p>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="block" id="usecases">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="uc.kicker">What you can do</p>
+    <h2 class="title rv" data-i18n="uc.h2">Say it. Get it.</h2>
+    <p class="lead rv" data-i18n="uc.lead">Real objectives NEO AI is built to take from one sentence to a running result - with tests, deployment and an audit trail.</p>
+    <div class="ucdemo" id="ucdemo">
+      <div class="console hud">
+        <div class="chead"><i></i><i></i><i></i><span class="mlab">NEO AI · <span data-i18n="uc.console">command console</span></span></div>
+        <div class="cline"><span class="pr">›</span><span id="typeTxt"></span><span class="caret"></span></div>
+        <div class="modrow">
+          <span class="mod" data-i18n="uc.m1">UNDERSTAND</span><span class="mod" data-i18n="uc.m2">PLAN</span>
+          <span class="mod" data-i18n="uc.m3">BUILD</span><span class="mod" data-i18n="uc.m4">TEST</span><span class="mod" data-i18n="uc.m5">DEPLOY</span>
+        </div>
+      </div>
+      <div class="ucfocus" id="ucFocus"></div>
+    </div>
+    <div class="uc-track" id="ucTrack">
+      <div class="uc"><p class="say" data-i18n="uc.u1s">Build me a complete booking SaaS for my 12 hotels with payments and a staff dashboard.</p><p class="get" data-i18n="uc.u1g">Full application: database, booking engine, payment flows, dashboards, tests, live preview.</p><span class="tag" data-i18n="uc.u1t">Software Factory</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u2s">Create our entire Series A package: brand, 15-slide deck, financial model, data room.</p><p class="get" data-i18n="uc.u2g">One coherent package - the deck's numbers are the model's numbers, always in sync.</p><span class="tag" data-i18n="uc.u2t">Company Builder</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u3s">Generate the technical stack for a multi-currency wallet with KYC and a compliance dashboard.</p><p class="get" data-i18n="uc.u3g">Ledger core, KYC orchestration, admin compliance console - technology only, your licenses.</p><span class="tag" data-i18n="uc.u3t">Fintech</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u4s">Build me an AI fitness coach connected to my wearables, with nutrition and recovery.</p><p class="get" data-i18n="uc.u4g">Adaptive training, macros synced to your real data, a coach that reshapes tonight's session.</p><span class="tag" data-i18n="uc.u4t">Sport &amp; Nutrition</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u5s">Unify our 22 venues on one guest graph with menu engineering and yield management.</p><p class="get" data-i18n="uc.u5g">One brain across your restaurants and clubs: guests, margins, staffing, suppliers.</p><span class="tag" data-i18n="uc.u5t">Hospitality</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u6s">Review this 80-page agreement against our playbook and flag every deviation.</p><p class="get" data-i18n="uc.u6g">Every clause checked, severity-ranked, fallback language proposed - for lawyer review.</p><span class="tag" data-i18n="uc.u6t">Legal</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u7s">Tokenize a residential building into 10,000 units with monthly distributions.</p><p class="get" data-i18n="uc.u7g">Issuer portal, investor onboarding, smart contracts, distribution engine, live cap table.</p><span class="tag" data-i18n="uc.u7t">RWA / Tokenization</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u8s">Reconcile every FX and options fill across our brokers before the morning meeting.</p><p class="get" data-i18n="uc.u8g">Overnight reconciliation, breaks ranked by materiality, 90% auto-explained.</p><span class="tag" data-i18n="uc.u8t">Trading &amp; Treasury</span></div>
+      <div class="uc"><p class="say" data-i18n="uc.u9s">Connect Stripe, sync paid invoices to my accounting and post a summary to Slack.</p><p class="get" data-i18n="uc.u9g">Three services wired in one sentence - your own accounts, sandbox-tested, governed.</p><span class="tag" data-i18n="uc.u9t">Integrations</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST 60 SECONDS / BUILD PIPELINE -->
+<section class="block" id="sixty">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="sx.kicker">The first 60 seconds</p>
+    <h2 class="title rv" data-i18n="sx.h2">From hello to a working organization<br>in under a minute.</h2>
+    <div class="pipe hud" id="pipe">
+      <svg id="pipeSVG"><line id="pipeBase" x1="0" y1="1" x2="100%" y2="1" stroke="rgba(110,160,255,.18)" stroke-width="2"/><line id="pipeFill" x1="0" y1="1" x2="0" y2="1" stroke="url(#pgrad)" stroke-width="2"/><defs><linearGradient id="pgrad"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#69e6ff"/></linearGradient></defs><circle id="pipeDot" r="4" cx="-10" cy="1" fill="#9fe2ff" opacity="0"/></svg>
+      <div class="stages" id="stages">
+        <div class="stage"><i></i><b data-i18n="px.1">Command</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.2">3 questions</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.3">Blueprint</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.4">Agents deploy</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.5">Tools &amp; APIs</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.6">Validation</b><span class="st" data-i18n="px.s">pending</span></div>
+        <div class="stage"><i></i><b data-i18n="px.7">Live</b><span class="st" data-i18n="px.s">pending</span></div>
+      </div>
+      <div class="term" id="term">
+        <span class="tl-line"><span class="ac">›</span> <span data-i18n="tm.1">intent parsed - goal, constraints, context loaded</span></span>
+        <span class="tl-line"><span class="ac">?</span> <span data-i18n="tm.2">3 clarifying questions answered - nothing else asked</span></span>
+        <span class="tl-line"><span class="wr">▤</span> <span data-i18n="tm.3">blueprint drafted: architecture · milestones · price → approved</span></span>
+        <span class="tl-line"><span class="ac">⧉</span> <span data-i18n="tm.4">47 agents deployed - roles, tools and budgets assigned</span></span>
+        <span class="tl-line"><span class="ac">⇄</span> <span data-i18n="tm.5">payments, database and messaging connected in sandbox</span></span>
+        <span class="tl-line"><span class="ok">✓</span> <span data-i18n="tm.6">tests passing - 214/214 · security scan clean</span></span>
+        <span class="tl-line"><span class="ok">●</span> <span data-i18n="tm.7">organization LIVE - Mission Control streaming real events</span></span>
+      </div>
+    </div>
+    <div class="sxgrid" id="sxgrid">
+      <div class="sxcard"><span class="t">0-10s</span><h3 data-i18n="sx.s1t">You say it</h3><p data-i18n="sx.s1p">One sentence, typed or spoken. NEO AI parses your goal, your constraints and everything it already knows about you.</p></div>
+      <div class="sxcard"><span class="t">10-25s</span><h3 data-i18n="sx.s2t">Three sharp questions</h3><p data-i18n="sx.s2p">Only the ones that change the outcome. Nothing else.</p></div>
+      <div class="sxcard"><span class="t">25-40s</span><h3 data-i18n="sx.s3t">The blueprint unfolds</h3><p data-i18n="sx.s3p">Architecture, milestones, assumptions, price. You hit Approve.</p></div>
+      <div class="sxcard"><span class="t">40-60s</span><h3 data-i18n="sx.s4t">The organization comes alive</h3><p data-i18n="sx.s4p">Mission Control opens. Agents materialize, real messages flow, the first artifact lands, the cost meter ticks. Everything on screen is real - click anything to inspect it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION CONTROL -->
+<section class="block" id="mission" style="background:linear-gradient(180deg,transparent,rgba(6,60,252,.05) 40%,transparent)">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="mc.kicker">Mission Control</p>
+    <h2 class="title rv" data-i18n="mc.h2">A living command center.<br>Every visible event traceable.</h2>
+    <div class="grid g3" id="modeCards">
+      <div class="card"><div class="ic">&#10022;</div><h3 data-i18n="mc.c1t">Cinematic Mode</h3><p data-i18n="mc.c1p">An immersive, living view of your agents at work. Built for first impressions - and every particle maps to a real event.</p></div>
+      <div class="card"><div class="ic">&#9707;</div><h3 data-i18n="mc.c2t">Operational Mode</h3><p data-i18n="mc.c2p">A dense, clear control room for daily work: tasks, tests, artifacts, costs and risks - live.</p></div>
+      <div class="card"><div class="ic">&#8634;</div><h3 data-i18n="mc.c3t">Audit / Replay Mode</h3><p data-i18n="mc.c3p">The full causal chain of every decision, message, test and approval. Replay anything. Export the evidence.</p></div>
+    </div>
+    <div class="cockpit" id="cockpit">
+      <div class="cpanel hud"><span class="cscan"></span>
+        <span class="mlab"><span class="sdot b"></span> <span data-i18n="mc.w1">Mission timeline · live</span></span>
+        <div class="mtl"><div class="mfill" id="mFill"></div>
+          <div class="ev" style="left:18%"></div><div class="ev" style="left:34%"></div><div class="ev" style="left:52%"></div><div class="ev" style="left:71%"></div><div class="ev" style="left:88%"></div>
+        </div>
+        <span class="mlab" data-i18n="mc.w2">Dependency graph</span>
+        <svg id="depSVG"></svg>
+      </div>
+      <div class="cpanel hud"><span class="cscan"></span>
+        <span class="mlab"><span class="sdot"></span> <span data-i18n="mc.w3">Agents · 47 active</span></span>
+        <div class="agents" id="agents"></div>
+        <span class="mlab" style="margin-top:14px"><span class="sdot b"></span> <span data-i18n="mc.w5">Engine · routing &amp; governance</span></span>
+        <div class="mc-tel"><span>ROUTER <em>FM + 4 WORKERS</em></span><span>CONFIDENCE <b>87%</b></span><span>TOKENS SAVED <b>−64%</b></span><span>APPROVAL GATE <b>ARMED ✓</b></span><span>PROVENANCE <b>✓ TRACED</b></span><span>COST <em>412/600 CR</em></span></div>
+        <span class="mlab" style="margin-top:18px" data-i18n="mc.w4">Audit trail</span>
+        <div class="audit" id="audit">
+          <div><span class="ok">✓</span> task#291 verified · payment flow e2e</div>
+          <div>› artifact created · dashboard.v4</div>
+          <div>› agent PM-2 → approval requested</div>
+          <div><span class="ok">✓</span> owner approved · deploy staging</div>
+          <div>› cost meter +$1.84 · within budget</div>
+        </div>
+      </div>
+    </div>
+    <div class="truth rv"><b data-i18n="mc.truthb">The truth rule:</b> <span data-i18n="mc.trutht">nothing is ever animated on screen unless it corresponds to a real, persisted backend event. No fake progress.</span></div>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card rv"><div class="ic">&#9997;</div><h3 data-i18n="mc.g1t">No prompt engineering required.</h3><p data-i18n="mc.g1p">Write with mistakes, half-ideas, any language - it becomes an engineer-grade specification in real time, invisibly.</p></div>
+      <div class="card rv"><div class="ic">&#129504;</div><h3 data-i18n="mc.g2t">It remembers everything</h3><p data-i18n="mc.g2p">Decisions, preferences, context - persistent across months and models. You never re-explain.</p></div>
+      <div class="card rv"><div class="ic">&#128737;</div><h3 data-i18n="mc.g3t">You hold the keys</h3><p data-i18n="mc.g3p">Production, funds and critical actions always require your explicit approval. Autonomy, under control.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section class="block orbit-sec" id="verticals">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="vert.kicker">One product, every industry</p>
+    <h2 class="title rv" data-i18n="vert.h2">A universe of verticals -<br>already in motion</h2>
+    <p class="lead rv" style="margin:0 auto;text-align:center" data-i18n="vert.lead">NEO AI is not a single tool. It is a living ecosystem with one Brain at the core - and every industry orbiting around it. Same product. Same Mission Control. Same power - configured for your world.</p>
+    <div class="constel" id="constel">
+      <svg id="constSVG"></svg>
+      <div class="cnode hub" id="cHub">NEO&nbsp;AI</div>
+      <div class="cfocus" id="cFocus"></div>
+    </div>
+    <div class="vgrid" id="vgrid">
+      <div class="vcard"><b data-i18n="vert.v1">App / Web / SaaS Development</b><span data-i18n="vert.e1">"A booking SaaS for my 12 hotels" - shipped with database, payments and tests.</span></div>
+      <div class="vcard"><b data-i18n="vert.v2">Company Builder</b><span data-i18n="vert.e2">Brand, investor deck, financial model, data room - one coherent package from one sentence.</span></div>
+      <div class="vcard"><b data-i18n="vert.v3">Fintech</b><span data-i18n="vert.e3">A multi-currency wallet stack with KYC orchestration and a compliance console.</span></div>
+      <div class="vcard"><b data-i18n="vert.v4">Payments</b><span data-i18n="vert.e4">Corridor-smart transfer infrastructure with intelligent routing and live surveillance.</span></div>
+      <div class="vcard"><b data-i18n="vert.v5">Micro-Credit</b><span data-i18n="vert.e5">Origination across 7 countries unified into one governed flow - a new country becomes configuration.</span></div>
+      <div class="vcard"><b data-i18n="vert.v6">Trading &amp; Treasury</b><span data-i18n="vert.e6">Every FX and options fill reconciled overnight - breaks ranked, 90% auto-explained.</span></div>
+      <div class="vcard"><b data-i18n="vert.v7">RWA / Tokenization</b><span data-i18n="vert.e7">A building tokenized into 10,000 units - investor portal, contracts, monthly distributions.</span></div>
+      <div class="vcard"><b data-i18n="vert.v8">Hospitality &amp; Nightlife</b><span data-i18n="vert.e8">22 venues on one guest graph - menu-level margins, yield per table, VIPs recognized worldwide.</span></div>
+      <div class="vcard"><b data-i18n="vert.v9">Health &amp; Care</b><span data-i18n="vert.e9">12 clinics, one scheduling brain - administration automated, clinicians decide.</span></div>
+      <div class="vcard"><b data-i18n="vert.v10">Legal</b><span data-i18n="vert.e10">An 80-page agreement reviewed clause-by-clause against your playbook - in minutes.</span></div>
+      <div class="vcard"><b data-i18n="vert.v11">Sport &amp; Nutrition</b><span data-i18n="vert.e11">Training and macros that reshape tonight's session from your wearable data.</span></div>
+      <div class="vcard"><b data-i18n="vert.v12">Travel &amp; Lifestyle</b><span data-i18n="vert.e12">Trips optimized across your miles, status tiers and preferences - rebooked before you land.</span></div>
+      <div class="vcard vprem"><span class="prem" data-i18n="vert.prem">PREMIUM</span><b data-i18n="vert.v13">NEO Intelligence</b><span data-i18n="vert.e13">Investigations, OSINT, blockchain intelligence, AML - the premium intelligence vertical (roadmap).</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRY UNIVERSE ACTIVATION (v17 cinematic bridge) ============ -->
+<section id="universe">
+  <div class="uni-tall">
+    <div class="uni-pin">
+      <p class="kicker" style="text-align:center;justify-content:center" data-i18n="uni.kicker">The industry universe</p>
+      <div class="uni-stage" id="uniStage">
+        <div class="uni-lili" id="uniLili"><span class="lili-core s" aria-hidden="true"><i></i><i></i><i></i></span><b>LILI</b><span data-i18n="uni.lilis">one command interface</span></div>
+        <i class="uni-beam" id="uniBeam" aria-hidden="true"></i>
+        <div class="uni-ring" id="uniRing" aria-hidden="true"><span><b>MISSION CONTROL</b> · <em data-i18n="uni.mcs">governance shell</em></span></div>
+        <div class="uni-orbits" aria-hidden="true"><i></i><i></i></div>
+        <div class="uni-stars" id="uniStars" aria-hidden="true"></div>
+        <div class="uni-bridge" aria-hidden="true"></div>
+        <div class="uni-space" id="uniSpace">
+          <svg id="uniSVG" aria-hidden="true"></svg>
+          <div class="uni-brain" id="uniBrain"><span class="bp" aria-hidden="true"></span><span class="bp" style="animation-delay:1.8s" aria-hidden="true"></span><i aria-hidden="true"></i><b>NEO AI</b><span data-i18n="uni.brain">One Brain</span></div>
+        </div>
+        <div class="uni-reveal hud" id="uniReveal" aria-live="polite">
+          <b id="urName">—</b>
+          <div class="urrow"><em data-i18n="uni.wlab">WORKFLOW</em><span id="urFlow">—</span></div>
+          <div class="urrow"><em data-i18n="uni.aglab">AGENT CLUSTER</em><span id="urAgents" class="mono">—</span></div>
+          <div class="urrow"><em data-i18n="uni.dlab">DATA LAYER</em><span id="urData" class="mono">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="vclose big rv" id="uniClose"><span data-i18n="uni.f1">ONE BRAIN.</span> <span data-i18n="uni.f2">ONE OPERATING SYSTEM.</span> <span data-i18n="uni.f3">EVERY INDUSTRY.</span></p>
+</section>
+
+
+<!-- ============ NEO INTELLIGENCE (v14) ============ -->
+<section class="block" id="intel">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="ni.kicker">NEO Intelligence · Premium vertical</p>
+    <h2 class="title rv" data-i18n="ni.h2">Fragmented intelligence in.<br><span class="grad">Evidence-backed decisions out.</span></h2>
+    <div class="ni-console rv"><span class="lili-core s" aria-hidden="true"><i></i><i></i><i></i></span><span class="pr">ask LILI ›</span><span data-i18n="ni.ask">Investigate this company, its shareholders, wallets, counterparties and risk exposure.</span></div>
+    <div class="ni-grid rv" id="niGrid">
+      <div>
+        <div class="ni-stage" style="border-color:rgba(120,200,255,.4)"><span class="lili-core s" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n="ni.d1">LILI decomposes the investigation</span></div>
+        <div class="ni-src" aria-label="Intelligence sources">
+          <span data-i18n="ni.s1">OSINT</span><span data-i18n="ni.s2">Blockchain Intelligence</span><span data-i18n="ni.s3">AML &amp; Sanctions</span><span data-i18n="ni.s4">Corporate Registries</span>
+          <span data-i18n="ni.s5">Cyber Intelligence</span><span data-i18n="ni.s6">Domain &amp; Infrastructure</span><span data-i18n="ni.s7">News &amp; Media</span><span data-i18n="ni.s8">Documents · Images · Audio</span>
+        </div>
+        <div class="ni-graph" style="margin-top:14px">
+          <div class="ni-glab" data-i18n="ni.g">EVIDENCE GRAPH · SUBJECT + EVERY LINKED ENTITY, EVERY EDGE SOURCED</div>
+          <svg viewBox="0 0 520 240" style="width:100%;display:block">
+            <line x1="260" y1="120" x2="150" y2="52" stroke="rgba(120,200,255,.35)"/><line x1="260" y1="120" x2="370" y2="50" stroke="rgba(120,200,255,.35)"/>
+            <line x1="260" y1="120" x2="430" y2="120" stroke="rgba(120,200,255,.35)"/><line x1="260" y1="120" x2="360" y2="192" stroke="rgba(120,200,255,.35)"/>
+            <line x1="260" y1="120" x2="150" y2="190" stroke="rgba(120,200,255,.35)"/><line x1="260" y1="120" x2="92" y2="120" stroke="rgba(120,200,255,.35)"/>
+            <line x1="150" y1="52" x2="70" y2="46" stroke="rgba(120,200,255,.22)"/><line x1="370" y1="50" x2="452" y2="40" stroke="rgba(120,200,255,.22)"/>
+            <line x1="150" y1="190" x2="76" y2="206" stroke="rgba(120,200,255,.22)"/><line x1="360" y1="192" x2="444" y2="206" stroke="rgba(120,200,255,.22)"/>
+            <circle cx="260" cy="120" r="7" fill="#ffcd6e" stroke="#0a0d1c" stroke-width="2"/>
+            <circle cx="150" cy="52" r="4" fill="#69b6ff" stroke="#0a0d1c" stroke-width="1.5"/><circle cx="370" cy="50" r="4" fill="#69b6ff" stroke="#0a0d1c" stroke-width="1.5"/>
+            <circle cx="430" cy="120" r="4" fill="#69b6ff" stroke="#0a0d1c" stroke-width="1.5"/><circle cx="360" cy="192" r="4" fill="#69b6ff" stroke="#0a0d1c" stroke-width="1.5"/>
+            <circle cx="150" cy="190" r="4" fill="#69b6ff" stroke="#0a0d1c" stroke-width="1.5"/><circle cx="92" cy="120" r="4" fill="#8fd8ff" stroke="#0a0d1c" stroke-width="1.5"/>
+            <circle cx="70" cy="46" r="3" fill="#8fd8ff" stroke="#0a0d1c" stroke-width="1.5"/><circle cx="452" cy="40" r="3" fill="#9f8fff" stroke="#0a0d1c" stroke-width="1.5"/>
+            <circle cx="76" cy="206" r="3" fill="#9f8fff" stroke="#0a0d1c" stroke-width="1.5"/><circle cx="444" cy="206" r="3" fill="#8fd8ff" stroke="#0a0d1c" stroke-width="1.5"/>
+          </svg>
+          <div class="ni-cbs">
+            <div class="ni-cb c1"><u data-i18n="ni.c1">UBO chain confirmed</u><s><i></i></s><b>92%</b></div>
+            <div class="ni-cb c2"><u data-i18n="ni.c2">Wallet cluster linked</u><s><i></i></s><b>81%</b></div>
+            <div class="ni-cb c3"><u data-i18n="ni.c3">Media claim - partial support</u><s><i></i></s><b>64%</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="ni-stages">
+        <div class="ni-stage"><b>01</b><span data-i18n="ni.p1">Entity Resolution</span></div>
+        <div class="ni-stage"><b>02</b><span data-i18n="ni.p2">Relationship Mapping</span></div>
+        <div class="ni-stage"><b>03</b><span data-i18n="ni.p3">Timeline Reconstruction</span></div>
+        <div class="ni-stage"><b>04</b><span data-i18n="ni.p4">AI Reasoning &amp; Risk</span></div>
+        <div class="ni-stage"><b>05</b><span data-i18n="ni.p5">Evidence Graph</span></div>
+        <div class="ni-stage"><b>06</b><span data-i18n="ni.p6">Confidence &amp; References</span></div>
+        <div class="ni-stage gate"><b>07</b><span data-i18n="ni.p7">Human Review &amp; Approval</span></div>
+        <div class="ni-stage gate"><b>08</b><span data-i18n="ni.p8">Final Investigation Report</span></div>
+      </div>
+    </div>
+    <p class="lead rv" style="margin:26px auto 0;text-align:center;font-size:13px;color:#8fa0c4" data-i18n="ni.note">NEO Intelligence orchestrates licensed and public third-party intelligence providers - it does not replace them. Connector roadmap: integrations planned, subject to provider access, licensing and applicable law. Confidence is never certainty; human review governs high-impact conclusions.</p>
+  </div>
+</section>
+
+<!-- ============ BUSINESS MODEL (v14) ============ -->
+<section class="block" id="model">
+  <div class="wrap">
+    <p class="kicker rv" data-i18n="bm.kicker">Business model</p>
+    <h2 class="title rv" data-i18n="bm.h2">A compounding platform economy.</h2>
+    <div class="bm-wrap rv">
+      <div class="bm-ring" aria-hidden="true"></div>
+      <div class="bm-orbit" id="bmOrbit">
+        <div data-i18n="bm.o1">Subscriptions</div><div data-i18n="bm.o2">Usage credits</div><div data-i18n="bm.o3">Verticals &amp; Full Suite</div>
+        <div data-i18n="bm.o4">Marketplace</div><div data-i18n="bm.o5">Enterprise &amp; Sovereign</div><div class="gold" data-i18n="bm.o6">Premium data · NEO Intelligence</div>
+      </div>
+      <div class="bm-hub" data-i18n="bm.c">ONE BRAIN · ONE P&amp;L</div>
+    </div>
+    <p class="lead rv" style="margin:30px auto 0;text-align:center" data-i18n="bm.lead">Activate one vertical, several, or the Full Suite - monthly, or annual with a discount. Enterprise and Government editions run on private and sovereign infrastructure. Premium third-party data passes through transparently. Every completed mission strengthens the Brain - and every engine compounds the others.</p>
+  </div>
+</section>
+
+<!-- ============ INVESTORS (v14) ============ -->
+<section class="block" id="investors">
+  <div class="wrap" style="text-align:center">
+    <span class="gp-mini rv"><span class="swp"></span><span class="sdot"></span><span data-i18n="inv.badge">INVESTOR ACCESS · PRIVATE</span></span>
+    <p class="kicker rv" data-i18n="inv.kicker">For professional investors</p>
+    <h2 class="title rv" data-i18n="inv.h2">Built with exceptional<br><span class="grad">long-term partners.</span></h2>
+    <p class="lead rv" style="margin:0 auto" data-i18n="inv.lead">Building one of the world's next AI operating systems requires exceptional long-term partners. NEO AI is currently engaging with a limited number of qualified professional and institutional investors.</p>
+    <p class="lead rv" style="margin:14px auto 0;max-width:760px" data-i18n="inv.lead2">Confidential investment documentation is available exclusively through the secure Investor Data Room. Access is granted only after:</p>
+    <div class="inv-gates rv">
+      <div class="gate"><i>01</i><b data-i18n="inv.g1">Password verification</b><span class="gk">&nbsp;</span></div>
+      <div class="gate"><i>02</i><b data-i18n="inv.g2">NDA execution</b><span class="gk">&nbsp;</span></div>
+      <div class="gate"><i>03</i><b data-i18n="inv.g3">Identity verification</b><span class="gk">&nbsp;</span></div>
+      <div class="gate"><i>04</i><b data-i18n="inv.g4">KYC / AML review</b><span class="gk">&nbsp;</span></div>
+    </div>
+    <div class="ctas rv vault" style="justify-content:center;margin-top:30px;position:relative">
+      <i class="vring" aria-hidden="true"></i><i class="vring v2" aria-hidden="true"></i><i class="vring v3" aria-hidden="true"></i>
+      <a class="btn btn-primary" href="https://dataroom.myneogroup.com" rel="noopener" data-i18n="inv.cta" aria-label="Request investor access — open the secure Investor Data Room">Request Investor Access</a>
+    </div>
+    <p class="rv" style="font-size:11.5px;color:#68738f;max-width:720px;margin:18px auto 0" data-i18n="inv.note">Strictly confidential. Not an offer to the public. Access is limited to qualified professional and institutional investors.</p>
+  </div>
+</section>
+
+<!-- WAITLIST / FINAL CTA -->
+<section class="block wait" id="waitlist">
+  <canvas id="halo"></canvas>
+  <div class="lightshafts" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <span class="gp-mini"><span class="swp"></span><span class="sdot"></span><span data-i18n="gp.mini">GOING PUBLIC · TARGETED - EARLY 2027*</span></span>
+    <span class="lili-badge rv" style="margin-bottom:14px"><span class="lili-core s" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n="hero.lili">ASK LILI</span></span>
+    <p class="kicker rv" data-i18n="wait.kicker">Early access</p>
+    <h2 class="title" id="waitTitle" data-i18n="wait.h2">Be first in the new era of creation</h2>
+    <p class="lead rv" style="margin:0 auto" data-i18n="wait.lead">Join the waitlist for early access to NEO AI - and watch one sentence become a business.</p>
+    <form id="waitForm" novalidate>
+      <input type="text" name="company" id="waitCompany" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="email" id="waitEmail" required placeholder="you@company.com" data-i18n-ph="wait.ph" aria-label="Email" autocomplete="email">
+      <button class="btn btn-primary" id="waitBtn" type="submit" data-i18n="wait.btn">Request access</button>
+    </form>
+    <p class="formMsg" id="formMsg" role="status" aria-live="polite"></p>
+    <p class="note"><span id="waitPartner" hidden></span><span data-i18n="wait.note">No spam. No sharing of your email.</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="f-in">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAggAAAB8CAYAAAAM0EidAAAxn0lEQVR42u2dd5xkVZn+v++5Vd2TGIIEhyCo6AoCJlRczCtiIAliQAQMa0JZXSWY07K7rgFUwI+IgaQsigHF8FPBhEgUXURgEARmYBgnp57uuve8vz/OufeequmZ6YEOVdXvw6eZ7q7qe+8559Z9n/OG5xX6GKo6AzgQeA3wFOBpHW+5DrgfuAz4uYg8iMFgMBgMhr4lBjuo6vtU9S+qWujYsFBVz1XVJ9oMGgwGg8HQX8TAqerJqnqPPnSsUdVPqeo2NqMGg8FgMPQ+ORBVPVvHDzeo6s42swaDwWAw9LbnYDzJQYkbVXUXm2GDwWAwGIwcdOImIwkGg8FgMPQeOThHJx43qequNuMGg8FgMBg5ME+CwWAwGAw9Rg5kksmBkQSDwWAwGMxzYCTBYDAYDAYjBw+NJOxuK2IwGAwGQ3eQgy9p9+BiWxWDwWAw9Ctcj5CDQeBs4G1ddFmz7PYxGAwGgxGEqcUJXUYOALzdPgaDwWAwgjC1uAy4ypbLYDAYDAYjCBVEZAnwHmCxLZnBYDAYDEYQUpLwJ+AIYIktm8FgMBgMRhBSknAN8B+2bAaDwWAwGEHoJAmfBz5iS2cwGAwGgxGETpLwSeCntnwGg8FgMBhB6MSxwG9sCQ0Gg8FgMIJQQUSWRpKwzJbRYDAYDAYjCClJuA94DbDcltJgMBgMBiMIKUn4OXCiLaXBYDAYDEYQOnEp8GlbToPBYDAYjCBUEJFCRE4BLrQlNRgMBoPBCEInTgNutGU1GAwGg8EIQgURuR84DLjLltZgMBgMBiMInSTh3cA6W16DwWAwGIwgpCThh8DrgdyW2GAwGAwGIwgpSfgu8GVbYoPBYDAYjCB04iTgO7bMBoPBYDBsGRr9PDgR8ap6CrAP8ARbboPBMJVQ1T2BbAxv9SIy32bMYARhYknC3ap6CPArYFdbcoPBMAlEYGdgHvB04EnA3kATeOpYCYKq/hEYJiRc/wi4H7gWWC4iQzbLWw7n4DfXr92ZWbOq382sv2Uoprav60hxT38s3/6IWfDUJ7BIRHy3jO+Wu/WRww5XXfCsdASz2t47tC6Oq2Oss2bBTGDVetbJNPrAvgb4BjA4Tof8rogcZR+5LV6HDwP7j+MhrxWR/+ySsb0HeP44HvKsKCW+ufPuA5xudxeLgRNFZGSK1v8xwEHAUcABwIxICsYTa4C7gVuA7wK/EpEltvRjw0vfmR93/xI5yxctcQIqghNBJETbFfAK3itaKN57wKPVq0ImwkCzoDkwg3339Kd/7WMD/6069WP76NdaL7vyD42L165e3/DqQBziQERAFVRASvYZxui9Rwvw6gHFIbgmZE7ZdfvGksZ0uTFE5BJV3QH4gn1MphTPBV40np95VV0gIhd0wdgOIOhwjBd+PMb37TDO5+1VPEjIO5pMUrBnvJ8PB/4ZmDvBp5wD7Bu/XgssVtWrgAtF5Aq7BTaOhbpw1kHHctqtC9xW+EHwBMNZG4nKgKLpv77+hQiI4BoFKhmtpr7Vez1TRNZP9fhykV1uXcw2y5YImjcjn0nGBPX36e+0/F8gQDjA5zRmNOc0ptk9cm58iB9jH5cpw3jv7prAeapKF5CE8R7bWMt0vd1WAEzaQ1pVnwocD5wwCaRgU9gReDXwalW9ErgcuEhEltrt0I5PfmbnoxctYa8BN0whTbxzoKBo3GEHu1lzBqkIAeIQQBy4THFZhohy35LGbu88K38p8L2pHp8WRdHQjMwpuSvq8bS9SdrHBuAUEQlfLvzatwSVou+rGDq9CMPAG7ZgZ2boDTSBr6rqsTYVhgkmBger6k+B66O3Ym4XXd4LgTOBG1T1vaq6ra1YtIEOrrym9crlK6HIPT4v0MJHIyoILoYZHOVvROuNtfhIIrwGOu5BVFmzhuyWv8mpqjo45YMsQD0QxyISwgzlmEAqIoRXKDx4D17QQlGvqE/GrDK9CEIkCSPAe4F77GPTV2gAn1fVx/bRmApb1q4hBo9T1XOBnwIH090l4nsAnwF+paovVVU33dfvpLNHDly+1h0s0sL7JupdJACKRGMvZRQh+t+rvANVVEsDqhS50hpR8pGCfHiY2+fLMz5wHs+d8odFkaEV4QkeASg9Ay78LJEsJOQnkB4NuQiF4nMF7ykKz7S8cUTkNuAQQszS0D/YDvhhH5GEF9iSTjkxcKr6duA64F977PL3I3hLL+oz4rzF+N018oZVa7Nm0xWgGeBQBFTwqqiXigCo92jpMUi/iERBw067KISicCxe7uQnv8mPmeqMf08BnugNAC2orl0S4hCNYBU6qWIn4SDhq/Coh2nLLEXkFuCDWPy237BXH5GE3W05p5Qc7An8EDgH2KaHh/Ja4EpVPWE6ruNbv7R2l7sWyiEjLU9eONT7ymiGfyVupqWDEFTWgmAqXb0DF1DJkCwja+SsGJZXnfGz4X2mcpwu2n2UQHTKcIKCL8IXnZ6SaphajTVwIalGPW0hIl8lxBEVQz+ShK17fBwWYpg6cnB03H2/rE+G9Cjg66r6OVWdNW2e8cA98xsnrmtlO4kohTaDFdXoKahc7dGYpomJSW5CKBUU8HEXHg1oeKtj6cps1rXXNd4zpV6ELKtSDcqxl0MrmYJ6AnGoCjMUfBhXmcAokSw5J0z72JSInE2oJzb0H0n4H4u/Gh4COXgD8C3gcX04vPcA31LV2dNhLa+8W7f5+z3ujUVrBCdF+dBPSECoYpAqIF+SBJeUCNYhBrQOP6j3+ALyXFmzVvntdf7FZ/+oSxJDJVZnlOOl01OgsXqj/r3UPCL+nW4ZQVDV56vqjn14Hx0PXNVDD7CdpntMcYx4C3COkQTDFpKDcxmb2mGv4jDgm9OBJJz+2eKl9y1p7KAqeO+ii70u6yt98kpI1JPoXi89BKrUeglaBujLr/B3XoVMclYONXb90W9ab5r6m5jaG1KGTUqeUFY2SFmtUXMlLUlQHLjqFoQYosvtJ/ShXLGIrI3MuleSFh8HXKeqL8KwObwVOMumwTCGZ9wbIzmYDvowfU8S7r333pkLFvlTh0a8K9ThVRAJRr0tCbHyGkhVuSBxRy0bGotALhBQhyA0MsiyjPU53Lcwe9ef71kxJV6ErN2BEAmAIi6paEh4Q+lj0EgGIl2opmTMOQiq+krgAoJ0aN6PN5OI/Cl+aHpBYCQnZOyfoao72aN98yRBVU0W27A5cvDlaUIOUpLQt+GGD35950MWL288qcEQgo8EoAwvaCKQFOPvpfGX6D0o4/ZVeD58o1rShzoCkRdC3lLuW+wedda3Zh0/JQPOSuMv4XpFw/dRDEpVq7BDG/EpHQ2iNXkQgbHkIETPwYWRHPQ1ROQ64BM9dMn7AN83krBZOOACVX2FTYVhlGfcCdPIc9CJQyNJ2KqvPvACV98kR69cJ3gaVNH0uJOuqxEksZMajaqiojURSMocS+NZ6QwoeC8UOTifs264xdV/9keq6pTcS1rbsnJE9QtShxxUtX0+NvA+KG5zOQgdnoNpARH5AvCBHrrkA4wkjAmzgItV9QibCkPyjNuTICqUTeNpOBT4r34a0Os/PvK0lWv0cNWCgoGaCPjU2EtNEkrbSckHkqYMcSdeuupLZ0KZ7R/UC0PAXrVg2ermgZ+4KD94SuxX4h6QhPi0t2RI9BA6qznb8xY3ThAiOZgWnoNRSMJ/ERTTeokk/KBPE0jHEzOBs1V1nk2FId4HVwCPsNngLTFBs+eRZfD3Bdkpa9ZnAw03EvMNyl1/5SRIFHCS2HtVF9juMSi/RDR8oSQyAwAU6ii0wT9WOfera90Jk13y6GDDpAnVSHYk6UgZAw0yWhenekCejRCE6RRW2ASOAa7poet9JnC5eRI2i50JGgk721T0Hcb8vIqVLf8JPN6mDQj9TE5X1Z4v7fzi94f3uedBDh8ZySkKR51NEDwDWiYjVs0WfLkzTGylJjYzEovY7VCJeQi1uyGSCsGrg8Jz53160Onf1Um+t4o2CWUtuzNWFQopAegUg6Jq5kjtUNkw5hbJwbQKK2zEi7BcVd8dPQm90vTkmdGTcLiImIz0xvG0SKaOEJEFNh0bxY3Aih673rF21DwQOG6Sr28E+CtwK/CLTbzv0cCzgMcS+ipMFuYRwqs97Un45o/0yAeWuUGcUtDsMIAac/tjjr8mfZ2rAL6rf5ekKdRFD5oY2cpgBFklp2TOs3RdY+urr/P/LvC2yVThK1USw+XVcQURlygrau0xSP9A2oWSVDsIQsz0nvbkICEJ18U5uawHScKhIvIPW8VNkoQvEeKvhtHxjpi421eICXlnMnlKsr8jCC/9HLg3dpUdy3VuG4nMYcCLInGYaLxWVb8tIj3Z8fbCX+u8j5+Rv03zETIRchrB3GldiVCSAtXUS5AYzdoAVMSA0uAmJrQ92C9VaWSuDYbXKfPv5XXfvGb951/7rBl/nYyxe5eFS9SOK1RQ9UnOBe1uAtq9CwnnqT8gqrpb/NAYOWgnCVcBr6K3yjufCXxU60wbw+g4RFU/bdOwUTT7dFyvA546Cee5Cvhn4AUico6IzB8rOYjPnuUi8iMReUu83ncBiyf4mgeBj0xVFv7DxbkXj7z4gWWNeR6Hx9Xu9sRRULkCymSEsjLBldn/5eZ6w2ZNG/RpkPZyR+8FXyiZtFi0zM255EduUiun2qoWNC1tlCRikmQsqm6YqBhfc7SXOX6CPhRBGieS8Aug1wzJO4Bn2+ptFu9T1U8bmZoeUNW5wL9P8GkWAEcDLxaRa0TkYW8uRGSFiJwFPAe4fBI2GIf02tpeeosO/H0BbxsaUbxmsbRRO2Lu2t7JMO6kpUpGjEmIpVRxJ0FIdAKqqoaoxuhDl2TUB94xNFRw613ZG/76j0kqIU36K9R6B7XFr8QVUyaRKi6mTCFqP7j4odkr7pING/+AfgD4bC9dMnCardzYSAJBSdPQ/ziKie2xcBWwv4h8ZzyIwSjPoTuAV0zC/Xqqqg720sJecVl+6Jr12TOb2XDQMojGT9r7L7Xt/MvcAa0UBKOwkC8T/Eb949iLoW4NraWaUrSxhWYUXnhwhdvzv88vJq2iQTrcAJr6FjTxGqBJLkKZ2SjtngYUF3dO7yPUiRs2jY8D1/fQ9b5EVZ9ryzYmfFhVD7Jp6GvvgYs7+4nCZ4GjJjpBWES8iJwZyc69E3SaA4Bn9MraOuDm2/TtK4cy8SqhpTPBG1Dt9p3gEqXEkIrnQ3xeC9ACxSMKM+Y4GgOORlNoNASXhb+vY/elRyF+qU+38IhzuAyG1sOt8/lXP0n9YNKGlKEss+PVzsqFtHQhkoeQyxk6PzpgJ+Dl9vgY0wdzNSFh6E+EWF0vfG5ONff5mLAN8G1VfbFNRd/iScBEre8vgFNFZPkkPo++CxwOrJmgU7yxV54dr/nE8L73LHLPUi3IfVbV/KvWHRjVKz7G5DUa+FpQUJBMkIYwY7bjGfvml8wcyFtOwKcaCR179dLGinQqLQXe4Mj52wLZ6/X/zfMn/mFfbGD8gyckYQ0VcZC2XITa31C/v2zW9PRIEgxj+1AuAl5D7zR22heYYys3JmwNXKqqz7Cp6EscxsQoJl4FvEpEiil4Ht1MKE30EzRfXW8bRGD+Xe59wz6b1chGYr8F116FkIof4UNXx/g+EcE5R7MpNBqOxz3aL/nMvxUfm7eN3j0yDJqPoD5HtQAp6l23yxCyujNiRRIE9UpeQCt3rFzjGrfNL06bjK6ydQNr7eAx2paEoNAWctC01XXpXXGBIJj3YMs/lLcBH+yRy901kgTD2EnCmapq6np9hJiVf/gEHHop8PbJ9ByM8jz6IvDdCTj0dvRAmOFTl+p+Cxa7Vw23Crw22nf3OMDF/owJR4hGUVCcE1wWwgIDTXjUPL7yjMfMuH2nbdwXm07UuRGcC+kkohK+YgJfUFVMjHAa9feghUIxzIIH5YXvPzd/4UTOgy+yxMinJY1t6kkdl9mhplgpMAfC4wjiGIaH5knoiUsF/sVWbIvwLOB7RhLGLDrUC9gP2HsCjnu6iNzeBeN7DzARJOUF3b6wV1w5ctyy1W6GSmjMJB25hWGDH5sXi4tOJBd3+uC9xxcFI0PKdrPJn/P01vkArzx43f/uMm9kpWsMkmVNxGXgXOWZ1xi6KKsc1NdEQavOj44Mz9JVLvv9Te7NEzsTReUtkbZkw9pTQupZiOSmyq1IKUN8vQE82exB32N3m4ItxnMiSThSRJZM0zk4oEe6/N0uIgs3856nMP55Q3cDX+uSDcsCVT0POHmcD72/qg6ISFeSxc9eqtt9+rzWUb4YIiOj0GZbJZ9EhSSp5JOTaoXqXZ5M1gNbscuO/PSUwwfvPBU46eitlvzgD61vL17T/Ne8BZmUlQugPhynOkqbz15CU6jIJHLfxCvMX8BBn/6BPvrkw+XuiaEHCdS3NXYOlRobajpWl51MWiW2FJUUH2W2oO9R2BQ8ZJJwqaq+eCJK1noAX+iR6zwJ+OJm3vP8CTjvBSKysovm4SyCTPL243jMJxMSeBd348JfeW3xhhXrmnt4HUHVVYqBkkTjJcnU10RmWERREXAO3ABbz8mL3eY1PlXmkoiIvu2M9Z+99Q5/zJL1bjZF0DpIt9kbFAV0hBlQ8JKRZTmr1ze2u+7m/N8E3j0R8stZlrVVLUhCXNL2zrUfQToiDNpWqonKpEmNGgy9ihfQW+2/jQB3PrJVZwCPmYBzXt5NkyAi97LpHg8PBU26tKGVqjb+crseOezBM4iXLOmbEFUEtW6sVLciUBQfWhW4YFhVBtlzd+Z/4WP8MT3Hl949eOee8/xN4gucDgXdgw7xwcq4Sm2E6xyAYGKdKMMjObfdJcf97s4J7LpbxwdismbSkDL1Gow6oRseyzFxdbSG7kE/97qfDNfnx1X1I3Yb9SxmAHuN8zH/D/hLF471O4xvRcMgsE83LuoRpwy/eNWwO6DpckRCXkFNAOqKhfqn+DtXG/GQZFgwa6bX3XdrfGaeyNoO0lXsukPxqdlN1UJdW2S/zgWs9RYqCcKYHFmKL3oaII57HnTbfvIrE6hSqR1soAyrSEfXqbaExVJ6mjZJBOIo/tQrn3JVdao6YM+7LcY9fTy2K4DPGUkwbALzGKVz7cPEd7ekr8Ik4jfAeIc9um6cqjpw76LGaWuGnVNcZ4pdB3xw+EgdlReBzEHmFBFh1x30H6eeyHdGO9e3Th/8ydxB+a3KTFyjtLNRU7lqAe1qUhCvR1RxxC+nZJkwkgv3LSxOvvnmB2ZP4OREYhITJSFRnNYOVciU2ISfa73IMKqre+iDviPwtV5tJDJVnyXgl/3sQRCR9xI6M04GSXiZ3VI9h/2B8U627NY24UOMf77Agd02yMNOHXnc3xfyzCB8VOYU0CGLXP9e2sr9YtqBA8GRNR177K6XPG1bVo12LhHx++7d+vacWdDIijrOLyQdEl3Sn0HbkxYlchQPmiuLlmdP+NIvdzhm/GelqE5ZelKSH+rr0VL5MV5c2qOiSrsMVMEB1wCtHvmgFwR50XNVNcMw1gfZ//Xx+Mr74MR4L080vq6q/2y3VU+hmIDjrerGgYrImgn4HPxTV40RuP1vetK6VjbgyCm0KiwcVZNAfdljIBjy2quueBW2nsnKPR/bOENENhqeP/DJI9+aO2vkfq9Zu7u+Op0PnZoqiWeiaz/8qihgpKXkrYJlK+Dm23n7+KtUZgkBSL+oPQSVWFLZyKo9obImPnWzpuuAv/XQbng9IVP3NfbcGxNuYeKkWLvpwajA64GJ7r2+I/B9IwnTGmuA33Xx9Y138nlXVfD8x4Xr9169JntdnrfwRZRRHo1GlCIIrhRKqjMIvAqOHCfKHjsX1555wqbDsB86fuulT9jd/VzJQAsk3YFXiYHpucuMh3DewB2UolAca7nj7uKJr/t0a5yfIUVyBaO0dNZO4aQO1tXxrSo4EVkPfKWHPpzlyM5V1SPtWbVZfGdTzLjPSMLfCG1qb53gU+1gJMFgmBr8+FfZq5auacwuVCm8CyJFRdQn0JBTULZidqI4ib+ryhIVNCcvlLmD8Pg99MzNPSM9sPuj/OfmDORrMxkhI6/0FaRqES11kmSygw/8oQ5FZE5Zs6458Pc7s9MmqteFpt6BqgdD3TNCkmqH0rtST0HtISmZ5lfpvWqGWcCXVdV0HDaO+cCl02nAInIXcCgTn2FekoTd7DablvA2BZOPT31ft7proX+dsh4nvk6pE2JXRqrKAVfupBHKIoPSoGfSwrcG2G1Hf9f5pzbGlIf3tVMG//y4XYurXTYDdVGZMOmcrKnNTex+uC5fvTEvBmkVnvsWu4PP+BHPHjf/QZEl3RwFSfpRlOdW1cq7EScoRh+0Koss3+ui1DJR7OPdPXi/bB8f0tZsapT7BXhXjElOK0SS8CYmvgRyB4Inayu73aYVGnHtpwt56Qq9HAF+/qvWG1euG9gziBRlYRevSQAh0UHwqUBQVegYLGKWKbPnCrs+OjtDRMaUT6LAgfsUX5k7iCrNJPGRugW0JuSg9CKUYk1B1xiVBs2msGw1zV//tvXWcXYdJEmHHdfnyutK8hFKueUyR0OTKkivbQv/feAbPfhhfQrwCXtmbYCfiMjPpuvgReTaSBImOgH3JQS1xRn0TrLvtLsdxvl4s4EDunGgMXl7m3E+7NKuYD16Q/O+hdlb1+fgdQBoIE5QKYsJBbzEUEPss6ClLkItEeBEUGaw7ZzW3Qfuy4Vbcg1vft+sy7eZ3brJOSFzebX7bjfM2qZDIEm76KrwAcgL5Za73EHnXqW7jssEZbRVVigh7IGrQwbBs6B1X4Y2OYRUASqMwyUPVCV0KLy5Bx8Ab1HVz/RK7/JJwLXAW6a9VRC5CHgjIbF1oknCNwnd7wzdh7WMfyVDt7ZQn834lyX+pBsG9oJ/e9Jz7/+H27MZSw1dpRIoCI5KGDi0UQT1SCWUFCoLsgyyhtBsZuz9WPnJ+1+1ZVLZ+4iM7LeX//7MARCJZYXq2ptBaRL/j0qOwXpn4Vo1EBivwpI12Y5/uM6fOJ78oC5VTPtNhEtsF43qaNJU5SmEH7TTdSQi9xN6gPciSXgvE9POtRfJweEi8oBNRUUSJkPg6BXxs2PoPvyO8RcP6lY9jF2AmeN8zCkPMahqY/kSPW2oRbNSSizTD8q6/jLUUDVm6kjWi792Kmw90488el7j7IeSvf3CA/15j5hbLB8pBoMccdxpS5X4kAgliCRefq3FiCToPg6tV35/oz/80t/rw16zpmODXgxVomQMGSTZilEBsiQQ7XNakhs3ygP1PkKSVy+ShG+o6vOMHMiDZhPacBZw0WTwEZvqrkTB+Id/9lXV7btwrIeOs3cjB+6f6kF96FwOWLQke0FeKLl3lHl/WvUckLrUXwgqSGWqYmxQ5BXwOeqV7bcvfnPeafKQqp1OOmTOoj12kSsyERoyHNo+V0Y/VgrEHgyi6YOhljguSY5ozv1Ls73+94fFUeP2BCrnos0boO0ljpqQgvSx1aGF0NjIrmuBqh4C/Ijeage9NXCmqh40DVv0XgscJiKLMXTez0Oq+qb447E2I32HzSmrriQoxo5nWfTOwHOB73bLJMT8gyPG+bDrCVo5U4pv/zw/esVQI2swQl40qh25pv2KJdm1Q/IerQSRi8LRaAqP3E6v2+cjI88bcIXMmAEzGoEJ5ZES5dUPjTYRiPXrc4ZdpnlL/zhrpj92/VCB0Aj6SE5raePy/516SjFB0CsUqjjnGBkS7nmQU1T1O1F24CGy4IIQaNDYsbFu1qSVYmJCAFQS9tIuMVXyicYmHqoLVfVQ4Ic9RhKeDHxPVY8QkaXT5AH5B+AIIwebJAkjRhK2GPMJ8ftuRg7cuJm196q6cALO/cpuIgiEzqNPH+djrmKK28W/+6v6mIsvyY8v8hGCXrHWCsFpUyKS6gGpa/3Dhjq85gWGC+WGPzc+kDn3AUcz9FdwVG2QVWMKQ/VD0gG5cHgX2kavG4ZCZ9Wn9VQegtToikhKGcriAdRDoQ5Hi/v+0dz3tHOLIwm5TA8NPutoP+0DIZFIlCSZpvTfVJ+5g1w1NvPBWtCjJOHZhITLf59G5MDCCmMjCW8E9gaeajOyWbxBRK7uk7H8DHjXOB/zSFV9ioj8sQu8BwKcxvg3pbp+Kr2xAtxxa37SirWNrQs/EnbIZUlhFd+X9q0vtTddOgiEcyGncPkQkQVQd3Z0CUOoEvx8zUQ0PegocstC3RWRpDdEpT9QOjqCBHP5vkZWsHx1g59dLUc5xzf9QyxS9aUHIRFoUim9GqNEP0um0sGv0pc3m3wiIgvozZyE96jqqX3+AL/WyMEWk4QWcBxwdw9c7lT3G+knBc4/Mv7leoPAOara7ILxHQq8cAKOe+VUDur8n+nsP91aHAp5VCqMJstLVHuQ9q9IGKTUHkgFlmPcv9ZGaJceDmqMPgkRRBMpGYhDXKxSSPsa+BgvIFUtlPptqjUZiIZbO/IAcu8YaXnuX+Fe/sHzR54+Xp9Y7aQFnd4D6Uxa3GBKxpadmpCE6+gS0Ywx4oN9KofrgN8Tcg6MHGw5SfhLvJ+7nSTcNdVT1UfL/gChFfJ444C4c59K78H2wOcnYL3WENqpTxku+OHIMSuGBh4jrgjKgG0GLRrq2CkxbO4DOfCa9EGIZYUlZWgTRaiMfTTYPhIJr/UxqSsCJD1/2tKgTeigoy9S+nFKiEJptL1vICir1jJ4653uVFV9SDbWJfsJ7eAEkpKSTsdHLTvZviXQLTD2kSS8gInXuR9PbEVQWnxMn9m4G4EXWc7BwyYJhwD3dfFl3mYrNW7rrUxcvsDJMal7qvApYI8JOO71wN+nkPjM+ceS7L1r1wlF0Qy+AJGqr4IkMsupgqJGy6yxtK/sjaBtqkBx958Shcrwd1j5aue/wenq/gbSaWGlo5ti+nJ7LaKIkAn4POePf+VfzvgpD0kZuFXmTVS0wNW+EE1JVVr6qXUnaN3ACbFl3gARWSciIz32bNiB4Aac20cPu2ERGbLH/sOex1uB99O9uvovtVUaV/wCmAhSvRXwrakgCar6IeCECTr8d0RkyhIUj/xA/qx7F7t/arj1lUdAKr9A+HKutnttO+PU7a8dSod0hAS0bGAkVUJhbdFju2gvSGdn5FKRsOIX7bLOycW0N06qTK9UDZ/UZXhxPLgi2+Y31zw0kTtfFPVpqlyMqHfgEl2E8ho3CCB2EpfeChc8HBwMfPOhum4MfU0SLgbeSXfG260h0Piu9SLgWxN0+DnAJTGpezKIwSNU9QvAJ5mY5/gDwMVT6D2Q2++Uk1avk2rTSymhnOzCNW1rTGduQWr30u1x4iHwnel79WOgMqokrZt9yFPA+1rPYINOTTKK4U36IEhdfujitYmE5kjDI8rf7ive/ru/6s5bOmdtGk3JaKqrqrwd1DkHo0wdCZGYTgbz5fRmQyrDxBuOLwEn0mV97w0Tgm9P4DrPjp6Et02w8dwN+B7jX5WR4vLYxG9K8LGLW89ZtkZeUigUDMSNfkwfVMFrzDPo6I+UJtttsB1uyzmocw80JhpqEqKXDayr1tUM6XFSC5s0Z2pL/IvfVy2VtQ51aMyf8IXgCyXTnAWLsp3OuKh4+ZbOWTZAVdqpFX2KVQzluToJC6OMIZnH6baj/qyqHm3PSMNGSMKFNhN9v85XM7GJd7OBL6nqFar6+HEmBgMxpHA98JwJHMNa4LNTuU5X/l7etGKNa2QNTyhBlGT325ZIEHbzcUdfG7mk1jAqKUqVxJi+5mjTT9DaS1HlLKTp/SkRoSNRsfJM1KJEIi5eO1UIQsrSx5gf4RV8AUUL8pawYhXccgdvvuMOHdySOWu6LA4ntqIu9ReSHAxtCy0kraCTkEvtkBGmo8v9c6r6ZHtUGkbBSYSupob6ydGP+DiwbILP8TLgGlX9mqq+4OGEN1V1N1U9jqAG+UlgotvbXyQi86dqcU49c9mjbr9TXlIUvtoLl30WNrwhU++AdlQV1Ea/7T1Clbuw4W2e9FHQssNhR7Jhmc8gIC52jaI+dhrhqEIQlMQj8Ty0JU4E4114QXyLpWuyZ5z9s2KLersU1HxGXKLDUJGi8ty+6l2RkqjOmIOKTkuCsCtwsarOxGBo312uAV4H/MBmo38JQhQ2OmcSTrUd8AZCcuT1qvoxVX26qj52M4RgG1V9kqq+QVW/B9wEnA/sPwnX/HfgE1O5Pn++d6t3rFyX7Vh4JS/Ae8VXXRE7iEHbBlg6jPxoN3TwDlQOh8SI1m6GsmRR2glB+UPas1lrh35auaBtpZMdVQPV+2N8IVV1EkeWeVavgxv+wjuzLbDQ3tfXqp09qqpxdXhE0uvU9ioPQcZddatXsDdwvqoeb9UAhg7jsU5VjyFInk737qBfVdU1PXS9NwAnichYcgw+T+jA+cRJuC5HUO58KvBRYLWqbqqE9RHAVJRmK/De2NV3SvDRLy+cdd4P/KFFnkd7lYocsWHWnWrtCVBJRBUT5UN8qESA9lLDShOgVg+SuOtvIyJOE+MvUQmx9gpUf6+jND5q12+qj0PiRVCtvRAC3jXxCvMXyNNP+Zru918nyJ/H7kMIvRjK5EutGkCX6RHSoZ4o7cSHWotSlWlLEACOJigRfhaDYUOS8A7gmcAjp/FU7NVj17sboe17PoY1XqKq7yHkI0y2EuJWjH/PhPHA+SIypb0lrv/rTketWCN7O9bhGayVE7XdqSXion2TZAcfd+gxjt7+J6MU+Y8SYlBJ1Qy0o39yLTnU1sa56uLccd5YNlkTDh9JgLa1gFYpyx2DMlHQe/CsHHIz/3RHfkrmOLYYQz1TUWyE86VEKyYt1uMvyY+0t56MSaHTvezvP5MGPgZDakDuJ6gtPmCz0TMY3sI1/nn0JBiCaucHp/ICVHXW/Us4ee16R8FAu1FrywaMnoPOAJjUIQRNNQ8k5gm4zjAC7VUPkoQHEmIhSQxfYkmiVK9pfbxKUqFOqFQ6dQd8m+dCVZA0GTDmXTr1+JER5t8tR533S33C2GYwC5UKms5Wp4eDDSctaUPdzptk2hOEAYKI0pPt+WAYxYDcABzGxIjrGLpjjU8GfjvNp6EFnDKVoQWAQz/Ueuq9D7p9nfMUvknI69TaUCdywaq1amJI/JM6766K/fsY5tfYu8GBy5CsgWRZyFQsJL6WfClt/4bOjuE19Q71UusyeA1GuRDQ2K/BlfWBZVw/0WxGEBwp5YjsCPGCxPzBoghSUPcuymZccFlxxNhZFqNnDql0hFPSvANp10UoeZXqtA4xpCThUlV9mYjcadNh6CQJqvpx4Gybjb7FscDlwJOmKTl4k4hcNpUX4Rz8/S7+be2Q0HA5I74R9utVB8Xoeo9x8zS2XgkWVR/aQCp23DFj2zl55U3IsoxVa/ySJStkISgzB3WrnXfIHuO1M/ygVcvouiKhzIHQjmZO5a5bGB7O1y1ZIfcOzmDe8tVuay2ioKMkeQCJFZa2ygup2jGHhlKC946i8CxayomX37bqvMOeMHfJGB9aFfHQilyVc6YdapGaSDpsKDBlBCHgcQSNhKPGmOBkmF4k4RxVnUPQvDf03/rem7S1n04koQW8WUSmXP/jtK+uPeArl2SHj+QadthS9iJM+geUhY5l5UCiSVCG1Z0Lhnsga/CiZxcfPu5Q/l9rSKChzJ2Vw0jzgeftJ/cBfO/2JXNn69wntFqQt1Jj2CKnSYMWNNvTU/JWi5Cy0oq/aQJKYxb4Eb/6oH0G73rvua2nXXy5/9XS5Y2m+vbcRRcJjHZoEfj2uEb1StONsGj5jF0v/8msN23++VO3e247vJZJlaHLZBnhKHM4qGe2vtCoumgEocZhhNKnt9hUGEYxIv8Tk43+m/7qcmgI63tfJAmXA0+eRuTggm64mN9eP/D6VWtdUyjwWlcYVLvusmdCKTIUVchF6t24orisQHDM27lYccSh2Xkv2aexaGPnfNnjt19F6FA8rlDV637x6+GrFy+V56MFEkMgQcSoThL0Pq1mCHkMdZJjIEeeBqvWwDU3ceQNqp/bP7SrHxUZWeVXaavGSLww5Yx2ykWUc9nuF7EkxU68SVVfbdNg2BhJYOI6Ahq6gCQQElNv7vOhjhDCCl1BDs66VB955128Qn0L52JL5VIFkBALF1WkanqkScdlRcWjFCAFUNAcaDDvkXrxq/eRRVN0H+V77OLPmzMLMjeCiK9zEcpeEp0yzVV1QcxREEEyQV0DxbN4mex/wVc4eFPndVlRxVxUkx4TknR29B1lHEn/67RjdZnYaQShY46Bb6jqc20qDBvBvxKEbwz9SRIWENqAf7VPh7ggkoOukRX/6bXDb1kx1JhXKMF7QBL/r3a9JG0QgsFTXCUZKBIIRJ43mD3L5wc/l8umUuXrza+e+bNddxi512VNnAtS0cGFQIeXoO3uCwmQZa/KaLybWcGqtc79+Zb8/ap3bFR+2RftxKM2+In3QGrvRB37cIBr04UqE0GNIGyIGcAXVfVRNhWGUQzIcoKGhpGE/l3jhSLyZuB/gHV9NLRrgOeJyEXdckGf/7EOXv9/HD48klN48IXGEsb2IsfO3W5bC2UEFUcjU7JGk12248aPHNX49VSO67D9ZcmuO2RnNZsNVLJK+jg2kKS9/wFVVQNtlZiKLzxF4Wjlyl9vlwNO/PTOY9Imkc5sw47SzfSldjGnZN69EYSNYT/gApsGw0YMyArgNXE3ZujfdT6VkJt0Q48PZQQ4K5KDu7rpwr79g/zQ1UPNpzTdEA5Neh2VEsWJEYvlg1JpDcQ0RnHRLZ8xdw7sv5+7UESmvFX6MYdkP9xpa79OfY6Q42Nzpko3wfnwJXUjJZGO1g8qFIWDQlk2lLk/3j7wDtk0M6j1F1zsFREoVNRwSL0HBKKV6kwkZaJiOQibxPNU9QxVzWwqDKMYj6WE8rhlNht9vc6/BF5MSE4d6cEh/A54toi8SzaR4DYVuFt1xtLlctq6YSeFNlFxIFlwxTuHOhclkyvx3+pvXXSNh1C50mgIygDztmf+m0/ojq6sb3qZ3Lbt7OLSpnMII2ilh5AKPrVv4UNLZm3XbxJwmSK0WLxCXvf1nwyPKg9eFDHMADgRnCTCTlKGLdr6Pid9JpIW1S50s3KZ5SBsDu8GLGnRsDHj8WvgSGCpzUZfr/NyEXk/8CxCS/DhHrjsB4HjgBeJyPXdeIHv/EjriQ8s48nS8BR+AIlZ+EkD5tqOecUXZRNCqdz0UnVmVAYGYNuti7MP2F5WdcP4vIenPZFzt9nKkTMTcVlUc4wX7RziskQ4KfznVNp0jIg9FLyH+5c0Zn3v1+7Y0c7X8j5qMuV49ZFXSewiqW0KiaWzIe3kKCJkTskyAdcgc84IwhhwjqoeZNNg2ARJeC0T0/lQbYa7aq1vEpHjgAMJIcj1XUoMPgU8XUQuFJGuJDMC/GMh/z6sWdZsgHMSBYIUX8kdJ7vr8uOgQWqwzFEIOf8hXr/NVsXKw16S/bibxvnl9zdv3Gn7/PfOObIsD9fqBOc0btSjt0BqL4Iv1SJjSMJ7T6GeQpWhkYL/u12OvmGZbr3h2aLyZMzPUNVKXTI4CqKXwCUtsqMstDhBXOwFIQoUeAsxjAlbA59X1R1sKroSU34PR03/0yfg0FfY8m6x3ZmM9b5RRI4Hng1cDNw/xeNeD1xNaFX+FBE5LZZsdi0+ecnwUxcubR41nIOPAj6SCZKlLgRtbyDkaklglaCEUCjkKuAyHrOr/Pi0w2R+l5HKkSft3bhkzkxwDKGao4Wi6mrvfpVjAZpRjS/kJ3jIPCqhqVNzsGDVSPbYL51fHN95rlmzoNEQkBlB8rk8jvj2fhNVM6Y24eWo3igUhQItcl+YUNIYsRfwPVU9yNpDP2yMd+e8tV3yIPhwFCb50DgednWvkKQuwfBkel1E5EbgWFXdEXgOoX30vzA5HUCHgBsJ6o9XiMhfescTA//vl3rCytUMNp1HitLtTpQJJm3BkITIU9d4SMRzroVXx5xmg33/yV302y70uR1/KJfefHvrQ3feO3dH11Q0Jwg9idTVC20Ut9SAcMEbEF8Q58gyGBqCa6/RY358h375ZY+vPURzZ5DNngFr1jbwLoQ4VIroUSjflYVzpo6ZkpyUKRJO8OKYNdg0grAFOJDQ7exDNhUPC6cxvi22/9w9Dz75sKr+glAqOx4Y60P/T8BL7NZigYisn4J1XwxcBlymqtsDT4tEYRfgecAcgifyoaIAlhOaht0QPUu3An8Rkd4MQ61339q+uf4KGCYvIBU6bgwGVcBy6EWeh/dkDRqN8FpByMbLySFvMHNrHTr7xOZvz3ln9w31RfvJg6/5D335ujU8oijWka8HimHIyjE2gCzMQKNc7og8eUv8N1+bIWsbxX1X0VapseNWAz/eaQYvkZlrKcigKMgZDkerjhNnNmvUh21k4Zu8IM+BIqegYPsZ2luSsfHDdwew7RRexkdF5BP2LDYYDGN4Zs0FtgH+OXnUHwbM3MyfLgR+Fb+/B7gNWG8eTMOkkl8jCFvOfYGDReQ3dvsYDAaDoV9hscstxwzgYlV9hE2FwWAwGIwgGFLsCnxTVbe2qTAYDAaDEQRDihcD77dpMBgMBoMRBEMnTlbV99g0GAwGg8EIgqFz/k5T1e1sKgwGg8FgBMFQYj3wLkKNssFgMBgMfYNeE0oSYLBLrmUIOE5EvmO3kcFgMBj6Db3mQVgJnG/kwGAwGAwGQxtU1anqOTp1WKeqR9lKGAwGg8HQfSRBpogkDBk5MBgMBoOh+z0J3zTPgcFgMBgMhk6S8ChV/YuRA4PBYDAYDJ0k4dGqeouRA4PBYDAYDJNFEowcGAwGg8HQ4yRhd1W9YBzJwWpVPdJm1mAwGAyG/iAKJ6vqqodJDq5S1X1sNg0Gg8Fg6C+S8ARV/S9VfWALSIGPxOAVqprZLBoMBoPB0L9EYWdVPV5Vf6aq+UaIwU2q+lVVPUhVrTeFwWAwGAzA/wfjo2ZrYiodiAAAAABJRU5ErkJggg==" alt="NEO AI">
+    <div class="f-links" id="fLinks">
+      <a href="/research/" data-i18n="nav.research">Research</a>
+      <a href="#investors" data-i18n="nav.investors">Investors</a>
+      <a href="#" data-legal="privacy" data-i18n="foot.privacy">Privacy</a>
+      <a href="#" data-legal="terms" data-i18n="foot.terms">Terms</a>
+      <a href="#" data-legal="cookies" data-i18n="foot.cookies">Cookies</a>
+      <a data-cfg="contact" hidden data-i18n="foot.contact">Contact</a>
+    </div>
+    <p class="f-copy f-co">NEO AI is operated by <b>NEO TECH LABS TECHNOLOGY L.L.C</b> · Licence 1320892 · Iris Bay, Business Bay, Dubai, UAE · A subsidiary of <b>My NEO Group</b>.</p>
+    <p class="f-copy" data-i18n="foot.listing">* Listing planned subject to market conditions, final transaction structure and regulatory approvals. Nothing on this page is an offer to sell or a solicitation to buy securities, or a forecast of financial or share-price performance.</p>
+    <p class="f-copy" data-i18n="foot.tech">NEO AI provides technology and workflow infrastructure. Financial, legal, medical, investment, payments and tokenization activities remain subject to applicable law, licensing, professional review and human approval.</p>
+    <p class="f-copy" data-i18n="foot.dev">NEO AI is in development. Certain capabilities shown are illustrative or roadmap features and may evolve before release.</p>
+    <p class="f-copy" data-i18n="foot.copy">© 2026 My NEO Group / NEO AI. All rights reserved. NEO AI orchestrates leading third-party AI models together with proprietary technology; benchmark figures are public results of the core engine architecture as independently published. All trademarks belong to their owners.</p>
+  </div>
+</footer>
+</div>
+
+<!-- benchmark methodology disclosure (technical content, English by design) -->
+<div class="bmodal" id="benchModal" role="dialog" aria-modal="true" aria-labelledby="bmTitle" hidden>
+  <div class="bmodal-in hud">
+    <button class="bmodal-x" id="benchModalClose" type="button" aria-label="Close">×</button>
+    <h3 id="bmTitle">SOURCE &amp; METHODOLOGY</h3>
+    <p class="bm-note">All scores below are published results of the open-weight frontier architecture at the core of the NEO AI Foundation Model, as reported in its official model card and technical report (architecture release July 2026; evaluation data as of 23 July 2026). Compared models and scores are quoted exactly as published there. Evaluation conditions: reasoning effort "max", temperature 1.0; top-p 0.95 for single-step tasks and 1.0 for agentic tasks; harnesses vary per benchmark as noted. Scores are not NEO AI production guarantees and were not independently re-run by NEO AI.</p>
+    <div class="bm-scroll"><table class="bm-table">
+      <thead><tr><th>Benchmark</th><th>Category</th><th>FM core</th><th>Best compared result</th><th>Conditions</th></tr></thead>
+      <tbody>
+        <tr><td>GPQA Diamond</td><td>Reasoning &amp; knowledge</td><td>93.5</td><td>GPT-5.6 Sol · 94.1</td><td>single-step, reasoning max</td></tr>
+        <tr><td>HLE-Full (no tools / with tools)</td><td>Reasoning &amp; knowledge</td><td>43.5 / 56.0</td><td>Claude Fable 5 · 53.3 / 63.0</td><td>agentic, without/with tool augmentation</td></tr>
+        <tr><td>DeepSWE</td><td>Coding</td><td>67.5</td><td>GPT-5.6 Sol · 73.0</td><td>mini-SWE-agent harness</td></tr>
+        <tr><td>ProgramBench</td><td>Coding</td><td>77.8</td><td>GPT-5.6 Sol · 77.6</td><td>agentic, reasoning max</td></tr>
+        <tr><td>Terminal-Bench 2.1</td><td>Coding</td><td>88.3</td><td>GPT-5.6 Sol · 88.8</td><td>terminal-agent harness</td></tr>
+        <tr><td>FrontierSWE</td><td>Coding</td><td>81.2</td><td>per official comparison table</td><td>agentic, reasoning max</td></tr>
+        <tr><td>BrowseComp</td><td>Agentic work</td><td>91.2</td><td>GPT-5.6 Sol · 90.4</td><td>agentic browsing, full 1M context</td></tr>
+        <tr><td>DeepSearchQA (F1)</td><td>Agentic work</td><td>95.0</td><td>Claude Fable 5 · 94.2</td><td>agentic search harness</td></tr>
+        <tr><td>MCPMark-Verified</td><td>Agentic work</td><td>94.5</td><td>GPT-5.6 Sol / GPT-5.5 · 92.9</td><td>MCP tool-use harness</td></tr>
+        <tr><td>OSWorld-Verified</td><td>Agentic work</td><td>84.8</td><td>Claude Fable 5 · 85.0</td><td>GUI-agent harness</td></tr>
+      </tbody>
+    </table></div>
+    <p class="bm-note">Source category: official model release (model card + technical report) of the underlying open-weight architecture, plus its published comparison tables. Full citations, source links and the complete comparison table are available in the Investor Data Room. The NEO AI platform additionally applies routing, validation and governance layers on top of this core; platform-level performance is workload-dependent.</p>
+  </div>
+</div>
+
+<!-- legal modal (content injected from sections.js; legal texts are English-only by design) -->
+<div id="legalWrap" hidden>
+  <div id="legalBack"></div>
+  <div id="legalBox" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+    <i class="cnr tl"></i><i class="cnr br"></i>
+    <div id="legalHead">
+      <span id="legalTitle"></span>
+      <button id="legalClose" aria-label="Close">✕</button>
+    </div>
+    <div id="legalBody"></div>
+  </div>
+</div>
+
+<!-- GDPR / cookie notice: shown once, EU/EEA visitors (timezone heuristic) -->
+<div id="gdpr" hidden role="region" aria-label="Privacy notice">
+  <div class="gd-t"><b>Privacy &amp; cookies.</b> This site stores only strictly necessary preferences (your language and this consent choice). No advertising or analytics cookies. Details in our <a data-legal="cookies">Cookie Policy</a> and <a data-legal="privacy">Privacy Policy</a>.</div>
+  <div class="gd-b">
+    <button id="gdprEssential" type="button">ESSENTIAL ONLY</button>
+    <button id="gdprAccept" type="button">ACCEPT</button>
+  </div>
+</div>
+
+<script defer src="assets/js/three.min.js"></script>
+<script defer src="assets/js/vendor.min.js"></script>
+<script defer src="assets/js/app-i18n.min.js"></script>
+<script defer src="assets/js/research-nav-i18n.min.js"></script>
+<script defer src="assets/js/app-runtime.min.js"></script>
+<script defer src="assets/js/app-sections.min.js"></script>
+<script defer src="assets/js/app-engine.min.js"></script>
+<script defer src="assets/js/app-universe.min.js"></script>
+<script defer src="assets/js/legal-deeplink.min.js"></script>
+</body>
+</html>
+

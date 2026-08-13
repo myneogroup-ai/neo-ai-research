@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mickaelmosse.ai/about/#person",
+      "name": "Mickael Mosse",
+      "url": "https://mickaelmosse.ai/about/",
+      "affiliation": {
+        "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research",
+      "name": "NEO AI Research Program",
+      "url": "https://neoai.myneogroup.com/research/about/",
+      "parentOrganization": {
+        "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
+      },
+      "publishingPrinciples": "https://neoai.myneogroup.com/research/methodology/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs",
+      "name": "NEO TECH LABS",
+      "url": "https://neoai.myneogroup.com/company/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://myneogroup.com/#my-neo-group",
+      "name": "My NEO Group",
+      "url": "https://myneogroup.com/"
+    }
+  ]
+}

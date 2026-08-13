@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>NEO AI Research: Institutional publications</title>
+  <id>https://neoai.myneogroup.com/feeds/institutional.xml</id>
+  <updated>2026-08-12T00:00:00Z</updated>
+  <link rel="self" href="https://neoai.myneogroup.com/feeds/institutional.xml" />
+  <link rel="alternate" href="https://neoai.myneogroup.com/research/" />
+  <rights>CC BY 4.0</rights>
+  <author>
+    <name>Mickael Mosse</name>
+    <uri>https://mickaelmosse.ai/about/</uri>
+  </author>
+</feed>

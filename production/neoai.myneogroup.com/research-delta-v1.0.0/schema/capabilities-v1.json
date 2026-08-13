@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neoai.myneogroup.com/schema/capabilities-v1.json",
+  "title": "NEO AI Capability Register",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "updated",
+    "statusDefinitions",
+    "capabilities"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "description": "PROVISIONAL until the Program ratification gate closes."
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "statusDefinitions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^S[1-5]$"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "status"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9.-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
