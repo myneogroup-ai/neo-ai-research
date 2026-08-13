@@ -315,10 +315,25 @@ def check_registers():
                        "a publication file with no register entry. It would never be built")
 
     # Capability register
-    if caps.get("version") and str(caps.get("status", "")).upper().find("PROVISIONAL") < 0:
+    # Register-level ratification confirms the published S1-S5 classifications.
+    # It must never be interpreted as lifecycle RATIFIED status for each capability.
+    register_status = str(caps.get("status", "")).upper()
+    register_ratification = caps.get("registerRatification", {})
+
+    if "RATIFIED" not in register_status:
         report("REG-10", "registers/capabilities.json", 0, str(caps.get("status")),
-               "the capability register is no longer marked provisional. If the "
-               "ratification gate has closed, this check is what needs updating")
+               "the capability register must be Founder-ratified before release")
+
+    if register_ratification.get("status") != "RATIFIED":
+        report("REG-10", "registers/capabilities.json", 0,
+               str(register_ratification.get("status")),
+               "registerRatification.status must be RATIFIED after gate P0-3 closes")
+
+    if register_ratification.get("capability_lifecycle_unchanged") is not True:
+        report("REG-10", "registers/capabilities.json", 0,
+               str(register_ratification),
+               "register ratification must explicitly preserve individual capability "
+               "lifecycle states")
 
     # Vocabulary arithmetic. Derived, never typed.
     before, added, after = (voc["count_before_amendment"], voc["terms_added"],

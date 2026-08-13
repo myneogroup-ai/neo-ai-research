@@ -53,8 +53,10 @@ def render_library(pubs, caps) -> str:
            "external primary source. `[A]` architectural interpretation. `[D]` design "
            "intent, carrying a capability status. `[O]` open problem.", "",
            "Capability statuses resolve from the Capability Register, which is version "
-           f"{caps['version']} and is marked provisional. Nothing here describes a "
-           "deployed system unless its status says so.", ""]
+           f"{caps['version']} and is Founder-ratified as the approved public maturity "
+           "classification. Register ratification does not mean that every capability "
+           "is deployed or individually ratified. Nothing here describes a deployed "
+           "system unless its S-status says so.", ""]
     for cat, (title, code, blurb) in CATEGORY.items():
         rows = [e for e in live if e["category_slug"] == cat]
         out += [f"## {title}", "", blurb, ""]

@@ -35,14 +35,6 @@
       "reason": "R-009 states that its identifier is requested and not allocated, and names the register it is absent from. Naming the internal register on a public page is the defect; stating that the identifier is unallocated is not, and that statement stays."
     },
     {
-      "id": "DEF-REGISTER-NOTE",
-      "check": "CLS-13",
-      "path": "*",
-      "match": "Register note|capabilities\\.json|gate P0-3",
-      "clears_at": "Execution sequence step 7, then step 15. The capability register is ratified and the note is rewritten to point at the published ledger rather than the internal file.",
-      "reason": "The register note correctly warns that capability statuses resolve from a provisional register. The warning is kept and the internal path is replaced by the public Capability Register URL."
-    },
-    {
       "id": "DEF-GOVERNANCE-CITE",
       "check": "CLS-13",
       "path": "*",
