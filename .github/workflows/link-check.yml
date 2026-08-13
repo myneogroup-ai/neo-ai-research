@@ -35,7 +35,6 @@ jobs:
             --max-retries 2
             --accept 200,206,301,302,403,999
             --exclude-path content/glossary/_PENDING_IMPORT.md
-            --exclude-mail
             "content/**/*.md" "docs/**/*.md" "*.md"
           fail: false
           output: lychee-report.md
