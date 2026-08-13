@@ -55,9 +55,21 @@ jobs:
           echo "all JSON parses"
 
       - name: Secret scan over the full history
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          VERSION="8.30.1"
+          ARCHIVE="gitleaks_${VERSION}_linux_x64.tar.gz"
+          URL="https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/${ARCHIVE}"
+
+          echo "Installing Gitleaks v${VERSION}"
+
+          curl             --fail             --location             --retry 5             --retry-all-errors             --connect-timeout 20             --output "/tmp/${ARCHIVE}"             "$URL"
+
+          tar -xzf "/tmp/${ARCHIVE}" -C /tmp gitleaks
+
+          /tmp/gitleaks git             --redact             --verbose             .
 
       - name: Summary
         if: always()
