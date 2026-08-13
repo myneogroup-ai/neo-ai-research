@@ -32,7 +32,7 @@ Each entry carries the paper's abstract, unaltered, and links to the canonical t
 
 `NEO-AI-P-007` A Note on Responsible AI Capability Claims. The standard the rest is written under, and the one I would read first if I were assessing us.
 
-**From Model Intelligence to System Intelligence.** The centre of the argument. Identifier requested and not yet allocated, so cite it by title.
+**From Model Intelligence to System Intelligence.** The centre of the argument. Publication identifier: `NEO-AI-R-009`.
 
 `NEO-AI-TN-001` Bounding the Autonomy Budget. Short, and the most directly useful to anyone building.
 

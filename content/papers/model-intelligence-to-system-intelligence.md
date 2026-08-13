@@ -4,7 +4,7 @@
 
 | Field | Value |
 |---|---|
-| Identifier | **Requested, not allocated.** `NEO-AI-R-009` is requested at `PUB-ACT-02` and is not present in `data/identifiers.json` v1.5. Cite this paper by title and version until the allocation lands |
+| Identifier | `NEO-AI-R-009` |
 | Title | From Model Intelligence to System Intelligence: How Orchestration Compounds Capability |
 | Family | RESEARCH |
 | Type | R - Research Paper |
@@ -345,8 +345,8 @@ Yao, S. et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Model
 
 | Version | Date | Status | Change |
 |---|---|---|---|
-| v1.0 | 2026-08-12 | DRAFT | First issue. Written for the public research release to supply the missing centre of the public corpus: the argument that intelligence is a property of the system rather than of the model, and that model improvement raises rather than lowers the value of the layer above. Discloses no routing parameter, no evaluation dataset, no learning mechanism and no measured result. Identifier requested and not allocated. |
+| v1.0 | 2026-08-12 | DRAFT | First issue. Written for the public research release to supply the missing centre of the public corpus: the argument that intelligence is a property of the system rather than of the model, and that model improvement raises rather than lowers the value of the layer above. Discloses no routing parameter, no evaluation dataset, no learning mechanism and no measured result. Identifier allocated as `NEO-AI-R-009`. |
 
 ## How to Cite
 
-Mosse, M. (2026). *From Model Intelligence to System Intelligence: How Orchestration Compounds Capability*. NEO AI Research Program, v1.0. Cite by title and version until an identifier is allocated at `PUB-ACT-02`.
+Mosse, M. (2026). *From Model Intelligence to System Intelligence: How Orchestration Compounds Capability*. NEO AI Research Program, v1.0. `NEO-AI-R-009` v1.0. `https://neoai.myneogroup.com/id/NEO-AI-R-009`

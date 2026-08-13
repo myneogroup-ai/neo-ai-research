@@ -14,7 +14,7 @@
 | Claim classes | Computed from the Evidence Table at build time |
 | Reading time | 21 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/mission-control-governance-architecture/` |
-| Relations | `applies` NEO-AI-R-009 (requested, not allocated) . `refines` NEO-AI-TN-001 . `refines` NEO-AI-TN-003 . `evidences` NEO-AI-P-001 |
+| Relations | `applies` NEO-AI-R-009 . `refines` NEO-AI-TN-001 . `refines` NEO-AI-TN-003 . `evidences` NEO-AI-P-001 |
 | Withheld | One section as TRADE SECRET in part, three as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 7 states what and why |
 
 ---
@@ -233,7 +233,7 @@ It would be falsified by a demonstration that a collapsed policy-and-authority c
 
 ## Related Research
 
-- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Identifier requested at `PUB-ACT-02` and not allocated; cite by title until it lands. Supplies the argument for why the record is a durable asset.
+- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Supplies the argument for why the record is a durable asset.
 - `NEO-AI-R-001` The End of the Single-Model Enterprise. Public edition. Supplies the selection half.
 - `NEO-AI-R-005` Evidence, Memory and Accountability in Agentic Systems. Public edition.
 

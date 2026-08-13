@@ -14,7 +14,7 @@
 | Claim classes | Computed from the Evidence Table at build time |
 | Reading time | 18 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/end-of-the-single-model-enterprise/` |
-| Relations | `evidences` NEO-AI-P-001 . `extends` by NEO-AI-R-009 (requested, not allocated) . `depends-on` NEO-AI-STD-001 |
+| Relations | `evidences` NEO-AI-P-001 . `extends` by NEO-AI-R-009 . `depends-on` NEO-AI-STD-001 |
 | Withheld | Four sections of the source are withheld as TRADE SECRET and two as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 6 of this edition states what and why |
 
 ---
@@ -182,7 +182,7 @@ It would be falsified by a demonstration that per-task selection does not improv
 
 ## Related Research
 
-- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Identifier requested at `PUB-ACT-02` and not allocated; cite by title until it lands. Extends this argument from selection to the full operation set.
+- `NEO-AI-R-009` From Model Intelligence to System Intelligence. Extends this argument from selection to the full operation set.
 - `NEO-AI-R-003` Mission Control: A Governance Architecture for Autonomous Work. Public edition. Supplies the record half.
 - `NEO-AI-R-007` Multi-Model Architecture: Resilience Beyond Provider Dependence. Registered, not yet drafted.
 
