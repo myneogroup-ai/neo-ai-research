@@ -2,7 +2,7 @@
 
 # Capability Register
 
-Register version 1.2. **PROVISIONAL - requires Founder confirmation (gate P0-3)**
+Register version 1.3. **RATIFIED - Founder confirmed published S1-S5 capability classifications**
 
 Every capability NEO AI describes, with its status. A page that describes a capability links to its row here, and the status rendered on that page is resolved from this register at build time rather than written by an author.
 

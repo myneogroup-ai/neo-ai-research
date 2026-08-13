@@ -41,9 +41,11 @@ Capability statuses resolve from `registers/capabilities.json`.
 so.** Most of what is described is at S4 or S5. That is stated on every page rather
 than left to be discovered.
 
-The capability register is marked PROVISIONAL until the Program's ratification gate
-closes. Pages render the register version so that a provisional register is never read
-as a ratified one.
+The Capability Register is Founder-ratified as the approved public representation of
+the Program's S1-S5 maturity classifications. This register-level ratification does not
+mean that every capability has lifecycle status RATIFIED: individual lifecycle states
+remain separately evidence-gated. Pages render the register version so that maturity
+claims remain traceable to the exact register state.
 
 ## What is here
 

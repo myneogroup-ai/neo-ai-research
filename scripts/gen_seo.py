@@ -156,7 +156,7 @@ def render_llms(pubs, caps) -> str:
         "claim classes, evidence tiers, how to cite, and what the Program will not claim",
         "\n## Capability register",
         f"- [Capability Register]({N}/research/capability-register/): register version "
-        f"{caps['version']}, provisional",
+        f"{caps['version']}, Founder-ratified maturity classifications",
         f"- [capabilities.json]({N}/capabilities.json): machine readable",
         "\n## Glossary",
         f"- [Controlled vocabulary]({N}/research/glossary/): one page per defined term",

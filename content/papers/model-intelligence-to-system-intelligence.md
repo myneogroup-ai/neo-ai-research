@@ -17,7 +17,7 @@
 | Reading time | 29 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` (placeholder, gated by `PUB-OPEN-01`) |
 | Relations | `extends` NEO-AI-R-001 . `applies` NEO-AI-R-003 . `applies` NEO-AI-R-005 . `depends-on` NEO-AI-P-007 . `evidences` NEO-AI-P-001 |
-| Register note | Capability statuses resolve from `data/capabilities.json` v1.2, which is PROVISIONAL pending Founder confirmation at gate P0-3. Every capability named above is at S4 or S5, meaning designed and specified, or planned. **Nothing in this paper describes a running system** |
+| Register note | Capability statuses resolve from the Founder-ratified canonical Capability Register. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent. **Nothing in this paper describes a running system unless its capability status says so.** |
 
 ---
 
@@ -164,7 +164,7 @@ A reader is entitled to discount the paper accordingly, and should. An undisclos
 
 `[NEO-AI-P-007 s3]` sets the standard this section obeys: every capability reference resolves to a key in the public register and carries its status, and a capability at S4 or S5 is not described in the present tense as though deployed.
 
-At the date of this paper, of the capabilities named in its front matter: **none is operational, none is in pilot, none is undergoing validation. Fifteen are at S4, designed and specified. Two are at S5, planned or exploratory** `[D]`. The register itself is marked PROVISIONAL and awaits Founder confirmation, so even those statuses are not yet ratified.
+At the date of this paper, of the capabilities named in its front matter: **none is operational, none is in pilot, none is undergoing validation. Fifteen are at S4, designed and specified. Two are at S5, planned or exploratory** `[D]`. The register's S1-S5 classifications are Founder-ratified as the approved public representation of maturity. That register-level ratification does not promote any individual capability to lifecycle status RATIFIED and does not imply deployment beyond the S-status shown.
 
 The eight operations in section 3 are specified in architecture and specification documents. None of them is running. No mission has been executed. No evaluation has been performed. The evaluation harness that would perform one is at S5 `[D] (assurance.eval-harness, S5)`.
 
