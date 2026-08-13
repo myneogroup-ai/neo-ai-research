@@ -63,10 +63,10 @@ jobs:
             -e 's/\*+$//' \
             "$RAW" \
             | sort -u \
-            | grep -Ev '^https://neoai\.myneogroup\.com/research/' \
-            | grep -Ev '^https://neoai\.myneogroup\.com/id/' \
-            | grep -Ev '^https://neoai\.myneogroup\.com/company/' \
-            | grep -Ev '^https://neoai\.myneogroup\.com/\.\.\.$' \
+            | grep -Ev '^https://neoai\.myneogroup\.com(/|$)' \
+            | grep -Ev '^https://myneogroup\.com/neoai/?$' \
+            | grep -Ev '^https://fonts\.googleapis\.com/?$' \
+            | grep -Ev '^https://fonts\.gstatic\.com/?$' \
             | grep -Ev '\{[^}]+\}' \
             | grep -Ev '\*\*?$' \
             > "$OUT" || true
