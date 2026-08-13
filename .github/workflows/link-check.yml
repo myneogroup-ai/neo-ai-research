@@ -26,7 +26,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check links
+      - name: Extract HTTP(S) links
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          {
+            find content docs -type f -name '*.md' -print0
+            find . -maxdepth 1 -type f -name '*.md' -print0
+          } |
+          xargs -0 grep -Eho 'https?://[^][()<>[:space:]"`]+'
+          | sed 's/[.,;:]$//'
+          | sort -u
+          | grep -Ev '^https://neoai\.myneogroup\.com/research/'           | grep -Ev '^https://neoai\.myneogroup\.com/\.\.\.$'           > /tmp/neo-ai-http-links.txt || true
+
+          echo "HTTP(S) links selected for PR validation:"
+          cat /tmp/neo-ai-http-links.txt || true
+
+          test -s /tmp/neo-ai-http-links.txt || {
+            echo "No external HTTP(S) links found."
+            exit 0
+          }
+
+      - name: Check HTTP(S) links
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
@@ -36,11 +58,7 @@ jobs:
             --accept 200,206,301,302,403,999
             --scheme https
             --scheme http
-            --exclude-path content/glossary/_PENDING_IMPORT.md
-            --exclude "^https://neoai\.myneogroup\.com/research/"
-            --exclude "^https://neoai\.myneogroup\.com/\.\.\.$"
-            --exclude "^/"
-            "content/**/*.md" "docs/**/*.md" "*.md"
+            /tmp/neo-ai-http-links.txt
           fail: false
           output: lychee-report.md
 
