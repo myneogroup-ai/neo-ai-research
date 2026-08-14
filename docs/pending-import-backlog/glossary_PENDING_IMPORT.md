@@ -1,4 +1,16 @@
 ---
+status: NON_RELEASE_BACKLOG
+source_location: content/glossary/_PENDING_IMPORT.md
+release_blocking: false
+---
+
+# Non-release content backlog
+
+This record was moved outside the public `content/` tree during the final Wave-1 repository closure because it is not represented by a publishable entry in `registers/publications.json` and is not protected by an active release deferral. Its outstanding editorial work is preserved here without falsely representing that content as published.
+
+---
+
+---
 status: PENDING IMPORT
 classification: A - the term set is public, the source standard is not
 ---

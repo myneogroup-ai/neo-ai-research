@@ -14,7 +14,7 @@
 | Claim classes | Computed from the Evidence Table at build time |
 | Reading time | 18 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/end-of-the-single-model-enterprise/` |
-| Relations | `evidences` NEO-AI-P-001 . `extends` by NEO-AI-R-009 . `depends-on` NEO-AI-STD-001 |
+| Relations | `evidences` NEO-AI-P-001 . `extends` by NEO-AI-R-009 . `depends-on` the Program publication standard |
 | Withheld | Four sections of the source are withheld as TRADE SECRET and two as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 6 of this edition states what and why |
 
 ---
@@ -246,8 +246,8 @@ Srivastava, A. et al. (2023). Beyond the Imitation Game: Quantifying and Extrapo
 
 | Version | Date | Status | Change |
 |---|---|---|---|
-| v1.1-public | 2026-08-12 | DRAFT | First public derivative, on Founder determination of 2026-08-12. Withholds sections 3.2, 3.4, 3.5 and 3.6 of the source as TRADE SECRET, and 4.2 and part of 5 as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 3 replaces the withheld analytical development with a prose statement of the decision structure carrying no formula, no predicate list and no figures. Section 4.3 adopts **provider replaceability** as the public term, per `VA-PUB-001`. The withheld list is published rather than left as a gap. |
-| v1.1 | 2026-08-12 | DRAFT | Source correction. `PUB-BLOCK-01`. See `PUB_10`. |
+| v1.1-public | 2026-08-12 | DRAFT | First public derivative, on Founder determination of 2026-08-12. Withholds sections 3.2, 3.4, 3.5 and 3.6 of the source as TRADE SECRET, and 4.2 and part of 5 as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 3 replaces the withheld analytical development with a prose statement of the decision structure carrying no formula, no predicate list and no figures. Section 4.3 adopts **provider replaceability** as the public term, per the approved public terminology. The withheld list is published rather than left as a gap. |
+| v1.1 | 2026-08-12 | DRAFT | Source correction. the recorded publication correction. See the publication review record. |
 | v1.0 | 2026-08-09 | DRAFT | First full draft. |
 
 ## How to Cite

@@ -29,7 +29,7 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/institutional/introducing-neo-ai.md",
-      "content_present": false
+      "content_present": true
     },
     {
       "id": "NEO-AI-P-007",
@@ -48,7 +48,7 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/institutional/responsible-capability-claims.md",
-      "content_present": false
+      "content_present": true
     },
     {
       "id": "NEO-AI-R-009",
@@ -89,7 +89,7 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/bounding-the-autonomy-budget.md",
-      "content_present": false
+      "content_present": true
     },
     {
       "id": "NEO-AI-TN-002",
@@ -108,7 +108,7 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/circular-corroboration.md",
-      "content_present": false
+      "content_present": true
     },
     {
       "id": "NEO-AI-TN-003",
@@ -127,7 +127,7 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/what-belongs-in-a-mission-event.md",
-      "content_present": false
+      "content_present": true
     },
     {
       "id": "NEO-AI-R-001",
