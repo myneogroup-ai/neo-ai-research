@@ -8,4 +8,22 @@
     <name>Mickael Mosse</name>
     <uri>https://mickaelmosse.ai/about/</uri>
   </author>
+  <entry>
+    <title>Introducing NEO AI: Intelligence Orchestrated</title>
+    <id>https://neoai.myneogroup.com/id/NEO-AI-P-001</id>
+    <published>2026-08-12T00:00:00Z</published>
+    <updated>2026-08-12T00:00:00Z</updated>
+    <link rel="alternate" href="https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/" />
+    <category term="institutional" />
+    <summary>Abstract rendered at build time from the publication's abstract section. This feed never carries the body.</summary>
+  </entry>
+  <entry>
+    <title>A Note on Responsible AI Capability Claims</title>
+    <id>https://neoai.myneogroup.com/id/NEO-AI-P-007</id>
+    <published>2026-08-12T00:00:00Z</published>
+    <updated>2026-08-12T00:00:00Z</updated>
+    <link rel="alternate" href="https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/" />
+    <category term="institutional" />
+    <summary>Abstract rendered at build time from the publication's abstract section. This feed never carries the body.</summary>
+  </entry>
 </feed>

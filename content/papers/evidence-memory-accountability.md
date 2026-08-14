@@ -215,7 +215,7 @@ It would be falsified by a demonstration that a general-purpose retrieval store,
 
 - `NEO-AI-R-009` From Model Intelligence to System Intelligence. Places evidence and memory among the eight operations.
 - `NEO-AI-R-003` Mission Control: A Governance Architecture for Autonomous Work. Public edition. The record half.
-- `NEO-AI-R-006` The Intelligence Layer. Registered, not drafted. Retitle pending, per `FDR-S3-03`.
+- `NEO-AI-R-006` The Intelligence Layer. Registered, not drafted. Retitle pending, per the recorded editorial determination.
 
 ## Related Publications
 

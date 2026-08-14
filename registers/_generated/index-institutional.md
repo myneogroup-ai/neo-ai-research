@@ -4,4 +4,7 @@
 
 What the Program is doing and how it reports on itself.
 
-Nothing published in this category yet. The category page exists so that a link to it never breaks, and it lists nothing rather than listing something that does not resolve.
+| Identifier | Title | Version |
+|---|---|---|
+| NEO-AI-P-001 | [Introducing NEO AI: Intelligence Orchestrated](https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/) | v1.0 |
+| NEO-AI-P-007 | [A Note on Responsible AI Capability Claims](https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/) | v1.0 |

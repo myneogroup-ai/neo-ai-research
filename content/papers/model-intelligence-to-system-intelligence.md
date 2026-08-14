@@ -15,7 +15,7 @@
 | Capability keys | `brain` S4 . `brain.router` S4 . `brain.task-graph` S4 . `brain.memory` S4 . `brain.knowledge-graph` S4 . `brain.evidence-layer` S4 . `brain.evidence-ledger` S4 . `brain.validation` S4 . `brain.cost-engine` S4 . `brain.governance` S4 . `brain.event-bus` S4 . `mission-control` S4 . `mission.envelope` S4 . `lili` S4 . `assurance.eval-harness` S5 . `foundation-model` S5 . `neo-intelligence` S4 |
 | Claim classes | Counted mechanically over the body and back matter at build time. Not entered by hand |
 | Reading time | 29 min |
-| Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` (placeholder, gated by `PUB-OPEN-01`) |
+| Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` (placeholder, gated by the recorded publication determination) |
 | Relations | `extends` NEO-AI-R-001 . `applies` NEO-AI-R-003 . `applies` NEO-AI-R-005 . `depends-on` NEO-AI-P-007 . `evidences` NEO-AI-P-001 |
 | Register note | Capability statuses resolve from the Founder-ratified canonical Capability Register. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent. **Nothing in this paper describes a running system unless its capability status says so.** |
 
@@ -188,7 +188,7 @@ Four difficulties, each real.
 
 **Disturbance matters more than the clean run.** The interesting question is not how a system performs when everything works. It is what happens when a provider degrades, a source turns out to be circular, a tool fails halfway, or an approval is invalidated after the work depending on it has started. Measuring that requires deliberately injecting the disturbance, which is a methodology rather than a benchmark.
 
-The Program has specified a methodology addressing these and **has not run it** `[D] (assurance.eval-harness, S5)`. When a result exists it will be published with its configuration, or it will not be published. `LOCK_v2` makes that binding: a benchmark attributed to NEO AI without a reproducible configuration must never appear.
+The Program has specified a methodology addressing these and **has not run it** `[D] (assurance.eval-harness, S5)`. When a result exists it will be published with its configuration, or it will not be published. the corpus governance baseline makes that binding: a benchmark attributed to NEO AI without a reproducible configuration must never appear.
 
 Until then, the honest statement of the thesis is the one this paper opens with. NEO is designed to produce stronger system-level outcomes than an individual model used in isolation **where orchestration, tools, memory, evidence, verification and governance provide measurable benefit**. The conditional is not hedging. It is the claim.
 
@@ -308,7 +308,7 @@ None in Wave 1. A figure for the eight operations of section 3 is specified and 
 
 ## Related Terms
 
-`Mission` . `Mission State` . `Mission Envelope` . `Task Graph` . `Router` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Validation Layer` . `Capability Register` . `Capability Status` . `Human Authority` . `Decision Record` . `Claim Class` . `Admissible Set` . `Bounded Autonomy` . `Graceful Substitution` . `Circular Corroboration` . `NEO System Intelligence` (pending the vocabulary amendment at `PUB-ACT-04`)
+`Mission` . `Mission State` . `Mission Envelope` . `Task Graph` . `Router` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Validation Layer` . `Capability Register` . `Capability Status` . `Human Authority` . `Decision Record` . `Claim Class` . `Admissible Set` . `Bounded Autonomy` . `Graceful Substitution` . `Circular Corroboration` . `NEO System Intelligence` (pending the vocabulary amendment at the publication record)
 
 ## Evidence Table
 
@@ -339,7 +339,7 @@ Wei, J. et al. (2022). Chain-of-Thought Prompting Elicits Reasoning in Large Lan
 
 Yao, S. et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. International Conference on Learning Representations. Accessed 2026-08-12.
 
-**Verification note.** Each reference above must be verified against the published version, and its accessed date corrected, before this paper leaves DRAFT. `NEO-AI-STD-003` requires an external primary source for every `[E]` claim, and a citation carried forward from another document without verification does not satisfy it.
+**Verification note.** Each reference above must be verified against the published version, and its accessed date corrected, before this paper leaves DRAFT. the Program publication standard requires an external primary source for every `[E]` claim, and a citation carried forward from another document without verification does not satisfy it.
 
 ## Version History
 

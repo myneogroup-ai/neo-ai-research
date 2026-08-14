@@ -4,4 +4,8 @@
 
 A single problem, treated directly.
 
-Nothing published in this category yet. The category page exists so that a link to it never breaks, and it lists nothing rather than listing something that does not resolve.
+| Identifier | Title | Version |
+|---|---|---|
+| NEO-AI-TN-001 | [Bounding the Autonomy Budget](https://neoai.myneogroup.com/research/technical-notes/bounding-the-autonomy-budget/) | v1.0 |
+| NEO-AI-TN-002 | [Detecting Circular Corroboration in an Evidence Chain](https://neoai.myneogroup.com/research/technical-notes/circular-corroboration/) | v1.0 |
+| NEO-AI-TN-003 | [What Belongs in a Mission Event](https://neoai.myneogroup.com/research/technical-notes/what-belongs-in-a-mission-event/) | v1.0 |

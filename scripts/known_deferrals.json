@@ -1,38 +1,5 @@
 {
   "purpose": "Findings that verify_public.py raises correctly and that are cleared by a named step in the publication execution sequence rather than by an edit to this repository. Each entry names the step that clears it. A deferral that stops matching anything is a FAIL, so this list cannot rot quietly.",
   "rule": "A deferral suppresses nothing at release. scripts/verify_public.py --strict treats every deferral as a failure, and the release workflow runs --strict. This file lets day-to-day CI stay green while the corpus is mid-sequence; it does not let anything ship.",
-  "deferrals": [
-    {
-      "id": "DEF-CONTENT-P",
-      "check": "REG-07",
-      "path": "registers/publications.json",
-      "match": "^NEO-AI-P-00[17]$",
-      "clears_at": "Execution sequence step 14. The prepared edits to P-001 and P-007 are applied by the Research Program and the public texts are imported.",
-      "reason": "P-001 and P-007 are approved for Wave 1 and their public texts are gated on prepared edits that have not been applied. Importing the unedited sources into a public repository would publish material the Program has already ruled must change."
-    },
-    {
-      "id": "DEF-CONTENT-TN",
-      "check": "REG-07",
-      "path": "registers/publications.json",
-      "match": "^NEO-AI-TN-00[123]$",
-      "clears_at": "Execution sequence steps 12 and 14. The stale identifier notes are removed and the named section reductions are applied, then the public texts are imported.",
-      "reason": "The three technical notes are approved for Wave 1 with named changes. Two of those changes remove material classified above PUBLIC. The unedited sources therefore cannot enter this repository at all."
-    },
-    {
-      "id": "DEF-FRONTMATTER-HOST",
-      "check": "CLS-13",
-      "path": "*",
-      "match": "Canonical URL|placeholder|PUB-OPEN-01",
-      "clears_at": "Execution sequence step 15. Every Canonical URL front-matter field is rebound to the canonical host in one mechanical act.",
-      "reason": "The imported texts carry the canonical URL as a placeholder annotated with the governance item that gates it. The annotation is correct today and is removed when the host determination takes effect on signature."
-    },
-    {
-      "id": "DEF-GOVERNANCE-CITE",
-      "check": "CLS-13",
-      "path": "*",
-      "match": "NEO-AI-STD-00|RULE STD-|FDR-|PUB-BLOCK-01|PUB_10|Version history|v1\\.1|LOCK_v2|CORPUS_LOCK|VA-PUB-001|pending the vocabulary",
-      "clears_at": "Execution sequence step 14. Internal governance citations in version-history rows and reviewer annotations are replaced with reader-facing wording.",
-      "reason": "Version-history rows cite the internal instrument that caused a revision. A reader needs to know that a correction happened and what changed; the instrument reference is internal control structure and is replaced by an erratum reference on the updates page."
-    }
-  ]
+  "deferrals": []
 }

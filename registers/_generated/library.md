@@ -20,13 +20,20 @@ Long-form argument. Each paper states a position, classes every material stateme
 
 What the Program is doing and how it reports on itself.
 
-Nothing published in this category yet.
+| Identifier | Title |
+|---|---|
+| NEO-AI-P-001 | [Introducing NEO AI: Intelligence Orchestrated](https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/) |
+| NEO-AI-P-007 | [A Note on Responsible AI Capability Claims](https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/) |
 
 ## Technical notes
 
 A single problem, treated directly.
 
-Nothing published in this category yet.
+| Identifier | Title |
+|---|---|
+| NEO-AI-TN-001 | [Bounding the Autonomy Budget](https://neoai.myneogroup.com/research/technical-notes/bounding-the-autonomy-budget/) |
+| NEO-AI-TN-002 | [Detecting Circular Corroboration in an Evidence Chain](https://neoai.myneogroup.com/research/technical-notes/circular-corroboration/) |
+| NEO-AI-TN-003 | [What Belongs in a Mission Event](https://neoai.myneogroup.com/research/technical-notes/what-belongs-in-a-mission-event/) |
 
 ## Prepared and not yet published
 
