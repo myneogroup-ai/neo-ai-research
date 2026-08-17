@@ -38,8 +38,8 @@ jobs:
   gate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: { python-version: "3.11" }
       - name: Conformance, STRICT
         run: python3 scripts/verify_public.py --strict
@@ -57,8 +57,8 @@ jobs:
       # staging has no reviewers. Both production environments do.
       name: ${{ inputs.target }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: { python-version: "3.11" }
 
       - name: Build
