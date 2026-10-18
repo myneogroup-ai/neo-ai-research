@@ -1,7 +1,7 @@
 {
   "$schema": "https://neoai.myneogroup.com/schema/capabilities-v1.json",
   "version": "2.0",
-  "status": "PROPOSED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification of v2.0 pending Founder signature",
+  "status": "RATIFIED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification by the Founder on 2026-10-18",
   "updated": "2026-10-18",
   "authority": "NEO AI x100 Intelligence Operating System, Technology, Product and Architecture authority, 2026",
   "platformState": {
@@ -43,7 +43,7 @@
       "name": "LILI Always-on: continuous presence and hands-free voice",
       "status": "S4",
       "note": "Wake word, continuous voice conversation and 24/7 Mission follow-up on authorised devices, always inside Human Gates. Roadmap.",
-      "basis": "PDF label ROADMAP. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label ROADMAP. Ratified with register v2.0 on 2026-10-18.",
       "parent": "lili",
       "pdfSection": "03",
       "ratification": "UNCONFIRMED"
@@ -62,7 +62,7 @@
       "name": "Mission Envelope",
       "status": "S3",
       "note": "Bounded permissions, data scope, resource budget, autonomy level and terminal conditions, set at creation and narrowed by the approval policy.",
-      "basis": "PDF label ARCHITECTURE DEFINITION, TARGET BUILD IN PROGRESS. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, TARGET BUILD IN PROGRESS. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "pdfSection": "21",
       "ratification": "UNCONFIRMED"
     },
@@ -71,7 +71,7 @@
       "name": "Mission Control: FOCUS, NORMAL and JARVIS projections",
       "status": "S3",
       "note": "Three projections of one Mission state with one composer and one right inspector (Progress, Output, Context). Mission Control is the operating-system view of the platform.",
-      "basis": "PDF label TARGET BUILD IN PROGRESS; screens in the PDF are prototype UI with synthetic data. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF label TARGET BUILD IN PROGRESS; screens in the PDF are prototype UI with synthetic data. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "pdfSection": "17, 18",
       "ratification": "UNCONFIRMED"
     },
@@ -80,7 +80,7 @@
       "name": "Observe Build",
       "status": "S3",
       "note": "Live code, files, tests, verification and the running result in the App Viewer at the same revision as the code; Last Known Good is never replaced by a failed candidate; Human Gate before release.",
-      "basis": "PDF label BINDING PRODUCT DEFINITION, TARGET BUILD IN PROGRESS. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF label BINDING PRODUCT DEFINITION, TARGET BUILD IN PROGRESS. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "pdfSection": "19",
       "ratification": "UNCONFIRMED"
     },
@@ -89,7 +89,7 @@
       "name": "NEO Intelligence Profiles: NEO AUTO, PULSE, PRIME, AXIOM, APEX",
       "status": "S3",
       "note": "The user chooses a resource envelope, never a model, a provider or an execution location.",
-      "basis": "PDF label ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF label ARCHITECTURE DEFINITION. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "pdfSection": "20",
       "ratification": "UNCONFIRMED"
     },
@@ -98,7 +98,7 @@
       "name": "Human Gates and approval policy: ASK ME, AUTO, AUTONOMOUS",
       "status": "S3",
       "note": "Approval policy only narrows what is auto-approved. Mandatory Human Gates (production DNS, public publishing, act-class connector actions, deployment release) are refused at platform level.",
-      "basis": "PDF label ARCHITECTURE DEFINITION, enforced at platform level. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, enforced at platform level. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "pdfSection": "21",
       "ratification": "UNCONFIRMED"
     },
@@ -133,7 +133,7 @@
       "name": "Memory: persistent, verified, with provenance",
       "status": "S3",
       "note": "What the system retains about its own operation, with typed stores and separate retention rules.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "core",
       "supersedes": [
         "brain.memory"
@@ -158,7 +158,7 @@
       "name": "Verification: independent verifiers and cross-checking",
       "status": "S3",
       "note": "Deterministic checks first, then independent agents or models that did not produce the work. The producing model is never the blocking verifier of its own output.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "core",
       "supersedes": [
         "brain.validation"
@@ -171,7 +171,7 @@
       "name": "Internal resource accounting",
       "status": "S3",
       "note": "Provider usage, provider cost and a normalised NEO resource are metered internally. NEO Credits, the customer unit, is registered separately as neo-credits.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "core",
       "supersedes": [
         "brain.cost-engine"
@@ -184,7 +184,7 @@
       "name": "Event log (Event Bus)",
       "status": "S3",
       "note": "Append-only record of material state changes; Mission state is a fold over it.",
-      "basis": "Required by live Mission views. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "Required by live Mission views. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "core",
       "supersedes": [
         "brain.event-bus"
@@ -196,7 +196,7 @@
       "name": "Policy enforcement",
       "status": "S3",
       "note": "Legal, policy and authority constraints evaluated as admissibility filters before any optimisation.",
-      "basis": "PDF order of precedence, section 09. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF order of precedence, section 09. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "core",
       "supersedes": [
         "brain.governance"
@@ -242,7 +242,7 @@
       "name": "Mixture-of-Agents",
       "status": "S3",
       "note": "Independent specialised agents research, reason, build, critique and verify parts of one Mission; NEO synthesises.",
-      "basis": "PDF layer 01. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF layer 01. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "x100",
       "pdfSection": "05 layer 01",
       "ratification": "UNCONFIRMED"
@@ -252,7 +252,7 @@
       "name": "Adaptive Model Cascades",
       "status": "S3",
       "note": "Start on the least expensive capable model; escalate on confidence, complexity, verification or policy.",
-      "basis": "PDF layer 02. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF layer 02. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "x100",
       "pdfSection": "05 layer 02",
       "ratification": "UNCONFIRMED"
@@ -262,7 +262,7 @@
       "name": "Semantic Compute Reuse",
       "status": "S4",
       "note": "Reuse verified, still-valid, authorised intelligence instead of regenerating it.",
-      "basis": "PDF layer 04. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 04. Ratified with register v2.0 on 2026-10-18.",
       "parent": "x100",
       "pdfSection": "05 layer 04",
       "ratification": "UNCONFIRMED"
@@ -272,7 +272,7 @@
       "name": "Speculative Parallel Intelligence",
       "status": "S4",
       "note": "Explore candidate approaches in parallel, prune weak branches early, concentrate compute on promising or disputed paths.",
-      "basis": "PDF layer 05. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 05. Ratified with register v2.0 on 2026-10-18.",
       "parent": "x100",
       "pdfSection": "05 layer 05",
       "ratification": "UNCONFIRMED"
@@ -282,7 +282,7 @@
       "name": "Verification-Driven Compute Allocation",
       "status": "S4",
       "note": "Additional reasoning only where an independent verifier finds it necessary.",
-      "basis": "PDF layer 06. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 06. Ratified with register v2.0 on 2026-10-18.",
       "parent": "x100",
       "pdfSection": "05 layer 06",
       "ratification": "UNCONFIRMED"
@@ -292,7 +292,7 @@
       "name": "Hybrid API, Private and Self-Hosted Execution",
       "status": "S4",
       "note": "Route workloads across edge, frontier APIs, private enterprise models, specialist systems and NEO-controlled or self-hosted open models.",
-      "basis": "PDF layer 07; depends on private and self-hosted zones. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 07; depends on private and self-hosted zones. Ratified with register v2.0 on 2026-10-18.",
       "parent": "x100",
       "pdfSection": "05 layer 07",
       "ratification": "UNCONFIRMED"
@@ -302,7 +302,7 @@
       "name": "Memory and Context Optimisation",
       "status": "S3",
       "note": "Build the minimum authoritative context each invocation needs instead of resending full history.",
-      "basis": "PDF layer 08. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
+      "basis": "PDF layer 08. Founder confirmed at S3 on 2026-10-18 with the ratification of register v2.0, on the basis of the operational MVP.",
       "parent": "x100",
       "pdfSection": "05 layer 08",
       "ratification": "UNCONFIRMED"
@@ -612,7 +612,8 @@
   "changelog": [
     "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope.",
     "v1.3 Founder ratified the register's published S1-S5 maturity classifications. Individual capability lifecycle ratification states remain unchanged.",
-    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Thirteen rows are proposed at S3 by inference from the operational MVP; each needs explicit Founder confirmation at ratification or reverts to S4. Components labelled ROADMAP in the architecture authority stay at S4 or S5."
+    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Thirteen rows at S3 were proposed by inference from the operational MVP and confirmed by the Founder at ratification on 2026-10-18. Components labelled ROADMAP in the architecture authority stay at S4 or S5.",
+    "v2.0 ratified by the Founder on 2026-10-18, including the thirteen S3 rows. Individual capability lifecycle states remain unchanged."
   ],
   "lifecycle": {
     "states": [
@@ -637,9 +638,9 @@
   },
   "_provenance": "Public copy of the Program capability register. Canonical research host neoai.myneogroup.com.",
   "registerRatification": {
-    "status": "PENDING",
+    "status": "RATIFIED",
     "version": "2.0",
-    "date": null,
+    "date": "2026-10-18",
     "authority": "Founder",
     "previous": {
       "version": "1.3",
@@ -647,8 +648,7 @@
       "date": "2026-08-13"
     },
     "scope": "Ratification confirms that the S1-S5 classifications in this register are the approved public representation of capability maturity as of the ratification date. It does not constitute lifecycle RATIFIED status for any individual capability.",
-    "capability_lifecycle_unchanged": true,
-    "toRatify": "Set status to RATIFIED and date to the signature date once the Founder has reviewed every row marked as proposed."
+    "capability_lifecycle_unchanged": true
   },
-  "lifecycleNote": "S1 to S5 describe maturity; lifecycle states describe the evidence tier behind engineering and release gates. The S2 rows that rest on the Founder determination of 2026-10-18 move to lifecycle RATIFIED only when the Founder signs register v2.0 row by row; until then every row is UNCONFIRMED and the register itself is not releasable (gate REG-10). The determination is a statement of operational state by the Founder, not a third-party verification and not a measured result."
+  "lifecycleNote": "S1 to S5 describe maturity; lifecycle states describe the evidence tier behind engineering and release gates. The S2 rows that rest on the Founder determination of 2026-10-18 rest on the Founder determination of 2026-10-18 and on the register-level ratification of the same date; lifecycle states stay UNCONFIRMED until the evidence tiers they require are recorded. The determination is a statement of operational state by the Founder, not a third-party verification and not a measured result."
 }

@@ -68,8 +68,7 @@ Register version 1.3 was Founder-ratified on 2026-08-13 as the approved public
 representation of the Program's S1-S5 maturity classifications. Register version 2.0
 (2026-10-18) restructures the register to the x100 architecture, records the Founder
 determination on the operational state, retires the August keys with named successors,
-and is **pending Founder ratification**; until it is signed, the release gate
-(`make release`) does not pass. Register-level ratification never means that every
+and was **Founder-ratified on 2026-10-18**. Register-level ratification never means that every
 capability has lifecycle status RATIFIED: individual lifecycle states remain separately
 evidence-gated. No status has been verified by an independent third party.
 

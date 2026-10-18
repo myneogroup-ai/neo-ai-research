@@ -26,7 +26,7 @@ This ledger is the answer to a question the rest of the site does not get to avo
 
 ## State of the platform
 
-NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users. General public availability, global, is targeted for early 2027. Register version 2.0 records this as a Founder determination of 2026-10-18 and restructures the register to the NEO x100 Intelligence Operating System architecture; retired keys resolve to named successors and are never reissued. Version 2.0 is pending Founder ratification; version 1.3 was ratified on 2026-08-13.
+NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users. General public availability, global, is targeted for early 2027. Register version 2.0 records this as a Founder determination of 2026-10-18 and restructures the register to the NEO x100 Intelligence Operating System architecture; retired keys resolve to named successors and are never reissued. Version 2.0 was ratified by the Founder on 2026-10-18; version 1.3 had been ratified on 2026-08-13.
 
 The ledger is machine-readable at `/capabilities.json` and every research publication resolves its capability references against it at build time, so a paper and this page cannot disagree.
 

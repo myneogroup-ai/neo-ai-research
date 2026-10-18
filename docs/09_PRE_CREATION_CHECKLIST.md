@@ -44,7 +44,7 @@ Nothing here is a formality. Four of these items cannot be fixed later at any pr
 |---|---|---|---|
 | D1 | The canonical-host amendment is **signed** | Every canonical URL in the repository is correct on signature and not before | ☐ |
 | D2 | The vocabulary amendments are **signed** | `registers/vocabulary.json` v2.0 carries 66 terms: 30 locked, 9 from the August amendment and 27 from the x100 amendment of 2026-10-18 | ☐ |
-| D3 | The capability register is **ratified** | v1.3 ratified 2026-08-13 ☑. v2.0 (2026-10-18) pending: `REG-10` fails until `registerRatification.status` is RATIFIED with a date | ☐ |
+| D3 | The capability register is **ratified** | v1.3 ratified 2026-08-13 ☑. v2.0 ratified 2026-10-18 ☑ | ☑ |
 | D4 | The R-009 identifier is **allocated** | `NEO-AI-R-009` allocated; permanent identifier route established | ☑ |
 | D5 | Prepared edits applied to P-001, P-007, TN-001, TN-002, TN-003 | Five of the six Wave 1 documents. Until then their `_PENDING_IMPORT.md` files remain and `--strict` blocks any release | ☐ |
 | D6 | The glossary is reduced to a public term set | Term pages, the glossary sitemap and first-occurrence linking all wait on it | ☐ |

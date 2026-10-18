@@ -17,7 +17,7 @@
 | Reading time | 29 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` |
 | Relations | `extends` NEO-AI-R-001 . `applies` NEO-AI-R-003 . `applies` NEO-AI-R-005 . `depends-on` NEO-AI-P-007 . `evidences` NEO-AI-P-001 |
-| Register note | Capability statuses resolve from the canonical Capability Register. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and is pending Founder ratification. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent, and no status has been verified by an independent third party. **Nothing in this paper describes a running system unless its capability status says so.** |
+| Register note | Capability statuses resolve from the canonical Capability Register. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and was Founder-ratified on 2026-10-18. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent, and no status has been verified by an independent third party. **Nothing in this paper describes a running system unless its capability status says so.** |
 
 ---
 
@@ -170,7 +170,7 @@ A reader is entitled to discount the paper accordingly, and should. An undisclos
 
 At the date of this revision, of the capabilities named in its front matter: **five are at S2, operational in a controlled pilot or limited deployment. Eleven are at S3, implemented and undergoing validation. Nine are at S4, designed and specified. Three are at S5, planned or exploratory** `[D]`. At S2 are NEO Core `[D] (core, S2)`, LILI, the conversational face of NEO AI `[D] (lili, S2)`, the Task Graph `[D] (core.task-graph, S2)`, Dynamic Capability Routing `[D] (core.routing, S2)` and multi-provider API orchestration `[D] (model-sovereignty.api-first, S2)`. Mission Control, the operating-system view, is implemented and in validation `[D] (mission-control, S3)`, as are the Mission Envelope `[D] (mission.envelope, S3)`, the event log `[D] (core.event-bus, S3)` and resource accounting `[D] (core.resource-accounting, S3)`. The Knowledge Graph is designed and specified `[D] (core.knowledge-graph, S4)`, as is the hybrid phase of the model sovereignty roadmap `[D] (model-sovereignty.hybrid, S4)`. A NEO-optimised model and execution layer is planned as the third phase of that roadmap `[D] (model-sovereignty.neo-optimised, S5)`; NEO does not own a frontier foundation model today and does not claim to.
 
-Register v1.3 was Founder-ratified on 2026-08-13 as the approved public representation of maturity. Register v2.0 (2026-10-18) restructures it to the x100 architecture and is pending Founder ratification. Register-level ratification does not promote any individual capability to lifecycle status RATIFIED and does not imply deployment beyond the S-status shown, and no status in the register has been verified by an independent third party.
+Register v1.3 was Founder-ratified on 2026-08-13 as the approved public representation of maturity. Register v2.0 (2026-10-18) restructures it to the x100 architecture and was Founder-ratified on 2026-10-18. Register-level ratification does not promote any individual capability to lifecycle status RATIFIED and does not imply deployment beyond the S-status shown, and no status in the register has been verified by an independent third party.
 
 Of the eight operations in section 3, decomposition and selection are in operation at S2; tool-use permission, verification, memory and approval rest on components implemented and in validation at S3; retrieval draws on Memory at S3 and on the Knowledge Graph at S4; and the evidence structures are at S4. NEO Core executes Missions inside My NEO Group and in the controlled pilots `[D] (core, S2)`. No system-level evaluation of the kind section 8 describes has been performed, and the evaluation harness that would perform one is at S5 `[D] (assurance.eval-harness, S5)`.
 
@@ -270,7 +270,7 @@ Part of it is now running. NEO Core, with decomposition and Dynamic Capability R
 
 ## Scope and Limitations
 
-This paper argues an architectural position. It is not a description of the deployed system: the capabilities it names range from S2 to S5 in a register whose version 2.0 is pending Founder ratification (version 1.3 was Founder-ratified on 2026-08-13), and no status in it has been verified by an independent third party.
+This paper argues an architectural position. It is not a description of the deployed system: the capabilities it names range from S2 to S5 in a register whose version 2.0 was Founder-ratified on 2026-10-18 (version 1.3 on 2026-08-13), and no status in it has been verified by an independent third party.
 
 It reports **no measurement, no benchmark result, no evaluation, and no comparison against any other system, model or vendor**. No such comparison exists and its absence is recorded as an open problem rather than left implicit `[O]`.
 

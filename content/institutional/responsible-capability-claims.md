@@ -205,7 +205,7 @@ That finding is why the front matter of this document states how its counts were
 
 **No citation in the corpus has been verified.** Every reference in every Program publication, including those at the foot of this one, is marked UNVERIFIED pending a verification ledger that has not been populated. `[O]`
 
-**No capability status has been verified externally.** Register version 1.3 was ratified by the Founder on 2026-08-13, and version 2.0, which records the operational state determined on 2026-10-18, is pending ratification. Nothing in either version has been audited by anyone outside the Program. `[O]`
+**No capability status has been verified externally.** Register version 1.3 was ratified by the Founder on 2026-08-13, and version 2.0, which records the operational state determined on 2026-10-18, was ratified by the Founder on 2026-10-18. Nothing in either version has been audited by anyone outside the Program. `[O]`
 
 **No technical claim in the corpus has been checked for correctness by an external reviewer.** The architecture has been reviewed adversarially from inside, which is useful and is not independent. The Program's own assurance report says so in those terms. `[A]`
 

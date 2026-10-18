@@ -2,7 +2,7 @@
 
 # Capability Register
 
-Register version 2.0. **PROPOSED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification of v2.0 pending Founder signature**
+Register version 2.0. **RATIFIED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification by the Founder on 2026-10-18**
 
 ## State of the platform
 

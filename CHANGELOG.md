@@ -9,8 +9,8 @@ and document versions are separate and are never conflated.
 ## [0.2.0] - 2026-10-18
 
 Alignment with the NEO AI x100 Intelligence Operating System architecture authority and
-with the current state of the platform. Pending Founder ratification of capability
-register v2.0 before release.
+with the current state of the platform. Capability register v2.0 ratified by the Founder
+on 2026-10-18, including the thirteen S3 rows proposed by inference from the operational MVP.
 
 ### Changed
 - **Platform state.** NEO AI and LILI are in operational deployment inside My NEO Group
@@ -51,7 +51,6 @@ register v2.0 before release.
   It renders statuses and keys that register v2.0 supersedes and must not be deployed.
 
 ### Open before release
-- Founder ratification of capability register v2.0 (gate REG-10).
 - A new research HTML delta built from corpus 0.2.0.
 
 ## [Unreleased]
