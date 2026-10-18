@@ -8,16 +8,16 @@
 | Title | From Model Intelligence to System Intelligence: How Orchestration Compounds Capability |
 | Family | RESEARCH |
 | Type | R - Research Paper |
-| Version | v1.0 |
+| Version | v1.1 |
 | Status | DRAFT |
-| Date | 2026-08-12 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse, NEO AI Research Program |
-| Capability keys | `brain` S4 . `brain.router` S4 . `brain.task-graph` S4 . `brain.memory` S4 . `brain.knowledge-graph` S4 . `brain.evidence-layer` S4 . `brain.evidence-ledger` S4 . `brain.validation` S4 . `brain.cost-engine` S4 . `brain.governance` S4 . `brain.event-bus` S4 . `mission-control` S4 . `mission.envelope` S4 . `lili` S4 . `assurance.eval-harness` S5 . `foundation-model` S5 . `neo-intelligence` S4 |
-| Claim classes | Counted mechanically over the body and back matter at build time. Not entered by hand |
+| Capability keys | `core` S2 . `lili` S2 . `core.task-graph` S2 . `core.routing` S2 . `model-sovereignty.api-first` S2 . `mission-control` S3 . `mission.envelope` S3 . `core.verification` S3 . `core.memory` S3 . `core.governance` S3 . `core.event-bus` S3 . `core.resource-accounting` S3 . `human-gates` S3 . `x100.mixture-of-agents` S3 . `x100.adaptive-cascades` S3 . `x100.context-optimisation` S3 . `core.knowledge-graph` S4 . `core.evidence-layer` S4 . `core.evidence-ledger` S4 . `neo-intelligence` S4 . `x100.semantic-reuse` S4 . `x100.speculative-parallel` S4 . `x100.verification-driven-allocation` S4 . `x100.hybrid-execution` S4 . `model-sovereignty.hybrid` S4 . `x100` S5 . `assurance.eval-harness` S5 . `model-sovereignty.neo-optimised` S5 |
+| Claim-class counts | `[E]` 10 . `[A]` 16 . `[D]` 44 . `[O]` 8 . Counted mechanically over the body and back matter, excluding this row. Not entered by hand |
 | Reading time | 29 min |
-| Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` (placeholder, gated by the recorded publication determination) |
+| Canonical URL | `https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/` |
 | Relations | `extends` NEO-AI-R-001 . `applies` NEO-AI-R-003 . `applies` NEO-AI-R-005 . `depends-on` NEO-AI-P-007 . `evidences` NEO-AI-P-001 |
-| Register note | Capability statuses resolve from the Founder-ratified canonical Capability Register. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent. **Nothing in this paper describes a running system unless its capability status says so.** |
+| Register note | Capability statuses resolve from the canonical Capability Register. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and is pending Founder ratification. Register-level ratification confirms the approved representation of the current S1-S5 maturity classifications; it does **not** operationally ratify individual capabilities. Individual lifecycle ratification remains evidence-dependent, and no status has been verified by an independent third party. **Nothing in this paper describes a running system unless its capability status says so.** |
 
 ---
 
@@ -75,9 +75,9 @@ Four lines of published work bear on the argument. Each is cited for what it est
 
 ## 3. System intelligence, defined so it can be argued with
 
-**NEO System Intelligence** is the architectural layer above models, agents, tools, memory, knowledge, evidence and evaluation. It is not a model, it is not a router, and it is not a synonym for the platform. It is the layer that decides what work is done, by what, under whose authority, against what evidence, and with what record `[A]` `[D] (brain, S4)`.
+**NEO System Intelligence** is the architectural layer above models, agents, tools, memory, knowledge, evidence and evaluation. It is not a model, it is not a router, and it is not a synonym for the platform. It is the layer that decides what work is done, by what, under whose authority, against what evidence, and with what record `[A]`. In the NEO AI Intelligence Operating System the layer is carried by NEO Core, its orchestration layer `[D] (core, S2)`.
 
-The name matters because a near-identical one is already in use. **NEO Intelligence** is the intelligence and investigation vertical covering open-source intelligence, blockchain intelligence, anti-money-laundering and risk intelligence, cyber intelligence and due diligence workflows `[D] (neo-intelligence, S4)`. The two are one word apart and they are different objects. This paper concerns the layer. Where a document means the vertical, it writes NEO Intelligence without System, and the distinction is never elided.
+The name matters because a near-identical one is already in use. **NEO Intelligence** is the roadmap intelligence and investigation vertical, designed to cover open-source intelligence, blockchain intelligence, anti-money-laundering and risk intelligence, cyber intelligence and due diligence workflows `[D] (neo-intelligence, S4)`. The two are one word apart and they are different objects. This paper concerns the layer. Where a document means the vertical, it writes NEO Intelligence without System, and the distinction is never elided.
 
 The layer is defined by eight operations. The list is not a component inventory and deliberately does not describe how any of it is built.
 
@@ -92,7 +92,9 @@ The layer is defined by eight operations. The list is not a component inventory 
 | **Evidence** | What supports this claim, and does the support resolve to distinct origins | Requires a record structure across calls |
 | **Approval** | Who authorised this, and is that authorisation still valid | Authority is a property of people and roles |
 
-Each operation is specified in the Program's architecture and none of them is running `[D] (brain, S4)`. Section 7 says exactly how much exists.
+The operations are not all at the same maturity, and the difference matters for how each is described. NEO Core decomposes a Mission into a Task Graph `[D] (core.task-graph, S2)` and selects an executor per unit through Dynamic Capability Routing `[D] (core.routing, S2)`, in operational deployment inside My NEO Group and in controlled pilots with external users. Policy enforcement over tool use `[D] (core.governance, S3)`, Verification by independent verifiers `[D] (core.verification, S3)`, persistent Memory with provenance `[D] (core.memory, S3)` and Human Gates for approval `[D] (human-gates, S3)` are implemented and in validation. The Evidence Layer and Evidence Ledger that carry the evidence operation are designed and specified `[D] (core.evidence-layer, S4)` `[D] (core.evidence-ledger, S4)`. Section 7 says exactly how much exists.
+
+The eight operations also correspond, loosely and not one to one, to the eight x100 optimisation layers of the Intelligence Operating System, which address the same operations from the side of compute rather than of governance. Decomposition corresponds to Mixture-of-Agents, which is implemented and in validation `[D] (x100.mixture-of-agents, S3)`, and to Speculative Parallel Intelligence, which is designed and specified `[D] (x100.speculative-parallel, S4)`. Selection corresponds to Dynamic Capability Routing and to Adaptive Model Cascades, the second implemented and in validation `[D] (x100.adaptive-cascades, S3)`. Retrieval and memory correspond to Memory and Context Optimisation, implemented and in validation `[D] (x100.context-optimisation, S3)`, and to Semantic Compute Reuse, designed and specified `[D] (x100.semantic-reuse, S4)`. Verification corresponds to Verification-Driven Compute Allocation, and tool use under a permitted execution zone to Hybrid API, Private and Self-Hosted Execution, both designed and specified `[D] (x100.verification-driven-allocation, S4)` `[D] (x100.hybrid-execution, S4)`. x100 itself, verified intelligence per unit of compute, is a long-term R&D objective and not a measured result `[D] (x100, S5)`.
 
 ### 3.1 Why these eight and not others
 
@@ -132,13 +134,13 @@ It does not mean the effect has been measured. It has not `[O]`.
 
 The most common claim made for multi-model architecture is that it removes vendor lock-in. **That claim is false and repeating it damages the argument it is meant to support** `[A]`. `[NEO-AI-R-001 s4.4]` establishes the point and this paper follows it rather than softening it.
 
-What a multi-model architecture provides is **replaceability under a contract**: an executor can be substituted without changing what an agent is, what it may do, or what its output must look like, provided a contract defines those things independently of the executor `[A]` `[D] (brain.router, S4)`. That is a real and valuable property. It is not independence.
+What a multi-model architecture provides is **replaceability under a contract**: an executor can be substituted without changing what an agent is, what it may do, or what its output must look like, provided a contract defines those things independently of the executor `[A]`. That is a real and valuable property. It is not independence. In NEO AI, Dynamic Capability Routing selects among models, agents, tools and execution zones by capability rather than by brand `[D] (core.routing, S2)`, and multi-provider API orchestration is the first phase of the model sovereignty roadmap, operating today `[D] (model-sovereignty.api-first, S2)`.
 
 Two honest limits belong in the same paragraph as the claim.
 
 **Concentration risk relocates rather than disappearing.** An organisation that depended on one provider now depends on one orchestration layer. The dependency is on something it controls rather than on something it does not, which is a materially better position, and it is a dependency.
 
-**Substitutability has to be demonstrated rather than declared.** If an agent's behaviour changes when the executor beneath it changes, the abstraction is a label rather than a contract. The Program's answer is a substitution conformance suite that runs each agent's contract tests once per admissible executor and fails where the contract holds under one and not another `[D] (brain.validation, S4)`. That suite is specified and has not been run, because there is nothing to run it against.
+**Substitutability has to be demonstrated rather than declared.** If an agent's behaviour changes when the executor beneath it changes, the abstraction is a label rather than a contract. The Program's answer is a substitution conformance suite, designed to run each agent's contract tests once per admissible executor and to fail where the contract holds under one and not another, and it sits with Verification, which is implemented and in validation `[D] (core.verification, S3)`. No result from that suite is published, no third party has run or verified it, and the paper claims no substitution result.
 
 This section exists because the honest version is more persuasive to the reader who matters. An enterprise architect who has been sold vendor independence before will discount a paper that sells it again.
 
@@ -150,7 +152,7 @@ A system that records outcomes can, in principle, use them. This is the most com
 
 The Program's public position has three parts and stops there.
 
-**First, recording and taking effect are separate acts.** A record of what happened may be written at any time. A change to what the system does as a result is a governed change: it is proposed, reviewed, recorded, reversible, and never in effect silently `[D] (brain.governance, S4)`. The reason is not caution for its own sake. A system whose behaviour changes without a governed act cannot be audited afterwards, because the auditor cannot establish which behaviour was in force at the time of the decision under review.
+**First, recording and taking effect are separate acts.** A record of what happened may be written at any time. A change to what the system does as a result is a governed change: it is proposed, reviewed, recorded, reversible, and never in effect silently, a rule carried by policy enforcement, which is implemented and in validation `[D] (core.governance, S3)`. The reason is not caution for its own sake. A system whose behaviour changes without a governed act cannot be audited afterwards, because the auditor cannot establish which behaviour was in force at the time of the decision under review.
 
 **Second, an outcome is not a label.** For most enterprise work the ground truth arrives late, arrives partially, or does not arrive. A risk assessment that recommended proceeding and was followed by no loss is not thereby correct. Treating it as a positive label trains a system on survivorship `[A]` `[O]`.
 
@@ -162,13 +164,17 @@ A reader is entitled to discount the paper accordingly, and should. An undisclos
 
 ## 7. What exists, stated plainly
 
-`[NEO-AI-P-007 s3]` sets the standard this section obeys: every capability reference resolves to a key in the public register and carries its status, and a capability at S4 or S5 is not described in the present tense as though deployed.
+`[NEO-AI-P-007 s3]` sets the standard this section obeys: every capability reference resolves to a key in the public register and carries its status, and a capability at S3, S4 or S5 is not described in the present tense as though deployed.
 
-At the date of this paper, of the capabilities named in its front matter: **none is operational, none is in pilot, none is undergoing validation. Fifteen are at S4, designed and specified. Two are at S5, planned or exploratory** `[D]`. The register's S1-S5 classifications are Founder-ratified as the approved public representation of maturity. That register-level ratification does not promote any individual capability to lifecycle status RATIFIED and does not imply deployment beyond the S-status shown.
+**Correction, v1.1.** Version 1.0 of this paper stated that none of the capabilities it named was operational, in pilot or in validation, and that none of the eight operations was running. Those statements are no longer true and are corrected here rather than silently removed. By Founder determination of 2026-10-18, NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users: an operational MVP running at real scale, not a design exercise and not a demonstration. General public availability, global, is a target for early 2027 and not a commitment.
 
-The eight operations in section 3 are specified in architecture and specification documents. None of them is running. No mission has been executed. No evaluation has been performed. The evaluation harness that would perform one is at S5 `[D] (assurance.eval-harness, S5)`.
+At the date of this revision, of the capabilities named in its front matter: **five are at S2, operational in a controlled pilot or limited deployment. Eleven are at S3, implemented and undergoing validation. Nine are at S4, designed and specified. Three are at S5, planned or exploratory** `[D]`. At S2 are NEO Core `[D] (core, S2)`, LILI, the conversational face of NEO AI `[D] (lili, S2)`, the Task Graph `[D] (core.task-graph, S2)`, Dynamic Capability Routing `[D] (core.routing, S2)` and multi-provider API orchestration `[D] (model-sovereignty.api-first, S2)`. Mission Control, the operating-system view, is implemented and in validation `[D] (mission-control, S3)`, as are the Mission Envelope `[D] (mission.envelope, S3)`, the event log `[D] (core.event-bus, S3)` and resource accounting `[D] (core.resource-accounting, S3)`. The Knowledge Graph is designed and specified `[D] (core.knowledge-graph, S4)`, as is the hybrid phase of the model sovereignty roadmap `[D] (model-sovereignty.hybrid, S4)`. A NEO-optimised model and execution layer is planned as the third phase of that roadmap `[D] (model-sovereignty.neo-optimised, S5)`; NEO does not own a frontier foundation model today and does not claim to.
 
-This paper is therefore an argument about how such a system should be built and why the layer is where the value sits. It is not a description of a system that exists, and no sentence in it should be quoted as evidence that NEO AI performs any operation described here.
+Register v1.3 was Founder-ratified on 2026-08-13 as the approved public representation of maturity. Register v2.0 (2026-10-18) restructures it to the x100 architecture and is pending Founder ratification. Register-level ratification does not promote any individual capability to lifecycle status RATIFIED and does not imply deployment beyond the S-status shown, and no status in the register has been verified by an independent third party.
+
+Of the eight operations in section 3, decomposition and selection are in operation at S2; tool-use permission, verification, memory and approval rest on components implemented and in validation at S3; retrieval draws on Memory at S3 and on the Knowledge Graph at S4; and the evidence structures are at S4. NEO Core executes Missions inside My NEO Group and in the controlled pilots `[D] (core, S2)`. No system-level evaluation of the kind section 8 describes has been performed, and the evaluation harness that would perform one is at S5 `[D] (assurance.eval-harness, S5)`.
+
+This paper is therefore still an argument about why the layer is where the value sits, now written alongside a system that is partly in operation. Operation is not evidence of the thesis: no measurement has been taken, no benchmark exists, and no sentence here should be quoted as evidence that NEO AI produces a better outcome than any other system or than a model used alone.
 
 The current status of every capability is published and updated at the public Capability Register. A reader checking this paper against the ledger later will find the statuses have moved, or will find that they have not, and either finding is the point of publishing it.
 
@@ -188,7 +194,7 @@ Four difficulties, each real.
 
 **Disturbance matters more than the clean run.** The interesting question is not how a system performs when everything works. It is what happens when a provider degrades, a source turns out to be circular, a tool fails halfway, or an approval is invalidated after the work depending on it has started. Measuring that requires deliberately injecting the disturbance, which is a methodology rather than a benchmark.
 
-The Program has specified a methodology addressing these and **has not run it** `[D] (assurance.eval-harness, S5)`. When a result exists it will be published with its configuration, or it will not be published. the corpus governance baseline makes that binding: a benchmark attributed to NEO AI without a reproducible configuration must never appear.
+The Program has written a methodology addressing these; the Mission Evaluation Harness that would run it is planned, and the methodology **has not been run** `[D] (assurance.eval-harness, S5)`. Operation of NEO Core inside My NEO Group and in controlled pilots does not change this: running Missions is not measuring them. When a result exists it will be published with its configuration, or it will not be published. the corpus governance baseline makes that binding: a benchmark attributed to NEO AI without a reproducible configuration must never appear.
 
 Until then, the honest statement of the thesis is the one this paper opens with. NEO is designed to produce stronger system-level outcomes than an individual model used in isolation **where orchestration, tools, memory, evidence, verification and governance provide measurable benefit**. The conditional is not hedging. It is the claim.
 
@@ -208,8 +214,8 @@ There is a second effect and it points the same way. A more capable model is ent
 
 The argument above is abstract and the Founder determination that authorised this paper asked for
 the concrete path, so it is stated. A new foundation model does not become available to work by
-being announced. It enters through a sequence, and every stage is a place it can stop
-`[D] (brain.router, S4)`.
+being announced. It enters Dynamic Capability Routing through a sequence, and every stage is a
+place it can stop `[D] (core.routing, S2)`.
 
 | Stage | What it establishes |
 |---|---|
@@ -258,13 +264,13 @@ The measurement is taken at the model because that is where the boundary is clea
 
 The operations that produce those properties are compositional, they interact, and none of them is supplied by a better model. That is why they compound, and it is why model improvement raises rather than lowers the value of the layer above.
 
-None of it is running. The argument is published now, before there is anything to demonstrate, so that the claim is on the record ahead of the result rather than assembled after it.
+Part of it is now running. NEO Core, with decomposition and Dynamic Capability Routing, is in operational deployment inside My NEO Group and in controlled pilots with external users `[D] (core, S2)`, and verification, memory and approval are implemented and in validation `[D] (core.verification, S3)`. The argument was first published before any of it was in operation, so that the claim is on the record ahead of the result rather than assembled after it. The result that would test it, a reproducible system-level measurement, still does not exist, and x100 remains an R&D objective rather than a measured result.
 
 ---
 
 ## Scope and Limitations
 
-This paper argues an architectural position. It does not describe a deployed system, and every capability it names is at S4 or S5 in a register that is itself PROVISIONAL.
+This paper argues an architectural position. It is not a description of the deployed system: the capabilities it names range from S2 to S5 in a register whose version 2.0 is pending Founder ratification (version 1.3 was Founder-ratified on 2026-08-13), and no status in it has been verified by an independent third party.
 
 It reports **no measurement, no benchmark result, no evaluation, and no comparison against any other system, model or vendor**. No such comparison exists and its absence is recorded as an open problem rather than left implicit `[O]`.
 
@@ -308,7 +314,7 @@ None in Wave 1. A figure for the eight operations of section 3 is specified and 
 
 ## Related Terms
 
-`Mission` . `Mission State` . `Mission Envelope` . `Task Graph` . `Router` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Validation Layer` . `Capability Register` . `Capability Status` . `Human Authority` . `Decision Record` . `Claim Class` . `Admissible Set` . `Bounded Autonomy` . `Graceful Substitution` . `Circular Corroboration` . `NEO System Intelligence` (pending the vocabulary amendment at the publication record)
+`Mission` . `Mission State` . `Mission Envelope` . `Task Graph` . `Router` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Verification Layer` . `NEO Core` . `Intelligence Operating System` . `Dynamic Capability Routing` . `Human Gate` . `Model Sovereignty` . `Capability Register` . `Capability Status` . `Human Authority` . `Decision Record` . `Claim Class` . `Admissible Set` . `Bounded Autonomy` . `Graceful Substitution` . `Circular Corroboration` . `NEO System Intelligence` (pending the vocabulary amendment at the publication record)
 
 ## Evidence Table
 
@@ -320,10 +326,10 @@ None in Wave 1. A figure for the eight operations of section 3 is specified and 
 | 4 | Checking a candidate answer is a distinct computation from producing one | `[E]` | Wang et al., 2023 | |
 | 5 | The four required properties of an enterprise result are not model output properties | `[A]` | | |
 | 6 | The eight operations interact rather than contributing independently | `[A]` | | |
-| 7 | Multi-model architecture provides replaceability under contract and not independence | `[A]` | `[NEO-AI-R-001 s4.4]` | `brain.router` S4 |
+| 7 | Multi-model architecture provides replaceability under contract and not independence | `[A]` | `[NEO-AI-R-001 s4.4]` | `core.routing` S2 |
 | 8 | Model improvement raises the relative importance of the layer above | `[A]` | | |
-| 9 | The eight operations are specified and none is running | `[D]` | | `brain` S4 |
-| 10 | A substitution conformance suite is specified and has not been run | `[D]` | | `brain.validation` S4 |
+| 9 | Decomposition and selection are in operation; tool use, verification, memory and approval are in validation; the evidence structures are designed and specified (corrected in v1.1; v1.0 stated that none was running) | `[D]` | | `core` S2 |
+| 10 | A substitution conformance suite sits with Verification, which is in validation; no result from it is published | `[D]` | | `core.verification` S3 |
 | 11 | A system-level evaluation methodology is specified and has not been run | `[D]` | | `assurance.eval-harness` S5 |
 | 12 | No published work establishes that a specific orchestration architecture produces a specific improvement on governed enterprise tasks | `[O]` | | |
 | 13 | Late, partial and absent ground truth makes outcome labelling unreliable for most enterprise work | `[O]` | | |
@@ -346,7 +352,8 @@ Yao, S. et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Model
 | Version | Date | Status | Change |
 |---|---|---|---|
 | v1.0 | 2026-08-12 | DRAFT | First issue. Written for the public research release to supply the missing centre of the public corpus: the argument that intelligence is a property of the system rather than of the model, and that model improvement raises rather than lowers the value of the layer above. Discloses no routing parameter, no evaluation dataset, no learning mechanism and no measured result. Identifier allocated as `NEO-AI-R-009`. |
+| v1.1 | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0; terminology migrated to the x100 vocabulary and the eight operations mapped to the x100 optimisation layers. Status statements corrected as a published correction in sections 3, 7 and 10 and in Scope and Limitations: NEO Core and LILI are in operational deployment inside My NEO Group and in controlled pilots with external users (S2), with verification, memory, policy enforcement and approval in validation (S3); general public availability is targeted for early 2027. No measurement, benchmark or independent verification exists, and none is claimed. |
 
 ## How to Cite
 
-Mosse, M. (2026). *From Model Intelligence to System Intelligence: How Orchestration Compounds Capability*. NEO AI Research Program, v1.0. `NEO-AI-R-009` v1.0. `https://neoai.myneogroup.com/id/NEO-AI-R-009`
+Mosse, M. (2026). *From Model Intelligence to System Intelligence: How Orchestration Compounds Capability*. NEO AI Research Program, v1.1. `NEO-AI-R-009` v1.1. `https://neoai.myneogroup.com/id/NEO-AI-R-009`

@@ -16,7 +16,7 @@
 | Claim-class counts | `[E]` 3 . `[A]` 23 . `[D]` 11 . `[O]` 4 |
 | Figures | SYS-19 |
 | Reading time | 10 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-003` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/what-belongs-in-a-mission-event/` |
 
 
 ---

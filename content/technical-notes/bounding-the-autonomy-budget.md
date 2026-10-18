@@ -16,7 +16,7 @@
 | Claim-class counts | `[E]` 2 . `[A]` 17 . `[D]` 9 . `[O]` 3 |
 | Figures | SYS-12 |
 | Reading time | 9 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-001` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/bounding-the-autonomy-budget/` |
 
 
 ---

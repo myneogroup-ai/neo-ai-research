@@ -16,7 +16,7 @@
 | Claim-class counts | `[E]` 1 . `[A]` 21 . `[D]` 8 . `[O]` 4 |
 | Figures | SYS-08 |
 | Reading time | 10 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-002` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/circular-corroboration/` |
 
 
 ---
