@@ -2,42 +2,55 @@
 route: /
 title: Home
 host: neoai.myneogroup.com
-source: PUB copy, SITE_COPY_neoai.myneogroup.com.md
+source: NEO AI x100 architecture authority (2026); Founder determination of 2026-10-18 on platform state
 classification: A
+updated: 2026-10-18
 ---
 
 # Home
 
 ## Hero
 
-**Intelligence is a property of the system, not of the model.**
+**NEO AI. The Intelligence Operating System.**
 
-NEO AI is an intelligence operating layer. It decides what work is done, by which model or tool, under whose authority, against what evidence, and with what record left behind.
+Open NEO. Ask LILI. Receive the result.
 
-Models are workers. The layer that governs them is what survives the next model release.
+NEO AI orchestrates leading models, autonomous agents, tools, data, memory, verification and compute as one coordinated intelligence system. Instead of sending everything to one model, it decomposes a Mission into specialised units of work and decides which capability should handle each one, and where it should run. `[D] (core, S2)`
 
-[Read the research](/research/) · [What we are building](/platform/)
+[Meet LILI](/platform/lili/) · [Explore x100](/platform/x100/) · [Read the research](/research/)
 
-## Second block: the position in four sentences
+## The problem, in three lines
 
-Enterprise work is not a prompt with an answer. It is a task with a required outcome, a permitted set of actions, an authority under which it is performed, and a record it must leave.
+Too many subscriptions. Too much prompt trial and error. Too many models to choose from, and no record of who decided what.
 
-A better foundation model improves the raw material for all four and supplies none of them. That is the gap NEO AI is designed to fill, and the argument for it is published in full rather than asserted.
+## What NEO is
 
-## Third block: what we publish, and what we do not
+Not a chatbot, not a model and not a model switcher. NEO is the operating layer above models: it decides what work is done, by which model, agent or tool, in which execution zone, under whose authority, against what evidence, and with what record left behind. `[D] (core, S2)`
 
-We publish the position, the method and the failure conditions. We publish the status of every capability we describe, including the ones that do not exist yet.
+Models are inputs. Compute is an input. The NEO system is the asset.
 
-We do not publish routing parameters, evaluation datasets or measured results without a reproducible configuration. Where something is withheld, the page says so rather than leaving a gap that reads like an answer.
+## Simple on the surface, powerful underneath
 
-[The claim standard we hold ourselves to](/research/institutional/responsible-capability-claims/)
+One conversation, one objective, one result. Orchestration, models, agents, routing, local and cloud compute allocation, memory and verification stay beneath the surface unless the person chooses to look. The same Mission can be followed in three projections, FOCUS, NORMAL and JARVIS, without ever becoming a different application. `[D] (mission.state, S2)` `[D] (mission-control, S3)`
 
-## Fourth block: state of the platform
+[Mission Control](/platform/mission-control/) · [Observe Build](/platform/observe-build/) · [Intelligence Profiles](/platform/intelligence-profiles/)
 
-**Nothing described on this site is a running system unless its capability status says so.**
+## Intelligence per compute
 
-Every capability NEO AI describes carries a status from a published register: operational, in pilot, undergoing validation, designed and specified, or planned. Most are at *designed and specified*. The register is public and it is expected to move.
+The long-term R&D objective, NEO x100, is an order-of-magnitude improvement in verified intelligence per unit of compute: not more parameters, not more GPUs, but orchestration, specialisation, parallelism, verification, memory, reuse, edge execution and adaptive allocation. x100 is an objective, not a measured result. `[D] (x100, S5)`
 
-[The Capability Register](/research/capability-register/)
+[NEO x100](/platform/x100/) · [Execution Fabric and Edge Compute](/platform/execution-fabric/)
+
+## State of the platform
+
+**NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users.** This is an operational product running at real scale, not a design exercise. General public availability, global, is targeted for early 2027. `[D] (core, S2)` `[D] (lili, S2)` `[D] (availability.general, S5)`
+
+Every capability NEO AI describes carries a status from a published register: operational, in pilot, undergoing validation, designed and specified, or planned. The core experience is in operation; several surrounding capabilities are implemented and in validation; Edge Compute, private deployment patterns, LILI Always-on and NEO Intelligence are on the roadmap. The register says which is which, row by row.
+
+[The Capability Register](/research/capability-register/) · [The claim standard we hold ourselves to](/research/institutional/responsible-capability-claims/)
+
+## What we publish, and what we do not
+
+We publish the position, the method, the failure conditions and the status of every capability, including the ones that are not built yet. We do not publish routing parameters, evaluation datasets or measured results without a reproducible configuration, and we make no comparison against any named model or product.
 
 ---

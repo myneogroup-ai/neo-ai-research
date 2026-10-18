@@ -27,10 +27,17 @@
     {
       "@type": "Organization",
       "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs",
-      "name": "NEO TECH LABS",
+      "name": "NEO TECH LABS TECHNOLOGY L.L.C",
       "url": "https://neoai.myneogroup.com/company/",
       "parentOrganization": {
         "@id": "https://myneogroup.com/#my-neo-group"
+      },
+      "alternateName": "NEO TECH LABS",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Iris Bay, Business Bay",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
       }
     },
     {
@@ -50,7 +57,8 @@
       "publisher": {
         "@id": "https://neoai.myneogroup.com/company/#neo-tech-labs"
       },
-      "_note": "No offers, no aggregateRating, no interactionStatistic. The product is not generally available and markup asserting otherwise would be a false claim."
+      "_note": "No offers, no aggregateRating, no interactionStatistic. NEO AI is in operational deployment inside My NEO Group and in controlled pilot programmes with external users; it is not generally available, and general public availability is targeted for early 2027. Markup asserting general availability would be a false claim.",
+      "description": "NEO AI is an Intelligence Operating System that orchestrates leading models, autonomous agents, tools, data, memory, verification and compute as one coordinated system. LILI is its conversational interface."
     },
     {
       "@type": "DefinedTermSet",
@@ -71,8 +79,8 @@
         "@id": "https://neoai.myneogroup.com/research/about/#neo-ai-research"
       },
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "version": "1.2",
-      "creativeWorkStatus": "PROVISIONAL",
+      "version": "2.0",
+      "creativeWorkStatus": "PENDING RATIFICATION",
       "distribution": [
         {
           "@type": "DataDownload",
@@ -86,7 +94,8 @@
           "name": "capability-status",
           "description": "S1 operational, S2 pilot, S3 validating, S4 specified, S5 planned"
         }
-      ]
+      ],
+      "dateModified": "2026-10-18"
     }
   ]
 }

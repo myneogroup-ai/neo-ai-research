@@ -4,7 +4,7 @@
 
 The controlled vocabulary of the corpus. A term in this list is used exactly as written, everywhere, and the first occurrence of a term on any page links here.
 
-30 locked terms. 9 added by amendment. 39 in total.
+30 locked terms. 36 added by amendment. 66 in total.
 
 ## Locked terms
 
@@ -24,7 +24,7 @@ The controlled vocabulary of the corpus. A term in this list is used exactly as 
 - Evidence Layer
 - Evidence Chain
 - Evidence Ledger
-- Validation Layer
+- Verification Layer
 - Capability Register
 - Capability Gate
 - Human Authority
@@ -50,6 +50,33 @@ The controlled vocabulary of the corpus. A term in this list is used exactly as 
 - NEO System Intelligence
 - System-Level Benchmarking
 - Provider Replaceability
+- Intelligence Operating System
+- NEO Core
+- LILI Always-on
+- FOCUS
+- NORMAL
+- JARVIS
+- Right Inspector
+- Intelligence Profile
+- Human Gate
+- Approval Policy
+- NEO Credits
+- Execution Fabric
+- Execution Zone
+- NEO Edge Compute
+- Device Compute Profile
+- Mixture-of-Agents
+- Adaptive Model Cascade
+- Dynamic Capability Routing
+- Semantic Compute Reuse
+- Speculative Parallel Intelligence
+- Verification-Driven Compute Allocation
+- Minimum Authoritative Context
+- Optimisation Envelope
+- Intelligence-per-Compute
+- Model Sovereignty
+- Last Known Good
+- App Viewer
 
 ## Prohibited synonyms
 
@@ -58,5 +85,19 @@ These are not neutral alternatives. Each was considered and refused.
 | Prohibited | Use instead |
 |---|---|
 | Provider Independence | Provider Replaceability |
+| The Brain | NEO Core |
+| Cost Engine | resource accounting, NEO Credits |
+| Validation Engine | Verification |
+| Intelligence Router | Dynamic Capability Routing, or Router |
+| Mission Graph | Task Graph |
 
-Refused. It contradicts the position published at NEO-AI-R-001 section 4.4. Use Provider Replaceability.
+Each prohibited synonym was considered and refused. The map names what to use instead.
+
+- **Provider Independence.** Refused. It contradicts the position published at NEO-AI-R-001 section 4.4.
+- **The Brain.** Retired with register v2.0. The orchestration layer is NEO Core within the Intelligence Operating System.
+- **Cost Engine.** Retired. Resource accounting is internal metering; NEO Credits are the customer-facing unit.
+- **Validation Engine.** Retired.
+- **Intelligence Router.** Retired. Routing selects capabilities and execution zones, not only models.
+- **Mission Graph.** Refused as a synonym for the locked Task Graph.
+
+Renamed in vocabulary 2.0: Validation Layer is now Verification Layer.

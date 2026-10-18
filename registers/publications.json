@@ -1,6 +1,6 @@
 {
   "artefact": "NEO_AI_PUBLIC_PUBLICATION_REGISTER",
-  "version": "1.1",
+  "version": "1.2",
   "status": "PUBLIC PROJECTION",
   "classification": "A - PUBLIC RESEARCH",
   "provenance": "Mechanical projection of the Program publication register. Class A and A_AFTER_REDUCTION entries only. Withholding reasons, withheld section lists, blocking items and internal source paths are removed by the projection and are not recoverable from this file.",
@@ -29,7 +29,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/institutional/introducing-neo-ai.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-P-007",
@@ -48,7 +50,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/institutional/responsible-capability-claims.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-R-009",
@@ -70,7 +74,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/papers/model-intelligence-to-system-intelligence.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.0",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-TN-001",
@@ -89,7 +95,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/bounding-the-autonomy-budget.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-TN-002",
@@ -108,7 +116,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/circular-corroboration.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-TN-003",
@@ -127,7 +137,9 @@
       "status": "APPROVED_FOR_WAVE_1",
       "identifier_allocated": true,
       "content_path": "content/technical-notes/what-belongs-in-a-mission-event.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-R-001",
@@ -147,7 +159,9 @@
       "status": "HELD_FOR_WAVE_1B",
       "identifier_allocated": true,
       "content_path": "content/papers/end-of-the-single-model-enterprise.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.2-public",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-R-003",
@@ -167,7 +181,9 @@
       "status": "HELD_FOR_WAVE_1B",
       "identifier_allocated": true,
       "content_path": "content/papers/mission-control-governance-architecture.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1-public",
+      "updated": "2026-10-18"
     },
     {
       "id": "NEO-AI-R-005",
@@ -186,7 +202,9 @@
       "status": "HELD_FOR_WAVE_1B",
       "identifier_allocated": true,
       "content_path": "content/papers/evidence-memory-accountability.md",
-      "content_present": true
+      "content_present": true,
+      "version": "v1.1-public",
+      "updated": "2026-10-18"
     }
   ],
   "registered_not_drafted": [
@@ -245,5 +263,6 @@
       "title": "Research, Governance and the NEO AI Public Record",
       "status": "registered, not drafted, no date"
     }
-  ]
+  ],
+  "updated": "2026-10-18"
 }

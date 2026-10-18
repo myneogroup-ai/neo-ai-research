@@ -14,7 +14,7 @@ classification: A
 
 ## Body
 
-I run the Program on a rule that is unusual for a company at this stage: a claim about what we do has to be falsifiable, and the status of every capability we describe has to be published, including the ones that do not exist.
+I run the Program on a rule that is unusual for a company at this stage: a claim about what we do has to be falsifiable, and the status of every capability we describe has to be published, including the ones that do not exist yet and the ones that are already in operation. Understating what runs is as imprecise as overstating what does not.
 
 The commercial argument for it is straightforward. Small buyers rarely check. The large, regulated, long-contract buyers who are the actual market check everything, and the fastest way to lose one is to be caught having implied something. A corpus where a reader can tell established fact from architectural interpretation from design intent is a corpus a serious buyer can use, and one where they cannot is marketing with citations.
 

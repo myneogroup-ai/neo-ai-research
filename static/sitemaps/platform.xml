@@ -2,62 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://neoai.myneogroup.com/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/system-intelligence/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/mission-control/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/observe-build/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/lili/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/evidence/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/governance/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/security/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/platform/deployment/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/x100/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/execution-fabric/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/intelligence-profiles/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/model-sovereignty/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/verticals/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/neo-intelligence/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neoai.myneogroup.com/platform/business-model/</loc>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/company/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://neoai.myneogroup.com/company/contact/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

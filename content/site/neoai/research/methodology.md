@@ -2,7 +2,7 @@
 route: /research/methodology/
 title: Methodology
 host: neoai.myneogroup.com
-source: PUB copy, SITE_COPY_neoai.myneogroup.com.md
+source: PUB copy, SITE_COPY_neoai.myneogroup.com.md; revised 2026-10-18 for register v2.0
 classification: A
 ---
 
@@ -18,7 +18,7 @@ classification: A
 
 **Evidence tiers.** An `[E]` claim requires an external primary source. A NEO AI publication contributes no evidential weight to an `[E]` claim in another NEO AI publication. A benchmark result from a model paper may never be cited in support of a claim about NEO AI system performance, because model-level and system-level evidence are different evidence.
 
-**Capability status.** Every capability reference resolves to a key in the public register and carries one of five statuses. A capability at *designed and specified* is never written in the present tense as though deployed. The register is published and versioned.
+**Capability status.** Every capability reference resolves to a key in the public register and carries one of five statuses. A capability at *designed and specified* is never written in the present tense as though deployed, and a capability in operation is never written as though it were only a design: understatement is a misstatement too. Every status token in a public text is resolved against the register at build time, and the build fails on a disagreement. The register is published and versioned, and every upgrade records its basis.
 
 **What we will not do.** We will not publish a benchmark attributed to NEO AI without a reproducible configuration. We will not make a comparative claim against a named model, because no reproducible comparison exists and we record its absence rather than working around it. We will not present a simulated screenshot as live state.
 

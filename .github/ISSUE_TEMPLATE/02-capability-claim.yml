@@ -20,7 +20,7 @@ body:
     attributes:
       label: Capability key
       description: The key as it appears in registers/capabilities.json
-      placeholder: brain.router
+      placeholder: core.routing
     validations:
       required: true
   - type: textarea

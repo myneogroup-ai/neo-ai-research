@@ -1,8 +1,14 @@
 {
   "$schema": "https://neoai.myneogroup.com/schema/capabilities-v1.json",
-  "version": "1.3",
-  "status": "RATIFIED - Founder confirmed published S1-S5 capability classifications",
-  "updated": "2026-08-13",
+  "version": "2.0",
+  "status": "PROPOSED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification of v2.0 pending Founder signature",
+  "updated": "2026-10-18",
+  "authority": "NEO AI x100 Intelligence Operating System, Technology, Product and Architecture authority, 2026",
+  "platformState": {
+    "summary": "NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users. This is an operational MVP running at real scale, not a design exercise. General public availability, global, is targeted for early 2027.",
+    "classification": "FACT (Founder determination) for the operational state; TARGET for early 2027",
+    "independentVerification": "No status in this register has been verified by an independent third party."
+  },
   "statusDefinitions": {
     "S1": "Operational and publicly available",
     "S2": "Operational in a controlled pilot or limited deployment",
@@ -12,174 +18,601 @@
   },
   "capabilities": [
     {
+      "key": "core",
+      "name": "NEO Core, the Intelligence Operating System orchestration layer",
+      "status": "S2",
+      "note": "Decomposes a Mission, routes each unit of work, verifies and assembles the result. Contains no model weights and performs no inference of its own.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "supersedes": [
+        "brain"
+      ],
+      "pdfSection": "01, 04, 22",
+      "ratification": "UNCONFIRMED"
+    },
+    {
       "key": "lili",
-      "name": "LILI",
+      "name": "LILI, the conversational face of NEO AI",
+      "status": "S2",
+      "note": "Chat-first interface: Open NEO, ask LILI, receive the result. Not the platform and not a model.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "pdfSection": "02, 17",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "lili.always-on",
+      "name": "LILI Always-on: continuous presence and hands-free voice",
       "status": "S4",
-      "note": "Conversational interface. Not the platform, not the Foundation Model.",
+      "note": "Wake word, continuous voice conversation and 24/7 Mission follow-up on authorised devices, always inside Human Gates. Roadmap.",
+      "basis": "PDF label ROADMAP. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "lili",
+      "pdfSection": "03",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "mission.state",
+      "name": "One Mission state",
+      "status": "S2",
+      "note": "A Mission is one backend truth. Changing mode or device never restarts execution or creates a second Mission.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "pdfSection": "17",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "mission.envelope",
+      "name": "Mission Envelope",
+      "status": "S3",
+      "note": "Bounded permissions, data scope, resource budget, autonomy level and terminal conditions, set at creation and narrowed by the approval policy.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, TARGET BUILD IN PROGRESS. Proposed with register v2.0, awaiting Founder ratification.",
+      "pdfSection": "21",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "mission-control",
-      "name": "Mission Control",
-      "status": "S4",
-      "note": "Command, governance, supervision, validation and audit layer.",
+      "name": "Mission Control: FOCUS, NORMAL and JARVIS projections",
+      "status": "S3",
+      "note": "Three projections of one Mission state with one composer and one right inspector (Progress, Output, Context). Mission Control is the operating-system view of the platform.",
+      "basis": "PDF label TARGET BUILD IN PROGRESS; screens in the PDF are prototype UI with synthetic data. Proposed with register v2.0, awaiting Founder ratification.",
+      "pdfSection": "17, 18",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain",
-      "name": "The Brain",
-      "status": "S4",
-      "note": "Orchestration layer. Not a foundation model.",
+      "key": "observe-build",
+      "name": "Observe Build",
+      "status": "S3",
+      "note": "Live code, files, tests, verification and the running result in the App Viewer at the same revision as the code; Last Known Good is never replaced by a failed candidate; Human Gate before release.",
+      "basis": "PDF label BINDING PRODUCT DEFINITION, TARGET BUILD IN PROGRESS. Proposed with register v2.0, awaiting Founder ratification.",
+      "pdfSection": "19",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.task-graph",
+      "key": "intelligence-profiles",
+      "name": "NEO Intelligence Profiles: NEO AUTO, PULSE, PRIME, AXIOM, APEX",
+      "status": "S3",
+      "note": "The user chooses a resource envelope, never a model, a provider or an execution location.",
+      "basis": "PDF label ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "pdfSection": "20",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "human-gates",
+      "name": "Human Gates and approval policy: ASK ME, AUTO, AUTONOMOUS",
+      "status": "S3",
+      "note": "Approval policy only narrows what is auto-approved. Mandatory Human Gates (production DNS, public publishing, act-class connector actions, deployment release) are refused at platform level.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, enforced at platform level. Proposed with register v2.0, awaiting Founder ratification.",
+      "pdfSection": "21",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "core.task-graph",
       "name": "Task Graph",
-      "status": "S4",
-      "parent": "brain",
+      "status": "S2",
+      "note": "Typed units of work, dependencies, approval points and reverse actions for a Mission.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "parent": "core",
+      "supersedes": [
+        "brain.task-graph"
+      ],
+      "pdfSection": "04",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.router",
-      "name": "Router",
-      "status": "S4",
-      "parent": "brain",
+      "key": "core.routing",
+      "name": "Dynamic Capability Routing (NEO Router)",
+      "status": "S2",
+      "note": "Selects among models, agents, tools, runtimes, data sources, verifiers and execution zones by capability, never by brand. Policy computes the admissible set before anything is scored.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027. Multi-provider routing is inherent to Phase 1 operation.",
+      "parent": "core",
+      "supersedes": [
+        "brain.router"
+      ],
+      "pdfSection": "05 layer 03",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.memory",
-      "name": "Memory",
-      "status": "S4",
-      "parent": "brain",
+      "key": "core.memory",
+      "name": "Memory: persistent, verified, with provenance",
+      "status": "S3",
+      "note": "What the system retains about its own operation, with typed stores and separate retention rules.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "core",
+      "supersedes": [
+        "brain.memory"
+      ],
+      "pdfSection": "02",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.knowledge-graph",
+      "key": "core.knowledge-graph",
       "name": "Knowledge Graph",
       "status": "S4",
-      "parent": "brain",
+      "note": "What the system asserts about the world, each material edge carrying its evidence class and lineage.",
+      "basis": "Unchanged from register v1.3.",
+      "parent": "core",
+      "supersedes": [
+        "brain.knowledge-graph"
+      ],
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.validation",
-      "name": "Validation",
+      "key": "core.verification",
+      "name": "Verification: independent verifiers and cross-checking",
+      "status": "S3",
+      "note": "Deterministic checks first, then independent agents or models that did not produce the work. The producing model is never the blocking verifier of its own output.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "core",
+      "supersedes": [
+        "brain.validation"
+      ],
+      "pdfSection": "04, 06",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "core.resource-accounting",
+      "name": "Resource accounting and NEO Credits metering",
+      "status": "S3",
+      "note": "Provider usage, provider cost and a normalised NEO resource are metered internally; the customer sees NEO Credits only.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "core",
+      "supersedes": [
+        "brain.cost-engine"
+      ],
+      "pdfSection": "27",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "core.event-bus",
+      "name": "Event log (Event Bus)",
+      "status": "S3",
+      "note": "Append-only record of material state changes; Mission state is a fold over it.",
+      "basis": "Required by live Mission views. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "core",
+      "supersedes": [
+        "brain.event-bus"
+      ],
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "core.governance",
+      "name": "Policy enforcement",
+      "status": "S3",
+      "note": "Legal, policy and authority constraints evaluated as admissibility filters before any optimisation.",
+      "basis": "PDF order of precedence, section 09. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "core",
+      "supersedes": [
+        "brain.governance"
+      ],
+      "pdfSection": "09",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "core.evidence-layer",
+      "name": "Evidence Layer",
       "status": "S4",
-      "parent": "brain",
+      "note": "Produces, grades and serves evidence.",
+      "basis": "Unchanged from register v1.3.",
+      "parent": "core",
+      "supersedes": [
+        "brain.evidence-layer"
+      ],
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.cost-engine",
-      "name": "Cost Engine",
+      "key": "core.evidence-ledger",
+      "name": "Evidence Ledger",
       "status": "S4",
-      "parent": "brain",
-      "note": "Named in five source texts, explained in none. Audit finding M8.",
+      "note": "Append-only, hash-addressed store of evidence records.",
+      "basis": "Unchanged from register v1.3.",
+      "parent": "core",
+      "supersedes": [
+        "brain.evidence-ledger"
+      ],
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "brain.event-bus",
-      "name": "Event Bus",
-      "status": "S4",
-      "parent": "brain",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "brain.governance",
-      "name": "Governance",
-      "status": "S4",
-      "parent": "brain",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "foundation-model",
-      "name": "NEO AI Foundation Model",
+      "key": "x100",
+      "name": "NEO x100: verified intelligence per unit of compute",
       "status": "S5",
-      "note": "Phase 2. Base open-weights architecture is never named publicly.",
+      "note": "A long-term R&D objective, not a measured result. No multiple is stated or guaranteed.",
+      "basis": "PDF section 28: R&D objective.",
+      "pdfSection": "05, 06, 11, 28",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.mixture-of-agents",
+      "name": "Mixture-of-Agents",
+      "status": "S3",
+      "note": "Independent specialised agents research, reason, build, critique and verify parts of one Mission; NEO synthesises.",
+      "basis": "PDF layer 01. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 01",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.adaptive-cascades",
+      "name": "Adaptive Model Cascades",
+      "status": "S3",
+      "note": "Start on the least expensive capable model; escalate on confidence, complexity, verification or policy.",
+      "basis": "PDF layer 02. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 02",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.semantic-reuse",
+      "name": "Semantic Compute Reuse",
+      "status": "S4",
+      "note": "Reuse verified, still-valid, authorised intelligence instead of regenerating it.",
+      "basis": "PDF layer 04. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 04",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.speculative-parallel",
+      "name": "Speculative Parallel Intelligence",
+      "status": "S4",
+      "note": "Explore candidate approaches in parallel, prune weak branches early, concentrate compute on promising or disputed paths.",
+      "basis": "PDF layer 05. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 05",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.verification-driven-allocation",
+      "name": "Verification-Driven Compute Allocation",
+      "status": "S4",
+      "note": "Additional reasoning only where an independent verifier finds it necessary.",
+      "basis": "PDF layer 06. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 06",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.hybrid-execution",
+      "name": "Hybrid API, Private and Self-Hosted Execution",
+      "status": "S4",
+      "note": "Route workloads across edge, frontier APIs, private enterprise models, specialist systems and NEO-controlled or self-hosted open models.",
+      "basis": "PDF layer 07; depends on private and self-hosted zones. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 07",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "x100.context-optimisation",
+      "name": "Memory and Context Optimisation",
+      "status": "S3",
+      "note": "Build the minimum authoritative context each invocation needs instead of resending full history.",
+      "basis": "PDF layer 08. Proposed with register v2.0, awaiting Founder ratification.",
+      "parent": "x100",
+      "pdfSection": "05 layer 08",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "execution-fabric",
+      "name": "NEO Execution Fabric: four execution zones",
+      "status": "S4",
+      "note": "Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The NEO Controlled and External zones are the ones in use under the managed deployment.",
+      "basis": "PDF label ARCHITECTURE DEFINITION; customer-private and multi-device nodes are ROADMAP.",
+      "pdfSection": "09",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "edge-compute",
+      "name": "NEO Edge Compute and Device Compute Profile",
+      "status": "S4",
+      "note": "Use authorised compute on the user's own device where sufficient, quality-gated and policy-first, escalating to the cloud otherwise. Cross-platform: Apple, Windows, Linux. Not a prerequisite.",
+      "basis": "PDF label ROADMAP, not yet a measured result.",
+      "pdfSection": "07, 08, 10",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "model-sovereignty.api-first",
+      "name": "Model sovereignty Phase 1: multi-provider API orchestration",
+      "status": "S2",
+      "note": "Leading external systems used through APIs where they offer the best capability and economics; no provider is structurally mandatory.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "pdfSection": "13",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "model-sovereignty.hybrid",
+      "name": "Model sovereignty Phase 2: hybrid execution",
+      "status": "S4",
+      "note": "Open-weight and private models progressively deployed on NEO-controlled, private and self-hosted infrastructure alongside frontier APIs. No third-party model IP is owned.",
+      "basis": "PDF ROADMAP.",
+      "pdfSection": "13",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "model-sovereignty.neo-optimised",
+      "name": "Model sovereignty Phase 3: NEO-optimised model and execution layer",
+      "status": "S5",
+      "note": "Fine-tuned, distilled, domain and task-specific models for a rising share of suitable workloads. NEO does not own a frontier foundation model today and does not claim to.",
+      "basis": "PDF ROADMAP.",
+      "supersedes": [
+        "foundation-model"
+      ],
+      "pdfSection": "13",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.managed",
+      "name": "Public and managed deployment (NEO-managed SaaS)",
+      "status": "S2",
+      "note": "The target delivery model, operating today inside My NEO Group and in controlled pilot programmes.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "supersedes": [
+        "deployment.cloud"
+      ],
+      "pdfSection": "14",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.private-cloud",
+      "name": "Private cloud deployment",
+      "status": "S5",
+      "note": "Dedicated customer environment.",
+      "basis": "PDF ROADMAP; carries forward deployment.vpc S5.",
+      "supersedes": [
+        "deployment.vpc"
+      ],
+      "pdfSection": "14",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.hybrid",
+      "name": "Hybrid deployment",
+      "status": "S5",
+      "note": "NEO control plane over customer resources.",
+      "basis": "PDF ROADMAP.",
+      "pdfSection": "14",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.self-hosted",
+      "name": "Self-hosted deployment",
+      "status": "S5",
+      "note": "Customer private infrastructure.",
+      "basis": "PDF ROADMAP; carries forward deployment.onprem S5.",
+      "supersedes": [
+        "deployment.onprem"
+      ],
+      "pdfSection": "14",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "deployment.sovereign",
+      "name": "Sovereign and high-control deployment",
+      "status": "S5",
+      "note": "Where required and legally supported.",
+      "basis": "PDF ROADMAP.",
+      "pdfSection": "14",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "verticals.pilot-anchored",
+      "name": "Pilot-anchored verticals: Hospitality and Nightlife, Micro-Credit, Trading and Treasury",
+      "status": "S2",
+      "note": "Configurations of the same core, exercised in pilot programmes. Pilot counts and client identities are never disclosed.",
+      "basis": "PDF section 22 FACT: three pilot-anchored verticals today.",
+      "pdfSection": "22",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "verticals.shared-core",
+      "name": "Further verticals on the shared core: Software Factory, Company Builder, Fintech Studio, Payments, Sport and Wellness, RWA Studio",
+      "status": "S4",
+      "note": "Built on the same core when demand is proven.",
+      "basis": "PDF section 22.",
+      "pdfSection": "22",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "verticals.zero-counted",
+      "name": "Verticals counted at zero: Health and Care, Legal Ops, Travel",
+      "status": "S5",
+      "note": "Counted at zero in every projection.",
+      "basis": "PDF section 22.",
+      "pdfSection": "22",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "neo-intelligence",
       "name": "NEO Intelligence",
       "status": "S4",
-      "note": "Designed and specified. Not launched. Audit finding X1.",
+      "note": "Premium roadmap vertical: an evidence-backed orchestration layer above licensed intelligence providers, under human review. Not an adjudication authority. Counted at zero.",
+      "basis": "PDF section 24 ROADMAP.",
+      "pdfSection": "24",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "deployment.cloud",
-      "name": "Platform cloud deployment",
+      "key": "availability.general",
+      "name": "General public availability, global, B2C and B2B",
+      "status": "S5",
+      "note": "Targeted for early 2027. A target, not a commitment.",
+      "basis": "Founder determination 2026-10-18: NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users; general public availability is targeted for early 2027.",
+      "pdfSection": "23",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "market.b2g",
+      "name": "Government and sovereign programmes",
+      "status": "S5",
+      "note": "Where applicable and subject to the relevant product and legal framework.",
+      "basis": "PDF ROADMAP.",
+      "pdfSection": "23",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "neo-credits",
+      "name": "NEO Credits, the customer-facing usage unit",
       "status": "S4",
+      "note": "Not a token, not a financial instrument, not a provider price. Per-Credit pricing is not set.",
+      "basis": "PDF ARCHITECTURE DEFINITION, ratified unit.",
+      "pdfSection": "27",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "deployment.vpc",
-      "name": "Client VPC deployment",
-      "status": "S5",
+      "key": "compounding-loop",
+      "name": "System-level learning loop",
+      "status": "S4",
+      "note": "Routing, evaluation, verification and outcome signals improve allocation. No weights change. Customer content is never automatically used for training; Help Improve NEO is off by default.",
+      "basis": "PDF ROADMAP, self-improvement loop.",
+      "pdfSection": "25",
       "ratification": "UNCONFIRMED"
     },
     {
-      "key": "deployment.onprem",
-      "name": "On-premise and sovereign deployment",
+      "key": "infrastructure-licensing",
+      "name": "NEO orchestration and compute-optimisation stack as licensable infrastructure",
       "status": "S5",
+      "note": "Unmodelled optionality. Ecosystem participants named in the PDF are examples, not prospects.",
+      "basis": "PDF ROADMAP, business 2.",
+      "pdfSection": "12, 27",
+      "ratification": "UNCONFIRMED"
+    },
+    {
+      "key": "pilots",
+      "name": "Pilot programmes",
+      "status": "S2",
+      "note": "Operational pilots with external users. Count and identity never disclosed publicly.",
+      "basis": "Unchanged status from register v1.3; label revised.",
+      "pdfSection": "22",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "public-website",
       "name": "Public website",
       "status": "S1",
+      "note": "neoai.myneogroup.com.",
+      "basis": "Unchanged from register v1.3.",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "dataroom.frontend",
       "name": "Investor Data Room frontend",
       "status": "S3",
+      "note": "Access-controlled.",
+      "basis": "Unchanged from register v1.3.",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "dataroom.backend",
-      "name": "Investor Data Room backend R6",
+      "name": "Investor Data Room backend",
       "status": "S3",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "pilots",
-      "name": "Signed paid pilots",
-      "status": "S2",
-      "note": "Count and identity never disclosed publicly.",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "brain.evidence-layer",
-      "name": "Evidence Layer",
-      "status": "S4",
-      "note": "Knowledge Plane component that produces, grades and serves evidence. Added v1.1: the corpus could not describe evidence handling without it (R-005 register gap).",
-      "parent": "brain",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "brain.evidence-ledger",
-      "name": "Evidence Ledger",
-      "status": "S4",
-      "note": "Append-only, hash-addressed store of evidence records. Added v1.1.",
-      "parent": "brain",
+      "note": "Access-controlled.",
+      "basis": "Unchanged from register v1.3.",
       "ratification": "UNCONFIRMED"
     },
     {
       "key": "assurance.eval-harness",
       "name": "Mission Evaluation Harness",
       "status": "S5",
-      "note": "Reproducible mission-level evaluation harness specified by NEO-AI-ENG-008. Added v1.1.",
-      "ratification": "UNCONFIRMED"
-    },
-    {
-      "key": "mission.envelope",
-      "name": "Mission Envelope",
-      "status": "S4",
-      "note": "Bounded permissions, data scope, resource budget, autonomy level and terminal conditions. Added v1.1.",
+      "note": "Reproducible mission-level evaluation harness.",
+      "basis": "Unchanged from register v1.3.",
       "ratification": "UNCONFIRMED"
     }
   ],
+  "retired": [
+    {
+      "key": "brain",
+      "successor": "core",
+      "reason": "The term 'The Brain' is retired. The orchestration layer is NEO Core within the Intelligence Operating System."
+    },
+    {
+      "key": "brain.task-graph",
+      "successor": "core.task-graph",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "brain.router",
+      "successor": "core.routing",
+      "reason": "Renamed to Dynamic Capability Routing, which selects capabilities and execution zones, not only models."
+    },
+    {
+      "key": "brain.memory",
+      "successor": "core.memory",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "brain.knowledge-graph",
+      "successor": "core.knowledge-graph",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "brain.validation",
+      "successor": "core.verification",
+      "reason": "Validation is renamed Verification throughout."
+    },
+    {
+      "key": "brain.cost-engine",
+      "successor": "core.resource-accounting",
+      "reason": "The term 'Cost Engine' is retired. Resource accounting is internal; NEO Credits are the customer unit."
+    },
+    {
+      "key": "brain.event-bus",
+      "successor": "core.event-bus",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "brain.governance",
+      "successor": "core.governance",
+      "reason": "Parent renamed. Human Gates are registered separately as human-gates."
+    },
+    {
+      "key": "brain.evidence-layer",
+      "successor": "core.evidence-layer",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "brain.evidence-ledger",
+      "successor": "core.evidence-ledger",
+      "reason": "Parent renamed."
+    },
+    {
+      "key": "foundation-model",
+      "successor": "model-sovereignty.neo-optimised",
+      "reason": "Replaced by the staged model sovereignty roadmap. NEO does not own a frontier foundation model and does not claim to."
+    },
+    {
+      "key": "deployment.cloud",
+      "successor": "deployment.managed",
+      "reason": "Aligned with the five deployment patterns."
+    },
+    {
+      "key": "deployment.vpc",
+      "successor": "deployment.private-cloud",
+      "reason": "Aligned with the five deployment patterns."
+    },
+    {
+      "key": "deployment.onprem",
+      "successor": "deployment.self-hosted",
+      "reason": "Aligned with the five deployment patterns; sovereign is registered separately as deployment.sovereign."
+    }
+  ],
   "changelog": [
-    "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope. Corpus authors found these were mandated by the plane model but absent from the register, which made them unmentionable under LOCK v2 s2.",
-    "v1.3 Founder ratified the register's published S1-S5 maturity classifications. Individual capability lifecycle ratification states remain unchanged; register ratification is not evidence of deployment, target-environment testing or T4 capability ratification."
+    "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope.",
+    "v1.3 Founder ratified the register's published S1-S5 maturity classifications. Individual capability lifecycle ratification states remain unchanged.",
+    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Components labelled TARGET BUILD IN PROGRESS in the architecture authority are proposed at S3; components labelled ROADMAP stay at S4 or S5. No status was raised on the strength of the architecture document alone."
   ],
   "lifecycle": {
     "states": [
@@ -194,7 +627,7 @@
       "VERIFIED": "Repository, code and test evidence exist and have been checked (tier T3). Permits promotion to staging.",
       "RATIFIED": "Deployed and tested in the target environment, signed by the Founder (tier T4). REQUIRED, and only required, for production deployment and for any public capability claim."
     },
-    "rule": "The Capability Ratification Gate blocks production deployment and public claims only. It never blocks engineering progression. This closes audit blocker B3: the previous gate definition required evidence that could only be produced by passing the gate.",
+    "rule": "The Capability Ratification Gate blocks production deployment and public claims only. It never blocks engineering progression.",
     "authority": {
       "UNCONFIRMED": "automatic",
       "PROVISIONAL_VERIFIED": "CTO",
@@ -202,12 +635,19 @@
       "RATIFIED": "Founder only"
     }
   },
-  "_provenance": "Public copy of the Program capability register v1.2. Host rebound to the canonical research host. Values are unchanged from the internal canonical.",
+  "_provenance": "Public copy of the Program capability register. Canonical research host neoai.myneogroup.com.",
   "registerRatification": {
-    "status": "RATIFIED",
-    "date": "2026-08-13",
+    "status": "PENDING",
+    "version": "2.0",
+    "date": null,
     "authority": "Founder",
+    "previous": {
+      "version": "1.3",
+      "status": "RATIFIED",
+      "date": "2026-08-13"
+    },
     "scope": "Ratification confirms that the S1-S5 classifications in this register are the approved public representation of capability maturity as of the ratification date. It does not constitute lifecycle RATIFIED status for any individual capability.",
-    "capability_lifecycle_unchanged": true
+    "capability_lifecycle_unchanged": true,
+    "toRatify": "Set status to RATIFIED and date to the signature date once the Founder has reviewed every row marked as proposed."
   }
 }

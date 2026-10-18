@@ -1,6 +1,6 @@
 # NEO-AI-P-001 - Introducing NEO AI: Intelligence Orchestrated
 
-**Capability has become abundant. Orchestration has not. This is a statement of what the platform is designed to be, and an account of how much of it exists.**
+**Capability has become abundant. Orchestration has not. This is a statement of what the platform is, what it is designed to become, and an exact account of how much of it is in operation.**
 
 | Field | Value |
 |---|---|
@@ -8,18 +8,19 @@
 | Title | Introducing NEO AI: Intelligence Orchestrated |
 | Family | PUBLICATION |
 | Type | Institutional Publication (`P`) |
-| Version | v1.0 |
+| Version | v1.1 |
 | Status | DRAFT |
-| Date | 2026-08-09 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse |
-| Capability keys | `lili` (S4), `mission-control` (S4), `brain` (S4), `brain.task-graph` (S4), `brain.router` (S4), `brain.memory` (S4), `brain.knowledge-graph` (S4), `brain.validation` (S4), `brain.cost-engine` (S4), `brain.event-bus` (S4), `brain.governance` (S4), `foundation-model` (S5), `neo-intelligence` (S4), `deployment.cloud` (S4), `deployment.vpc` (S5), `deployment.onprem` (S5), `public-website` (S1), `dataroom.frontend` (S3), `dataroom.backend` (S3), `pilots` (S2), `brain.evidence-layer` (S4), `brain.evidence-ledger` (S4), `mission.envelope` (S4) |
-| Claim-class counts | `[E]` 6 . `[A]` 25 . `[D]` 39 . `[O]` 6 . Counted mechanically over the body and back matter, excluding this row |
+| Capability keys | `core` (S2), `x100` (S5), `lili` (S2), `availability.general` (S5), `intelligence-profiles` (S3), `lili.always-on` (S4), `model-sovereignty.api-first` (S2), `model-sovereignty.hybrid` (S4), `model-sovereignty.neo-optimised` (S5), `mission-control` (S3), `mission.state` (S2), `core.governance` (S3), `human-gates` (S3), `core.event-bus` (S3), `core.task-graph` (S2), `core.routing` (S2), `core.memory` (S3), `core.knowledge-graph` (S4), `core.verification` (S3), `mission.envelope` (S3), `core.resource-accounting` (S3), `neo-credits` (S4), `x100.mixture-of-agents` (S3), `x100.adaptive-cascades` (S3), `x100.semantic-reuse` (S4), `x100.speculative-parallel` (S4), `x100.verification-driven-allocation` (S4), `x100.hybrid-execution` (S4), `x100.context-optimisation` (S3), `execution-fabric` (S4), `edge-compute` (S4), `deployment.managed` (S2), `deployment.private-cloud` (S5), `deployment.hybrid` (S5), `deployment.self-hosted` (S5), `deployment.sovereign` (S5), `verticals.pilot-anchored` (S2), `verticals.shared-core` (S4), `verticals.zero-counted` (S5), `market.b2g` (S5), `neo-intelligence` (S4), `compounding-loop` (S4) |
+| Claim-class counts | `[E]` 6 . `[A]` 31 . `[D]` 71 . `[O]` 10. Counted mechanically by `scripts/count_claims.py` over the body and back matter, excluding this row |
 | Figures | SYS-02 |
-| Reading time | 24 min |
-| Canonical URL | `https://neoai.myneogroup.com/publications/neo-ai-p-001` (placeholder, not yet resolvable) |
+| Reading time | 26 min |
+| Canonical URL | `https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/` |
 
 Founder's Annotations are attributed editorial annotations prepared for and approved by Mickael Mosse. They are not historical quotations and carry no claim class.
 
+**Correction notice for v1.1.** Version 1.0 stated that the platform was a specification and that most of the capability register stood at designed and specified or planned. That was accurate on 2026-08-09 and it is no longer accurate. NEO AI and LILI are now in operational deployment inside My NEO Group and in controlled pilot programmes with external users, and this version also aligns the text with the NEO x100 Intelligence Operating System architecture. The superseded wording remains resolvable at the pinned v1.0 route, and section 8 states the current status of every component by register key.
 
 ---
 
@@ -27,7 +28,9 @@ Founder's Annotations are attributed editorial annotations prepared for and appr
 
 An organisation of any size can reach a dozen capable models in an afternoon, across language, code, vision, audio and structured reasoning, at a price that no longer requires a business case. That access has not turned into an operating capability, and the gap is not closing on its own. The NEO AI Research Program holds that the durable layer in enterprise artificial intelligence is the system that decides which model runs, on what data, under whose authority, against what evidence, and with what record left behind. `[A]` Models are workers. The layer that governs them is the institution's asset, because it is the only part that survives the next model release. `[A]`
 
-Everything described in this publication is design intent unless stated otherwise. Sixteen of the twenty entries in the capability register are at `S4`, designed and specified, or `S5`, planned or exploratory. Section 8 states the status of each one, by name, without softening. A reader who wants to know what exists today should read that section first and then decide whether the rest is worth their time.
+NEO AI is built as that layer: an Intelligence Operating System that orchestrates leading models, autonomous agents, tools, data sources, memory, verification, enterprise controls and heterogeneous compute as one coordinated system `[D]` (core, S2). The objective is not simply a more capable assistant. It is a system that is more efficient, more reliable and more accountable than any of its parts used alone, and that multiplies useful intelligence per unit of compute over time `[D]` (x100, S5).
+
+The platform is no longer only a specification. NEO Core and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users `[D]` (core, S2) `[D]` (lili, S2). That is an operational product at real scale, not a demonstration, and it is not yet generally available: general public availability, global, is targeted for early 2027 `[D]` (availability.general, S5). Much of what this publication describes beyond the core is still implemented and in validation, designed, or planned. Section 8 states the status of each component, by name and by register key, without softening in either direction. A reader who wants to know what runs today should read that section first.
 
 ## 2. What the problem looks like from inside an organisation
 
@@ -41,19 +44,21 @@ The failure is not dramatic. Nothing crashes and no error is logged, because not
 
 The third symptom is not an implementation defect that better engineering removes. Confidently stated content that is not grounded in any source is identified in the standards literature as a characteristic risk of generative systems, alongside information integrity and the configuration of human oversight `[E]`. The third symptom is also the one that gets worse as models improve. A less capable model produces recognisably weaker prose when it is guessing, and the weakness is a signal. A more capable model produces prose of even quality whether or not it has grounds, which removes the signal while leaving the problem. `[A]` Capability improvements therefore raise the value of a system that can separate a grounded assertion from an ungrounded one, and they do not supply it.
 
+There is a fourth symptom, and it is economic. Sending every unit of work to the largest available model is the simplest way to use artificial intelligence and the most expensive one, and a simple extraction then consumes the same class of compute as difficult strategic reasoning. `[A]` Inference cost, GPU capacity and energy become central constraints as adoption scales, which makes the allocation of compute a design problem rather than a procurement line. `[A]`
+
 None of this is solved by procuring a better model, because none of it is a model defect. It is the absence of an operating layer between the human objective and the model call.
 
 ## 3. Three elements, and what each refuses to do
 
 The platform is described in three parts. The relationship between them is fixed, and the constraints matter more than the labels.
 
-**LILI is the interface** `[D]` (lili, S4). It is designed as the surface through which a person states an objective in their own language, is asked for the clarifications the objective is missing, and is shown what is being proposed. LILI is specified to propose missions into the platform and never to grant the authority to run them `[D]` (lili, S4). That single restriction is what stops a natural language surface from becoming a permission surface. Stating an objective is not the same act as authorising every means of achieving it, and a system that treats the two as one has moved authorisation into a text box. `[A]` Figure `SYS-03` draws the separation.
+**LILI is the face of the platform** `[D]` (lili, S2). A private user, a professional or an enterprise team opens NEO the way they would open any assistant: one conversation, one objective, one result. Open NEO, ask LILI, receive the result. LILI receives an objective in the person's own language, asks for the clarifications it is missing, and shows what is being proposed and what is happening `[D]` (lili, S2). The person accepts an Intelligence Profile, a resource envelope, and never chooses from a list of models `[D]` (intelligence-profiles, S3). LILI proposes Missions into the platform and never grants the authority to run them `[D]` (lili, S2). That single restriction is what stops a natural language surface from becoming a permission surface. Stating an objective is not the same act as authorising every means of achieving it, and a system that treats the two as one has moved authorisation into a text box. `[A]` LILI Always-on, a continuous presence with a wake word and hands-free voice that follows running Missions and alerts the person when a decision is theirs, is on the roadmap and always remains inside Human Gates `[D]` (lili.always-on, S4). Figure `SYS-03` draws the separation.
 
-**NEO AI is the operating system** `[D]` (brain, S4). The orchestration layer, referred to as the Brain, is specified to hold the representation of work, the policy context, the record of what happened and the decision about what happens next `[D]` (brain, S4). It is specified to contain no model weights and to perform no inference of its own `[D]` (brain, S4). Models sit outside it and are addressed through adapters. The NEO AI Foundation Model, when it exists, is intended to sit in that same worker layer and to be addressed through the same adapter contract as any external model `[D]` (foundation-model, S5).
+**NEO AI is the Intelligence Operating System** `[D]` (core, S2). Its orchestration layer, NEO Core, holds the representation of work, the policy context, the record of what happened and the decision about what happens next `[D]` (core, S2). NEO Core contains no model weights and performs no inference of its own `[D]` (core, S2). Models sit outside it and are addressed through adapters. Leading external systems are orchestrated through their APIs today, without any one provider being structurally mandatory `[D]` (model-sovereignty.api-first, S2). Open-weight and private models deployed on NEO-controlled infrastructure are the next phase `[D]` (model-sovereignty.hybrid, S4), and a NEO-optimised layer of fine-tuned, distilled and task-specific models is a later one `[D]` (model-sovereignty.neo-optimised, S5). Any such model is intended to sit in the same worker layer and be addressed through the same adapter contract as any external model. NEO does not own a frontier foundation model today and does not claim to.
 
-That last point is worth dwelling on because it is counter-intuitive for a company that intends to build a model. If the orchestration layer contained a model, policy would degrade into prompt instructions, substitution would become a migration rather than a registry operation, and the audit record would become a sequence of generations with plausible explanations attached rather than a sequence of decisions with named rules. `[A]` The architecture treats the Program's own future model as a replaceable worker for the same reason it treats everyone else's that way.
+That last point is worth dwelling on because it is counter-intuitive for a company that intends to optimise its own models. If the orchestration layer contained a model, policy would degrade into prompt instructions, substitution would become a migration rather than a registry operation, and the audit record would become a sequence of generations with plausible explanations attached rather than a sequence of decisions with named rules. `[A]` The architecture treats the Program's own future models as replaceable workers for the same reason it treats everyone else's that way. Models remain replaceable; the system around them is what accumulates.
 
-**Mission Control is the command and governance environment** `[D]` (mission-control, S4). It is specified to read the platform's append-only event log and to render mission state, evidence, active agents, validation results, permissions in force and decisions awaiting a person `[D]` (mission-control, S4). It is specified to permit an authorised user to pause, redirect, contain or terminate work `[D]` (mission-control, S4). Commands issued from it re-enter through the same policy path as any other proposal, which means the supervisory console holds no privileged bypass `[D]` (mission-control, S4). Figure `SYS-01` draws the four views it resolves from one event-sourced state.
+**Mission Control is the operating-system view** `[D]` (mission-control, S3). It renders one Mission state in three projections: FOCUS keeps the conversation and the decision; NORMAL adds the execution plan, the active agents, artefacts and evidence; JARVIS adds the command core, live orchestration, the observed build and the task graph `[D]` (mission-control, S3). The three are projections and not applications. Switching mode changes what the person sees and never what NEO is doing: execution is not restarted and no second Mission is created `[D]` (mission.state, S2). A universal right inspector exposes Progress, Output and Context in every mode. Mission Control is implemented and in validation. It permits an authorised user to pause, redirect, contain or terminate work, and commands issued from it re-enter through the same policy path as any other proposal, which means the supervisory surface holds no privileged bypass `[D]` (mission-control, S3). Figure `SYS-01` draws the projections resolved from one event-sourced state.
 
 Calling the platform an operating system describes an architectural role: a layer that allocates scarce resources, mediates access, and outlives the programs that run on it. It is not a claim that one model performs every task autonomously.
 
@@ -67,7 +72,7 @@ The NEO AI Plane Model decomposes the platform by question answered instead. The
 |---|---|---|
 | 1 | Interaction | What does the person want, and what can they see |
 | 2 | Reasoning | How is the objective turned into work |
-| 3 | Execution | What actually happened outside the system |
+| 3 | Execution | What actually happened outside the system, and where it ran |
 | 4 | Memory | What does the system remember about itself, and may it |
 | 5 | Knowledge | What is being claimed about the world, and on what evidence |
 | 6 | Policy | May this happen |
@@ -90,7 +95,9 @@ Collapsing them produces an audit trail with a specific and recognisable gap. It
 
 The split has a cost, and the honest version of this section states it. Two mechanisms means two failure domains, two availability requirements on the path that matters, and a class of confusing incident in which policy permits something that authority does not, or the reverse. The Program accepts that cost. The alternative is an unanswerable question in front of an audience that will not accept "the system allowed it" as an answer. `[A]`
 
-The rule that governs the interaction is short. A policy decision may reference an approval and may never create one. An approval may narrow what policy permits and may never widen it. Where the two disagree, the intersection governs, and the disagreement is recorded as its own event class, because a persistent disagreement is a configuration defect and should be visible as one `[D]` (brain.governance, S4).
+The rule that governs the interaction is short. A policy decision may reference an approval and may never create one. An approval may narrow what policy permits and may never widen it. Where the two disagree, the intersection governs, and the disagreement is recorded as its own event class, because a persistent disagreement is a configuration defect and should be visible as one `[D]` (core.governance, S3).
+
+In the product this appears as two separate controls. The person sets an approval policy, ASK ME, AUTO or AUTONOMOUS, and that policy can only narrow what is approved automatically. Mandatory Human Gates sit outside every policy, and no setting, profile or mode reaches them: production DNS changes, publishing to a public domain, act-class connector actions and the release of a deployment `[D]` (human-gates, S3). Agents receive capability tools, never credentials, and the gates are refused at platform level rather than only in the interface `[D]` (human-gates, S3). More intelligence, more agents or more compute never create more authority.
 
 ### 4.2 Three things a plane is not
 
@@ -98,110 +105,159 @@ A plane is not a place where software runs. Policy enforcement is deliberately d
 
 A plane is not an order of operations. Nothing calls downward through the eight in sequence. A single tool invocation touches Execution, Policy, Authority, Assurance and Memory in an order set by the operation. Drawing the planes stacked vertically implies a call order that does not exist, and the Program prohibits the drawing for that reason. `[A]`
 
-One component sits in several planes, and the overlaps are the point. The Event Bus is specified as the substrate of the Execution Plane, because an event is how a side effect becomes known, and as the substrate of the Assurance Plane, because replay is a fold over the same log `[D]` (brain.event-bus, S4). Where two planes overlap in one component is exactly where a contract is needed, and the model earns its keep by locating those places.
+One component sits in several planes, and the overlaps are the point. The event log is the substrate of the Execution Plane, because an event is how a side effect becomes known, and of the Assurance Plane, because replay is a fold over the same log `[D]` (core.event-bus, S3). Where two planes overlap in one component is exactly where a contract is needed, and the model earns its keep by locating those places.
 
-## 5. From conversation to mission
+## 5. From conversation to Mission
 
-Most products of this generation begin and end with a conversation. NEO AI is designed to begin with an objective, and the difference is structural rather than stylistic.
+Most products of this generation begin and end with a conversation. NEO AI begins with an objective, and the difference is structural rather than stylistic.
 
 A conversation has no acceptance criteria, so "finished" is a judgment the participants make and do not write down. It has no bounds, so the question of what the system was permitted to do never arises until it has already done it. It has no state that outlives the window, no record of who accepted the result, and no representation of the work itself, which means there is nothing to inspect between the request and the answer.
 
-A mission is a different object. It is specified to carry an immutable objective with non-empty acceptance criteria, a bounded envelope, a structured representation of the work, an evidence position, an append-only authority chain and a defined terminal condition `[D]` (brain.task-graph, S4). A mission with empty acceptance criteria is specified to be rejected at creation rather than admitted with a default, because a default converts every later evaluation question into an argument about what was originally intended `[D]` (brain.task-graph, S4).
+A Mission is a different object. It carries an objective with non-empty acceptance criteria, a bounded envelope, a structured representation of the work, an evidence position, an authority chain and a defined terminal condition `[D]` (core.task-graph, S2). NEO Core decomposes a Mission into coordinated sub-tasks, tens or hundreds today and in principle thousands, assigns each one to the most suitable capability and permitted execution zone, executes them in parallel, cross-checks their results, escalates only the difficult parts to more powerful models and assembles the verified output `[D]` (core, S2). A Mission with empty acceptance criteria is rejected at creation rather than admitted with a default, because a default converts every later evaluation question into an argument about what was originally intended `[D]` (core.task-graph, S2).
 
-Four components carry most of the weight, and each is defined as much by what it refuses as by what it does.
+The components carrying most of the weight are each defined as much by what they refuse as by what they do.
 
-**The Task Graph** is specified to hold the durable representation of the work: typed nodes, their dependencies, the data flowing between them, the points at which an approval is required, and the reverse action for anything that had an external effect `[D]` (brain.task-graph, S4). It is specified to evaluate completion itself and never to accept an actor's assertion that its own node is done `[D]` (brain.task-graph, S4). That rule closes the most common failure in agent systems, in which the component with the strongest incentive to declare success is the component permitted to declare it. `[A]` Figure `SYS-06` draws it as a control structure rather than as a picture of a workflow.
+**The Task Graph** holds the durable representation of the work: typed nodes, their dependencies, the data flowing between them, the points at which an approval is required, and the reverse action for anything that had an external effect `[D]` (core.task-graph, S2). It evaluates completion itself and never accepts an actor's assertion that its own node is done `[D]` (core.task-graph, S2). That rule closes the most common failure in agent systems, in which the component with the strongest incentive to declare success is the component permitted to declare it. `[A]` Figure `SYS-06` draws it as a control structure rather than as a picture of a workflow.
 
-**The Router** is specified to select a model or other worker per task, scored against quality, latency, resource cost, deployment boundary fit and independence `[D]` (brain.router, S4). The ordering is the contract: policy computes the set of admissible workers first, and only members of that set are scored `[D]` (brain.router, S4). A prohibited model is never scored, so it can never win on capability. When the registry is unavailable the Router is specified to fail closed with no default worker, because a router that falls back to a hard-coded model at the moment its registry is down has reintroduced provider coupling precisely when it is least visible `[D]` (brain.router, S4).
+**The Router**, Dynamic Capability Routing, selects for each unit of work among models, agents, tools, runtimes, data sources, verifiers, human capabilities and execution zones, by capability and never by brand `[D]` (core.routing, S2). The ordering is the contract: legal constraints, policy and authority compute the set of admissible paths first, security and privacy narrow it, quality and verification thresholds are applied next, and only then are availability, latency, cost and energy optimised inside what remains `[D]` (core.routing, S2). A prohibited model is never scored, so it can never win on capability. When no compliant path exists the Router fails safely rather than routing around policy, and when the registry is unavailable it fails closed with no default worker, because a router that falls back to a hard-coded model at the moment its registry is down has reintroduced provider coupling precisely when it is least visible `[D]` (core.routing, S2).
 
-**Memory and the Knowledge Graph** are two things, deliberately. Memory is specified to hold what the system retains about itself across five typed stores with separate retention, access and write rules, and to refuse to treat retrieved content as instruction `[D]` (brain.memory, S4). Content arriving from a retrieved document or a tool result is treated as untrusted data in the agentic threat-modelling literature, not as a directive the system may follow `[E]`. The Knowledge Graph is specified to hold what the system asserts about the world, with every material edge carrying its evidence class and its lineage back to a source, and asserted, extracted, inferred, hypothesised and disputed never merged into one edge type `[D]` (brain.knowledge-graph, S4). Provenance of that shape is expressible because the modelling of entities, activities, agents and derivation relations is already standardised `[E]`. Figures `SYS-05` and `SYS-04` draw the two.
+**Memory and the Knowledge Graph** are two things, deliberately. Memory holds what the system retains about itself across typed stores with separate retention, access and write rules, and refuses to treat retrieved content as instruction; it is implemented and in validation `[D]` (core.memory, S3). Content arriving from a retrieved document or a tool result is treated as untrusted data in the agentic threat-modelling literature, not as a directive the system may follow `[E]`. The Knowledge Graph is specified to hold what the system asserts about the world, with every material edge carrying its evidence class and its lineage back to a source, and asserted, extracted, inferred, hypothesised and disputed never merged into one edge type `[D]` (core.knowledge-graph, S4). Provenance of that shape is expressible because the modelling of entities, activities, agents and derivation relations is already standardised `[E]`. Figures `SYS-05` and `SYS-04` draw the two.
 
-**Validation** is specified as a heterogeneous system rather than a persona: schema checks, deterministic tests, source reconciliation, independent model review and human judgment, in that order of preference where a choice exists `[D]` (brain.validation, S4). The producing model is specified never to be a blocking validator of its own output `[D]` (brain.validation, S4).
+**Verification** is a heterogeneous system rather than a persona: schema checks, deterministic tests, source reconciliation, independent model review and human judgment, in that order of preference where a choice exists `[D]` (core.verification, S3). The producing model is never a blocking verifier of its own output `[D]` (core.verification, S3). Verification is implemented and in validation.
 
-Around all of it sits the Mission Envelope: the bounded set of permissions, data scope, resource budget, autonomy level and terminal conditions within which the mission may operate. It is set at mission creation, is specified to contract automatically on defined signals, and is specified to expand only by an explicit act of human authority carrying an actor, a scope, a justification and an expiry `[D]` (mission-control, S4).
+Around all of it sits the Mission Envelope: the bounded set of permissions, data scope, resource budget, autonomy level and terminal conditions within which the Mission may operate. It is set at Mission creation, contracts automatically on defined signals, and expands only by an explicit act of human authority carrying an actor, a scope, a justification and an expiry `[D]` (mission.envelope, S3).
 
-The Cost Engine makes resource use part of the mission boundary rather than an after-the-fact accounting exercise. Resource consumption is metered in physical units and enforced against the mission budget through reservation. The public edition does not disclose the underlying unit list, reservation mechanics or implementation parameters.
+Resource use is part of the Mission boundary rather than an after-the-fact accounting exercise. Provider usage, provider cost and a normalised NEO resource are metered internally and enforced against the Mission budget `[D]` (core.resource-accounting, S3). The person sees one unit, NEO Credits, and never the provider tokens or the mix of execution locations behind it `[D]` (neo-credits, S4). The public edition does not disclose the underlying unit list, reservation mechanics or implementation parameters.
 
-The Event Bus is specified to record material state changes to an append-only log with no update and no delete path in the interface `[D]` (brain.event-bus, S4). Mission state is then derived by folding that log. Where a stored view and the log disagree, the view is specified to be quarantined and rebuilt, and the log is never reconciled to the view `[D]` (brain.event-bus, S4).
+The event log records material state changes in an append-only form with no update and no delete path in the interface `[D]` (core.event-bus, S3). Mission state is then derived by folding that log. Where a stored view and the log disagree, the view is quarantined and rebuilt, and the log is never reconciled to the view `[D]` (core.event-bus, S3). The same rule is what makes the product truth principle enforceable: no simulated agents, progress, tests, evidence, cost or verified state, and visible progressive work rather than private chain-of-thought `[D]` (mission-control, S3).
 
-## 6. One system, several deployment boundaries
+### 5.1 Intelligence per compute
+
+The same architecture that governs the work also decides how much compute the work deserves. The Program's long-term R&D objective, called NEO x100, is an order-of-magnitude improvement in verified intelligence delivered per unit of total compute, through orchestration rather than through larger models or more GPUs `[D]` (x100, S5). It is an objective and not a measured result, and no multiple is stated or guaranteed here.
+
+Eight optimisation layers carry the objective. Mixture-of-Agents coordinates independent specialised agents on parts of one Mission `[D]` (x100.mixture-of-agents, S3). Adaptive Model Cascades start a task on the least expensive capable model and escalate on confidence, complexity, verification or policy `[D]` (x100.adaptive-cascades, S3). Dynamic Capability Routing chooses what performs each unit of work and where it executes `[D]` (core.routing, S2). Semantic Compute Reuse is designed to reuse verified, still-valid work instead of regenerating it `[D]` (x100.semantic-reuse, S4). Speculative Parallel Intelligence is designed to explore candidate approaches, prune weak branches early and concentrate compute on disputed paths `[D]` (x100.speculative-parallel, S4). Verification-Driven Compute Allocation is designed to spend additional reasoning only where an independent verifier finds it necessary `[D]` (x100.verification-driven-allocation, S4). Hybrid API, private and self-hosted execution is designed to place workloads across the execution zones described in section 6 `[D]` (x100.hybrid-execution, S4). Memory and Context Optimisation builds the minimum authoritative context each invocation needs instead of resending full history `[D]` (x100.context-optimisation, S3).
+
+The constraint that matters is the envelope. The cheapest model does not automatically win: cost, latency, data movement and energy are minimised only inside the Mission's required quality, verification, security, jurisdiction, authority, privacy and availability. `[A]` The unit of optimisation is the cost of a verified Mission outcome, not the price of each call, because a cheap first call that causes five retries costs more than one stronger call, and high-stakes Missions may deliberately spend more on independent analysis and deeper verification. `[A]` Whether the layers compound as the architecture intends is unmeasured, and the measurement is the Program's to publish when it exists `[O]`.
+
+## 6. One system, several deployment patterns and execution zones
 
 Enterprise environments are not uniform, and the common response is a global privacy setting that routes everything to the most restrictive environment available. That is expensive, and it is a poor control besides: it erases the distinction between a workload that needs the restriction and one that does not, which is the distinction the organisation is being asked to manage. `[A]`
 
-The unit of placement is designed to be the workload, not the enterprise `[D]` (brain.governance, S4). A placement policy is specified to evaluate the sensitivity and legal classification of inputs and outputs, jurisdiction and residency requirements, the model capability and modality required, latency and availability needs, whether retention or learning is permitted, the tool and connector dependencies, audit and deletion obligations, and the reversibility and impact of the action `[D]` (brain.governance, S4). The result may place one task on an external service, another in a single-tenant private cloud environment, and a third on infrastructure with no external egress, within one mission, because policy and mission state live in the orchestration layer rather than in any one inference endpoint `[D]` (brain, S4). Figure `SYS-15` draws the continuum.
+The unit of placement is designed to be the workload, not the enterprise. The NEO Execution Fabric defines four normalised execution zones, Edge, Customer Private, NEO Controlled and External, and every unit of work is placed at the intersection of three envelopes: Intelligence, set by the profile; Policy, which says where data and actions may go; and Capability, which says what resources exist now `[D]` (execution-fabric, S4). A placement policy evaluates the sensitivity and legal classification of inputs and outputs, jurisdiction and residency requirements, the model capability and modality required, latency and availability needs, whether retention or learning is permitted, the tool and connector dependencies, audit and deletion obligations, and the reversibility and impact of the action `[D]` (core.governance, S3). The result may place one task on an external service, another in a single-tenant private environment, and a third on infrastructure with no external egress, within one Mission, because policy and Mission state live in the orchestration layer rather than in any one inference endpoint `[D]` (core, S2). Only the data the selected path needs moves, and local preprocessing does not by itself make external processing compliant. `[A]` Figure `SYS-15` draws the continuum.
+
+NEO Edge Compute extends the same logic to the person's own device: local when sufficient, quality-gated, policy-first and escalated to stronger resources when the local path does not satisfy the envelope `[D]` (edge-compute, S4). It is cross-platform by design, across Apple, Windows and Linux, it is permissioned, bounded and revocable, and a person's device serves only that person's own Missions. User-owned compute is not free compute: it consumes electricity, hardware and attention. `[A]`
+
+Deployment is a separate question from execution. The same system is designed to run in five patterns: public and managed, private cloud, hybrid, self-hosted, and sovereign or high-control where required and legally supported, with the same Mission, policy, audit and NEO Credits semantics in each.
 
 Private artificial intelligence is an operating model rather than a hosting choice, and this is the part most procurement processes get wrong. Running weights on infrastructure an organisation controls is a real technical property and it is not a privacy guarantee. `[A]` The dependency graph of an AI workload is wider than the weights: prompts, retrieved documents, embeddings, vector indexes, tool credentials, observability data, model artefacts, software updates, evaluation datasets and support workflows. If any of those transmits sensitive material outside the approved boundary, the system is not private in the sense the buyer intended. If administrators can read content without control, locality has not produced confidentiality. If the organisation cannot patch, evaluate or replace the model, ownership of the compute coexists with strategic dependence. `[A]` Standards guidance on AI risk management treats these as lifecycle and supply-chain concerns rather than as siting concerns `[E]`, and the Program's reading is that "private" should therefore be defined as effective control over data, execution, identity, lifecycle and exit `[A]`. Figure `SYS-17` draws the full dependency graph.
 
-Now the honest part. Platform cloud deployment is at `S4`, designed and specified `[D]` (deployment.cloud, S4). Client VPC deployment is at `S5`, planned or exploratory `[D]` (deployment.vpc, S5). On-premise and sovereign deployment is at `S5`, planned or exploratory `[D]` (deployment.onprem, S5). No client VPC deployment has been performed. No sovereign deployment has been performed. The continuum described above is an architecture the Program intends to build and has not yet built, and any reader evaluating the platform against a residency obligation should treat this section as a design position rather than as an available option.
+Now the exact part. The NEO-managed deployment is the target delivery model and it is in operation today, inside My NEO Group and in controlled pilot programmes `[D]` (deployment.managed, S2). Private cloud deployment is planned `[D]` (deployment.private-cloud, S5). Hybrid deployment is planned `[D]` (deployment.hybrid, S5). Self-hosted deployment is planned `[D]` (deployment.self-hosted, S5). Sovereign and high-control deployment is planned `[D]` (deployment.sovereign, S5). No private cloud, hybrid, self-hosted or sovereign deployment has been performed. Any reader evaluating the platform against a residency obligation should treat those four patterns, the Customer Private zone and Edge Compute as a design position rather than as an available option.
 
-## 7. Verticals as configuration of one Brain
+## 7. Verticals as configuration of one core
 
-A vertical is designed as a configuration of the same orchestration layer: its own sources, workflows, tools, validators, evidence policy and domain governance, over shared services `[D]` (brain, S4). Reuse occurs at the level of orchestration, memory, governance and evidence. Figure `SYS-13` draws a vertical as configuration rather than as a separate product.
+A vertical is a configuration of the same Intelligence Operating System: its own sources, workflows, tools, verifiers, evidence policy and domain governance, over shared services `[D]` (core, S2). Reuse occurs at the level of orchestration, identity, models, agents, memory, governance, verification and compute, and no vertical builds its own execution stack. NEO AI is one product, configured per industry. Figure `SYS-13` draws a vertical as configuration rather than as a separate product.
 
-NEO Intelligence is the worked case. It is specified as an investigation and intelligence layer designed to orchestrate lawful access to public sources, commercial interfaces, enterprise-licensed databases and client-controlled information, to resolve entities, reconstruct timelines, map relationships and produce evidence-linked findings under human review `[D]` (neo-intelligence, S4). It is designed and specified. It has not launched. An earlier internal title for the corresponding text asserted a launch that has not occurred, and that assertion was corrected against the Program's own record rather than quietly dropped.
+Thirteen verticals are defined on the shared core. Three are pilot-anchored today, Hospitality and Nightlife, Micro-Credit, and Trading and Treasury, and are exercised in pilot programmes whose counts and client identities are never disclosed `[D]` (verticals.pilot-anchored, S2). Software Factory, Company Builder, Fintech Studio, Payments, Sport and Wellness and RWA Studio are designed on the same core and built when demand is proven `[D]` (verticals.shared-core, S4). Health and Care, Legal Ops and Travel are counted at zero `[D]` (verticals.zero-counted, S5). The same core serves individuals and professionals, organisations and, where applicable, government users, with a different capability envelope for each class; government and sovereign programmes are subject to the relevant product and legal framework `[D]` (market.b2g, S5).
 
-The caveat is the load-bearing part of this section, and it cuts against the commercial attraction of the architecture. Shared orchestration does not make two domains interchangeable. `[A]` A platform that works in supplier due diligence has demonstrated nothing about clinical documentation, and the shared Task Graph, Router, Memory and Evidence Layer are precisely the components that could not tell the difference. Domain validity has to be earned separately in each vertical, and earning it means at minimum: a validator set matched to the domain's failure modes, an evidence policy naming what counts as a sufficient source there, a licence position for each data source, an approval topology matched to who is professionally accountable in that domain, and an evaluation against tasks drawn from the domain rather than from a general benchmark. `[A]`
+NEO Intelligence is the worked case. It is specified as an orchestration and reasoning layer above intelligence providers, designed to orchestrate lawful access to public sources, commercial interfaces, enterprise-licensed databases and client-controlled information, to resolve entities, reconstruct timelines, map relationships and produce evidence-linked findings under human review `[D]` (neo-intelligence, S4). It orchestrates screening results and is not an adjudication authority. It is designed and specified, it has not launched, and it is counted at zero. An earlier internal title for the corresponding text asserted a launch that has not occurred, and that assertion was corrected against the Program's own record rather than quietly dropped.
 
-There is a specific fallacy this section exists to refuse. Orchestration generalises; domain validity does not; and the appearance of the first is routinely sold as evidence of the second. `[A]` The Program has no measurement of how much validation effort transfers between two verticals sharing a Brain, and does not currently know how to estimate it `[O]`.
+The caveat is the load-bearing part of this section, and it cuts against the commercial attraction of the architecture. Shared orchestration does not make two domains interchangeable. `[A]` A platform that works in supplier due diligence has demonstrated nothing about clinical documentation, and the shared Task Graph, Router, Memory and Evidence Layer are precisely the components that could not tell the difference. Domain validity has to be earned separately in each vertical, and earning it means at minimum: a verifier set matched to the domain's failure modes, an evidence policy naming what counts as a sufficient source there, a licence position for each data source, an approval topology matched to who is professionally accountable in that domain, and an evaluation against tasks drawn from the domain rather than from a general benchmark. `[A]`
+
+There is a specific fallacy this section exists to refuse. Orchestration generalises; domain validity does not; and the appearance of the first is routinely sold as evidence of the second. `[A]` The Program has no measurement of how much verification effort transfers between two verticals sharing one core, and does not currently know how to estimate it `[O]`.
 
 ## 8. Capability status
 
-This section states where the platform actually stands. It is unusual for a company publication and it is included because a reader who has been misled by vendors before has no reason to accept any of the preceding sections without it.
+This section states where the platform actually stands. It is unusual for a company publication and it is included because a reader who has been misled by vendors before has no reason to accept any of the preceding sections without it. It now cuts both ways: understating a component that is in operation is as much a misstatement as overstating one that is not.
 
 The status codes are fixed and their glosses are not paraphrased anywhere in the Program: `S1` operational and publicly available; `S2` operational in a controlled pilot or limited deployment; `S3` implemented, undergoing validation; `S4` designed and specified; `S5` planned or exploratory.
 
-| Capability | Key | Status | Plain reading |
-|---|---|---|---|
-| Public website | `public-website` | `S1` | Live and publicly reachable. |
-| Signed paid pilots | `pilots` | `S2` | Operational in a controlled pilot or limited deployment. Count and identity are not disclosed publicly, in this document or any other. |
-| Investor Data Room frontend | `dataroom.frontend` | `S3` | Implemented, undergoing validation. |
-| Investor Data Room backend | `dataroom.backend` | `S3` | Implemented, undergoing validation. |
-| LILI | `lili` | `S4` | Designed and specified. Not a deployed interface. |
-| Mission Control | `mission-control` | `S4` | Designed and specified. Every governance behaviour described in section 3 and section 5 is a specification. |
-| The Brain | `brain` | `S4` | Designed and specified. |
-| Task Graph | `brain.task-graph` | `S4` | Designed and specified. |
-| Router | `brain.router` | `S4` | Designed and specified. |
-| Memory | `brain.memory` | `S4` | Designed and specified. |
-| Knowledge Graph | `brain.knowledge-graph` | `S4` | Designed and specified. |
-| Validation | `brain.validation` | `S4` | Designed and specified. |
-| Cost Engine | `brain.cost-engine` | `S4` | Designed and specified. Named in five source texts before it was specified in any of them, which is recorded as an audit finding against the Program. |
-| Event Bus | `brain.event-bus` | `S4` | Designed and specified. |
-| Governance | `brain.governance` | `S4` | Designed and specified. |
-| NEO Intelligence | `neo-intelligence` | `S4` | Designed and specified. Not launched. |
-| Platform cloud deployment | `deployment.cloud` | `S4` | Designed and specified. |
-| Client VPC deployment | `deployment.vpc` | `S5` | Planned or exploratory. |
-| On-premise and sovereign deployment | `deployment.onprem` | `S5` | Planned or exploratory. |
-| NEO AI Foundation Model | `foundation-model` | `S5` | Planned or exploratory. Phase 2. The base open-weights architecture is not named publicly. |
+The table is rendered from capability register version 2.0. The full register, including retired keys and their successors, is at the Capability Register page and in `capabilities.json`.
 
-Sixteen of twenty entries are `S4` or `S5`. One is `S1`, one is `S2`, two are `S3`. A reader should draw the obvious conclusion: most of this platform is a specification, and the specification is the thing currently on offer for scrutiny.
+| Capability | Key | Status |
+|---|---|---|
+| NEO Core, the Intelligence Operating System orchestration layer | `core` | S2 |
+| LILI, the conversational face of NEO AI | `lili` | S2 |
+| LILI Always-on: continuous presence and hands-free voice | `lili.always-on` | S4 |
+| One Mission state | `mission.state` | S2 |
+| Mission Envelope | `mission.envelope` | S3 |
+| Mission Control: FOCUS, NORMAL and JARVIS projections | `mission-control` | S3 |
+| Observe Build | `observe-build` | S3 |
+| NEO Intelligence Profiles: NEO AUTO, PULSE, PRIME, AXIOM, APEX | `intelligence-profiles` | S3 |
+| Human Gates and approval policy: ASK ME, AUTO, AUTONOMOUS | `human-gates` | S3 |
+| Task Graph | `core.task-graph` | S2 |
+| Dynamic Capability Routing (NEO Router) | `core.routing` | S2 |
+| Memory: persistent, verified, with provenance | `core.memory` | S3 |
+| Knowledge Graph | `core.knowledge-graph` | S4 |
+| Verification: independent verifiers and cross-checking | `core.verification` | S3 |
+| Resource accounting and NEO Credits metering | `core.resource-accounting` | S3 |
+| Event log (Event Bus) | `core.event-bus` | S3 |
+| Policy enforcement | `core.governance` | S3 |
+| Evidence Layer | `core.evidence-layer` | S4 |
+| Evidence Ledger | `core.evidence-ledger` | S4 |
+| NEO x100: verified intelligence per unit of compute | `x100` | S5 |
+| Mixture-of-Agents | `x100.mixture-of-agents` | S3 |
+| Adaptive Model Cascades | `x100.adaptive-cascades` | S3 |
+| Semantic Compute Reuse | `x100.semantic-reuse` | S4 |
+| Speculative Parallel Intelligence | `x100.speculative-parallel` | S4 |
+| Verification-Driven Compute Allocation | `x100.verification-driven-allocation` | S4 |
+| Hybrid API, Private and Self-Hosted Execution | `x100.hybrid-execution` | S4 |
+| Memory and Context Optimisation | `x100.context-optimisation` | S3 |
+| NEO Execution Fabric: four execution zones | `execution-fabric` | S4 |
+| NEO Edge Compute and Device Compute Profile | `edge-compute` | S4 |
+| Model sovereignty Phase 1: multi-provider API orchestration | `model-sovereignty.api-first` | S2 |
+| Model sovereignty Phase 2: hybrid execution | `model-sovereignty.hybrid` | S4 |
+| Model sovereignty Phase 3: NEO-optimised model and execution layer | `model-sovereignty.neo-optimised` | S5 |
+| Public and managed deployment (NEO-managed SaaS) | `deployment.managed` | S2 |
+| Private cloud deployment | `deployment.private-cloud` | S5 |
+| Hybrid deployment | `deployment.hybrid` | S5 |
+| Self-hosted deployment | `deployment.self-hosted` | S5 |
+| Sovereign and high-control deployment | `deployment.sovereign` | S5 |
+| Pilot-anchored verticals: Hospitality and Nightlife, Micro-Credit, Trading and Treasury | `verticals.pilot-anchored` | S2 |
+| Further verticals on the shared core: Software Factory, Company Builder, Fintech Studio, Payments, Sport and Wellness, RWA Studio | `verticals.shared-core` | S4 |
+| Verticals counted at zero: Health and Care, Legal Ops, Travel | `verticals.zero-counted` | S5 |
+| NEO Intelligence | `neo-intelligence` | S4 |
+| General public availability, global, B2C and B2B | `availability.general` | S5 |
+| Government and sovereign programmes | `market.b2g` | S5 |
+| NEO Credits, the customer-facing usage unit | `neo-credits` | S4 |
+| System-level learning loop | `compounding-loop` | S4 |
+| NEO orchestration and compute-optimisation stack as licensable infrastructure | `infrastructure-licensing` | S5 |
+| Pilot programmes | `pilots` | S2 |
+| Public website | `public-website` | S1 |
+| Investor Data Room frontend | `dataroom.frontend` | S3 |
+| Investor Data Room backend | `dataroom.backend` | S3 |
+| Mission Evaluation Harness | `assurance.eval-harness` | S5 |
 
-Two further statements belong here rather than in a footnote. The register itself is marked PROVISIONAL and has not yet been confirmed by the Founder at the Program's own gate, which means the statuses above could move before this document leaves DRAFT, and if any of them moves the affected sentences move with it `[O]`. And no independent third party has verified any status in the table. The Program has designed a control that blocks a publication when a referenced capability status is unconfirmed or below the required level, and that control reads a register nobody outside the Program has audited `[O]`.
+Of 51 entries in register version 2.0, 1 is `S1`, 9 are `S2`, 15 are `S3`, 15 are `S4` and 11 are `S5`. A reader should draw the right conclusion from both ends of that distribution. The core experience, a Mission stated to LILI, decomposed, routed across providers, verified and delivered, is in operation in controlled deployment. Much of the surrounding architecture, including the projections, the profiles, the Human Gates and several x100 layers, is implemented and in validation. Edge Compute, the Execution Fabric's private zones, LILI Always-on, every deployment pattern other than the managed one, NEO Intelligence and the later model sovereignty phases are designed or planned, and nothing in this publication should be read as saying otherwise.
+
+Three further statements belong here rather than in a footnote. Register version 1.3 was ratified by the Founder on 2026-08-13; version 2.0, which restructures the register to the x100 architecture and records the Founder determination of 2026-10-18 on the operational state, is pending the Founder's ratification at the Program's own gate, and if any status moves before ratification the affected sentences move with it `[O]`. No independent third party has verified any status in the table. And the Program has built a control that fails the build when a status token in any public text disagrees with the register, which closes one gap recorded in `NEO-AI-P-007`, while the register that control reads has still not been audited by anyone outside the Program `[O]`.
 
 ## 9. What NEO AI is not
 
-**It is not a chatbot.** The interaction surface is one plane of eight, and it is specified to hold no authority of its own `[D]` (lili, S4). A product whose architecture terminates at the conversation cannot answer the questions in section 2, because those questions are about objects the conversation does not create.
+**It is not a chatbot.** The conversation is the surface and one plane of eight, and it holds no authority of its own `[D]` (lili, S2). A product whose architecture terminates at the conversation cannot answer the questions in section 2, because those questions are about objects the conversation does not create.
 
-**It is not a model.** The orchestration layer is specified to contain no weights and to run no inference `[D]` (brain, S4). Nothing in this publication should be read as a claim about model quality, and no benchmark result belonging to any model, including the intended NEO AI Foundation Model, is a statement about this platform. That argument is made in full in `NEO-AI-P-007`.
+**It is not a model, and it is not a model switcher.** The orchestration layer contains no weights and runs no inference `[D]` (core, S2). Nothing in this publication should be read as a claim about model quality, and no benchmark result belonging to any model, including any model NEO may later optimise, is a statement about this platform. External models are named in Program material only as third-party systems NEO can orchestrate, with no ownership, endorsement or partnership implied. That argument is made in full in `NEO-AI-P-007`.
 
-**It is not a replacement for regulated professionals.** In high-impact domains the platform is designed to support qualified professionals and authorised institutions, and not to substitute for licensing, fiduciary responsibility, clinical judgment, legal advice or regulatory decision-making. The boundary is specified to be carried in the product as permissions and approval gates rather than as a disclaimer at the foot of a page `[D]` (brain.governance, S4).
+**It is not a replacement for regulated professionals.** In high-impact domains the platform is designed to support qualified professionals and authorised institutions, and not to substitute for licensing, fiduciary responsibility, clinical judgment, legal advice or regulatory decision-making. The boundary is carried in the product as permissions and approval gates rather than as a disclaimer at the foot of a page `[D]` (human-gates, S3).
 
-**It is not an independent auditor of itself.** The Assurance Plane is internal. It is designed to make a mission's conduct reconstructible by someone who was not present, which is a genuine and useful property, and it is not third-party attestation. `[A]` An internal validation record is evidence that can be examined by an external party; it is not the examination. The Program has no external certification, no completed third-party security assessment published against the platform, and no independent evaluation of any capability in section 8 `[O]`.
+**It does not train on what it is given.** Mission execution data, evaluation signals, routing performance and verification performance are designed to improve how the system allocates resources, with no change to model weights `[D]` (compounding-loop, S4). Personal context is read access and never training consent, customer confidential information is never automatically used to train models, and the explicit choice to help improve NEO is off by default. `[A]`
 
-**It is not finished, and this document does not describe a deployed system.** Every present-tense sentence in sections 3 through 7 that describes platform behaviour is a specification, tagged as such, resolving to a register entry at `S4` or `S5`.
+**It is not an independent auditor of itself.** The Assurance Plane is internal. It makes a Mission's conduct reconstructible by someone who was not present, which is a genuine and useful property, and it is not third-party attestation. `[A]` An internal verification record is evidence that can be examined by an external party; it is not the examination. The Program has no external certification, no completed third-party security assessment published against the platform, and no independent evaluation of any capability in section 8 `[O]`.
+
+**It is not finished, and it is not generally available.** It is in operation in controlled deployment, inside My NEO Group and with external pilot users. General public availability is targeted for early 2027, and a target is not a commitment `[D]` (availability.general, S5). Every sentence in sections 3 through 7 carries the status of the component it describes, and the verb follows the status.
 
 ## 10. How this position can be tested
 
 Publish the architecture in enough detail that an engineer can find the errors, and record the errors when they are found. The Program's architecture documents state contracts with named failure modes, idempotency keys and the assumptions callers may not make, which is a form that admits contradiction.
 
-Show a mission with its record intact. The falsifiable version of section 5 is a mission whose event log, evidence chain, runtime decision records and approval trail can be handed to somebody who was not present, and from which that person can reconstruct what happened and identify who was entitled to cause each consequential step. That artefact does not exist yet.
+Show a Mission with its record intact. The falsifiable version of section 5 is a Mission whose event log, evidence chain, runtime decision records and approval trail can be handed to somebody who was not present, and from which that person can reconstruct what happened and identify who was entitled to cause each consequential step. Missions now run in controlled deployment; a Mission record of that kind has not yet been handed to an outside party and published `[O]`.
 
-Have the capability register audited by somebody outside the Program, and publish the result including the corrections. Then evaluate at the level of the mission rather than the model, because a benchmark score for a component says nothing about a trajectory through a task graph with policy gates, validation and human approval in it. `[A]` The mission-level evaluation methodology for that is `[NEO-AI-ENG-008]`, which is in Wave 1 at DRAFT and specifies nine measures together with what it cannot measure. No measurement has been taken against it and none of the nine has been run on a real mission `[O]`.
+Have the capability register audited by somebody outside the Program, and publish the result including the corrections. Then evaluate at the level of the Mission rather than the model, because a benchmark score for a component says nothing about a trajectory through a task graph with policy gates, verification and human approval in it. `[A]` The mission-level evaluation methodology for that is `[NEO-AI-ENG-008]`, which specifies nine measures together with what it cannot measure. No measurement taken against it has been published `[O]`. The same holds for x100: the claim is testable only as verified intelligence delivered per unit of total compute, including the cost of NEO itself, and no such figure has been published `[O]`.
 
 ## 11. What would change this position
 
 The central proposition is that orchestration is the durable layer. It would be substantially weakened if frontier models absorbed planning, tool use, memory and policy enforcement to the point where an external orchestration layer added latency and cost without adding control `[O]`. The Program's reading is that the governance properties in sections 4 and 5 are the part least likely to be absorbed, because they concern the organisation rather than the task, but this is a reading and not a finding. `[A]`
 
-It would also be weakened by evidence that enterprises do not in practice want the record. If organisations consistently accept ungoverned output because the governed path is slower, the value of the Authority and Assurance planes is theoretical and the market has answered the question. `[A]` The Program has no data on this, and would rather say so than model it.
+It would also be weakened by evidence that enterprises do not in practice want the record. If organisations consistently accept ungoverned output because the governed path is slower, the value of the Authority and Assurance planes is theoretical and the market has answered the question. `[A]` Controlled deployment is now producing the first operational experience of that question; the Program has not measured it and would rather say so than model it `[O]`.
 
 ---
 
@@ -213,13 +269,13 @@ I started from a practical irritation: a person should not have to assemble mode
 
 ## Scope and Limitations
 
-This publication states a position and describes an intended architecture. It reports no operational data, no benchmark result, no measurement of any kind, and no evaluation performed by anyone inside or outside the Program. It contains no financial information, no terms of any financing instrument, no valuation, no client name and no reference to any listed vehicle.
+This publication states a position, describes an architecture and reports the status of each of its components. It reports no benchmark result, no measurement of any kind, and no evaluation performed by anyone inside or outside the Program; the operational state in section 8 is a Founder determination, not a measured result. It contains no financial information, no terms of any financing instrument, no valuation, no client name and no reference to any listed vehicle.
 
 Not covered: component internals, wire formats, security control requirements, evaluation methodology, tenant isolation, the connector fabric and the mission event schema. Each is held elsewhere in the corpus or is reserved and unwritten.
 
 The eight-plane model is architectural interpretation. Neither ISO/IEC 42001, ISO/IEC 23894, NIST AI 100-1 nor NIST AI 600-1 prescribes or endorses it. Where this document cites those sources it cites them for the obligation, never for the mechanism.
 
-This document would be falsified by any of the following: a demonstration that the Policy and Authority planes can be collapsed without losing the entitlement question; evidence that domain validity transfers across verticals sharing an orchestration layer; a deployed system that meets the section 2 problems without an orchestration layer; or a material error in the capability register in section 8, which is provisional and unaudited.
+This document would be falsified by any of the following: a demonstration that the Policy and Authority planes can be collapsed without losing the entitlement question; evidence that domain validity transfers across verticals sharing an orchestration layer; a deployed system that meets the section 2 problems without an orchestration layer; or a material error in the capability register in section 8, which is pending ratification at version 2.0 and is unaudited.
 
 ## Related Research
 
@@ -229,6 +285,7 @@ This document would be falsified by any of the following: a demonstration that t
 - `NEO-AI-R-005` Evidence, Memory and Accountability in Agentic Systems (DRAFT) - the Memory and Knowledge separation in section 5.
 - `NEO-AI-R-002` From AI Assistants to Governed Agent Systems (DRAFT) - bounded autonomy, underlying the Mission Envelope.
 - `NEO-AI-R-008` The New Enterprise Stack (DRAFT) - the generic industry reference stack, a comparison and not the plane model.
+- `NEO-AI-R-009` From Model Intelligence to System Intelligence (DRAFT) - why orchestration compounds, behind section 5.1.
 
 ## Related Publications
 
@@ -246,11 +303,11 @@ This document would be falsified by any of the following: a demonstration that t
 
 ## Related Architecture
 
-- `NEO-AI-ARCH-002` The Brain: Component Architecture and Contracts (DRAFT) - the normative source for the plane model and the components in section 5.
+- `NEO-AI-ARCH-002` NEO Core: Component Architecture and Contracts (DRAFT) - the normative source for the plane model and the components in section 5.
 - `NEO-AI-ARCH-001` Mission Control (RESERVED) - Mission Envelope construction and the supervisory surface.
 - `NEO-AI-ARCH-003` LILI (RESERVED).
 - `NEO-AI-ARCH-008` Deployment (RESERVED) - the placement policy in section 6.
-- `NEO-AI-ARCH-013` Cost and Resource Governance (RESERVED) - the Cost Engine paragraph in section 5.
+- `NEO-AI-ARCH-013` Cost and Resource Governance (RESERVED) - the resource accounting paragraph in section 5.
 
 RESERVED entries are forward references. None is cited in support of a claim.
 
@@ -263,12 +320,12 @@ Forward references only.
 
 ## Related Figures
 
-- `SYS-02` The Brain - the single conceptual diagram for this publication, referenced in section 3. The model layer is drawn explicitly outside the orchestration services.
+- `SYS-02` NEO Core - the single conceptual diagram for this publication, referenced in section 3. The model layer is drawn explicitly outside the orchestration services.
 - Referenced in passing: `SYS-01` Mission Control and `SYS-03` LILI (section 3); `SYS-04` Knowledge Graph, `SYS-05` Memory Graph and `SYS-06` Task Graph (section 5); `SYS-15` Deployment Models and `SYS-17` Private AI (section 6); `SYS-13` Vertical Architecture (section 7).
 
 ## Related Terms
 
-Mission . Mission State . Mission Envelope . Task Graph . Router . Interaction Plane . Reasoning Plane . Execution Plane . Memory Plane . Knowledge Plane . Policy Plane . Authority Plane . Assurance Plane . Evidence Layer . Evidence Chain . Evidence Ledger . Validation Layer . Capability Register . Capability Gate . Human Authority . Decision Record . Claim Class . Capability Status . Bounded Autonomy . Containment . Graceful Substitution.
+Intelligence Operating System . NEO Core . Mission . Mission State . Mission Envelope . Task Graph . Router . Dynamic Capability Routing . Interaction Plane . Reasoning Plane . Execution Plane . Memory Plane . Knowledge Plane . Policy Plane . Authority Plane . Assurance Plane . Evidence Layer . Evidence Chain . Evidence Ledger . Verification Layer . Human Gate . Approval Policy . Intelligence Profile . FOCUS . NORMAL . JARVIS . Execution Fabric . Execution Zone . NEO Edge Compute . NEO Credits . Intelligence-per-Compute . Model Sovereignty . Capability Register . Capability Gate . Human Authority . Decision Record . Claim Class . Capability Status . Bounded Autonomy . Containment . Graceful Substitution.
 
 ## References
 
@@ -291,3 +348,4 @@ All entries are UNVERIFIED under the Program publication standard until the veri
 | Version | Date | Status | Change |
 |---|---|---|---|
 | v1.0 | 2026-08-09 | DRAFT | Initial public draft. |
+| v1.1 | 2026-10-18 | DRAFT | Correction of status. NEO Core and LILI are in operational deployment inside My NEO Group and in controlled pilots with external users (S2), and general public availability is targeted for early 2027; sections 1, 3, 5, 6, 7, 8, 9 and 10 restated accordingly. Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0: terminology migrated, section 5.1 on intelligence per compute added, Human Gates and approval policy added to section 4.1, five deployment patterns and four execution zones in section 6, thirteen verticals in section 7, section 8 rendered from the register, and the canonical URL corrected. |

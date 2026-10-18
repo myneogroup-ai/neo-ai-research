@@ -1,12 +1,13 @@
 {
   "artefact": "NEO_AI_CONTROLLED_VOCABULARY",
-  "version": "1.0",
+  "version": "2.0",
   "classification": "A - PUBLIC RESEARCH",
-  "status": "The nine-term extension is authorised by a vocabulary amendment that is prepared and not yet signed. This file is effective on signature and not before.",
-  "provenance": "Terms parsed from the corpus lock. Counts derived, never hand-entered. Source of truth for the glossary build and for first-occurrence linking.",
+  "status": "v2.0 aligns the vocabulary with the NEO x100 architecture authority. The nine-term extension of v1.0 and the twenty-seven x100 terms of v2.0 are carried by vocabulary amendments pending Founder signature.",
+  "updated": "2026-10-18",
+  "provenance": "Terms parsed from the corpus lock and from the NEO x100 architecture authority. Counts derived, never hand-entered. Source of truth for the glossary build and for first-occurrence linking.",
   "count_before_amendment": 30,
-  "count_after_amendment": 39,
-  "terms_added": 9,
+  "count_after_amendment": 66,
+  "terms_added": 36,
   "locked_terms": [
     "Mission",
     "Mission State",
@@ -24,7 +25,7 @@
     "Evidence Layer",
     "Evidence Chain",
     "Evidence Ledger",
-    "Validation Layer",
+    "Verification Layer",
     "Capability Register",
     "Capability Gate",
     "Human Authority",
@@ -48,12 +49,77 @@
     "Operational Decision Event",
     "NEO System Intelligence",
     "System-Level Benchmarking",
-    "Provider Replaceability"
+    "Provider Replaceability",
+    "Intelligence Operating System",
+    "NEO Core",
+    "LILI Always-on",
+    "FOCUS",
+    "NORMAL",
+    "JARVIS",
+    "Right Inspector",
+    "Intelligence Profile",
+    "Human Gate",
+    "Approval Policy",
+    "NEO Credits",
+    "Execution Fabric",
+    "Execution Zone",
+    "NEO Edge Compute",
+    "Device Compute Profile",
+    "Mixture-of-Agents",
+    "Adaptive Model Cascade",
+    "Dynamic Capability Routing",
+    "Semantic Compute Reuse",
+    "Speculative Parallel Intelligence",
+    "Verification-Driven Compute Allocation",
+    "Minimum Authoritative Context",
+    "Optimisation Envelope",
+    "Intelligence-per-Compute",
+    "Model Sovereignty",
+    "Last Known Good",
+    "App Viewer"
+  ],
+  "renamed_terms": [
+    {
+      "from": "Validation Layer",
+      "to": "Verification Layer",
+      "version": "2.0"
+    }
   ],
   "prohibited_synonyms": [
-    "Provider Independence"
+    "Provider Independence",
+    "The Brain",
+    "Cost Engine",
+    "Validation Engine",
+    "Intelligence Router",
+    "Mission Graph"
   ],
-  "prohibited_synonym_note": "Refused. It contradicts the position published at NEO-AI-R-001 section 4.4. Use Provider Replaceability.",
+  "prohibited_synonym_map": {
+    "Provider Independence": {
+      "use": "Provider Replaceability",
+      "note": "Refused. It contradicts the position published at NEO-AI-R-001 section 4.4."
+    },
+    "The Brain": {
+      "use": "NEO Core",
+      "note": "Retired with register v2.0. The orchestration layer is NEO Core within the Intelligence Operating System."
+    },
+    "Cost Engine": {
+      "use": "resource accounting, NEO Credits",
+      "note": "Retired. Resource accounting is internal metering; NEO Credits are the customer-facing unit."
+    },
+    "Validation Engine": {
+      "use": "Verification",
+      "note": "Retired."
+    },
+    "Intelligence Router": {
+      "use": "Dynamic Capability Routing, or Router",
+      "note": "Retired. Routing selects capabilities and execution zones, not only models."
+    },
+    "Mission Graph": {
+      "use": "Task Graph",
+      "note": "Refused as a synonym for the locked Task Graph."
+    }
+  },
+  "prohibited_synonym_note": "Each prohibited synonym was considered and refused. The map names what to use instead.",
   "disambiguation_required": [
     {
       "term": "Operational Decision Event",
@@ -72,6 +138,29 @@
         "Task Graph",
         "Mission State"
       ]
+    },
+    {
+      "term": "NEO Intelligence",
+      "against": [
+        "NEO System Intelligence"
+      ],
+      "clause": "the investigation vertical, not the orchestration layer"
+    },
+    {
+      "term": "Mission Control",
+      "against": [
+        "FOCUS",
+        "NORMAL",
+        "JARVIS"
+      ],
+      "clause": "the operating-system view; the three modes are projections of one Mission state, not applications"
+    },
+    {
+      "term": "Intelligence Profile",
+      "against": [
+        "Execution Zone"
+      ],
+      "clause": "profile is a resource envelope, not a provider and not a location"
     }
   ]
 }
