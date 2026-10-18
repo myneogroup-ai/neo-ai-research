@@ -6,12 +6,12 @@
 |---|---|
 | Identifier | `NEO-AI-R-003` |
 | Edition | **Public edition** of `NEO-AI-R-003 v1.0`. Reduced, not paraphrased |
-| Version | v1.0-public |
+| Version | v1.1-public |
 | Status | DRAFT |
-| Date | 2026-08-12 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse, NEO AI Research Program |
-| Capability keys | `mission-control` S4 . `mission.envelope` S4 . `brain.governance` S4 . `brain.event-bus` S4 . `brain.validation` S4 . `lili` S4 |
-| Claim classes | Computed from the Evidence Table at build time |
+| Capability keys | `mission-control` S3 . `mission.state` S2 . `mission.envelope` S3 . `human-gates` S3 . `core` S2 . `core.governance` S3 . `core.event-bus` S3 . `core.verification` S3 . `lili` S2 |
+| Claim-class counts | `[E]` 8 . `[A]` 26 . `[D]` 20 . `[O]` 9 . Counted by script over the body and back matter, excluding this row |
 | Reading time | 21 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/mission-control-governance-architecture/` |
 | Relations | `applies` NEO-AI-R-009 . `refines` NEO-AI-TN-001 . `refines` NEO-AI-TN-003 . `evidences` NEO-AI-P-001 |
@@ -101,9 +101,9 @@ Systems that expose a model's intermediate reasoning offer an obvious temptation
 
 **The third is uniformity.** Availability of reasoning tokens is a provider decision varying by candidate and version. A trail rich for one candidate and empty for another is a bias in the record correlated with the routing decision, and routing must stay free to move between candidates.
 
-What the record captures instead are operationally relevant events: the inputs, the retrieved artefacts and their provenance, the tool calls proposed and their arguments, the policy decisions and the attributes they consumed, the validation results, the approvals, and the actions executed. **These are observations of the system rather than statements by it.**
+What the record captures instead are operationally relevant events: the inputs, the retrieved artefacts and their provenance, the tool calls proposed and their arguments, the policy decisions and the attributes they consumed, the verification results, the approvals, and the actions executed. **These are observations of the system rather than statements by it.**
 
-This loses something real, and the paper does not pretend otherwise. When an output is wrong, the first thing an engineer wants is the model's reasoning, and this record will not have it. The compensating controls are heavier: validation that tests the output rather than the explanation, evidence linkage making each material claim traversable to its source, and enough structure in the tool-call record to see what the system was attempting even where it cannot see why. Those cost more than logging a trace and satisfy less in an incident review. It is a genuine cost of the design rather than a costless choice.
+This loses something real, and the paper does not pretend otherwise. When an output is wrong, the first thing an engineer wants is the model's reasoning, and this record will not have it. The compensating controls are heavier: verification that tests the output rather than the explanation, evidence linkage making each material claim traversable to its source, and enough structure in the tool-call record to see what the system was attempting even where it cannot see why. Those cost more than logging a trace and satisfy less in an incident review. It is a genuine cost of the design rather than a costless choice.
 
 An organisation that wants reasoning traces for debugging should keep them in a **short-retention diagnostic channel that is explicitly not part of the governance record and is never cited in one.**
 
@@ -137,7 +137,7 @@ Two derived failures follow from the collapse and both are worth naming.
 
 **Overrides become policy rules.** Every real system has a way to do the thing the rules forbid, because operations require it. Collapsed, that way becomes a rule saying a particular role bypasses the check, and the record then shows nothing about entitlement, reason, scope or expiry. An override belongs in the Authority Plane as a time-boxed, scoped, separately approved entitlement with its own event, visible where a supervisor looks rather than buried in the same stream as every routine permit `[A]`.
 
-**Authority amplifies through delegation.** An agent acts for a user, through a delegated role, creating a sub-agent, inheriting a credential. At each hop *is authorised* is preserved and *within what scope* is quietly widened, because scope is expensive to propagate and its absence is invisible until an incident. The result is an agent with more effective authority than the human who launched it. Three controls: a maximum delegation depth held at the Authority Plane, **scope intersection rather than scope inheritance** at every hop, and a sub-agent envelope that is a strict subset of its parent's with no exceptions `[A]`.
+**Authority amplifies through delegation.** An agent acts for a user, through a delegated role, creating a sub-agent, inheriting a credential. At each hop *is authorised* is preserved and *within what scope* is quietly widened, because scope is expensive to propagate and its absence is invisible until an incident. The result is an agent with more effective authority than the human who launched it. Three controls: a maximum delegation depth held at the Authority Plane, **scope intersection rather than scope inheritance** at every hop, and a sub-agent envelope that is a strict subset of its parent's with no exceptions `[A]`. In NEO AI the corresponding rule, that agents receive capability tools and never credentials and that more intelligence, more agents or more compute never create more authority, is implemented in policy enforcement and is being validated `[D] (core.governance, S3)`.
 
 The cost is admitted. Two planes are two systems, two latency sources on a consequential action, and a bug class in which the planes disagree about an approval's state. A collapsed component is genuinely simpler and, where every action is reversible and low-value, may be the right choice. **The split earns its complexity where actions are irreversible, where the organisation is regulated, or where an investigation eighteen months later is a realistic prospect** `[A]`.
 
@@ -163,6 +163,8 @@ One event-sourced mission state resolves into four supervisory views, and organi
 
 It is omitted because it is the only view with no operational use: nothing depends on it while the mission runs. It is the view an investigation needs, because the question after an incident is rarely *why did it do that* and is usually *why did it not do the other thing*. A system that records only what happened cannot answer the question it will actually be asked.
 
+These four are views of the record, and they are not to be confused with the projections of the interface. In NEO AI, Mission Control is the operating-system view, and FOCUS, NORMAL and JARVIS are three projections of one Mission state, sharing one composer and one right inspector with Progress, Output and Context; it is implemented and in validation `[D] (mission-control, S3)`. Each Mission has one Mission state `[D] (mission.state, S2)`. The rule that switching projection changes only how much of that state is visible, never which state is shown, and never restarts execution, is implemented with Mission Control and is being validated `[D] (mission-control, S3)`. The argument of this section applies to that design directly: a projection may show less of the record, and it must never show a different one `[A]`.
+
 ### 4.4 Governance usability is a safety property
 
 An approval queue that presents a supervisor with fifty items an hour, each requiring context the interface does not supply, will be cleared rather than reviewed. The approvals will be recorded. The oversight will not have happened.
@@ -171,15 +173,17 @@ This is not a user-experience concern that can be deferred. **If the governance 
 
 Three consequences for design. The number of approvals a mission generates is a governed quantity and belongs in the mission's own budget. An approval request must carry the context required to decide it, or it is a request to guess. And the rate at which approvals are granted without the supporting context being opened is a measurable signal that the regime has degenerated.
 
+NEO AI addresses the governed quantity with an approval policy, ASK ME, AUTO or AUTONOMOUS, built so that a policy can only narrow what is auto-approved and never widen it, and with mandatory Human Gates placed outside every policy, so that production DNS changes, publishing to a public domain, act-class connector actions and the release of a deployment require a human decision whatever the policy says; both are implemented and in validation `[D] (human-gates, S3)`. The policy reduces the volume of approvals; it does not by itself solve the fatigue problem of section 6, and the paper does not claim that it does `[A]`.
+
 ### 4.5 What Mission Control must not be
 
 Three things, each of which it would drift into without a rule against it.
 
-**It must not be a chat interface with a progress bar.** The value is in the task graph, the decision history, the evidence and the counterfactual, none of which is a conversation.
+**It must not be a chat interface with a progress bar.** The value is in the task graph, the decision history, the evidence and the counterfactual, none of which is a conversation. In NEO AI the conversation with LILI, the conversational face of NEO AI, is the surface the user works through `[D] (lili, S2)`. The FOCUS projection, conversation and decision, is a projection of the Mission state and not a substitute for it `[A]`. NORMAL and JARVIS, which add the execution plan, agents, artefacts, evidence and task graph beneath the same conversation, are implemented and in validation `[D] (mission-control, S3)`.
 
-**It must not display anything that does not correspond to a real event.** Simulated activity, decorative progress and anticipatory rendering are prohibited. A supervisory surface whose contents are partly fabricated cannot be used for supervision, and the user cannot tell which parts `[A]`.
+**It must not display anything that does not correspond to a real event.** Simulated activity, decorative progress and anticipatory rendering are prohibited. A supervisory surface whose contents are partly fabricated cannot be used for supervision, and the user cannot tell which parts `[A]`. The NEO AI product rule, implemented in Mission Control and being validated with it, is stated in the same terms: nothing is simulated, and there are no fake agents, progress, tests, evidence, cost or verified state `[D] (mission-control, S3)`.
 
-**It must not expose private reasoning traces**, for the three reasons in section 3.4.
+**It must not expose private reasoning traces**, for the three reasons in section 3.4. What Mission Control shows in their place, as implemented and in validation, is visible progressive work: the events, artefacts, verification results and approvals as they occur, never a private chain of thought `[D] (mission-control, S3)`.
 
 ---
 
@@ -187,9 +191,13 @@ Three things, each of which it would drift into without a rule against it.
 
 Reduced in this edition.
 
-Publishable: NEO AI is designed so that mission state is derived by folding an append-only event log; so that policy is evaluated at a single declared point rather than in application code; so that authority is held separately from policy and approvals are objects; and so that every element presented to a user resolves to a real event about its own subject `[D] (mission-control, S4)` `[D] (brain.governance, S4)`.
+Publishable, with the status of each part stated separately, because the parts are not at the same status.
 
-Every capability named is at S4. **None of it is running.**
+NEO Core, the orchestration layer of the Intelligence Operating System, and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users `[D] (core, S2)`. Each Mission has one Mission state, from which every surface reads `[D] (mission.state, S2)`.
+
+Derivation of that state by folding an append-only event log, the Event log (Event Bus), is implemented and in validation `[D] (core.event-bus, S3)`. Policy enforcement at a single declared point rather than in application code is implemented and in validation `[D] (core.governance, S3)`. Authority held separately from policy, with approvals as objects, Human Gates and the approval policy, is implemented and in validation `[D] (human-gates, S3)`. The Mission Envelope is implemented and in validation `[D] (mission.envelope, S3)`. Verification, which tests the output rather than the explanation, is implemented and in validation `[D] (core.verification, S3)`. Mission Control, including the rule that every element presented to a user resolves to a real event about its own subject, is implemented and in validation `[D] (mission-control, S3)`.
+
+No independent party has verified any of these statuses, and this edition reports no measurement of them.
 
 ---
 
@@ -227,7 +235,7 @@ This is a **public edition** of `NEO-AI-R-003 v1.0`: a reduction, not a rewritin
 
 The paper reports **no measurement and no evaluation**. It makes no comparative claim against any named system.
 
-Every capability named is at S4 in a provisional register. Nothing described is running.
+**Correction (v1.1-public).** The first public edition stated that every capability named was at S4 in a provisional register and that nothing described was running. That is no longer true. On Founder determination of 2026-10-18, NEO Core, LILI and the single Mission state are in operational deployment inside My NEO Group and in controlled pilot programmes with external users (S2). Mission Control, the Mission Envelope, Human Gates, policy enforcement, the Event log and Verification are implemented and in validation (S3). General public availability, global, is targeted for early 2027, a target and not a commitment. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and was Founder-ratified on 2026-10-18; no status has been verified by an independent third party.
 
 It would be falsified by a demonstration that a collapsed policy-and-authority component supports post-hoc investigation as well as a split one, on real regulated work.
 
@@ -272,18 +280,20 @@ None in Wave 1.
 | 3 | Attribute-based access control separates policy from application code | `[E]` | NIST SP 800-162 | |
 | 4 | Published regulatory frameworks require effective human oversight and traceability for high-risk AI | `[E]` | Regulation (EU) 2024/1689 | |
 | 5 | A policy document is not in the execution path | `[A]` | | |
-| 6 | The mission is the smallest unit carrying objective, boundary, authority and record | `[A]` | | `mission.envelope` S4 |
+| 6 | The mission is the smallest unit carrying objective, boundary, authority and record | `[A]` | | `mission.envelope` S3 |
 | 7 | Reconstruction and replay are different operations with different guarantees | `[A]` | | |
 | 8 | A record confabulable by the component it records is not a control | `[A]` | | |
-| 9 | A collapsed policy and authority component records permission without entitlement | `[A]` | | `brain.governance` S4 |
+| 9 | A collapsed policy and authority component records permission without entitlement | `[A]` | | `core.governance` S3 |
 | 10 | Scope intersection rather than inheritance is required at every delegation hop | `[A]` | | |
 | 11 | The counterfactual view is the one omitted and the one an investigation needs | `[A]` | | |
 | 12 | An unusable governance interface produces recorded oversight that did not occur | `[A]` | | |
-| 13 | Mission state is derived by folding an append-only event log | `[D]` | | `mission-control` S4 |
-| 14 | Governance overhead is unmeasured | `[O]` | | |
-| 15 | Approval fatigue has no settled answer | `[O]` | | |
-| 16 | Erasure against an append-only record is unresolved in the general case | `[O]` | | |
-| 17 | The counterfactual view has an unbounded cost | `[O]` | | |
+| 13 | Mission state is derived by folding an append-only event log; implemented and in validation | `[D]` | | `core.event-bus` S3 |
+| 14 | FOCUS, NORMAL and JARVIS are three projections of one Mission state | `[D]` | | `mission-control` S3 |
+| 15 | Approval policy can only narrow what is auto-approved; mandatory Human Gates sit outside every policy | `[D]` | | `human-gates` S3 |
+| 16 | Governance overhead is unmeasured | `[O]` | | |
+| 17 | Approval fatigue has no settled answer | `[O]` | | |
+| 18 | Erasure against an append-only record is unresolved in the general case | `[O]` | | |
+| 19 | The counterfactual view has an unbounded cost | `[O]` | | |
 
 ## References
 
@@ -305,9 +315,10 @@ Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley. Accessed
 
 | Version | Date | Status | Change |
 |---|---|---|---|
+| v1.1-public | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0. Terminology migrated to the x100 vocabulary. Sections 4.3 to 4.5 now connect the argument to Mission Control as the operating-system view, with FOCUS, NORMAL and JARVIS as three projections of one Mission state, the right inspector, the ASK ME / AUTO / AUTONOMOUS approval policy, mandatory Human Gates and visible progressive work. Published correction of the statement that nothing described was running: NEO Core, LILI and the Mission state are in operational deployment inside My NEO Group and in controlled pilots with external users (S2); Mission Control, the Mission Envelope, Human Gates, policy enforcement, the Event log and Verification are in validation (S3); general public availability is targeted for early 2027. Thesis, withholdings and falsifier unchanged. |
 | v1.0-public | 2026-08-12 | DRAFT | First public edition, on Founder determination of 2026-08-12. Withholds the source's event schema and closed event-type vocabulary, the integrity chain construction, the approval object schema and invalidation conditions, and the containment trigger list and response ladder. Section 3.2 replaces the withheld schema with a statement of the six questions every governance event answers. Section 4.2 replaces the withheld object with its four required properties. Section 3.4 is retained essentially verbatim from the source, because it is the strongest public argument in the corpus and reducing it would weaken the edition. A section connecting the record to the orchestration it records is added at 4.3. |
 | v1.0 | 2026-08-09 | DRAFT | First full draft. |
 
 ## How to Cite
 
-Mosse, M. (2026). *Mission Control: A Governance Architecture for Autonomous Work*, public edition. NEO AI Research Program, `NEO-AI-R-003` v1.0-public. `https://neoai.myneogroup.com/id/NEO-AI-R-003`
+Mosse, M. (2026). *Mission Control: A Governance Architecture for Autonomous Work*, public edition. NEO AI Research Program, `NEO-AI-R-003` v1.1-public. `https://neoai.myneogroup.com/id/NEO-AI-R-003`

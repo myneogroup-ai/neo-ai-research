@@ -2,7 +2,13 @@
 
 # Capability Register
 
-Register version 1.3. **RATIFIED - Founder confirmed published S1-S5 capability classifications**
+Register version 2.0. **RATIFIED - v2.0 restructured to the NEO x100 architecture and updated to the Founder determination of 2026-10-18; register-level ratification by the Founder on 2026-10-18**
+
+## State of the platform
+
+NEO AI and LILI are in operational deployment internally and in controlled pilot programmes with external users. This is an operational MVP running at real scale, not a design exercise. General public availability, global, is targeted for early 2027.
+
+Classification: FACT (Founder determination) for the operational state; TARGET for early 2027. No status in this register has been verified by an independent third party.
 
 Every capability NEO AI describes, with its status. A page that describes a capability links to its row here, and the status rendered on that page is resolved from this register at build time rather than written by an author.
 
@@ -14,32 +20,81 @@ Every capability NEO AI describes, with its status. A page that describes a capa
 | S4 | Designed and specified |
 | S5 | Planned or exploratory |
 
-| Key | Capability | Status |
+| Key | Capability | Status | Note |
+|---|---|---|---|
+| `core` | NEO Core, the Intelligence Operating System orchestration layer | **S2** | Decomposes a Mission, routes each unit of work, verifies and assembles the result. Contains no model weights and performs no inference of its own. |
+| `lili` | LILI, the conversational face of NEO AI | **S2** | Chat-first interface: Open NEO, ask LILI, receive the result. Not the platform and not a model. |
+| `lili.always-on` | LILI Always-on: continuous presence and hands-free voice | **S4** | Wake word, continuous voice conversation and 24/7 Mission follow-up on authorised devices, always inside Human Gates. Roadmap. |
+| `mission.state` | One Mission state | **S2** | A Mission is one backend truth. Changing mode or device never restarts execution or creates a second Mission. |
+| `mission.envelope` | Mission Envelope | **S3** | Bounded permissions, data scope, resource budget, autonomy level and terminal conditions, set at creation and narrowed by the approval policy. |
+| `mission-control` | Mission Control: FOCUS, NORMAL and JARVIS projections | **S3** | Three projections of one Mission state with one composer and one right inspector (Progress, Output, Context). Mission Control is the operating-system view of the platform. |
+| `observe-build` | Observe Build | **S3** | Live code, files, tests, verification and the running result in the App Viewer at the same revision as the code; Last Known Good is never replaced by a failed candidate; Human Gate before release. |
+| `intelligence-profiles` | NEO Intelligence Profiles: NEO AUTO, PULSE, PRIME, AXIOM, APEX | **S3** | The user chooses a resource envelope, never a model, a provider or an execution location. |
+| `human-gates` | Human Gates and approval policy: ASK ME, AUTO, AUTONOMOUS | **S3** | Approval policy only narrows what is auto-approved. Mandatory Human Gates (production DNS, public publishing, act-class connector actions, deployment release) are refused at platform level. |
+| `core.task-graph` | Task Graph | **S2** | Typed units of work, dependencies, approval points and reverse actions for a Mission. |
+| `core.routing` | Dynamic Capability Routing (NEO Router) | **S2** | Selects among models, agents, tools, runtimes, data sources, verifiers and execution zones by capability, never by brand. Policy computes the admissible set before anything is scored. |
+| `core.memory` | Memory: persistent, verified, with provenance | **S3** | What the system retains about its own operation, with typed stores and separate retention rules. |
+| `core.knowledge-graph` | Knowledge Graph | **S4** | What the system asserts about the world, each material edge carrying its evidence class and lineage. |
+| `core.verification` | Verification: independent verifiers and cross-checking | **S3** | Deterministic checks first, then independent agents or models that did not produce the work. The producing model is never the blocking verifier of its own output. |
+| `core.resource-accounting` | Internal resource accounting | **S3** | Provider usage, provider cost and a normalised NEO resource are metered internally. NEO Credits, the customer unit, is registered separately as neo-credits. |
+| `core.event-bus` | Event log (Event Bus) | **S3** | Append-only record of material state changes; Mission state is a fold over it. |
+| `core.governance` | Policy enforcement | **S3** | Legal, policy and authority constraints evaluated as admissibility filters before any optimisation. |
+| `core.evidence-layer` | Evidence Layer | **S4** | Produces, grades and serves evidence. |
+| `core.evidence-ledger` | Evidence Ledger | **S4** | Append-only, hash-addressed store of evidence records. |
+| `x100` | NEO x100: verified intelligence per unit of compute | **S5** | A long-term R&D objective, not a measured result. No multiple is stated or guaranteed. |
+| `x100.mixture-of-agents` | Mixture-of-Agents | **S3** | Independent specialised agents research, reason, build, critique and verify parts of one Mission; NEO synthesises. |
+| `x100.adaptive-cascades` | Adaptive Model Cascades | **S3** | Start on the least expensive capable model; escalate on confidence, complexity, verification or policy. |
+| `x100.semantic-reuse` | Semantic Compute Reuse | **S4** | Reuse verified, still-valid, authorised intelligence instead of regenerating it. |
+| `x100.speculative-parallel` | Speculative Parallel Intelligence | **S4** | Explore candidate approaches in parallel, prune weak branches early, concentrate compute on promising or disputed paths. |
+| `x100.verification-driven-allocation` | Verification-Driven Compute Allocation | **S4** | Additional reasoning only where an independent verifier finds it necessary. |
+| `x100.hybrid-execution` | Hybrid API, Private and Self-Hosted Execution | **S4** | Route workloads across edge, frontier APIs, private enterprise models, specialist systems and NEO-controlled or self-hosted open models. |
+| `x100.context-optimisation` | Memory and Context Optimisation | **S3** | Build the minimum authoritative context each invocation needs instead of resending full history. |
+| `execution-fabric` | NEO Execution Fabric: four execution zones | **S4** | Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The managed deployment in operation runs, by definition, in the NEO Controlled and External zones. |
+| `edge-compute` | NEO Edge Compute and Device Compute Profile | **S4** | Use authorised compute on the user's own device where sufficient, quality-gated and policy-first, escalating to the cloud otherwise. Cross-platform: Apple, Windows, Linux. Not a prerequisite. |
+| `model-sovereignty.api-first` | Model sovereignty Phase 1: multi-provider API orchestration | **S2** | Leading external systems used through APIs where they offer the best capability and economics; no provider is structurally mandatory. |
+| `model-sovereignty.hybrid` | Model sovereignty Phase 2: hybrid execution | **S4** | Open-weight and private models progressively deployed on NEO-controlled, private and self-hosted infrastructure alongside frontier APIs. No third-party model IP is owned. |
+| `model-sovereignty.neo-optimised` | Model sovereignty Phase 3: NEO-optimised model and execution layer | **S5** | Fine-tuned, distilled, domain and task-specific models for a rising share of suitable workloads. NEO does not own a frontier foundation model today and does not claim to. |
+| `deployment.managed` | Public and managed deployment (NEO-managed SaaS) | **S2** | The target delivery model, operating today inside My NEO Group and in controlled pilot programmes. |
+| `deployment.private-cloud` | Private cloud deployment | **S5** | Dedicated customer environment. |
+| `deployment.hybrid` | Hybrid deployment | **S5** | NEO control plane over customer resources. |
+| `deployment.self-hosted` | Self-hosted deployment | **S5** | Customer private infrastructure. |
+| `deployment.sovereign` | Sovereign and high-control deployment | **S5** | Where required and legally supported. |
+| `verticals.pilot-anchored` | Pilot-anchored verticals: Hospitality and Nightlife, Micro-Credit, Trading and Treasury | **S2** | Configurations of the same core, exercised in pilot programmes. Pilot counts and client identities are never disclosed. |
+| `verticals.shared-core` | Further verticals on the shared core: Software Factory, Company Builder, Fintech Studio, Payments, Sport and Wellness, RWA Studio | **S4** | Built on the same core when demand is proven. |
+| `verticals.zero-counted` | Verticals counted at zero: Health and Care, Legal Ops, Travel | **S5** | Counted at zero in every projection. |
+| `neo-intelligence` | NEO Intelligence | **S4** | Premium roadmap vertical: an evidence-backed orchestration layer above licensed intelligence providers, under human review. Not an adjudication authority. Counted at zero. |
+| `availability.general` | General public availability, global, B2C and B2B | **S5** | Targeted for early 2027. A target, not a commitment. |
+| `market.b2g` | Government and sovereign programmes | **S5** | Where applicable and subject to the relevant product and legal framework. |
+| `neo-credits` | NEO Credits, the customer-facing usage unit | **S4** | Not a token, not a financial instrument, not a provider price. Per-Credit pricing is not set. |
+| `compounding-loop` | System-level learning loop | **S4** | Routing, evaluation, verification and outcome signals improve allocation. No weights change. Customer content is never automatically used for training; Help Improve NEO is off by default. |
+| `infrastructure-licensing` | NEO orchestration and compute-optimisation stack as licensable infrastructure | **S5** | Unmodelled optionality. Ecosystem participants named in the PDF are examples, not prospects. |
+| `pilots` | Pilot programmes | **S2** | Operational pilots with external users. Count and identity never disclosed publicly. |
+| `public-website` | Public website | **S1** | neoai.myneogroup.com. |
+| `dataroom.frontend` | Access-controlled data room frontend | **S3** | Access-controlled. |
+| `dataroom.backend` | Access-controlled data room backend | **S3** | Access-controlled. |
+| `assurance.eval-harness` | Mission Evaluation Harness | **S5** | Reproducible mission-level evaluation harness. |
+
+## Retired keys
+
+A retired key resolves to its successor. It is never reissued.
+
+| Retired key | Successor | Reason |
 |---|---|---|
-| `lili` | LILI | **S4** |
-| `mission-control` | Mission Control | **S4** |
-| `brain` | The Brain | **S4** |
-| `brain.task-graph` | Task Graph | **S4** |
-| `brain.router` | Router | **S4** |
-| `brain.memory` | Memory | **S4** |
-| `brain.knowledge-graph` | Knowledge Graph | **S4** |
-| `brain.validation` | Validation | **S4** |
-| `brain.cost-engine` | Cost Engine | **S4** |
-| `brain.event-bus` | Event Bus | **S4** |
-| `brain.governance` | Governance | **S4** |
-| `foundation-model` | NEO AI Foundation Model | **S5** |
-| `neo-intelligence` | NEO Intelligence | **S4** |
-| `deployment.cloud` | Platform cloud deployment | **S4** |
-| `deployment.vpc` | Client VPC deployment | **S5** |
-| `deployment.onprem` | On-premise and sovereign deployment | **S5** |
-| `public-website` | Public website | **S1** |
-| `dataroom.frontend` | Investor Data Room frontend | **S3** |
-| `dataroom.backend` | Investor Data Room backend R6 | **S3** |
-| `pilots` | Signed paid pilots | **S2** |
-| `brain.evidence-layer` | Evidence Layer | **S4** |
-| `brain.evidence-ledger` | Evidence Ledger | **S4** |
-| `assurance.eval-harness` | Mission Evaluation Harness | **S5** |
-| `mission.envelope` | Mission Envelope | **S4** |
+| `brain` | `core` | The term 'The Brain' is retired. The orchestration layer is NEO Core within the Intelligence Operating System. |
+| `brain.task-graph` | `core.task-graph` | Parent renamed. |
+| `brain.router` | `core.routing` | Renamed to Dynamic Capability Routing, which selects capabilities and execution zones, not only models. |
+| `brain.memory` | `core.memory` | Parent renamed. |
+| `brain.knowledge-graph` | `core.knowledge-graph` | Parent renamed. |
+| `brain.validation` | `core.verification` | Validation is renamed Verification throughout. |
+| `brain.cost-engine` | `core.resource-accounting` | The term 'Cost Engine' is retired. Resource accounting is internal; NEO Credits are the customer unit. |
+| `brain.event-bus` | `core.event-bus` | Parent renamed. |
+| `brain.governance` | `core.governance` | Parent renamed. Human Gates are registered separately as human-gates. |
+| `brain.evidence-layer` | `core.evidence-layer` | Parent renamed. |
+| `brain.evidence-ledger` | `core.evidence-ledger` | Parent renamed. |
+| `foundation-model` | `model-sovereignty.neo-optimised` | Replaced by the staged model sovereignty roadmap. NEO does not own a frontier foundation model and does not claim to. |
+| `deployment.cloud` | `deployment.managed` | Aligned with the five deployment patterns. |
+| `deployment.vpc` | `deployment.private-cloud` | Aligned with the five deployment patterns. |
+| `deployment.onprem` | `deployment.self-hosted` | Aligned with the five deployment patterns; sovereign is registered separately as deployment.sovereign. |
 
 ## Distribution
 
@@ -48,9 +103,9 @@ Counted from the register, not asserted.
 | Status | Count |
 |---|---|
 | S1 | 1 |
-| S2 | 1 |
-| S3 | 2 |
-| S4 | 16 |
-| S5 | 4 |
+| S2 | 9 |
+| S3 | 15 |
+| S4 | 15 |
+| S5 | 11 |
 
-Total: 24.
+Total: 51.

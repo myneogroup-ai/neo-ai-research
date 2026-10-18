@@ -102,7 +102,8 @@ def render_category(pubs, cat) -> str:
     out += ["| Identifier | Title | Version |", "|---|---|---|"]
     for e in rows:
         ident = e["id"] if e["identifier_allocated"] else "Not yet allocated"
-        out.append(f"| {ident} | [{e['title']}]({e['canonical_url']}) | v1.0 |")
+        out.append(f"| {ident} | [{e['title']}]({e['canonical_url']}) | "
+                   f"{e.get('version', 'v1.0')} |")
     out.append("")
     return "\n".join(out)
 
@@ -121,17 +122,30 @@ def render_roadmap(pubs) -> str:
 
 
 def render_ledger(caps) -> str:
+    state = caps.get("platformState", {})
     out = [BANNER, "", "# Capability Register", "",
-           f"Register version {caps['version']}. **{caps['status']}**", "",
+           f"Register version {caps['version']}. **{caps['status']}**", ""]
+    if state:
+        out += ["## State of the platform", "", state["summary"], "",
+                f"Classification: {state['classification']}. "
+                f"{state['independentVerification']}", ""]
+    out += [
            "Every capability NEO AI describes, with its status. A page that describes a "
            "capability links to its row here, and the status rendered on that page is "
            "resolved from this register at build time rather than written by an author.",
            "", "| Status | Meaning |", "|---|---|"]
     for k in sorted(caps["statusDefinitions"]):
         out.append(f"| {k} | {caps['statusDefinitions'][k]} |")
-    out += ["", "| Key | Capability | Status |", "|---|---|---|"]
+    out += ["", "| Key | Capability | Status | Note |", "|---|---|---|---|"]
     for c in caps["capabilities"]:
-        out.append(f"| `{c['key']}` | {c['name']} | **{c['status']}** |")
+        out.append(f"| `{c['key']}` | {c['name']} | **{c['status']}** | "
+                   f"{c.get('note', '')} |")
+    if caps.get("retired"):
+        out += ["", "## Retired keys", "",
+                "A retired key resolves to its successor. It is never reissued.", "",
+                "| Retired key | Successor | Reason |", "|---|---|---|"]
+        for r in caps["retired"]:
+            out.append(f"| `{r['key']}` | `{r['successor']}` | {r['reason']} |")
     counts = {}
     for c in caps["capabilities"]:
         counts[c["status"]] = counts.get(c["status"], 0) + 1
@@ -159,8 +173,18 @@ def render_glossary_index(voc) -> str:
     out += ["", "## Prohibited synonyms", "",
             "These are not neutral alternatives. Each was considered and refused.", "",
             "| Prohibited | Use instead |", "|---|---|"]
-    out.append(f"| {voc['prohibited_synonyms'][0]} | Provider Replaceability |")
+    smap = voc.get("prohibited_synonym_map", {})
+    for t in voc["prohibited_synonyms"]:
+        use = smap.get(t, {}).get("use", "Provider Replaceability")
+        out.append(f"| {t} | {use} |")
     out += ["", voc["prohibited_synonym_note"], ""]
+    for t in voc["prohibited_synonyms"]:
+        if smap.get(t, {}).get("note"):
+            out.append(f"- **{t}.** {smap[t]['note']}")
+    out.append("")
+    for r in voc.get("renamed_terms", []):
+        out.append(f"Renamed in vocabulary {r['version']}: {r['from']} is now {r['to']}.")
+    out.append("")
     return "\n".join(out)
 
 

@@ -28,7 +28,7 @@ Each entry carries the paper's abstract, unaltered, and links to the canonical t
 
 ## The six in Public Wave 1
 
-`NEO-AI-P-001` Introducing NEO AI: Intelligence Orchestrated. The position statement, and the one that discloses how much of the platform exists.
+`NEO-AI-P-001` Introducing NEO AI: Intelligence Orchestrated. The position statement, and the one that states, component by component, how much of the platform is in operation.
 
 `NEO-AI-P-007` A Note on Responsible AI Capability Claims. The standard the rest is written under, and the one I would read first if I were assessing us.
 

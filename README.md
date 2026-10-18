@@ -10,6 +10,28 @@ it machine readable.
 Canonical host: **https://neoai.myneogroup.com**
 Founder thesis layer: **https://mickaelmosse.ai**
 
+## State of the platform
+
+NEO AI is an **Intelligence Operating System**: it orchestrates leading models,
+autonomous agents, tools, data, memory, verification and compute as one coordinated
+system. LILI is its conversational face. Open NEO. Ask LILI. Receive the result.
+
+**NEO AI and LILI are in operational deployment inside My NEO Group and in controlled
+pilot programmes with external users.** This is an operational MVP deployed at real
+scale, not a design exercise. **General public availability, global, is targeted for
+early 2027.** In register terms the core experience is `S2`; surrounding capabilities
+are `S3` (implemented, in validation), `S4` or `S5`, row by row.
+
+NEO x100, an improvement of orders of magnitude in verified intelligence per unit of
+compute, is the long-term R&D objective. It is not a measured result.
+
+The technology, product and architecture authority for this corpus is the document
+*NEO AI x100, Intelligence Operating System* (My NEO Group, 2026). Its vocabulary is
+the controlled vocabulary here: NEO Core, Dynamic Capability Routing, Verification,
+Mixture-of-Agents, Adaptive Model Cascades, Semantic Compute Reuse, the Execution
+Fabric and its four execution zones, NEO Edge Compute, FOCUS / NORMAL / JARVIS,
+Intelligence Profiles, Human Gates, NEO Credits and the model sovereignty roadmap.
+
 ---
 
 ## How to read this corpus
@@ -31,21 +53,24 @@ Capability statuses resolve from `registers/capabilities.json`.
 
 | Status | Meaning |
 |---|---|
-| S1 | Operational |
-| S2 | In pilot |
-| S3 | Validating |
+| S1 | Operational and publicly available |
+| S2 | Operational in a controlled pilot or limited deployment |
+| S3 | Implemented, undergoing validation |
 | S4 | Designed and specified |
-| S5 | Planned |
+| S5 | Planned or exploratory |
 
 **Nothing in this corpus describes a deployed system unless its capability status says
-so.** Most of what is described is at S4 or S5. That is stated on every page rather
-than left to be discovered.
+so, and nothing in operation is described as if it were only a design.** The status is
+stated on every page rather than left to be discovered, and the build fails when a
+status token on any page disagrees with the register.
 
-The Capability Register is Founder-ratified as the approved public representation of
-the Program's S1-S5 maturity classifications. This register-level ratification does not
-mean that every capability has lifecycle status RATIFIED: individual lifecycle states
-remain separately evidence-gated. Pages render the register version so that maturity
-claims remain traceable to the exact register state.
+Register version 1.3 was Founder-ratified on 2026-08-13 as the approved public
+representation of the Program's S1-S5 maturity classifications. Register version 2.0
+(2026-10-18) restructures the register to the x100 architecture, records the Founder
+determination on the operational state, retires the August keys with named successors,
+and was **Founder-ratified on 2026-10-18**. Register-level ratification never means that every
+capability has lifecycle status RATIFIED: individual lifecycle states remain separately
+evidence-gated. No status has been verified by an independent third party.
 
 ## What is here
 
@@ -61,7 +86,11 @@ schema/                    JSON-LD entity graph and templates
 scripts/                   Index, SEO and conformance generators
 static/                    robots.txt, llms.txt and generated discovery files
 docs/                      Workflows: branch, release, publication, deployment, rollback
+archive/                   Deployment packages and superseded build artefacts, kept unmodified
 ```
+
+`make check` runs everything CI runs. `scripts/count_claims.py` produces the claim-class
+counts that front matter must state.
 
 ## What is deliberately not here
 

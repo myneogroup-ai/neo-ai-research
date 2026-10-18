@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>NEO AI Research: papers</title>
   <id>https://neoai.myneogroup.com/feeds/papers.xml</id>
-  <updated>2026-08-12T00:00:00Z</updated>
+  <updated>2026-10-18T00:00:00Z</updated>
   <link rel="self" href="https://neoai.myneogroup.com/feeds/papers.xml" />
   <author>
     <name>Mickael Mosse</name>
@@ -11,8 +11,8 @@
   <entry>
     <title>From Model Intelligence to System Intelligence: How Orchestration Compounds Capability</title>
     <id>https://neoai.myneogroup.com/id/NEO-AI-R-009</id>
-    <published>2026-08-12T00:00:00Z</published>
-    <updated>2026-08-12T00:00:00Z</updated>
+    <published>2026-10-18T00:00:00Z</published>
+    <updated>2026-10-18T00:00:00Z</updated>
     <link rel="alternate" href="https://neoai.myneogroup.com/research/papers/model-intelligence-to-system-intelligence/" />
     <category term="papers" />
     <summary>Abstract rendered at build time from the publication's abstract section. This feed never carries the body.</summary>

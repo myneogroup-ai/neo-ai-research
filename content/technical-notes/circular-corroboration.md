@@ -8,15 +8,15 @@
 | Title | Detecting Circular Corroboration in an Evidence Chain |
 | Family | NOTE |
 | Type | Technical Note (`TN`) |
-| Version | v1.0 |
+| Version | v1.1 |
 | Status | DRAFT |
-| Date | 2026-08-09 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse |
-| Capability keys | `brain.knowledge-graph` (S4), `brain.validation` (S4), `mission-control` (S4), `neo-intelligence` (S4), `brain.governance` (S4), `brain.evidence-layer` (S4), `brain.evidence-ledger` (S4) |
-| Claim-class counts | `[E]` 1 . `[A]` 21 . `[D]` 7 . `[O]` 4 |
+| Capability keys | `core.knowledge-graph` (S4), `core.verification` (S3), `mission-control` (S3), `neo-intelligence` (S4), `core.governance` (S3), `core.evidence-layer` (S4), `core.evidence-ledger` (S4) |
+| Claim-class counts | `[E]` 1 . `[A]` 21 . `[D]` 8 . `[O]` 4 |
 | Figures | SYS-08 |
 | Reading time | 10 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-002` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/circular-corroboration/` |
 
 
 ---
@@ -27,9 +27,9 @@ A finding supported by five documents scores higher than a finding supported by 
 
 ## 2. Context and constraints
 
-An Evidence Chain is the traversal path from one material claim back through its transformations to the originating sources, computed on demand over records in the Evidence Ledger `[D]` (brain.evidence-layer, S4). It is a query result. Nothing in this note is a stored corroboration score, and section 5 explains why storing one is unsafe.
+An Evidence Chain is the traversal path from one material claim back through its transformations to the originating sources, and the Evidence Layer is specified to compute it on demand over records in the Evidence Ledger `[D]` (core.evidence-layer, S4) `[D]` (core.evidence-ledger, S4). It is a query result. Nothing in this note is a stored corroboration score, and section 5 explains why storing one is unsafe.
 
-The traversal depends on three things being present in the records, all of which are the responsibility of the Evidence Layer at ingestion `[D]` (brain.evidence-layer, S4). A content hash per artefact. A derivation edge per transformation, in PROV-O terms `wasDerivedFrom` between entities and `wasGeneratedBy` against the activity that produced them. `[E]` And a citation edge where an artefact references another artefact, which is distinct from a derivation edge because the platform did not perform the transformation and can only observe the reference.
+The traversal depends on three things being present in the records, all of which the Evidence Layer is specified to guarantee at ingestion `[D]` (core.evidence-layer, S4). A content hash per artefact. A derivation edge per transformation, in PROV-O terms `wasDerivedFrom` between entities and `wasGeneratedBy` against the activity that produced them. `[E]` And a citation edge where an artefact references another artefact, which is distinct from a derivation edge because the platform did not perform the transformation and can only observe the reference.
 
 Two limits are fixed. The graph contains only what the platform ingested, so an origin the platform never saw is invisible to the traversal and appears as a root. `[A]` And the platform cannot observe unattributed borrowing except through text similarity, which is a heuristic. `[A]`
 
@@ -101,11 +101,11 @@ The output presented to a reviewer is that the finding rests on a single self-re
 
 Convergence below `k` distinct origins produces four actions, and displaying a warning is not among them. `[A]`
 
-The claim's validation status is set to unvalidated regardless of the document count, and stays there until an independent origin is found. `[A]` Promotion to semantic memory is refused, since the promotion rule requires an evidence reference that is not a restatement of the claim's own origin. `[A]` The autonomy level of every remaining task node contracts by one, per `NEO-AI-TN-001 s3.3`. And where the single origin is the subject of the question, the finding is labelled self-reported, which says more than uncorroborated does. `[A]`
+The claim's verification status is set to unverified regardless of the document count, and stays there until an independent origin is found. `[A]` Promotion to semantic memory is refused, since the promotion rule requires an evidence reference that is not a restatement of the claim's own origin. `[A]` The autonomy level of every remaining task node contracts by one, per `NEO-AI-TN-001 s3.3`. And where the single origin is the subject of the question, the finding is labelled self-reported, which says more than uncorroborated does. `[A]`
 
 A stored corroboration count cannot support any of this. `[A]` It is computed against the Ledger as it stood at write time, and a sixth artefact arriving next week may merge with an existing origin and reduce the true count while leaving the stored one unchanged. Caching the traversal result is permitted with an invalidation subscription to the Ledger; treating the cache as the answer is not.
 
-Design intent. Convergence detection is specified as a required check before a relationship or ownership finding is presented, rather than as an analytical view a user may enable. `[D] (neo-intelligence, S4)` `[D] (brain.knowledge-graph, S4)` The merge reasons are specified to be retained with the result and shown on inspection. `[D] (mission-control, S4)` Validation status changes arising from convergence are specified to be written to the claim record and not only to the mission output. `[D] (brain.validation, S4)` The threshold `theta` and the requirement `k` are specified as governed configuration, versioned, with changes emitting a runtime Decision Record. `[D] (brain.governance, S4)` Figure `SYS-08` draws the traversal with the convergence path marked.
+Design intent. Convergence detection is specified as a required check before a relationship or ownership finding is presented, rather than as an analytical view a user may enable. `[D] (neo-intelligence, S4)` `[D] (core.knowledge-graph, S4)` Retaining the merge reasons with the result and showing them on inspection in Mission Control is implemented and in validation. `[D] (mission-control, S3)` Writing verification status changes arising from convergence to the claim record, and not only to the mission output, is implemented in the Verification Layer and is in validation. `[D] (core.verification, S3)` Holding the threshold `theta` and the requirement `k` as governed configuration, versioned, with changes emitting a runtime Decision Record, is implemented in policy enforcement and is in validation. `[D] (core.governance, S3)` Figure `SYS-08` draws the traversal with the convergence path marked.
 
 ## 6. Limits of this note
 
@@ -121,7 +121,7 @@ Not covered: source reliability grading, entity resolution itself, the storage l
 
 ## Scope and Limitations
 
-This note specifies a procedure and its complexity. It establishes no property of an implementation and reports no accuracy data. The fingerprinting scheme is architectural interpretation. PROV-O supplies the derivation vocabulary and does not supply this procedure.
+This note specifies a procedure and its complexity. It establishes no property of an implementation and reports no accuracy data. The components that would run the procedure are at different statuses, stated in section 5: the Evidence Layer, the Evidence Ledger and the Knowledge Graph are designed and specified, while Mission Control, Verification and policy enforcement are implemented and in validation; no status has been verified by an independent third party. The fingerprinting scheme is architectural interpretation. PROV-O supplies the derivation vocabulary and does not supply this procedure.
 
 The note would be falsified by a demonstration that document-level corroboration counts and origin-resolved counts agree closely on a realistic corpus of published material, which would make the traversal unnecessary work.
 
@@ -158,7 +158,7 @@ Forward reference only.
 
 ## Related Terms
 
-Evidence Layer . Evidence Chain . Evidence Ledger . Circular Corroboration . Claim Class . Validation Layer . Knowledge Plane . Decision Record . Bounded Autonomy.
+Evidence Layer . Evidence Chain . Evidence Ledger . Circular Corroboration . Claim Class . Verification Layer . Knowledge Plane . Decision Record . Bounded Autonomy.
 
 ## References
 
@@ -177,3 +177,4 @@ All entries are UNVERIFIED under the Program publication standard until the veri
 | Version | Date | Status | Change |
 |---|---|---|---|
 | v1.0 | 2026-08-09 | DRAFT | Initial public draft. |
+| v1.1 | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0: capability keys migrated to v2.0 and statuses and verbs corrected (Mission Control, Verification and policy enforcement implemented and in validation at S3; Evidence Layer, Evidence Ledger, Knowledge Graph and NEO Intelligence remain specified at S4). Terminology migrated to the x100 vocabulary (Verification, Verification Layer). The procedure, fingerprints, `theta`, `k` and complexity bounds are unchanged. |

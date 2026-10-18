@@ -358,9 +358,23 @@ def check_registers():
 # VOC, CAP, CLM. Corpus discipline.
 # --------------------------------------------------------------------------------------
 
+# A capability reference carries a status token in one of three shapes:
+# `[D] (key, S4)`, `` `key` (S4) `` and `` `key` S4 ``.
+CAP_REF = re.compile(
+    r"\(\s*([a-z][a-z0-9.-]*)\s*,\s*(S[1-5])\s*\)"
+    r"|`([a-z][a-z0-9.-]*)`\s*\(?(S[1-5])\b\)?")
+
+
+def capability_refs(text: str):
+    for m in CAP_REF.finditer(text):
+        yield m, (m.group(1) or m.group(3)), (m.group(2) or m.group(4))
+
+
 def check_corpus(pubs, caps, voc):
     cap_keys = set(caps.get("capabilities", {}).keys()) if isinstance(
         caps.get("capabilities"), dict) else {c.get("key") for c in caps.get("capabilities", [])}
+    cap_status = {c["key"]: c["status"] for c in caps.get("capabilities", [])}
+    retired_keys = {r["key"]: r["successor"] for r in caps.get("retired", [])}
     prohibited = voc["prohibited_synonyms"]
 
     for rel in walk(CONTENT):
@@ -383,6 +397,25 @@ def check_corpus(pubs, caps, voc):
                 line = text.count("\n", 0, m.start()) + 1
                 report("CAP-01", rel, line, m.group(0),
                        "a capability key that is not in the register")
+
+        # CAP-02 and CAP-03. A status token in prose is resolved from the register, never
+        # typed. This is the mechanical half of the verb-to-status discipline in P-007
+        # section 3: when the register moves, every page that disagrees with it fails.
+        for m, key, status in capability_refs(text):
+            line = text.count("\n", 0, m.start()) + 1
+            if key in retired_keys:
+                report("CAP-03", rel, line, m.group(0),
+                       f"a retired capability key. Its successor is "
+                       f"'{retired_keys[key]}'")
+                continue
+            if key not in cap_status:
+                report("CAP-01", rel, line, m.group(0),
+                       "a capability key that is not in the register")
+                continue
+            if status != cap_status[key]:
+                report("CAP-02", rel, line, m.group(0),
+                       f"status token disagrees with the register, which holds "
+                       f"{cap_status[key]} for '{key}'")
 
         is_pub = any(rel.startswith(f"content/{d}/") for d in PUBLICATION_DIRS)
         if is_pub and not os.path.basename(rel).startswith("_"):
