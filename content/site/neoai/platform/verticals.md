@@ -21,10 +21,10 @@ NEO AI is one product. Every vertical is the same Intelligence Operating System 
 |---|---|---|
 | Pilot-anchored today | Hospitality and Nightlife, Micro-Credit, Trading and Treasury | `[D] (verticals.pilot-anchored, S2)` |
 | Built on the same core when demand is proven | Software Factory, Company Builder, Fintech Studio, Payments, Sport and Wellness, RWA Studio | `[D] (verticals.shared-core, S4)` |
-| Counted at zero in every projection | Health and Care, Legal Ops, Travel | `[D] (verticals.zero-counted, S5)` |
+| Planned, counted at zero in every projection | Health and Care, Legal Ops, Travel | `[D] (verticals.zero-counted, S5)` |
 | Premium roadmap vertical, counted at zero | NEO Intelligence | `[D] (neo-intelligence, S4)` |
 
-Pilot counts and client identities are never disclosed.
+Four verticals are counted at zero in every projection: Health and Care, Legal Ops, Travel and NEO Intelligence. Pilot counts and client identities are never disclosed.
 
 Shared orchestration does not make two domains interchangeable. Domain validity is earned separately in each vertical: a verifier set matched to the domain's failure modes, an evidence policy, a licence position for each data source, an approval topology matched to who is professionally accountable, and evaluation against tasks drawn from the domain.
 

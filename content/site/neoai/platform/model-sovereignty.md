@@ -19,7 +19,7 @@ NEO does not own a frontier foundation model today and does not claim to. The st
 
 | Phase | What it means | Status |
 |---|---|---|
-| 1 API-first | Multi-provider orchestration of leading external systems through APIs, with selected local workloads where supported; no provider is structurally mandatory | `[D] (model-sovereignty.api-first, S2)` |
+| 1 API-first | Multi-provider orchestration of leading external systems through APIs; no provider is structurally mandatory. Selected local workloads follow Edge Compute, which is on the roadmap | `[D] (model-sovereignty.api-first, S2)` |
 | 2 Hybrid | Frontier APIs continue while selected open-weight and private models are progressively deployed on NEO-controlled, private and self-hosted infrastructure; no third-party model IP is owned | `[D] (model-sovereignty.hybrid, S4)` |
 | 3 NEO-optimised layer | A rising share of suitable workloads handled through fine-tuned, distilled, domain-specialised and task-specific models, reusable intelligence and evaluation-driven model selection | `[D] (model-sovereignty.neo-optimised, S5)` |
 

@@ -92,7 +92,7 @@
         {
           "@type": "PropertyValue",
           "name": "capability-status",
-          "description": "S1 operational, S2 pilot, S3 validating, S4 specified, S5 planned"
+          "description": "S1 operational and publicly available; S2 operational in a controlled pilot or limited deployment; S3 implemented, undergoing validation; S4 designed and specified; S5 planned or exploratory"
         }
       ],
       "dateModified": "2026-10-18"

@@ -25,7 +25,7 @@ Too many subscriptions. Too much prompt trial and error. Too many models to choo
 
 ## What NEO is
 
-Not a chatbot, not a model and not a model switcher. NEO is the operating layer above models: it decides what work is done, by which model, agent or tool, in which execution zone, under whose authority, against what evidence, and with what record left behind. `[D] (core, S2)`
+Not a chatbot, not a model and not a model switcher. NEO is the Intelligence Operating System above models: it decides what work is done, by which model, agent or tool, in which execution zone, under whose authority, against what evidence, and with what record left behind. `[D] (core, S2)`
 
 Models are inputs. Compute is an input. The NEO system is the asset.
 
@@ -37,13 +37,13 @@ One conversation, one objective, one result. Orchestration, models, agents, rout
 
 ## Intelligence per compute
 
-The long-term R&D objective, NEO x100, is an order-of-magnitude improvement in verified intelligence per unit of compute: not more parameters, not more GPUs, but orchestration, specialisation, parallelism, verification, memory, reuse, edge execution and adaptive allocation. x100 is an objective, not a measured result. `[D] (x100, S5)`
+The long-term R&D objective, NEO x100, is an improvement of orders of magnitude in verified intelligence per unit of compute: not more parameters, not more GPUs, but orchestration, specialisation, parallelism, verification, memory, reuse, edge execution and adaptive allocation. x100 is an objective, not a measured result. `[D] (x100, S5)`
 
 [NEO x100](/platform/x100/) · [Execution Fabric and Edge Compute](/platform/execution-fabric/)
 
 ## State of the platform
 
-**NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users.** This is an operational product running at real scale, not a design exercise. General public availability, global, is targeted for early 2027. `[D] (core, S2)` `[D] (lili, S2)` `[D] (availability.general, S5)`
+**NEO AI and LILI are in operational deployment inside My NEO Group and in controlled pilot programmes with external users.** This is an operational MVP deployed at real scale, not a design exercise and not a demonstration. General public availability, global, is targeted for early 2027. `[D] (core, S2)` `[D] (lili, S2)` `[D] (availability.general, S5)`
 
 Every capability NEO AI describes carries a status from a published register: operational, in pilot, undergoing validation, designed and specified, or planned. The core experience is in operation; several surrounding capabilities are implemented and in validation; Edge Compute, private deployment patterns, LILI Always-on and NEO Intelligence are on the roadmap. The register says which is which, row by row.
 

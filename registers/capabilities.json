@@ -62,7 +62,7 @@
       "name": "Mission Envelope",
       "status": "S3",
       "note": "Bounded permissions, data scope, resource budget, autonomy level and terminal conditions, set at creation and narrowed by the approval policy.",
-      "basis": "PDF label ARCHITECTURE DEFINITION, TARGET BUILD IN PROGRESS. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, TARGET BUILD IN PROGRESS. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "pdfSection": "21",
       "ratification": "UNCONFIRMED"
     },
@@ -71,7 +71,7 @@
       "name": "Mission Control: FOCUS, NORMAL and JARVIS projections",
       "status": "S3",
       "note": "Three projections of one Mission state with one composer and one right inspector (Progress, Output, Context). Mission Control is the operating-system view of the platform.",
-      "basis": "PDF label TARGET BUILD IN PROGRESS; screens in the PDF are prototype UI with synthetic data. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label TARGET BUILD IN PROGRESS; screens in the PDF are prototype UI with synthetic data. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "pdfSection": "17, 18",
       "ratification": "UNCONFIRMED"
     },
@@ -80,7 +80,7 @@
       "name": "Observe Build",
       "status": "S3",
       "note": "Live code, files, tests, verification and the running result in the App Viewer at the same revision as the code; Last Known Good is never replaced by a failed candidate; Human Gate before release.",
-      "basis": "PDF label BINDING PRODUCT DEFINITION, TARGET BUILD IN PROGRESS. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label BINDING PRODUCT DEFINITION, TARGET BUILD IN PROGRESS. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "pdfSection": "19",
       "ratification": "UNCONFIRMED"
     },
@@ -89,7 +89,7 @@
       "name": "NEO Intelligence Profiles: NEO AUTO, PULSE, PRIME, AXIOM, APEX",
       "status": "S3",
       "note": "The user chooses a resource envelope, never a model, a provider or an execution location.",
-      "basis": "PDF label ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "pdfSection": "20",
       "ratification": "UNCONFIRMED"
     },
@@ -98,7 +98,7 @@
       "name": "Human Gates and approval policy: ASK ME, AUTO, AUTONOMOUS",
       "status": "S3",
       "note": "Approval policy only narrows what is auto-approved. Mandatory Human Gates (production DNS, public publishing, act-class connector actions, deployment release) are refused at platform level.",
-      "basis": "PDF label ARCHITECTURE DEFINITION, enforced at platform level. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF label ARCHITECTURE DEFINITION, enforced at platform level. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "pdfSection": "21",
       "ratification": "UNCONFIRMED"
     },
@@ -133,7 +133,7 @@
       "name": "Memory: persistent, verified, with provenance",
       "status": "S3",
       "note": "What the system retains about its own operation, with typed stores and separate retention rules.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "core",
       "supersedes": [
         "brain.memory"
@@ -158,7 +158,7 @@
       "name": "Verification: independent verifiers and cross-checking",
       "status": "S3",
       "note": "Deterministic checks first, then independent agents or models that did not produce the work. The producing model is never the blocking verifier of its own output.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "core",
       "supersedes": [
         "brain.validation"
@@ -168,10 +168,10 @@
     },
     {
       "key": "core.resource-accounting",
-      "name": "Resource accounting and NEO Credits metering",
+      "name": "Internal resource accounting",
       "status": "S3",
-      "note": "Provider usage, provider cost and a normalised NEO resource are metered internally; the customer sees NEO Credits only.",
-      "basis": "PDF ARCHITECTURE DEFINITION. Proposed with register v2.0, awaiting Founder ratification.",
+      "note": "Provider usage, provider cost and a normalised NEO resource are metered internally. NEO Credits, the customer unit, is registered separately as neo-credits.",
+      "basis": "PDF ARCHITECTURE DEFINITION. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "core",
       "supersedes": [
         "brain.cost-engine"
@@ -184,7 +184,7 @@
       "name": "Event log (Event Bus)",
       "status": "S3",
       "note": "Append-only record of material state changes; Mission state is a fold over it.",
-      "basis": "Required by live Mission views. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "Required by live Mission views. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "core",
       "supersedes": [
         "brain.event-bus"
@@ -196,7 +196,7 @@
       "name": "Policy enforcement",
       "status": "S3",
       "note": "Legal, policy and authority constraints evaluated as admissibility filters before any optimisation.",
-      "basis": "PDF order of precedence, section 09. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF order of precedence, section 09. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "core",
       "supersedes": [
         "brain.governance"
@@ -242,7 +242,7 @@
       "name": "Mixture-of-Agents",
       "status": "S3",
       "note": "Independent specialised agents research, reason, build, critique and verify parts of one Mission; NEO synthesises.",
-      "basis": "PDF layer 01. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 01. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "x100",
       "pdfSection": "05 layer 01",
       "ratification": "UNCONFIRMED"
@@ -252,7 +252,7 @@
       "name": "Adaptive Model Cascades",
       "status": "S3",
       "note": "Start on the least expensive capable model; escalate on confidence, complexity, verification or policy.",
-      "basis": "PDF layer 02. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 02. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "x100",
       "pdfSection": "05 layer 02",
       "ratification": "UNCONFIRMED"
@@ -302,7 +302,7 @@
       "name": "Memory and Context Optimisation",
       "status": "S3",
       "note": "Build the minimum authoritative context each invocation needs instead of resending full history.",
-      "basis": "PDF layer 08. Proposed with register v2.0, awaiting Founder ratification.",
+      "basis": "PDF layer 08. Proposed at S3 by inference from the operational MVP, not on the architecture document alone; requires explicit Founder confirmation at ratification of v2.0, failing which it reverts to S4.",
       "parent": "x100",
       "pdfSection": "05 layer 08",
       "ratification": "UNCONFIRMED"
@@ -311,7 +311,7 @@
       "key": "execution-fabric",
       "name": "NEO Execution Fabric: four execution zones",
       "status": "S4",
-      "note": "Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The NEO Controlled and External zones are the ones in use under the managed deployment.",
+      "note": "Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The managed deployment in operation runs, by definition, in the NEO Controlled and External zones.",
       "basis": "PDF label ARCHITECTURE DEFINITION; customer-private and multi-device nodes are ROADMAP.",
       "pdfSection": "09",
       "ratification": "UNCONFIRMED"
@@ -509,7 +509,7 @@
     },
     {
       "key": "dataroom.frontend",
-      "name": "Investor Data Room frontend",
+      "name": "Access-controlled data room frontend",
       "status": "S3",
       "note": "Access-controlled.",
       "basis": "Unchanged from register v1.3.",
@@ -517,7 +517,7 @@
     },
     {
       "key": "dataroom.backend",
-      "name": "Investor Data Room backend",
+      "name": "Access-controlled data room backend",
       "status": "S3",
       "note": "Access-controlled.",
       "basis": "Unchanged from register v1.3.",
@@ -612,7 +612,7 @@
   "changelog": [
     "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope.",
     "v1.3 Founder ratified the register's published S1-S5 maturity classifications. Individual capability lifecycle ratification states remain unchanged.",
-    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Components labelled TARGET BUILD IN PROGRESS in the architecture authority are proposed at S3; components labelled ROADMAP stay at S4 or S5. No status was raised on the strength of the architecture document alone."
+    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Fifteen rows are proposed at S3 by inference from the operational MVP; each needs explicit Founder confirmation at ratification or reverts to S4. Components labelled ROADMAP in the architecture authority stay at S4 or S5."
   ],
   "lifecycle": {
     "states": [
@@ -649,5 +649,6 @@
     "scope": "Ratification confirms that the S1-S5 classifications in this register are the approved public representation of capability maturity as of the ratification date. It does not constitute lifecycle RATIFIED status for any individual capability.",
     "capability_lifecycle_unchanged": true,
     "toRatify": "Set status to RATIFIED and date to the signature date once the Founder has reviewed every row marked as proposed."
-  }
+  },
+  "lifecycleNote": "S1 to S5 describe maturity; lifecycle states describe the evidence tier behind engineering and release gates. The S2 rows that rest on the Founder determination of 2026-10-18 move to lifecycle RATIFIED only when the Founder signs register v2.0 row by row; until then every row is UNCONFIRMED and the register itself is not releasable (gate REG-10). The determination is a statement of operational state by the Founder, not a third-party verification and not a measured result."
 }

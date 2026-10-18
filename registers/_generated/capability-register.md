@@ -36,7 +36,7 @@ Every capability NEO AI describes, with its status. A page that describes a capa
 | `core.memory` | Memory: persistent, verified, with provenance | **S3** | What the system retains about its own operation, with typed stores and separate retention rules. |
 | `core.knowledge-graph` | Knowledge Graph | **S4** | What the system asserts about the world, each material edge carrying its evidence class and lineage. |
 | `core.verification` | Verification: independent verifiers and cross-checking | **S3** | Deterministic checks first, then independent agents or models that did not produce the work. The producing model is never the blocking verifier of its own output. |
-| `core.resource-accounting` | Resource accounting and NEO Credits metering | **S3** | Provider usage, provider cost and a normalised NEO resource are metered internally; the customer sees NEO Credits only. |
+| `core.resource-accounting` | Internal resource accounting | **S3** | Provider usage, provider cost and a normalised NEO resource are metered internally. NEO Credits, the customer unit, is registered separately as neo-credits. |
 | `core.event-bus` | Event log (Event Bus) | **S3** | Append-only record of material state changes; Mission state is a fold over it. |
 | `core.governance` | Policy enforcement | **S3** | Legal, policy and authority constraints evaluated as admissibility filters before any optimisation. |
 | `core.evidence-layer` | Evidence Layer | **S4** | Produces, grades and serves evidence. |
@@ -49,7 +49,7 @@ Every capability NEO AI describes, with its status. A page that describes a capa
 | `x100.verification-driven-allocation` | Verification-Driven Compute Allocation | **S4** | Additional reasoning only where an independent verifier finds it necessary. |
 | `x100.hybrid-execution` | Hybrid API, Private and Self-Hosted Execution | **S4** | Route workloads across edge, frontier APIs, private enterprise models, specialist systems and NEO-controlled or self-hosted open models. |
 | `x100.context-optimisation` | Memory and Context Optimisation | **S3** | Build the minimum authoritative context each invocation needs instead of resending full history. |
-| `execution-fabric` | NEO Execution Fabric: four execution zones | **S4** | Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The NEO Controlled and External zones are the ones in use under the managed deployment. |
+| `execution-fabric` | NEO Execution Fabric: four execution zones | **S4** | Edge, Customer Private, NEO Controlled and External zones under three envelopes (Intelligence, Policy, Capability). The managed deployment in operation runs, by definition, in the NEO Controlled and External zones. |
 | `edge-compute` | NEO Edge Compute and Device Compute Profile | **S4** | Use authorised compute on the user's own device where sufficient, quality-gated and policy-first, escalating to the cloud otherwise. Cross-platform: Apple, Windows, Linux. Not a prerequisite. |
 | `model-sovereignty.api-first` | Model sovereignty Phase 1: multi-provider API orchestration | **S2** | Leading external systems used through APIs where they offer the best capability and economics; no provider is structurally mandatory. |
 | `model-sovereignty.hybrid` | Model sovereignty Phase 2: hybrid execution | **S4** | Open-weight and private models progressively deployed on NEO-controlled, private and self-hosted infrastructure alongside frontier APIs. No third-party model IP is owned. |
@@ -70,8 +70,8 @@ Every capability NEO AI describes, with its status. A page that describes a capa
 | `infrastructure-licensing` | NEO orchestration and compute-optimisation stack as licensable infrastructure | **S5** | Unmodelled optionality. Ecosystem participants named in the PDF are examples, not prospects. |
 | `pilots` | Pilot programmes | **S2** | Operational pilots with external users. Count and identity never disclosed publicly. |
 | `public-website` | Public website | **S1** | neoai.myneogroup.com. |
-| `dataroom.frontend` | Investor Data Room frontend | **S3** | Access-controlled. |
-| `dataroom.backend` | Investor Data Room backend | **S3** | Access-controlled. |
+| `dataroom.frontend` | Access-controlled data room frontend | **S3** | Access-controlled. |
+| `dataroom.backend` | Access-controlled data room backend | **S3** | Access-controlled. |
 | `assurance.eval-harness` | Mission Evaluation Harness | **S5** | Reproducible mission-level evaluation harness. |
 
 ## Retired keys

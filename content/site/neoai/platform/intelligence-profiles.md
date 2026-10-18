@@ -15,7 +15,7 @@ updated: 2026-10-18
 
 ## Intelligence Profiles
 
-NEO is not a model switcher and not an API reseller. The person selects how much intelligence a Mission should mobilise; NEO decides which models, agents, tools, memory and compute deliver it, and how much of that envelope comes from the device, NEO, private infrastructure or external models. Profile is not provider, and provider is not execution location. `[D] (intelligence-profiles, S3)`
+NEO is not a model switcher and not an API reseller. The person selects how much intelligence a Mission should mobilise; NEO decides which models, agents, tools, memory and compute deliver it. As the Execution Fabric and Edge Compute arrive, it also decides how much of that envelope comes from the device, NEO, private infrastructure or external models. Profile is not provider, and provider is not execution location. `[D] (intelligence-profiles, S3)`
 
 Five public profiles form the family: **NEO AUTO**, NEO decides the envelope; **NEO PULSE**, fast and efficient; **NEO PRIME**, balanced; **NEO AXIOM**, deep reasoning; **NEO APEX**, maximum justified intelligence, not indiscriminate compute. The one-line descriptions indicate intent and are not published specifications.
 

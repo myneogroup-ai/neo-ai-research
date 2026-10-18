@@ -17,7 +17,7 @@ You talk to LILI. LILI mobilises the platform.
 
 ## Body
 
-LILI is the conversational presence of NEO AI. A private user, a professional or an enterprise team opens NEO the way they would open any assistant, states an objective in their own language, and receives a result. LILI asks for the clarifications the objective is missing, shows what is being proposed, and keeps the work visible: sources counted, claims verified with the evidence one click away, and one decision card whenever a Human Gate is required. `[D] (lili, S2)`
+LILI is the conversational presence of NEO AI. A private user, a professional or an enterprise team opens NEO the way they would open any assistant, states an objective in their own language, and receives a result. LILI asks for the clarifications the objective is missing, shows what is being proposed, and keeps the work visible. `[D] (lili, S2)` Sources counted, claims verified with the evidence one click away, and one decision card whenever a Human Gate is required are implemented and in validation. `[D] (core.verification, S3)` `[D] (human-gates, S3)`
 
 LILI is the face, NEO AI is the platform, Mission Control is the operating-system view. LILI is a luminous presence, never a human face, an avatar or a robot.
 

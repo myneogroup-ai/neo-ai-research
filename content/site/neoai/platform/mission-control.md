@@ -45,6 +45,6 @@ Product design references and screenshots published in NEO AI material are label
 
 ## Status
 
-One Mission state across projections and devices: in operation. `[D] (mission.state, S2)` The three projections and the right inspector: implemented and in validation. `[D] (mission-control, S3)`
+One Mission state, read by every surface: in operation. `[D] (mission.state, S2)` The three projections and the right inspector: implemented and in validation. `[D] (mission-control, S3)`
 
 ---

@@ -17,7 +17,7 @@ updated: 2026-10-18
 
 The design decision that matters most here is a small one and it is structural. Legal constraints, policy, authority, security, privacy, tenant isolation, residency and sub-processor constraints are evaluated as **admissibility filters before any optimisation takes place**. They are never terms in a score. `[D] (core.governance, S3)`
 
-The order of precedence is fixed: first legal, policy and authority; then security and privacy; then quality and verification; then capability and availability; and only then latency, cost and energy. `[D] (core.routing, S2)`
+The order of precedence is fixed: first legal, policy and authority; then security and privacy; then quality and verification; then capability and availability; and only then latency, cost and energy. `[D] (core.governance, S3)`
 
 The difference is the whole thing. A weighted term can be outvoted by an attractive quality or cost number, thousands of times a day, inside a function nobody reads. A filter cannot be outvoted. There is no score at which the trade becomes available, and when no compliant path exists NEO fails safely rather than routing around policy.
 

@@ -17,12 +17,12 @@ autonomous agents, tools, data, memory, verification and compute as one coordina
 system. LILI is its conversational face. Open NEO. Ask LILI. Receive the result.
 
 **NEO AI and LILI are in operational deployment inside My NEO Group and in controlled
-pilot programmes with external users.** This is an operational product running at real
+pilot programmes with external users.** This is an operational MVP deployed at real
 scale, not a design exercise. **General public availability, global, is targeted for
 early 2027.** In register terms the core experience is `S2`; surrounding capabilities
 are `S3` (implemented, in validation), `S4` or `S5`, row by row.
 
-NEO x100, an order-of-magnitude improvement in verified intelligence per unit of
+NEO x100, an improvement of orders of magnitude in verified intelligence per unit of
 compute, is the long-term R&D objective. It is not a measured result.
 
 The technology, product and architecture authority for this corpus is the document
@@ -53,11 +53,11 @@ Capability statuses resolve from `registers/capabilities.json`.
 
 | Status | Meaning |
 |---|---|
-| S1 | Operational |
-| S2 | In pilot |
-| S3 | Validating |
+| S1 | Operational and publicly available |
+| S2 | Operational in a controlled pilot or limited deployment |
+| S3 | Implemented, undergoing validation |
 | S4 | Designed and specified |
-| S5 | Planned |
+| S5 | Planned or exploratory |
 
 **Nothing in this corpus describes a deployed system unless its capability status says
 so, and nothing in operation is described as if it were only a design.** The status is
