@@ -612,7 +612,7 @@
   "changelog": [
     "v1.1 added brain.evidence-layer, brain.evidence-ledger, assurance.eval-harness, mission.envelope.",
     "v1.3 Founder ratified the register's published S1-S5 maturity classifications. Individual capability lifecycle ratification states remain unchanged.",
-    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Fifteen rows are proposed at S3 by inference from the operational MVP; each needs explicit Founder confirmation at ratification or reverts to S4. Components labelled ROADMAP in the architecture authority stay at S4 or S5."
+    "v2.0 (2026-10-18) restructured to the NEO x100 Intelligence Operating System architecture. The 'brain.*' keys are retired and resolve to 'core.*' successors; foundation-model is replaced by the model sovereignty roadmap; deployment keys align with the five deployment patterns. Status upgrades to S2 for core, lili, mission.state, core.task-graph, core.routing, model-sovereignty.api-first, deployment.managed and verticals.pilot-anchored follow the Founder determination of 2026-10-18. Thirteen rows are proposed at S3 by inference from the operational MVP; each needs explicit Founder confirmation at ratification or reverts to S4. Components labelled ROADMAP in the architecture authority stay at S4 or S5."
   ],
   "lifecycle": {
     "states": [
