@@ -49,6 +49,10 @@ PLATFORM_ROUTES = ["/", "/platform/", "/platform/system-intelligence/",
                    "/platform/mission-control/", "/platform/observe-build/",
                    "/platform/lili/", "/platform/evidence/", "/platform/governance/",
                    "/platform/security/", "/platform/deployment/",
+                   "/platform/x100/", "/platform/execution-fabric/",
+                   "/platform/intelligence-profiles/", "/platform/model-sovereignty/",
+                   "/platform/verticals/", "/platform/neo-intelligence/",
+                   "/platform/business-model/",
                    "/company/", "/company/contact/"]
 FOUNDER_ROUTES = {
     "thesis": ["/thesis/", "/thesis/system-intelligence/", "/thesis/human-authority/",
@@ -58,7 +62,7 @@ FOUNDER_ROUTES = {
     "indexes": ["/", "/about/", "/now/"],
 }
 
-CORPUS_DATE = "2026-08-12"   # from the register, never from a file mtime
+CORPUS_DATE = "2026-10-18"   # from the register, never from a file mtime
 
 
 def load(name):
@@ -131,8 +135,17 @@ LLMS_INTRO = """# NEO AI Research
 > published register. Nothing in this corpus describes a deployed system
 > unless its capability status says so.
 
+## State of the platform
+NEO AI is an Intelligence Operating System that orchestrates models, agents,
+tools, data, memory, verification and compute. NEO AI and LILI are in
+operational deployment inside My NEO Group and in controlled pilot programmes
+with external users (capability status S2). General public availability,
+global, is targeted for early 2027. NEO x100, verified intelligence per unit of
+compute, is an R&D objective, not a measured result. No status has been
+verified by an independent third party.
+
 ## How to cite
-Use the publication identifier and version, for example NEO-AI-P-007 v1.0, and
+Use the publication identifier and version, for example NEO-AI-P-007 v1.1, and
 the permanent route https://neoai.myneogroup.com/id/NEO-AI-P-007
 """
 
@@ -160,6 +173,10 @@ def render_llms(pubs, caps) -> str:
         f"- [capabilities.json]({N}/capabilities.json): machine readable",
         "\n## Glossary",
         f"- [Controlled vocabulary]({N}/research/glossary/): one page per defined term",
+        "\n## Platform",
+        f"- [NEO AI platform]({N}/platform/): Intelligence Operating System, LILI, "
+        "Mission Control, x100, Execution Fabric, Intelligence Profiles, Human Gates, "
+        "verticals and deployment patterns, each with its capability status",
         "\n## Optional",
         f"Founder thesis and annotation: {M}/",
         "",

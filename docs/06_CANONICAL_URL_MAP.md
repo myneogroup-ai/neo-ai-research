@@ -83,8 +83,17 @@ assuming it from the input. The assumption is the thing that fails.
 
 `/`, `/platform/`, `/platform/system-intelligence/`, `/platform/mission-control/`,
 `/platform/observe-build/`, `/platform/lili/`, `/platform/evidence/`,
-`/platform/governance/`, `/platform/security/`, `/platform/deployment/`, `/company/`,
+`/platform/governance/`, `/platform/security/`, `/platform/deployment/`,
+`/platform/x100/`, `/platform/execution-fabric/`, `/platform/intelligence-profiles/`,
+`/platform/model-sovereignty/`, `/platform/verticals/`, `/platform/neo-intelligence/`,
+`/platform/business-model/` (added 2026-10-18 with corpus 0.2.0), `/company/`,
 `/company/contact/`. All self-canonical, `index, follow`.
+
+The live site navigation (NEO AI, Platform, LILI and Product, Live demo, x100,
+Architecture, Solutions, Business, Research, Investors) may present these routes as
+sections of fewer pages. The routes above remain the canonical, citable addresses of the
+content in this repository. The Investors area is access-controlled and none of its
+content is, or may be, in this repository.
 
 `/search/` is `noindex, follow`. Any filtered index carrying a query parameter canonicals
 to the unfiltered index and is `noindex, follow`.

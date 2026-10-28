@@ -6,12 +6,12 @@
 |---|---|
 | Identifier | `NEO-AI-R-005` |
 | Edition | **Public edition** of `NEO-AI-R-005 v1.0`. Reduced, not paraphrased |
-| Version | v1.0-public |
+| Version | v1.1-public |
 | Status | DRAFT |
-| Date | 2026-08-12 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse, NEO AI Research Program |
-| Capability keys | `brain.memory` S4 . `brain.knowledge-graph` S4 . `brain.evidence-layer` S4 . `brain.evidence-ledger` S4 . `brain.validation` S4 . `brain.governance` S4 |
-| Claim classes | Computed from the Evidence Table at build time |
+| Capability keys | `core` S2 . `core.memory` S3 . `core.knowledge-graph` S4 . `core.evidence-layer` S4 . `core.evidence-ledger` S4 . `core.verification` S3 . `core.governance` S3 . `compounding-loop` S4 |
+| Claim-class counts | `[E]` 10 . `[A]` 18 . `[D]` 13 . `[O]` 12 . Counted by script over the body and back matter, excluding this row |
 | Reading time | 17 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/evidence-memory-accountability/` |
 | Relations | `applies` NEO-AI-R-009 . `refines` NEO-AI-TN-002 . `evidences` NEO-AI-P-001 |
@@ -79,13 +79,13 @@ The separation is not organisational tidiness. It is that the two have **differe
 
 Reduced in this edition. The source specifies each store's write authority and read scope, and that column is withheld, because it is the differentiating design.
 
-Publishable: the Memory Plane holds an **episodic** store of what happened and a **semantic** store of what has been learned from repetition. The Knowledge Plane holds a **claim** store of assertions, an **evidence** store of the records supporting them, and an **entity** store resolving the things claims are about `[D] (brain.memory, S4)` `[D] (brain.knowledge-graph, S4)`.
+Publishable: the Memory Plane comprises an **episodic** store of what happened and a **semantic** store of what has been learned from repetition. In NEO AI, Memory, persistent, verified and carrying provenance, is implemented and in validation `[D] (core.memory, S3)`. The Knowledge Plane is specified to hold a **claim** store of assertions, an **evidence** store of the records supporting them, and an **entity** store resolving the things claims are about; it is designed and specified and is not yet in operation `[D] (core.knowledge-graph, S4)`.
 
 ### 3.3 What promotion requires
 
 Reduced. The complete rule set is withheld.
 
-The publishable principle is a single sentence and it is the important one. **Promotion from episodic to semantic requires evidence that is not the episode itself**: a validation result, a recorded human judgement, or corroboration from a distinct origin. An episode repeating is not evidence that it was right; it is evidence that it happened again `[A]`.
+The publishable principle is a single sentence and it is the important one. **Promotion from episodic to semantic requires evidence that is not the episode itself**: a verification result, a recorded human judgement, or corroboration from a distinct origin. An episode repeating is not evidence that it was right; it is evidence that it happened again `[A]`.
 
 The prohibited transition is direct promotion of a generated assertion into the claim store without an evidence record. That is the single edit that would collapse the whole structure into a vector store with extra vocabulary.
 
@@ -105,7 +105,7 @@ Three objects with non-overlapping meanings, and using one for another is a term
 | **Evidence Chain** | The traversal path from one material claim back through its transformations to its originating sources; per claim, computed on demand | Not a component, not a store |
 | **Evidence Ledger** | An append-only, hash-addressed store of evidence records | Not a graph, not a path |
 
-The only correct phrasing of the relationship: **the Evidence Layer writes records to the Evidence Ledger; an Evidence Chain is traversed across those records for a given claim** `[D] (brain.evidence-layer, S4)`.
+The only correct phrasing of the relationship, as NEO AI specifies it: **the Evidence Layer writes records to the Evidence Ledger; an Evidence Chain is traversed across those records for a given claim** `[D] (core.evidence-layer, S4)`. The Evidence Layer and the Evidence Ledger are both designed and specified and are not yet in operation `[D] (core.evidence-ledger, S4)`.
 
 ### 3.6 Temporal validity has three dates and a fourth obligation
 
@@ -147,7 +147,7 @@ Five retrieved articles asserting the same fact appear to be five independent su
 
 This is not an edge case in evidence-intensive work; it is the normal condition of open-source material. A fact enters circulation once and is restated by aggregators, syndicators and secondary analysts, each of which is a distinct document and none of which is a distinct origin.
 
-The requirement is therefore that **corroboration is counted over distinct origins rather than over retrieved artefacts**, which means an evidence record has to carry enough derivation information to establish whether two records share an origin. Below a policy-set number of distinct origins a claim stays unvalidated. **The number is not published**, because a published threshold is a published evasion target.
+The requirement is therefore that **corroboration is counted over distinct origins rather than over retrieved artefacts**, which means an evidence record has to carry enough derivation information to establish whether two records share an origin. Below a policy-set number of distinct origins a claim stays unverified. **The number is not published**, because a published threshold is a published evasion target.
 
 The detection method is published separately in a technical note.
 
@@ -161,15 +161,21 @@ Three controls follow. An assertion generated by the system is marked as such at
 
 The general principle: **provenance is assigned at write time and is immutable thereafter.** A system that can relabel the origin of a claim can launder its own output into evidence.
 
+The same barrier applies one level up, to a system that learns from its own operation. In NEO AI the system-level learning loop, the compounding loop, is designed to improve allocation from Mission execution data, evaluation signals, routing performance, outcome telemetry and verification performance, and is specified so that no model weights change `[D] (compounding-loop, S4)`. Training-eligible data is specified as a separate category under explicit policy, consent and lawful basis; Help Improve NEO is specified to be off by default; and customer confidential information is never to be used automatically to train models `[D] (compounding-loop, S4)`. The loop is not in operation, and the contamination argument of this section is one of the reasons its design keeps what improves allocation apart from what could become training material `[A]`.
+
 ---
 
 ## 5. Application to the NEO AI target architecture
 
 Reduced in this edition.
 
-Publishable: NEO AI is designed with the Memory Plane and Knowledge Plane separated; with derivation recorded at write time so that erasure is computable rather than searched for; with provenance assigned at write time and immutable; with corroboration counted over distinct origins; and with promotion between stores as a governed transition `[D] (brain.memory, S4)` `[D] (brain.evidence-layer, S4)`.
+Publishable: NEO AI is designed with the Memory Plane and Knowledge Plane separated; with derivation recorded at write time so that erasure is computable rather than searched for; with provenance assigned at write time and immutable; with corroboration counted over distinct origins; and with promotion between stores as a governed transition. The parts are not at the same status, and each is stated separately.
 
-Every capability named is at S4. **None of it is running.**
+NEO Core, the orchestration layer of the Intelligence Operating System, is in operational deployment inside My NEO Group and in controlled pilot programmes with external users `[D] (core, S2)`. Memory, persistent, verified and with provenance assigned at write time, is implemented and in validation `[D] (core.memory, S3)`. Verification, which supplies the evidence that promotion requires, is implemented and in validation `[D] (core.verification, S3)`. Policy enforcement on the write path is implemented and in validation `[D] (core.governance, S3)`. The Knowledge Graph, the Evidence Layer and the Evidence Ledger, which carry the Knowledge Plane, the distinct-origin count and the computable erasure closure, are designed and specified and are not yet in operation `[D] (core.evidence-layer, S4)`.
+
+The argument of section 3.1 extends to a separation the architecture keeps on every Mission: what is in a Mission's context, what is retained in memory, what is eligible for training, and what authority exists to act are four different things. Being connected to a source is not memory, memory is not training consent, and none of the three is authority to act `[A]`. Context is not promoted to memory by being seen, and memory is not made training-eligible by being retained; each transition is a governed one, which is the write-path argument of section 4.2 applied to the whole lifecycle `[A]`.
+
+No independent party has verified any of these statuses, and this edition reports no measurement of them.
 
 ---
 
@@ -207,7 +213,7 @@ This is a **public edition** of `NEO-AI-R-005 v1.0`: a reduction, with one secti
 
 The paper reports **no measurement and no evaluation**. It makes no comparative claim against any named system.
 
-Every capability named is at S4 in a provisional register. Nothing described is running.
+**Correction (v1.1-public).** The first public edition stated that every capability named was at S4 in a provisional register and that nothing described was running. That is no longer true. On Founder determination of 2026-10-18, NEO Core is in operational deployment inside My NEO Group and in controlled pilot programmes with external users (S2). Memory, Verification and policy enforcement are implemented and in validation (S3). The Knowledge Graph, the Evidence Layer, the Evidence Ledger and the compounding loop are designed and specified (S4) and are not yet in operation. General public availability, global, is targeted for early 2027, a target and not a commitment. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and was Founder-ratified on 2026-10-18; no status has been verified by an independent third party.
 
 It would be falsified by a demonstration that a general-purpose retrieval store, with no separation of memory from knowledge and no write-time derivation, supports erasure, corroboration and justification as well as the structure proposed here.
 
@@ -241,7 +247,7 @@ None in Wave 1.
 
 ## Related Terms
 
-`Memory Plane` . `Knowledge Plane` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Circular Corroboration` . `Claim Class` . `Validation Layer` . `Human Authority`
+`Memory Plane` . `Knowledge Plane` . `Evidence Layer` . `Evidence Chain` . `Evidence Ledger` . `Circular Corroboration` . `Claim Class` . `Verification Layer` . `Human Authority`
 
 ## Evidence Table
 
@@ -252,19 +258,21 @@ None in Wave 1.
 | 3 | Bitemporal modelling separates world time from record time | `[E]` | Snodgrass, 1999 | |
 | 4 | Data protection law extends erasure obligations to derived data | `[E]` | Regulation (EU) 2016/679 | |
 | 5 | Content reaching a persistent store can influence every later retrieval from it | `[E]` | OWASP, 2025 | |
-| 6 | Memory and knowledge have different write authorities, retention rules and failure modes | `[A]` | | `brain.memory` S4 |
-| 7 | Promotion requires evidence that is not the episode itself | `[A]` | | `brain.knowledge-graph` S4 |
+| 6 | Memory and knowledge have different write authorities, retention rules and failure modes | `[A]` | | `core.memory` S3 |
+| 7 | Promotion requires evidence that is not the episode itself | `[A]` | | `core.knowledge-graph` S4 |
 | 8 | A claim requires a recheck condition, not only an expiry | `[A]` | | |
 | 9 | Erasure capability is created at the write path or it does not exist | `[A]` | | |
-| 10 | The write path requires the same governance as an action | `[A]` | | `brain.governance` S4 |
-| 11 | Corroboration counted by document is not corroboration | `[A]` | | `brain.evidence-layer` S4 |
+| 10 | The write path requires the same governance as an action | `[A]` | | `core.governance` S3 |
+| 11 | Corroboration counted by document is not corroboration | `[A]` | | `core.evidence-layer` S4 |
 | 12 | Provenance assigned at write time must be immutable thereafter | `[A]` | | |
-| 13 | Memory and Knowledge Planes are separated, with derivation recorded at write time | `[D]` | | `brain.memory` S4 |
-| 14 | Erasure from model-derived artefacts is unsolved | `[O]` | | |
-| 15 | Append-only integrity and erasure are in genuine tension | `[O]` | | |
-| 16 | Origin resolution is hard and partially manual | `[O]` | | |
-| 17 | Recheck conditions require domain knowledge not derivable from the claim | `[O]` | | |
-| 18 | The write-path governance cost is unmeasured | `[O]` | | |
+| 13 | Memory, persistent, verified and with provenance, is implemented and in validation | `[D]` | | `core.memory` S3 |
+| 14 | The compounding loop is designed so that no weights change and training eligibility is a separate, consented category | `[D]` | | `compounding-loop` S4 |
+| 15 | Context, memory, training eligibility and authority to act are four separate things | `[A]` | | |
+| 16 | Erasure from model-derived artefacts is unsolved | `[O]` | | |
+| 17 | Append-only integrity and erasure are in genuine tension | `[O]` | | |
+| 18 | Origin resolution is hard and partially manual | `[O]` | | |
+| 19 | Recheck conditions require domain knowledge not derivable from the claim | `[O]` | | |
+| 20 | The write-path governance cost is unmeasured | `[O]` | | |
 
 ## References
 
@@ -284,9 +292,10 @@ W3C (2013). PROV-DM: The PROV Data Model. W3C Recommendation. Accessed 2026-08-1
 
 | Version | Date | Status | Change |
 |---|---|---|---|
+| v1.1-public | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0. Terminology migrated to the x100 vocabulary. Sections 3.2, 4.4 and 5 now connect the argument to Memory (persistent, verified, with provenance), to the compounding loop (no weights change, no automatic training on customer content, Help Improve NEO off by default) and to the separation of context, memory, training eligibility and authority. Published correction of the statement that nothing described was running: NEO Core is in operational deployment inside My NEO Group and in controlled pilots with external users (S2); Memory, Verification and policy enforcement are in validation (S3); the Knowledge Graph, Evidence Layer, Evidence Ledger and compounding loop remain designed and specified (S4); general public availability is targeted for early 2027. Thesis, withholdings, the section 4.5 removal and falsifier unchanged. |
 | v1.0-public | 2026-08-12 | DRAFT | First public edition, on Founder determination of 2026-08-12. Reduces the store model, the promotion rule set and the claim record to their governing principles. Withholds the distinct-origin threshold. **Removes source section 4.5 in full**, without paraphrase, summary or reconstruction, on the ground that a self-authored analysis of a security surface assists an attacker; the removal is recorded rather than silent, and no derivative of that section exists or will be attempted. |
 | v1.0 | 2026-08-09 | DRAFT | First full draft. |
 
 ## How to Cite
 
-Mosse, M. (2026). *Evidence, Memory and Accountability in Agentic Systems*, public edition. NEO AI Research Program, `NEO-AI-R-005` v1.0-public. `https://neoai.myneogroup.com/id/NEO-AI-R-005`
+Mosse, M. (2026). *Evidence, Memory and Accountability in Agentic Systems*, public edition. NEO AI Research Program, `NEO-AI-R-005` v1.1-public. `https://neoai.myneogroup.com/id/NEO-AI-R-005`

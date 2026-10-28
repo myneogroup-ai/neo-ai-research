@@ -6,7 +6,7 @@ The public research corpus of the NEO AI Research Program.
 
 Every material statement carries a claim class. `[E]` established, with an external primary source. `[A]` architectural interpretation. `[D]` design intent, carrying a capability status. `[O]` open problem.
 
-Capability statuses resolve from the Capability Register, which is version 1.3 and is Founder-ratified as the approved public maturity classification. Register ratification does not mean that every capability is deployed or individually ratified. Nothing here describes a deployed system unless its S-status says so.
+Capability statuses resolve from the Capability Register, which is version 2.0 and is Founder-ratified as the approved public maturity classification. Register ratification does not mean that every capability is deployed or individually ratified. Nothing here describes a deployed system unless its S-status says so.
 
 ## Research papers
 

@@ -6,7 +6,10 @@ message: >-
   that must not move.
 title: NEO AI Research Corpus
 abstract: >-
-  The public research corpus of the NEO AI Research Program. Research papers,
+  The public research corpus of the NEO AI Research Program, covering NEO AI, an
+  Intelligence Operating System in operational deployment inside My NEO Group and in
+  controlled pilot programmes, with general public availability targeted for early
+  2027. Research papers,
   institutional publications and technical notes on orchestration, governance of
   autonomous work, evidence architecture and human authority in agentic systems. Every
   material statement carries a claim class distinguishing established fact from
@@ -16,7 +19,7 @@ type: dataset
 authors:
   - family-names: Mosse
     given-names: Mickael
-    affiliation: NEO AI Research Program, NEO TECH LABS
+    affiliation: NEO AI Research Program, NEO TECH LABS TECHNOLOGY L.L.C
     website: https://mickaelmosse.ai/about/
 repository-code: https://github.com/myneogroup-ai/neo-ai-research
 url: https://neoai.myneogroup.com/research/
@@ -28,8 +31,10 @@ keywords:
   - capability claims
   - human authority
   - multi-model systems
-version: 1.0.0
-date-released: "2026-08-12"
+  - intelligence operating system
+  - intelligence per compute
+version: 0.2.0
+date-released: "2026-10-18"
 preferred-citation:
   type: report
   title: A Note on Responsible AI Capability Claims
@@ -39,7 +44,7 @@ preferred-citation:
   institution:
     name: NEO AI Research Program
   number: NEO-AI-P-007
-  version: "1.0"
+  version: "1.1"
   url: https://neoai.myneogroup.com/id/NEO-AI-P-007
   year: 2026
   notes: >-

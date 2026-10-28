@@ -6,5 +6,5 @@ What the Program is doing and how it reports on itself.
 
 | Identifier | Title | Version |
 |---|---|---|
-| NEO-AI-P-001 | [Introducing NEO AI: Intelligence Orchestrated](https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/) | v1.0 |
-| NEO-AI-P-007 | [A Note on Responsible AI Capability Claims](https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/) | v1.0 |
+| NEO-AI-P-001 | [Introducing NEO AI: Intelligence Orchestrated](https://neoai.myneogroup.com/research/institutional/introducing-neo-ai/) | v1.1 |
+| NEO-AI-P-007 | [A Note on Responsible AI Capability Claims](https://neoai.myneogroup.com/research/institutional/responsible-capability-claims/) | v1.1 |

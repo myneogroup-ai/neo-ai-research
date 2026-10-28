@@ -1,0 +1,11 @@
+# Reviewed false positives only. Each line is one exact finding (commit:file:rule:line),
+# never a pattern, so a real secret elsewhere still fails the scan.
+#
+# 2026-10-18: the generic-api-key rule matches two capability register keys,
+# "x100.adaptive-cascades" and "x100.hybrid-execution", in registers/capabilities.json
+# and its generated copy static/capabilities.json. They are public capability
+# identifiers, not credentials.
+d9c9277cf81d9690ae1b93943dd255ec2ffc9923:registers/capabilities.json:generic-api-key:251
+d9c9277cf81d9690ae1b93943dd255ec2ffc9923:static/capabilities.json:generic-api-key:251
+d9c9277cf81d9690ae1b93943dd255ec2ffc9923:registers/capabilities.json:generic-api-key:291
+d9c9277cf81d9690ae1b93943dd255ec2ffc9923:static/capabilities.json:generic-api-key:291
