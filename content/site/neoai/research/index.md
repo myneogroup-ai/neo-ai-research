@@ -2,7 +2,7 @@
 route: /research/
 title: Research library
 host: neoai.myneogroup.com
-source: PUB copy, SITE_COPY_neoai.myneogroup.com.md
+source: PUB copy, SITE_COPY_neoai.myneogroup.com.md; revised 2026-10-18 for register v2.0
 classification: A
 ---
 
@@ -22,7 +22,7 @@ Four claim classes are used throughout this corpus and they are the reason it ca
 |---|---|
 | `[E]` | Established, with an external primary source |
 | `[A]` | Architectural interpretation. An inference from established premises, which the Program holds and has not proved |
-| `[D]` | Design intent, carrying a capability status. It describes what is specified, not what runs |
+| `[D]` | Design intent, carrying a capability status. The status, not the tag, says whether it runs: S1 and S2 are in operation, S3 is in validation, S4 and S5 are not built |
 | `[O]` | Open problem. Named because it is unsolved |
 
 A claim that originates as `[D]` or `[A]` in one publication may never be cited as `[E]` in another. The class travels with the claim and may only be weakened.

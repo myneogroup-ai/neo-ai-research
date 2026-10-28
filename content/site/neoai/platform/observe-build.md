@@ -2,34 +2,35 @@
 route: /platform/observe-build/
 title: Observe Build
 host: neoai.myneogroup.com
-source: PUB copy, SITE_COPY_neoai.myneogroup.com.md
+source: NEO AI x100 architecture authority (2026), section 19
 classification: A
+updated: 2026-10-18
 ---
 
 # Observe Build
 
 ## Header
 
-**Observe Build**
-
-Watch the work being made.
+**See the work. See the result. Control the release.**
 
 ## Body
 
-Most AI products show you a result. Observe Build is designed to let you watch the artefact being produced, where the work is of a kind that can be watched: code, websites, applications, APIs, documents, presentations, spreadsheets, workflows, tests, terminal execution, diffs and deployments.
+When NEO creates an application, a website or a software product, the person does not merely receive code at the end. They see the build and the actual running result evolve: code being produced, files changing, build progress, tests, independent verification, the running preview, deployment status, and a Human Gate before every protected release action. `[D] (observe-build, S3)`
 
-The point is not spectacle. It is that watching work being produced is the fastest way to know whether to trust it, and the earliest point at which you can intervene.
+The flow is one Mission: blueprint, build, preview ready, connect domain, verify, deploy, live. Deploy and go-live each sit behind a Human Gate. `[D] (human-gates, S3)`
 
-## The rule that makes it worth having
+## Three rules that make it worth having
 
-**Everything displayed corresponds to an actual backend event.**
+**App Viewer.** For runnable software the person sees the real running result, interactive, at the same revision as the visible code. Never a screenshot or a mockup.
 
-No simulated work. No fabricated activity. No decorative terminal output that scrolls because scrolling looks busy. If a pane shows a command running, a command is running. If it shows a diff, that diff was produced. If it shows a deployment, something was deployed.
+**Last Known Good.** A failed candidate never replaces the previous healthy preview, and the two can never be confused.
 
-This is a rule rather than an intention. Any state, progress, activity, agent, model, source, metric or artefact presented to a user has to resolve to a real event about that subject, and anything that cannot is not displayed.
+**Everything displayed corresponds to an actual backend event.** No simulated work, no fabricated activity, no decorative terminal output that scrolls because scrolling looks busy. If a pane shows a command running, a command is running. Anything that cannot resolve to a real event is not displayed.
+
+Where permitted, builds and tests can run sandboxed on the person's own workstation as part of the same Mission; that edge path is on the roadmap. `[D] (edge-compute, S4)`
 
 ## Status
 
-Specified. Not running, and nothing on this page is a description of a demonstration that has been given. `[D] (mission-control, S4)`
+Observe Build is a binding product definition, implemented and in validation. `[D] (observe-build, S3)`
 
 ---

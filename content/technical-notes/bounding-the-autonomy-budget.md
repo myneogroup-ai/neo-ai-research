@@ -8,15 +8,15 @@
 | Title | Bounding the Autonomy Budget |
 | Family | NOTE |
 | Type | Technical Note (`TN`) |
-| Version | v1.0 |
+| Version | v1.1 |
 | Status | DRAFT |
-| Date | 2026-08-09 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse |
-| Capability keys | `mission-control` (S4), `brain.governance` (S4), `brain.task-graph` (S4), `brain.validation` (S4), `brain.event-bus` (S4), `mission.envelope` (S4) |
-| Claim-class counts | `[E]` 2 . `[A]` 17 . `[D]` 8 . `[O]` 3 |
+| Capability keys | `mission-control` (S3), `core.governance` (S3), `core.task-graph` (S2), `core.verification` (S3), `core.event-bus` (S3), `mission.envelope` (S3), `human-gates` (S3) |
+| Claim-class counts | `[E]` 2 . `[A]` 17 . `[D]` 9 . `[O]` 3 |
 | Figures | SYS-12 |
 | Reading time | 9 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-001` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/bounding-the-autonomy-budget/` |
 
 
 ---
@@ -27,9 +27,9 @@ An agent needs a permission decision for every consequential step, and the decis
 
 ## 2. Context and constraints
 
-The Mission Envelope bounds a mission's permissions, data scope, resource budget, autonomy level and terminal conditions `[D]` (mission.envelope, S4). Autonomy is one dimension of that envelope, and this note concerns only that dimension. Envelope construction as a whole belongs to `NEO-AI-ARCH-001`.
+The Mission Envelope, the bound on a mission's permissions, data scope, resource budget, autonomy level and terminal conditions, is implemented and in validation `[D]` (mission.envelope, S3). Autonomy is one dimension of that envelope, and this note concerns only that dimension. Envelope construction as a whole belongs to `NEO-AI-ARCH-001`.
 
-Four constraints are fixed and this note does not revisit them. The Policy Plane decides whether an action may happen and the Authority Plane decides who may permit it; the collapsed alternative, in which one mechanism answers both, is named and refuted at `[NEO-AI-ARCH-002 s2.4]` `[A]`. The two decisions are recorded separately `[D]` (brain.governance, S4). Autonomy is a property of a task node, not of a mission, because a single mission routinely contains steps of very different consequence. `[A]` Contraction must be available synchronously, since a contraction that lands after the action has executed is a log entry rather than a control. `[A]` And the derivation must be computable before execution from attributes known at planning time, which excludes anything that depends on the result.
+Four constraints are fixed and this note does not revisit them. The Policy Plane decides whether an action may happen and the Authority Plane decides who may permit it; the collapsed alternative, in which one mechanism answers both, is named and refuted at `[NEO-AI-ARCH-002 s2.4]` `[A]`. Recording the two decisions separately is implemented in policy enforcement and is in validation `[D]` (core.governance, S3). Autonomy is a property of a task node, not of a mission, because a single mission routinely contains steps of very different consequence. `[A]` Contraction must be available synchronously, since a contraction that lands after the action has executed is a log entry rather than a control. `[A]` And the derivation must be computable before execution from attributes known at planning time, which excludes anything that depends on the result.
 
 NIST AI 600-1 treats human oversight configuration as a risk-management action for generative systems and does not prescribe a derivation. `[E]` ISO/IEC 42001 requires documented roles and decision rights for AI processes, which is the governance obligation this note operationalises rather than the mechanism. `[E]` The mechanism below is architectural interpretation.
 
@@ -72,7 +72,7 @@ Model confidence appears nowhere in the table, and that omission is the substanc
 Contraction is automatic, immediate, and applies to the remaining task nodes in the mission. `[A]` Five triggers, each producing a one-level reduction, floored at A0.
 
 - The Evidence Chain for a claim the task depends on shows fewer than two distinct origins. See `NEO-AI-TN-002`.
-- A validation step returns a failure or an unresolved conflict.
+- A verification step returns a failure or an unresolved conflict.
 - A tool returns an error class the plan did not anticipate.
 - Resource consumption crosses a defined fraction of the mission budget, which is a proxy for the plan having been wrong about the work.
 - A policy decision point returns DENY for any node in the mission.
@@ -102,7 +102,7 @@ Now apply contraction. During the mission, the Evidence Chain for the ownership 
 
 ## 5. Design intent for NEO AI
 
-Autonomy is specified as a per-node attribute of the Task Graph, derived at planning time and re-evaluated on each contraction trigger. `[D] (brain.task-graph, S4)` The derivation table is specified as governed configuration rather than code, versioned, with changes emitting a runtime Decision Record. `[D] (brain.governance, S4)` Contraction is specified to be driven by events on the Event Bus and applied before the next node is dispatched. `[D] (brain.event-bus, S4)` `[D] (brain.validation, S4)` Expansion is specified to require a Human Authority decision with actor, scope, justification and expiry, and to be refused to any non-human actor. `[D] (mission-control, S4)` Mission Control is specified to display the current level per node, the triggers that fired, and the level the node would have held without them. `[D] (mission-control, S4)` Figure `SYS-12` draws the budget and its contraction path.
+The Task Graph of NEO Core carries autonomy as a per-node attribute, derived at planning time and re-evaluated on each contraction trigger. `[D] (core.task-graph, S2)` Governed configuration for the derivation table, versioned rather than coded, with changes emitting a runtime Decision Record, is implemented in policy enforcement and is in validation. `[D] (core.governance, S3)` Contraction driven by events on the event log (Event Bus) and by Verification outcomes, applied before the next node is dispatched, is implemented and in validation. `[D] (core.event-bus, S3)` `[D] (core.verification, S3)` The requirement that expansion carry a Human Authority decision with actor, scope, justification and expiry, and be refused to any non-human actor, is implemented and in validation. `[D] (mission-control, S3)` The approval policy ASK ME / AUTO / AUTONOMOUS and the mandatory Human Gates are implemented and in validation, and they compose with the derived level in one direction only: the policy can only narrow what is auto-approved at a given level, and a mandatory Human Gate sits outside every policy and every level, so an action it covers waits for a human decision even where the table yields A3. `[D] (human-gates, S3)` The Mission Control display of the current level per node, the triggers that fired, and the level the node would have held without them is implemented and in validation. `[D] (mission-control, S3)` Figure `SYS-12` draws the budget and its contraction path.
 
 ## 6. Limits of this note
 
@@ -116,7 +116,7 @@ Not covered: the approval routing mechanism, the hold-window duration policy, th
 
 ## Scope and Limitations
 
-This note specifies a derivation and its contraction behaviour. It establishes no property of an implementation, and reports no operational data. The four-level scale and the table are architectural interpretation, not an external finding, and neither NIST AI 600-1 nor ISO/IEC 42001 prescribes them.
+This note specifies a derivation and its contraction behaviour. It establishes no property of an implementation, and reports no operational data. Section 5 states the status of each component it names; this note reports no measurement of any of them, and no status has been verified by an independent third party. The four-level scale and the table are architectural interpretation, not an external finding, and neither NIST AI 600-1 nor ISO/IEC 42001 prescribes them.
 
 The note would be falsified by a demonstration that model-reported confidence predicts action-level harm better than reversibility and loss do, on a task distribution resembling enterprise work with delayed and silent failures included.
 
@@ -172,3 +172,4 @@ All entries are UNVERIFIED under the Program publication standard until the veri
 | Version | Date | Status | Change |
 |---|---|---|---|
 | v1.0 | 2026-08-09 | DRAFT | Initial public draft. |
+| v1.1 | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0: capability keys migrated to v2.0, statuses and verbs corrected (Task Graph in operation at S2; Mission Envelope, Mission Control, policy enforcement, Verification and the event log implemented and in validation at S3). Added the composition of the derived level with the ASK ME / AUTO / AUTONOMOUS approval policy and mandatory Human Gates. The derivation, table and contraction rules are unchanged. |

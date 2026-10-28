@@ -8,15 +8,15 @@
 | Title | What Belongs in a Mission Event |
 | Family | NOTE |
 | Type | Technical Note (`TN`) |
-| Version | v1.0 |
+| Version | v1.1 |
 | Status | DRAFT |
-| Date | 2026-08-09 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse |
-| Capability keys | `brain.event-bus` (S4), `mission-control` (S4), `brain.governance` (S4), `brain.memory` (S4), `brain.cost-engine` (S4), `brain.evidence-ledger` (S4), `brain.task-graph` (S4), `mission.envelope` (S4) |
-| Claim-class counts | `[E]` 3 . `[A]` 23 . `[D]` 10 . `[O]` 4 |
+| Capability keys | `core.event-bus` (S3), `mission-control` (S3), `mission.state` (S2), `core.governance` (S3), `core.memory` (S3), `core.resource-accounting` (S3) |
+| Claim-class counts | `[E]` 3 . `[A]` 23 . `[D]` 11 . `[O]` 4 |
 | Figures | SYS-19 |
 | Reading time | 10 minutes |
-| Canonical URL | `https://neoai.myneogroup.com/technical-notes/neo-ai-tn-003` (placeholder, not yet resolvable) |
+| Canonical URL | `https://neoai.myneogroup.com/research/technical-notes/what-belongs-in-a-mission-event/` |
 
 
 ---
@@ -63,11 +63,11 @@ MissionEvent {
 
 Four fields carry more weight than their size suggests.
 
-**`occurred_at` and `recorded_at` are both present** in the event record `[D]` (brain.event-bus, S4). They are both present because they diverge, and the divergence is the signal. `[A]` A connector that buffered for ninety seconds during an outage produces events whose ordering by `occurred_at` differs from their ordering by `recorded_at`, and a replay that uses the wrong one reconstructs a mission that never happened. The fold uses `sequence` for order and `occurred_at` for temporal reasoning.
+**`occurred_at` and `recorded_at` are both present** in the event record, which is implemented and in validation `[D]` (core.event-bus, S3). They are both present because they diverge, and the divergence is the signal. `[A]` A connector that buffered for ninety seconds during an outage produces events whose ordering by `occurred_at` differs from their ordering by `recorded_at`, and a replay that uses the wrong one reconstructs a mission that never happened. The fold uses `sequence` for order and `occurred_at` for temporal reasoning.
 
-**`actor.delegation_chain`** records the authority path when an agent was spawned by another agent `[D]` (brain.event-bus, S4). Without it the log answers who acted and not on whose authority, which fails the Authority Plane distinction: the record shows the action was permitted, and not who was entitled to permit it. `[A]` This field is where the open problem in `NEO-AI-R-005 s6` about delegated actor identity lands.
+**`actor.delegation_chain`** is the field for the authority path when an agent was spawned by another agent, and it is implemented and in validation `[D]` (core.event-bus, S3). Without it the log answers who acted and not on whose authority, which fails the Authority Plane distinction: the record shows the action was permitted, and not who was entitled to permit it. `[A]` This field is where the open problem in `NEO-AI-R-005 s6` about delegated actor identity lands.
 
-**`envelope_ref`** pins the Mission Envelope version in force at emission `[D]` (brain.event-bus, S4). Envelopes contract during a mission, so an event evaluated against the envelope as it stands at replay time will be judged against bounds that did not exist when it ran.
+**`envelope_ref`** is the field that pins the Mission Envelope version in force at emission, and it is implemented and in validation `[D]` (core.event-bus, S3). Envelopes contract during a mission, so an event evaluated against the envelope as it stands at replay time will be judged against bounds that did not exist when it ran.
 
 **`causation_id` distinct from `correlation_id`.** Correlation groups; causation orders. `[A]` A retry storm produces forty events with one correlation and forty distinct causations, and an operator asked why the budget was exhausted needs the causation chain, not the group.
 
@@ -123,7 +123,7 @@ What is retained instead: the model and version identifier, the prompt template 
 
 ## 4. Design intent for NEO AI
 
-The event record is specified as the single system of record for Mission State, with Mission Control views derived from it rather than maintained beside it. `[D] (mission-control, S4)` A supervision view that renders a state the log does not support is a defect. `[D] (mission-control, S4)` The hash chain is specified per mission stream, with `prev_hash` verified on read for audit queries. `[D] (brain.event-bus, S4)` Deletion and supersession are specified to be emitted as events that derived stores and caches subscribe to. `[D] (brain.event-bus, S4)` `[D] (brain.memory, S4)` Cost and token accounting are specified to derive from the retained counters rather than from reasoning traces. `[D] (brain.cost-engine, S4)` The event-type vocabulary and the payload limit are specified as governed configuration, versioned, with changes emitting a runtime Decision Record. `[D] (brain.governance, S4)` Figure `SYS-19` draws the lifecycle these events fold into, including the denial and containment paths.
+NEO AI keeps one Mission state per mission, and FOCUS, NORMAL and JARVIS are projections of it rather than separate states, so switching mode never restarts execution. `[D] (mission.state, S2)` The event record as the single system of record for that state, with the Mission Control projections derived from it rather than maintained beside it, is implemented and in validation. `[D] (mission-control, S3)` A supervision view that renders a state the log does not support is a defect, which is the event-level form of the product-truth rule that nothing is simulated: no progress, evidence, cost or verified state may be shown that the log cannot derive. `[D] (mission-control, S3)` The hash chain per mission stream, with `prev_hash` verified on read for audit queries, is implemented and in validation. `[D] (core.event-bus, S3)` Emitting deletion and supersession as events that derived stores and caches subscribe to is implemented and in validation. `[D] (core.event-bus, S3)` `[D] (core.memory, S3)` Resource accounting deriving from the retained counters rather than from reasoning traces is implemented and in validation; provider token counts stay internal metering. `[D] (core.resource-accounting, S3)` Holding the event-type vocabulary and the payload limit as governed configuration, versioned, with changes emitting a runtime Decision Record, is implemented in policy enforcement and is in validation. `[D] (core.governance, S3)` Figure `SYS-19` draws the lifecycle these events fold into, including the denial and containment paths.
 
 ## 5. Limits of this note
 
@@ -139,7 +139,7 @@ Not covered: transport, ordering guarantees across partitions, exactly-once sema
 
 ## Scope and Limitations
 
-This note specifies a record and the reasoning behind three of its rules. It establishes no property of an implementation, reports no operational data, and does not describe a deployed log. The schema is architectural interpretation; ISO/IEC 42001 and NIST AI 600-1 supply the documentation and traceability obligations, not the fields.
+This note specifies a record and the reasoning behind three of its rules. It establishes no property of an implementation and reports no operational data. Section 4 states the status of each component it names: the one Mission state is in operation, while the event log specified here and the components that consume it are implemented and in validation. This note reports no measurement of any of them, and no status has been verified by an independent third party. The schema is architectural interpretation; ISO/IEC 42001 and NIST AI 600-1 supply the documentation and traceability obligations, not the fields.
 
 The note would be falsified by a demonstration that state, decision and evidential replay can all be satisfied from a log that copies content rather than referencing it, without breaching the retention independence in section 2, or by a demonstration that reasoning traces bear a stable and verifiable relationship to the computation that produced an output.
 
@@ -196,3 +196,4 @@ All entries are UNVERIFIED under the Program publication standard until the veri
 | Version | Date | Status | Change |
 |---|---|---|---|
 | v1.0 | 2026-08-09 | DRAFT | Initial public draft. |
+| v1.1 | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0: capability keys migrated to v2.0 and statuses and verbs corrected (one Mission state in operation at S2; event log, Mission Control, Memory, resource accounting and policy enforcement implemented and in validation at S3). The retired resource-metering component is replaced by resource accounting. Section 4 connects the record to the FOCUS / NORMAL / JARVIS projections and the product-truth rule. The record, hashes and replay levels are unchanged. Unreferenced keys removed from the front matter. |

@@ -6,12 +6,12 @@
 |---|---|
 | Identifier | `NEO-AI-R-001` |
 | Edition | **Public derivative** of `NEO-AI-R-001 v1.1`. Reduced, not paraphrased |
-| Version | v1.1-public |
+| Version | v1.2-public |
 | Status | DRAFT |
-| Date | 2026-08-12 |
+| Date | 2026-10-18 |
 | Author | Mickael Mosse, NEO AI Research Program |
-| Capability keys | `brain` S4 . `brain.router` S4 . `brain.task-graph` S4 . `brain.validation` S4 . `mission-control` S4 . `foundation-model` S5 . `deployment.cloud` S4 . `deployment.vpc` S5 . `deployment.onprem` S5 |
-| Claim classes | Computed from the Evidence Table at build time |
+| Capability keys | `core` S2 . `core.routing` S2 . `core.task-graph` S2 . `core.verification` S3 . `x100` S5 . `model-sovereignty.api-first` S2 . `model-sovereignty.hybrid` S4 . `model-sovereignty.neo-optimised` S5 . `deployment.managed` S2 . `deployment.private-cloud` S5 . `deployment.hybrid` S5 . `deployment.self-hosted` S5 . `deployment.sovereign` S5 |
+| Claim-class counts | `[E]` 8 . `[A]` 15 . `[D]` 13 . `[O]` 7 . Counted by script over the body and back matter, excluding this row |
 | Reading time | 18 min |
 | Canonical URL | `https://neoai.myneogroup.com/research/papers/end-of-the-single-model-enterprise/` |
 | Relations | `evidences` NEO-AI-P-001 . `extends` by NEO-AI-R-009 . `depends-on` the Program publication standard |
@@ -75,7 +75,7 @@ What is publishable is the **shape** of the decision, and the shape is where the
 
 **Step one is admissibility, and it is a filter.** Before any candidate is compared to any other, policy computes the set of executors that may perform this task at all. The inputs are the properties of the task: the classes of data involved, the jurisdictions and residency obligations attaching to them, whether the action is reversible, which tools it requires, and what standard of evidence its output must carry.
 
-**Step two is selection, and it happens only inside that set.** Candidates admitted by step one are compared on quality for this task class, latency against the interaction mode, resource cost, deployment-boundary fit, and independence from a candidate already carrying load.
+**Step two is selection, and it happens only inside that set.** Candidates admitted by step one are compared on quality for this task class, latency against the interaction mode, resource cost, fit with the permitted execution zone, and independence from a candidate already carrying load.
 
 **The ordering is the whole thing.** A constraint expressed as a weighted term in a scoring function is a preference: a sufficiently attractive quality or cost number outvotes it, and the trade is made silently, thousands of times a day, inside a function nobody reads. The same constraint expressed as an admissibility filter cannot be outvoted, because the candidate that violates it was never a candidate `[A]`.
 
@@ -93,9 +93,9 @@ The two are confused constantly and the confusion is expensive, because the firs
 
 The consequence for an agent architecture is direct. If an agent's declared contract, meaning its role, accepted inputs, permitted tools, output type, evidence obligations and refusal behaviour, varies with which admissible executor served it, then the agent is a label over several behaviours sharing a name, and the user is the person who discovers this `[A]`.
 
-Substitutability therefore has to be **demonstrated rather than declared**. The Program's answer is a substitution conformance suite: each agent's contract tests are executed once per admissible executor, and the suite fails where the contract holds under one and not another `[D] (brain.validation, S4)`. Quality, latency and cost are expected to vary, because they are what selection is for. The contract must not.
+Substitutability therefore has to be **demonstrated rather than declared**. The Program's answer is a substitution conformance suite: each agent's contract tests are executed once per admissible executor, and the suite fails where the contract holds under one and not another `[D] (core.verification, S3)`. Quality, latency and cost are expected to vary, because they are what selection is for. The contract must not.
 
-The suite is specified and has not been run, because there is nothing to run it against.
+The suite is specified as part of Verification, which is implemented and in validation. This edition reports no result from it and claims none.
 
 ### 4.2 Router evaluation is an obligation in its own right
 
@@ -125,9 +125,15 @@ Two further honesties belong in the same passage. The orchestration layer become
 
 Reduced in this edition. The component inventory and deployment topology of the source are CONFIDENTIAL TECHNICAL ARCHITECTURE.
 
-What is publishable: NEO AI is designed so that executor selection occurs at a single, declared decision point rather than in application code; so that every selection is attributable to a rule, a manifest, a policy or a recorded decision; and so that no component selects a model, an agent, a tool or an execution path by logic existing only in code `[D] (brain.router, S4)`.
+What is publishable: in NEO AI, executor selection occurs at a single, declared decision point, Dynamic Capability Routing (the NEO Router), rather than in application code; every selection is attributable to a rule, a manifest, a policy or a recorded decision; and no component selects a model, an agent, a tool or an execution path by logic existing only in code `[D] (core.routing, S2)`.
 
-Every capability named in this paper is at S4 or S5. **None of it is running.**
+This is the multi-model thesis of the NEO x100 architecture, the Intelligence Operating System. Instead of relying on a single model, NEO Core decomposes a Mission into a Task Graph and routes each task, by capability rather than by brand, among third-party models, agents, tools and verifiers inside the admissible set `[D] (core.routing, S2)`. NEO Core, the orchestration layer of the Intelligence Operating System, is in operational deployment inside My NEO Group and in controlled pilot programmes with external users `[D] (core, S2)`. Verification, under which the substitution conformance suite of section 4.1 is specified, is implemented and in validation `[D] (core.verification, S3)`. x100, verified intelligence per unit of compute, is a long-term research and development objective and not a measured result `[D] (x100, S5)`.
+
+NEO does not own a frontier foundation model and does not claim to. Model sovereignty is a three-phase roadmap: multi-provider API orchestration is in operation `[D] (model-sovereignty.api-first, S2)`; hybrid execution is designed and specified `[D] (model-sovereignty.hybrid, S4)`; a NEO-optimised model and execution layer is a roadmap direction `[D] (model-sovereignty.neo-optimised, S5)`. In every phase external frontier APIs remain available and models remain replaceable, which is the provider replaceability of section 4.3 and not a claim that the dependency has gone `[A]`.
+
+NEO AI operates today as public and managed deployment, NEO-managed SaaS `[D] (deployment.managed, S2)`. Private cloud (deployment.private-cloud, S5), hybrid (deployment.hybrid, S5), self-hosted (deployment.self-hosted, S5) and sovereign or high-control (deployment.sovereign, S5) deployment are planned `[D]`. A deployment pattern describes how NEO is deployed and is distinct from the execution zone in which a task runs; it is the zone, per task, that the admissibility filter of section 3 governs `[A]`.
+
+No independent party has verified any of these statuses.
 
 ---
 
@@ -176,7 +182,7 @@ This is a **public derivative** of `NEO-AI-R-001 v1.1`. It is a reduction of tha
 
 The paper reports **no measurement, no benchmark result and no evaluation**. It makes no comparative claim against any named model or provider, and no reproducible comparison exists.
 
-Every capability named is at S4 or S5 in a register that is itself provisional. Nothing described here is running.
+**Correction (v1.2-public).** Earlier editions stated that every capability named here was at S4 or S5 in a provisional register and that nothing described was running. That is no longer true. On Founder determination of 2026-10-18, NEO Core, Dynamic Capability Routing, the Task Graph, multi-provider API orchestration and managed deployment are in operational deployment inside My NEO Group and in controlled pilot programmes with external users (S2). Verification is implemented and in validation (S3); hybrid model execution is designed and specified (S4); the NEO-optimised model and execution layer, x100 and the private cloud, hybrid, self-hosted and sovereign deployment patterns are planned (S5). General public availability, global, is targeted for early 2027, a target and not a commitment. Register v1.3 was Founder-ratified on 2026-08-13; register v2.0 (2026-10-18) restructures it to the x100 architecture and was Founder-ratified on 2026-10-18; no status has been verified by an independent third party.
 
 It would be falsified by a demonstration that per-task selection does not improve outcomes over a well-chosen single executor on governed enterprise work, once the cost of the orchestration layer is counted.
 
@@ -220,12 +226,12 @@ None in Wave 1.
 | 3 | Constrained optimisation over a computed feasible region is a standard formalism | `[E]` | Boyd and Vandenberghe, 2004 | |
 | 4 | Portability layers achieve interface uniformity and routinely fail at behavioural uniformity | `[E]` | Established software engineering practice | |
 | 5 | Procurement-time model selection discards the conditioning variable | `[A]` | | |
-| 6 | A constraint as a weighted term can be outvoted; as a filter it cannot | `[A]` | | `brain.router` S4 |
+| 6 | A constraint as a weighted term can be outvoted; as a filter it cannot | `[A]` | | `core.routing` S2 |
 | 7 | Syntactic portability does not confer semantic substitutability | `[A]` | | |
 | 8 | Admissibility correctness and selection quality are different properties with different acceptance rules | `[A]` | | |
 | 9 | Multi-model architecture relocates concentration risk and does not remove it | `[A]` | | |
-| 10 | A substitution conformance suite is specified and has not been run | `[D]` | | `brain.validation` S4 |
-| 11 | Selection occurs at a single declared decision point | `[D]` | | `brain.router` S4 |
+| 10 | A substitution conformance suite is specified under Verification, which is in validation; no result is reported | `[D]` | | `core.verification` S3 |
+| 11 | Selection occurs at a single declared decision point | `[D]` | | `core.routing` S2 |
 | 12 | The cost-of-defect number is supplied rather than measured | `[O]` | | |
 | 13 | Per-task selection multiplies the evaluation burden | `[O]` | | |
 | 14 | No reproducible comparison against a single-model baseline exists | `[O]` | | |
@@ -246,10 +252,11 @@ Srivastava, A. et al. (2023). Beyond the Imitation Game: Quantifying and Extrapo
 
 | Version | Date | Status | Change |
 |---|---|---|---|
+| v1.2-public | 2026-10-18 | DRAFT | Aligned with the NEO x100 Intelligence Operating System architecture and capability register v2.0. Terminology migrated to the x100 vocabulary; section 5 now states the multi-model thesis, the model sovereignty roadmap and the five deployment patterns with their register statuses. Published correction of the statement that nothing described was running: NEO Core and Dynamic Capability Routing are in operational deployment inside My NEO Group and in controlled pilots with external users (S2); Verification is in validation (S3); general public availability is targeted for early 2027. Thesis, withholdings and falsifier unchanged. |
 | v1.1-public | 2026-08-12 | DRAFT | First public derivative, on Founder determination of 2026-08-12. Withholds sections 3.2, 3.4, 3.5 and 3.6 of the source as TRADE SECRET, and 4.2 and part of 5 as CONFIDENTIAL TECHNICAL ARCHITECTURE. Section 3 replaces the withheld analytical development with a prose statement of the decision structure carrying no formula, no predicate list and no figures. Section 4.3 adopts **provider replaceability** as the public term, per the approved public terminology. The withheld list is published rather than left as a gap. |
 | v1.1 | 2026-08-12 | DRAFT | Source correction. the recorded publication correction. See the publication review record. |
 | v1.0 | 2026-08-09 | DRAFT | First full draft. |
 
 ## How to Cite
 
-Mosse, M. (2026). *The End of the Single-Model Enterprise*, public edition. NEO AI Research Program, `NEO-AI-R-001` v1.1-public. `https://neoai.myneogroup.com/id/NEO-AI-R-001`
+Mosse, M. (2026). *The End of the Single-Model Enterprise*, public edition. NEO AI Research Program, `NEO-AI-R-001` v1.2-public. `https://neoai.myneogroup.com/id/NEO-AI-R-001`
