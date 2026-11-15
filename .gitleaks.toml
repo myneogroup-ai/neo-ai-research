@@ -1,0 +1,15 @@
+# gitleaks configuration (read automatically by the security-scan workflow from the repository root).
+# The default gitleaks rules stay active; the allowlist below covers reviewed false positives only.
+# Reviewed 2026-11-15. Add an entry only with the review date and the reason.
+
+title = "neo-ai-research"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Capability identifiers (key fields such as x100.adaptive...) in the public capability register, not credentials, reviewed 2026-11-15"
+condition = "AND"
+paths = ['''^(registers|static)/capabilities\.json$''']
+regexTarget = "line"
+regexes = ['''"key"\s*:\s*"x100\.''']

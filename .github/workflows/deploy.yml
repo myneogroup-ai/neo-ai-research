@@ -44,11 +44,13 @@ jobs:
       - name: Conformance, STRICT
         run: python3 scripts/verify_public.py --strict
       - name: Authorisation reference is present
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          AUTHORISATION: ${{ inputs.authorisation }}
         run: |
-          if [ -z "${{ inputs.authorisation }}" ]; then
+          if [ -z "${AUTHORISATION}" ]; then
             echo "::error::no authorisation reference given"; exit 1
           fi
-          echo "deploying under authorisation ${{ inputs.authorisation }}"
+          echo "deploying under authorisation ${AUTHORISATION}"
 
   deploy:
     needs: gate
@@ -95,15 +97,21 @@ jobs:
           echo "::notice::Re-running rendered-output checks against the live host."
 
       - name: Record the deployment
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          TARGET: ${{ inputs.target }}
+          SITE: ${{ inputs.site }}
+          COMMIT_SHA: ${{ github.sha }}
+          AUTHORISATION: ${{ inputs.authorisation }}
+          ACTOR: ${{ github.actor }}
         run: |
           {
             echo "### Deployed"
             echo ""
             echo "| Field | Value |"
             echo "|---|---|"
-            echo "| Target | ${{ inputs.target }} |"
-            echo "| Site | ${{ inputs.site }} |"
-            echo "| Commit | ${{ github.sha }} |"
-            echo "| Authorisation | ${{ inputs.authorisation }} |"
-            echo "| Actor | ${{ github.actor }} |"
+            echo "| Target | ${TARGET} |"
+            echo "| Site | ${SITE} |"
+            echo "| Commit | ${COMMIT_SHA} |"
+            echo "| Authorisation | ${AUTHORISATION} |"
+            echo "| Actor | ${ACTOR} |"
           } >> "$GITHUB_STEP_SUMMARY"

@@ -52,9 +52,13 @@ jobs:
           ref: ${{ inputs.ref }}
 
       - name: Execute
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          SCOPE: ${{ inputs.scope }}
+          REF: ${{ inputs.ref }}
+          TRIGGER: ${{ inputs.trigger }}
         run: |
-          echo "::warning::ROLLBACK: ${{ inputs.scope }} to ${{ inputs.ref }}"
-          echo "trigger: ${{ inputs.trigger }}"
+          echo "::warning::ROLLBACK: ${SCOPE} to ${REF}"
+          echo "trigger: ${TRIGGER}"
 
       - name: Verify the reversal
         run: |
@@ -71,16 +75,21 @@ jobs:
 
       - name: Summary
         if: always()
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          TRIGGER: ${{ inputs.trigger }}
+          SCOPE: ${{ inputs.scope }}
+          REF: ${{ inputs.ref }}
+          ACTOR: ${{ github.actor }}
         run: |
           {
             echo "### Rollback executed"
             echo ""
             echo "| Field | Value |"
             echo "|---|---|"
-            echo "| Trigger | ${{ inputs.trigger }} |"
-            echo "| Scope | ${{ inputs.scope }} |"
-            echo "| Reverted to | ${{ inputs.ref }} |"
-            echo "| Executed by | ${{ github.actor }} |"
+            echo "| Trigger | ${TRIGGER} |"
+            echo "| Scope | ${SCOPE} |"
+            echo "| Reverted to | ${REF} |"
+            echo "| Executed by | ${ACTOR} |"
             echo ""
             echo "The Founder is informed after the fact, not before. That order is the policy."
           } >> "$GITHUB_STEP_SUMMARY"
