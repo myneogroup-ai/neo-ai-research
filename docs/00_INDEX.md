@@ -13,6 +13,7 @@
 | 09 | `09_PRE_CREATION_CHECKLIST.md` | Everything to settle before the repository exists |
 | 10 | `10_SEO_AND_DISCOVERY.md` | Sitemaps, robots, feeds, `llms.txt`, crawler policy |
 | 11 | `11_STRUCTURED_DATA.md` | The entity graph and the no-overclaim rule |
+| 12 | `12_SECURITY_SCANNING.md` | Secret and static-analysis scans on every pull request |
 
 Three of these are worth reading before touching anything: **07**, because publishing the
 wrong thing is the only failure here that cannot be undone; **06**, because a URL decision

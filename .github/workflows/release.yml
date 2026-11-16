@@ -53,8 +53,10 @@ jobs:
           echo "no pending imports"
 
       - name: Changelog has an entry for this tag
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          TAG_INPUT: ${{ github.event.inputs.tag || github.ref_name }}
         run: |
-          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          TAG="${TAG_INPUT}"
           VER="${TAG#corpus-v}"
           if ! grep -q "\[$VER\]" CHANGELOG.md; then
             echo "::error::CHANGELOG.md has no entry for [$VER]"
@@ -82,11 +84,13 @@ jobs:
           python-version: "3.11"
 
       - name: Build the release bundle
+        env:  # inputs reach the script as variables, never as inlined code (Semgrep run-shell-injection)
+          REF_NAME: ${{ github.ref_name }}
         run: |
           python3 scripts/build_indexes.py
           python3 scripts/gen_seo.py
           mkdir -p dist
-          tar --exclude-vcs -czf "dist/neo-ai-research-${{ github.ref_name }}.tar.gz" \
+          tar --exclude-vcs -czf "dist/neo-ai-research-${REF_NAME}.tar.gz" \
             content registers schema static docs CITATION.cff LICENSE LICENSE-CODE
           cd dist && sha256sum *.tar.gz > SHA256SUMS
 
