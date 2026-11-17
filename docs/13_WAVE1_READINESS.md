@@ -20,8 +20,8 @@ can do. Source of the items: `09_PRE_CREATION_CHECKLIST.md`.
 
 | Item | Work | State |
 |---|---|---|
-| Rendered HTML | A static, server-rendered build of the corpus into `_site/` from `content/`, reusing the design of the superseded delta v1.0.0 (`archive/superseded/`) | TO BUILD |
-| E2 staging | A private preview (no index, access restricted) for the gate B and gate C readers | TO BUILD |
+| Rendered HTML | `scripts/build_site.py` (`make preview`, `make site`, `make site-check`): static, server-rendered HTML of the six Wave 1 documents, the methodology and the register pages; held documents are never rendered; the production build carries the `/id/<PUBID>` 302 resolver | BUILT 2026-11-17 (`site-check` OK) |
+| E2 staging | Private reading copy for the gate B and gate C readers: a private Claude artifact, owner-only until the Founder shares it with a named reader, `noindex` and a PREVIEW banner on every page. A staging host with HTTP authentication remains to be set up for the rollback rehearsal (E6) | PREVIEW BUILT 2026-11-17 |
 | E1 hosting | Phase A on the live host: the research pages and the `/id/<PUBID>` resolver added to the `neoai.myneogroup.com` site through its own repository (`myneogroup-websites`, `deploy-neoai.yml`) | TO BUILD after gates B and C |
 | E6 rollback rehearsal | Timed in staging, must be under 30 minutes | TO DO in staging |
 | D6 glossary reduced to a public term set | A proposal of the public terms, for the Founder's approval | TO DRAFT |
